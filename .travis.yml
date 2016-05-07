@@ -1,0 +1,16 @@
+sudo: false
+language: node_js
+node_js:
+  - '6'
+branches:
+  only:
+    - master
+cache:
+  directories:
+    - node_modules
+before_install:
+  - npm update -g npm
+after_success:
+  - npm run build
+deploy:
+  - ./node_modules/.bin/gh-pages -d build

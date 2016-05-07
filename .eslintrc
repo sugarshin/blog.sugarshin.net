@@ -1,0 +1,14 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parser": "babel-eslint",
+  "plugins": ["babel", "react"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": 1,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1
+  }
+}

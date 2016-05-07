@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title log
+  body
+    #app-root
+    script(src=(process.env.MAIN_SCRIPT ? process.env.MAIN_SCRIPT : "/assets/app.js"))
