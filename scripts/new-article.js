@@ -1,6 +1,6 @@
 const argv = require('minimist')(process.argv.slice(2));
 const moment = require('moment');
-const writeFilePromisify = require('../helpers/writeFilePromisify');
+const writeFilePromisify = require('./helpers/writeFilePromisify');
 
 const name = argv.n || argv.name;
 

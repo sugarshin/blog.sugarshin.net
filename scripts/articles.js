@@ -3,7 +3,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 const recursive  = require('recursive-readdir');
 const argv = require('minimist')(process.argv.slice(2));
-const writeFilePromisify = require('../helpers/writeFilePromisify');
+const writeFilePromisify = require('./helpers/writeFilePromisify');
 
 const recursivePromisify = (dirPath, ignores) => {
   return new Promise((resolve, reject) => {
