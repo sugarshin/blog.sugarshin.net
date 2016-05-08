@@ -1,8 +1,12 @@
 doctype html
-html
+html(lang= lang)
   head
     meta(charset="utf-8")
-    title log
+    title= title
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    description= description
   body
+    if content
+      p(style="display: none;") #{content}
     #app-root
     script(src=(process.env.MAIN_SCRIPT ? process.env.MAIN_SCRIPT : "/assets/app.js"))

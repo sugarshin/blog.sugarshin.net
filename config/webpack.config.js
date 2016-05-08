@@ -69,6 +69,10 @@ module.exports = {
           'url?limit=102400&hash=sha512&digest=hex&name=[name]__[hash].[ext]',
           'image-webpack?progressive&bypassOnDebug&optimizationLevel=7'
         ]
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
   },
@@ -82,6 +86,7 @@ module.exports = {
     include: ['node_modules']
   },
   devServer: {
+    historyApiFallback: true,
     contentBase: `./${buildDev}`,
     hot: true,
     publicPath: '/assets/'
