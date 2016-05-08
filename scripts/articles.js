@@ -3,6 +3,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 const recursive  = require('recursive-readdir');
 const argv = require('minimist')(process.argv.slice(2));
+const writeFilePromisify = require('../helpers/writeFilePromisify');
 
 const recursivePromisify = (dirPath, ignores) => {
   return new Promise((resolve, reject) => {
@@ -19,15 +20,6 @@ const readFilePromisify = filePath => {
       if (err) reject(err);
       resolve(data);
     });
-  });
-};
-
-const writeFilePromisify = (filePath, data) => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(filePath, data, 'utf8', err => err ?
-      console.log(`Error: writeFilePromisify:\n${err}`) :
-      console.log(`Success ${filePath} !`)
-    );
   });
 };
 

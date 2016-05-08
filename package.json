@@ -4,7 +4,7 @@
   "description": "log.sugarshin.net",
   "private": true,
   "scripts": {
-    "a": "node script/article",
+    "na": "node scripts/new-article",
     "start": "npm-run-all clean:dev predev --parallel pug:dev dev-server",
     "clean:dev": "if [ -d build-dev ]; then rm -rf build-dev; fi",
     "predev": "mkdir -p build-dev/articles && cp -rv ./articles build-dev && node scripts/articles -o build-dev",
@@ -84,6 +84,7 @@
     "json-loader": "^0.5.4",
     "minimist": "^1.2.0",
     "mocha": "^2.4.5",
+    "moment": "^2.13.0",
     "npm-run-all": "^1.8.0",
     "postcss-flexbugs-fixes": "^2.0.0",
     "postcss-loader": "^0.9.1",
