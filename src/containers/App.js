@@ -1,4 +1,5 @@
 import React, { Component, Children, cloneElement, PropTypes } from 'react';
+import Octicon from 'react-octicon';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // import { browserHistory } from 'react-router';
@@ -31,7 +32,7 @@ class App extends Component {
           child,
           { ...this.props }
         );
-      })}</div>
+      })}<Octicon mega spin name='sync'/></div>
     );
   }
 }

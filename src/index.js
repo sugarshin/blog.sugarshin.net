@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
-import 'sanitize.css/lib/sanitize.styl';
+import 'bootswatch/cosmo/bootstrap.css'
+// import 'bootswatch/superhero/bootstrap.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

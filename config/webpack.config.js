@@ -61,7 +61,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', cssLoader, 'postcss']
+        loaders: ['style', 'css']
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.(otf|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loaders: ['url?limit=10000', 'file']
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,

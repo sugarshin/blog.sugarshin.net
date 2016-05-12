@@ -34,13 +34,16 @@
   },
   "homepage": "https://github.com/sugarshin/log.sugarshin.net#readme",
   "dependencies": {
+    "bootswatch": "^3.3.6",
     "classnames": "^2.2.5",
     "github-markdown-css": "^2.3.0",
     "lodash": "^4.11.2",
     "mirror-key-value": "^1.0.4",
     "react": "^15.0.2",
+    "react-bootstrap": "^0.29.4",
     "react-dom": "^15.0.2",
     "react-helmet": "^3.1.0",
+    "react-octicon": "^2.0.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
@@ -55,7 +58,6 @@
     "remark-react": "^2.1.0",
     "remark-slug": "^4.1.0",
     "remark-yaml-config": "^3.0.0",
-    "sanitize.css": "^3.3.0",
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
