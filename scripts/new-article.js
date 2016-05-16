@@ -5,7 +5,7 @@ const writeFilePromisify = require('./helpers/writeFilePromisify');
 const name = argv.n || argv.name;
 
 if (!name) {
-  throw new Error('`npm run a -- -n title` or `npm run a -- --name title`');
+  throw new Error('`npm run na -- -n title` or `npm run na -- --name title`');
 }
 
 const d = moment();
@@ -17,6 +17,6 @@ const head = [
   'public: true',
   'tags:',
   HR
-];
+].join('\n');
 
-writeFilePromisify(`articles/${d.format('YYYY-MM-DD')}_${name}.md`, head.join('\n'));
+writeFilePromisify(`articles/${d.format('YYYY-MM-DD')}_${name}.md`, head);
