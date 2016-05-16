@@ -4,7 +4,8 @@ html(lang= lang)
     meta(charset="utf-8")
     title= title
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    description= description
+    if description
+      meta(name="description" content= description)
   body
     if content
       p(style="display: none;") #{content}

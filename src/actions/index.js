@@ -1,5 +1,9 @@
 import types from '../constants/ActionTypes';
 
+function hasObjectKey(object, key) {
+  return Object.keys(object).some(k => k === key);
+}
+
 export function selectDate(date) {
   return {
     type: types.SELECT_DATE,
@@ -23,9 +27,7 @@ export function fetchArticlesIfNeeded() {
 }
 
 function requestArticles() {
-  return {
-    type: types.REQUEST_ARTICLES
-  };
+  return { type: types.REQUEST_ARTICLES };
 }
 
 function receiveArticles(items) {
@@ -57,37 +59,56 @@ function fetchArticles() {
 }
 
 function shouldFetchArticles({ articles }) {
-  if (articles.isFetching) {
+  if (articles.isFetching || articles.isFetched) {
     return false;
   }
   return true;
 }
 
+function useCachedArticle(url) {
+  return {
+    type: types.USE_CACHED_ARTICLE,
+    url
+  };
+}
+
+function shouldUseCachedArticle(state, url) {
+  if (hasObjectKey(state.cache, url)) {
+    return true;
+  }
+  return false;
+}
+
 export function fetchArticleIfNeeded(url) {
   return (dispatch, getState) => {
-    if (shouldFetchArticle(getState())) {
-      return dispatch(fetchArticle(url));
+    const state = getState().article;
+    if (!shouldUseCachedArticle(state, url)) {
+      if (shouldFetchArticle(state)) {
+        return dispatch(fetchArticle(url));
+      }
+    } else {
+      return dispatch(useCachedArticle(url));
     }
   };
 }
 
 function requestArticle() {
-  return {
-    type: types.REQUEST_ARTICLE
-  };
+  return { type: types.REQUEST_ARTICLE };
 }
 
-function receiveArticle(markdown) {
+function receiveArticle({ markdown, url }) {
   return {
     type: types.RECEIVE_ARTICLE,
     markdown,
+    url,
     receivedAt: Date.now()
   };
 }
 
-function requestErrorArticle(error) {
+function requestErrorArticle({ error, url }) {
   return {
     type: types.REQUEST_ERROR_ARTICLE,
+    url,
     error
   };
 }
@@ -97,16 +118,13 @@ function fetchArticle(url) {
     dispatch(requestArticle());
     return fetch(url)
       .then(res => res.text())
-      .then(markdown => {
-        console.log(markdown);
-        dispatch(receiveArticle(markdown));
-      })
-      .catch(err =>  dispatch(requestErrorArticle(err)));
+      .then(markdown => dispatch(receiveArticle({ markdown, url })))
+      .catch(error =>  dispatch(requestErrorArticle({ error, url })));
   };
 }
 
-function shouldFetchArticle({ article }) {
-  if (article.isFetching) {
+function shouldFetchArticle(state) {
+  if (state.isFetching) {
     return false;
   }
   return true;

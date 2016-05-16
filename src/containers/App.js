@@ -1,8 +1,6 @@
 import React, { Component, Children, cloneElement, PropTypes } from 'react';
-import Octicon from 'react-octicon';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import { browserHistory } from 'react-router';
 import * as actions from '../actions';
 
 const mapStateToProps = state => {
@@ -32,7 +30,7 @@ class App extends Component {
           child,
           { ...this.props }
         );
-      })}<Octicon mega spin name='sync'/></div>
+      })}</div>
     );
   }
 }
