@@ -23,7 +23,6 @@ export default class Article extends Component {
   }
   constructor(props) {
     super(props);
-    // debugger;
   }
   componentDidMount() {
     const { year, month, day, title } = this.props.params;

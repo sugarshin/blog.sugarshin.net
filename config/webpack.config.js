@@ -29,7 +29,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', buildDir, 'assets'),
     filename: production ? 'app-[hash].js' : 'app.js',
-    publicPath: 'assets/'
+    publicPath: '/assets/'
   },
   display: { errorDetails: true },
   resolve: {
@@ -65,11 +65,11 @@ module.exports = {
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff'
+        loader: 'url?limit=102400&mimetype=application/font-woff'
       },
       {
         test: /\.(otf|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loaders: ['url?limit=10000', 'file']
+        loaders: ['url?limit=102400', 'file']
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,

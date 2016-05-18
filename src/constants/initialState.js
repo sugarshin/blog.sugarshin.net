@@ -14,3 +14,8 @@ export const article = {
   cache: {},
   error: null
 };
+
+export const sidebar = {
+  open: false,
+  docked: false
+};
