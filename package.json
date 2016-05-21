@@ -41,7 +41,7 @@
     "github-markdown-css": "~2.3.0",
     "lodash": "~4.12.0",
     "mirror-key-value": "~1.0.4",
-    "react": "~15.0.2",
+    "react": "~15.1.0",
     "react-bootstrap": "~0.29.4",
     "react-dom": "~15.0.2",
     "react-helmet": "~3.1.0",
