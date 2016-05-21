@@ -98,7 +98,7 @@
     "power-assert": "~1.4.1",
     "pug": "~2.0.0-alpha7",
     "pug-cli": "~1.0.0-alpha1",
-    "react-addons-test-utils": "~15.0.2",
+    "react-addons-test-utils": "~15.1.0",
     "recursive-readdir": "~2.0.0",
     "redux-devtools": "~3.3.1",
     "redux-devtools-dock-monitor": "~1.1.1",
