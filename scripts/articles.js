@@ -38,15 +38,19 @@ const readFileWithFilePath = filePath => {
     .catch(err => console.log(`Error readFileWithFilePath: ${err}`));
 };
 
-Promise.resolve('./articles')
+const srcDir = argv.s || argv.src || './articles';
+const outDir = argv.o || argv.out || './';
+Promise.resolve(srcDir)
   .then(dirPath => recursivePromisify(dirPath, ['*.json']))
   .then(files => Promise.all(files.map(file => readFileWithFilePath(file))))
   .then(markdownWithFilePathList => Promise.all(markdownWithFilePathList.map(parseMarkdownYamlDataWithFilePath)))
-  .then(dataWithFilePathList => (
-    dataWithFilePathList.map(([data, filePath]) => Object.assign({}, data, {
-      tags: data.tags.split(','),
-      url: filePath.split('_')[1].replace('.md', '')
-    }))
-  ))
-  .then(data => writeFilePromisify(path.resolve(argv.o, 'index.json'), JSON.stringify(data)))
-  .catch(err => console.log(err));
+  .then(dataWithFilePathList => {
+    return dataWithFilePathList
+      .map(([data, filePath]) => Object.assign({}, data, {
+        tags: data.tags.split(','),
+        url: filePath.split('_')[1].replace('.md', '')
+      }))
+      .filter(data => data.public === true); // true, 'draft', false
+  })
+  .then(data => writeFilePromisify(path.resolve(outDir, 'index.json'), JSON.stringify(data)))
+  .catch(err => console.log('Error `scripts/articles`: \n', err));

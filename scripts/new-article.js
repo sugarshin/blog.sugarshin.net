@@ -12,7 +12,7 @@ const d = moment();
 const HR = '---';
 const head = [
   HR,
-  `title:`,
+  'title:',
   `date: ${d.format('YYYY-MM-DD HH:mm')}`,
   'public: true',
   'tags:',
