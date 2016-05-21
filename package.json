@@ -43,7 +43,7 @@
     "mirror-key-value": "~1.0.4",
     "react": "~15.1.0",
     "react-bootstrap": "~0.29.4",
-    "react-dom": "~15.0.2",
+    "react-dom": "~15.1.0",
     "react-helmet": "~3.1.0",
     "react-octicon": "~2.0.0",
     "react-redux": "~4.4.5",
