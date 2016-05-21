@@ -8,3 +8,10 @@ export function toggleSidebar(open) {
     });
   };
 }
+
+export function toggleDocked(docked) {
+  return {
+    type: types.TOGGLE_SIDEBAR_DOCKED,
+    docked
+  };
+}
