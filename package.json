@@ -40,7 +40,7 @@
     "classnames": "~2.2.5",
     "github-markdown-css": "~2.3.0",
     "lodash": "~4.12.0",
-    "mirror-key-value": "~1.0.4",
+    "mirror-key-value": "~1.0.5",
     "react": "~15.1.0",
     "react-bootstrap": "~0.29.4",
     "react-dom": "~15.1.0",
