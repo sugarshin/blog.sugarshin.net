@@ -39,7 +39,7 @@
     "bootswatch": "~3.3.6",
     "classnames": "~2.2.5",
     "github-markdown-css": "~2.3.0",
-    "lodash": "~4.12.0",
+    "lodash": "~4.13.1",
     "mirror-key-value": "~1.0.4",
     "react": "~15.1.0",
     "react-bootstrap": "~0.29.4",
