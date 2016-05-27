@@ -90,9 +90,6 @@ module.exports = {
     require('postcss-flexbugs-fixes'),
     require('postcss-partial-import')()
   ],
-  stylus: {
-    include: ['node_modules']
-  },
   devServer: {
     historyApiFallback: true,
     contentBase: `./${buildDev}`,

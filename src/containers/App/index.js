@@ -4,8 +4,8 @@ import Button from 'react-bootstrap/lib/Button';
 import Sidebar from 'react-sidebar';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
-import styles from './App.styl';
+import * as actions from '../../actions';
+import styles from './index.styl';
 
 const _matchMedia = global.matchMedia ? global.matchMedia('screen and (min-width: 768px)') : null;
 
