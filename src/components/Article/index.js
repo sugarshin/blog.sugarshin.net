@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import Octicon from 'react-octicon';
 import remark from 'remark';
 // import remarkReact from 'remark-react';
@@ -15,24 +15,10 @@ const remarkRenderer = remark()
   .use(remarkSlug)
   .use(remarkYamlConfig);
 
-export default class Article extends Component {
-  static get propTypes() {
-    return {
-      markdown: PropTypes.string
-    };
-  }
-  constructor(props) {
-    super(props);
-  }
-  componentDidMount() {
-    const { year, month, day, title } = this.props.params;
-    this.props.fetchArticleIfNeeded(`/articles/${year}-${month}-${day}_${title}.md`);
-  }
-  render() {
-    // eslint-disable-next-line react/no-danger
-    return this.props.article.markdown ? <div className='markdown-body' dangerouslySetInnerHTML={{
-      __html: remarkRenderer.process(this.props.article.markdown)
-    }}></div> : <Octicon spin name='sync' />;
-  }
+export default function Article(props) {
+  // eslint-disable-next-line react/no-danger
+  return props.article.markdown ? <div className='markdown-body' dangerouslySetInnerHTML={{
+    __html: remarkRenderer.process(props.article.markdown)
+  }}></div> : <Octicon spin name='sync' />;
 }
-// return <div className='markdown-body'>{remarkRenderer.process(this.props.article.markdown)}</div>;
+// return <div className='markdown-body'>{remarkRenderer.process(props.article.markdown)}</div>;

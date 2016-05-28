@@ -47,7 +47,7 @@ Promise.resolve(srcDir)
   .then(dataWithFilePathList => {
     return dataWithFilePathList
       .map(([data, filePath]) => Object.assign({}, data, {
-        tags: data.tags.split(','),
+        tags: data.tags.split(',').map(tag => tag.trim()),
         url: filePath.split('_')[1].replace('.md', '')
       }))
       .filter(data => data.public === true); // true, 'draft', false

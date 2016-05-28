@@ -33,7 +33,8 @@ module.exports = {
   },
   display: { errorDetails: true },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    modulesDirectories: ['web_modules', 'node_modules', 'src']
   },
   module: {
     preLoaders: [
