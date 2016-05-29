@@ -18,6 +18,7 @@
     "test-src": "mocha --compilers js:babel-register test/**/*.js",
     "test": "npm-run-all lint test-src",
     "clean:build": "if [ -d build ]; then rm -rf build; fi",
+    "cp:build": "cpx 'articles/**/*.md' build/articles",
     "pug:build": "pug -o build src/template/index.pug",
     "webpack": "webpack --config config/webpack.config.js",
     "build": "sh scripts/build.sh"
