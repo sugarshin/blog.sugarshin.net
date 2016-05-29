@@ -14,7 +14,7 @@ after_success:
   - NODE_ENV=production npm run build
   - git config --global user.name "Travis CI"
   - git config --global user.email "travisci@localhost"
-  - ./node_modules/.bin/gh-pages -d build -x --repo https://$GH_TOKEN@github.com/sugarshin/log.sugarshin.net.git
+  - ./node_modules/.bin/gh-pages -d build -xt --repo https://$GH_TOKEN@github.com/sugarshin/log.sugarshin.net.git
 env:
   global:
     - secure: ca/sQeXTiCyVN1bYrMXtleoReXSQQOiTNXHSJZq5ewEkMHCRZdzSfmoVLKM4A3gC0/qyozonzDgJ/sw9sDrNAYqq+MAS4ni+7HslVfT79nIjdzGJLFCXj/zicbiSMb8tFA59q+1p+vaQhVLpdTRlqmMNDu9d5WilY3MiHAUIByvR9AziLjn65vzgLrjfcsZ/mncMslts8g8hYVuI36RkQQftAI8gGF8PUrtL1pc4PMipCySjYQ5d6a7/7KAxM97RWhrWVDbPYCMbCfdXIoj36Y4zOzbMcRFaC5y1h9k55ygfv2OngEF6TOzwSHzVwf8UfgzL41WHfUpDeCxy6t9QLZnsE3RpTgL7RmMKX01SB0tRVrN4hoUI/oyP/a9NEIkX7C2Ku22han5Fq3b52Sdd2DsG5IsTQqhzGFP1Zp9/ZqnGbSqB8V3BXLhEi/DZkYO8YPTmNib+72BbvUxiSFl5Aapmh7rZtATZgR5JTcOKlAEcvAl1ePoJpxNvIYrhCaDexVL3tFSi3vV81tOyK8kB4aP0hw79UMTAr81pWX5P2wFZ+NprgQO4FdEjneKCKPOfZumjG1XmYR7t0YVHFACJGXiMk4Gfepi4m/pQFbREEDJ3vVK0LqICY4Zxyd0qO4bUGSEkgxmYu9bSLfc8E/VciUKTNQDnikIJh2/P30i/E1s=
