@@ -1,7 +1,12 @@
+const fs = require('fs');
 const pug = require('pug');
 
 const h = pug.renderFile('./src/template/index.pug', {
-  title: 'test',
-  lang: 'ja'
+  lang: 'ja',
+  title: 'log.sugarshin.net',
+  description: 'Blog of sugarshin'
 });
-console.log(h);
+
+['./build/index.html', './build/404.html'].forEach(file => {
+  fs.writeFileSync(file, h, { encoding: 'utf8' });
+});
