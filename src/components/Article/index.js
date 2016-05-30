@@ -1,19 +1,8 @@
 import React from 'react';
 import Octicon from 'react-octicon';
-import remark from 'remark';
 // import remarkReact from 'remark-react';
-import remarkHtml from 'remark-html';
-import remarkHighlightjs from 'remark-highlight.js';
-import remarkSlug from 'remark-slug';
-import remarkYamlConfig from 'remark-yaml-config';
+import remarkRenderer from '../../../universal/remarkRenderer';
 import 'github-markdown-css';
-
-const remarkRenderer = remark()
-  // .use(remarkReact)
-  .use(remarkHtml)
-  .use(remarkHighlightjs)
-  .use(remarkSlug)
-  .use(remarkYamlConfig);
 
 export default function Article(props) {
   // eslint-disable-next-line react/no-danger
