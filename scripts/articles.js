@@ -27,7 +27,7 @@ const HR = '---';
 const parseMarkdownYamlDataWithFilePath = ([markdown, filePath]) => {
   const rows = markdown.split('\n');
   const [firstLineIndex, secondLinesIndex] =
-  rows.reduce((result, row, i) => row === HR ? [...result, i] : result, []);
+    rows.reduce((result, row, i) => row === HR ? [...result, i] : result, []);
   const yamlData = rows.slice(firstLineIndex, secondLinesIndex).join('\n');
   return [yaml.safeLoad(yamlData), filePath];
 };

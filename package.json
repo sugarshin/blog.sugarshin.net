@@ -9,7 +9,7 @@
     "clean:dev": "if [ -d build-dev ]; then rm -rf build-dev; fi",
     "mkdir:dev": "mkdir -p build-dev/articles",
     "cp:dev": "cpx 'articles/**/*.md' build-dev/articles -w",
-    "articles:dev": "node scripts/articles -o build-dev",
+    "articles:dev": "node scripts/articles -o build-dev/articles",
     "pug:dev": "pug -o build-dev -P -O '{\"title\": \"log\", \"lang\": \"ja\"}' -w src/template/index.pug",
     "dev-server": "webpack-dev-server --config config/webpack.config.js --port 8003 --progress",
     "lint:js": "eslint src",

@@ -30,10 +30,9 @@ function requestErrorArticles(error) {
 function fetchArticles() {
   return dispatch => {
     dispatch(requestArticles());
-    return fetch('/index.json')
+    return fetch('/articles/index.json')
       .then(res => res.json())
       .then(articles => {
-        console.log('articles', articles);
         dispatch(receiveArticles(articles));
       })
       .catch(err =>  dispatch(requestErrorArticles(err)));
