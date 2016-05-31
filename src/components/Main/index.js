@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import SidebarMenu from 'components/SidebarMenu';
 import styles from './index.styl';
 
-const _matchMedia = global.matchMedia ? global.matchMedia('screen and (min-width: 768px)') : null;
+const _matchMedia = global.matchMedia ? global.matchMedia('screen and (min-width: 769px)') : null;
 
 export default class Main extends Component {
   get _matchMedia() {
@@ -33,8 +33,9 @@ export default class Main extends Component {
     return (
       <div>
         <Sidebar
-          rootClassName={styles.main}
+          rootClassName={styles.root}
           sidebarClassName={styles.sidebar}
+          contentClassName={styles.content}
           sidebar={<SidebarMenu {...this.props} />}
           shadow={false}
           pullRight
@@ -42,8 +43,8 @@ export default class Main extends Component {
           docked={sidebar.docked}
           onSetOpen={actions.toggleSidebar}
         >
-          <header>
-            <Link to='/'>HOME</Link>
+          <header className={styles.header}>
+            <Link to='/'>log.sugarshin.net</Link>
           </header>
           <div className={styles.toggleButton}>
             <Button onClick={() => actions.toggleSidebar()}>
@@ -56,6 +57,9 @@ export default class Main extends Component {
               { ...this.props }
             );
           })}
+          <footer className={styles.footer}>
+            <p><small>{`© ${new Date().getFullYear()} sugarshin | Shingo Sato All rights reserved.`}</small></p>
+          </footer>
         </Sidebar>
       </div>
     );

@@ -6,6 +6,7 @@ export default function article(state = initialState, action) {
 
   case types.REQUEST_ARTICLE: return {
     ...state,
+    title: '',
     markdown: '',
     url: '',
     isFetching: true,
@@ -15,6 +16,7 @@ export default function article(state = initialState, action) {
 
   case types.RECEIVE_ARTICLE: return {
     ...state,
+    title: getArticleTitle(action.markdown),
     markdown: action.markdown,
     url: action.url,
     isFetching: false,
@@ -25,6 +27,7 @@ export default function article(state = initialState, action) {
 
   case types.USE_CACHED_ARTICLE: return {
     ...state,
+    title: getArticleTitle(state.cache[action.url]),
     markdown: state.cache[action.url],
     url: action.url,
     isFetching: false,
@@ -34,6 +37,7 @@ export default function article(state = initialState, action) {
 
   case types.REQUEST_ERROR_ARTICLE: return {
     ...state,
+    title: '',
     markdown: '',
     url: action.url,
     isFetching: false,
@@ -44,4 +48,9 @@ export default function article(state = initialState, action) {
   default: return state;
 
   }
+}
+
+// TODO
+function getArticleTitle(markdown) {
+  return markdown.split('\n')[1].replace(/^title:/, '').trim();
 }

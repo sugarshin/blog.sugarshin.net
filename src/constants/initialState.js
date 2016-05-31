@@ -9,6 +9,7 @@ export const articles = {
 };
 
 export const article = {
+  title: '',
   markdown: '',
   url: '',
   isFetching: false,
