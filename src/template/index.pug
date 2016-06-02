@@ -8,6 +8,6 @@ html(lang= lang)
       meta(name="description" content= description)
   body
     if content
-      p(style="display: none;") #{content}
+      div(style="display: none;")!= content
     #app-root
     script(src=(process.env.MAIN_SCRIPT ? process.env.MAIN_SCRIPT : "/assets/app.js"))

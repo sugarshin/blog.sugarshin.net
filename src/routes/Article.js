@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DisqusThread from 'react-disqus-thread';
 import ArticleComponent from 'components/Article';
+import Disqus from 'components/Disqus';
 
 export default class Article extends Component {
   constructor(props) {
@@ -19,16 +19,11 @@ export default class Article extends Component {
     return (
       <div>
         <ArticleComponent article={this.props.article} />
-        {/*TODO*/}
-        <div style={{ padding: 16 }}>
-          <DisqusThread
-            id={pathname}
-            shortname='logsugarshinnet'
-            identifier={pathname}
-            className='disqus-thread'
-            title={this.props.article.title} />
-            {/*onNewComment={this.handleNewComment} />*/}
-        </div>
+        <Disqus
+          shortname='logsugarshinnet'
+          identifier={pathname}
+          title={this.props.article.title}
+        />
       </div>
     );
   }

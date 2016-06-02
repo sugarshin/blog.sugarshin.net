@@ -1,14 +1,5 @@
 @import '../../stylus/media-query';
 
-.header
-  // height: 40px
-  // line-height: 40px
-  background-color: #fcfcfc
-  border-bottom: 1px solid #f3f3f3
-  padding: 8px
-  a
-    color: inherit
-    text-decoration: none
 .root
   &::after
     content ''
@@ -28,6 +19,15 @@
     @media $mq-large
       width: 640px
       height: 640px
+.header
+  // height: 40px
+  // line-height: 40px
+  background-color: #fcfcfc
+  border-bottom: 1px solid #f3f3f3
+  padding: 8px
+  a
+    color: inherit
+    text-decoration: none
 .toggleButton
   position: fixed
   top: 0
@@ -40,7 +40,9 @@
   background-color: #fcfcfc
   border-left: 1px solid #f3f3f3
   padding: 16px
-
+  -webkit-overflow-scrolling: touch
+.content
+  -webkit-overflow-scrolling: touch
 .footer
   border-top: 1px solid #f3f3f3
   height: 40px
