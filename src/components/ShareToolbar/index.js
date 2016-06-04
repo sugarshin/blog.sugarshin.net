@@ -10,23 +10,23 @@ import {
 import Icon from 'react-fa';
 import styles from './index.styl';
 
-export default function ShareToolbar({ message }) {
+export default function ShareToolbar({ message, url }) {
   return (
     <div className={styles.wrapper}>
       <Button>
-        <FacebookButton element='span' message={message}><Icon name='facebook' /></FacebookButton>
+        <FacebookButton element='span' url={url} message={message}><Icon name='facebook' /></FacebookButton>
       </Button>
       <Button>
-        <TwitterButton element='span' message={message}><Icon name='twitter' /></TwitterButton>
+        <TwitterButton element='span' url={url} message={message}><Icon name='twitter' /></TwitterButton>
       </Button>
       <Button>
-        <GooglePlusButton element='span' message={message}><Icon name='google-plus' /></GooglePlusButton>
+        <GooglePlusButton element='span' url={url} message={message}><Icon name='google-plus' /></GooglePlusButton>
       </Button>
       <Button>
-        <TumblrButton element='span' message={message}><Icon name='tumblr' /></TumblrButton>
+        <TumblrButton element='span' url={url} message={message}><Icon name='tumblr' /></TumblrButton>
       </Button>
       <Button>
-        <PocketButton element='span' message={message}><Icon name='get-pocket' /></PocketButton>
+        <PocketButton element='span' url={url} message={message}><Icon name='get-pocket' /></PocketButton>
       </Button>
     </div>
   );

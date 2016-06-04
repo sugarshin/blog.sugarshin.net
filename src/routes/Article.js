@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import ArticleComponent from 'components/Article';
 import ShareToolbar from 'components/ShareToolbar';
 import Disqus from 'components/Disqus';
@@ -20,8 +21,12 @@ export default class Article extends Component {
     return (
       // TODO
       <div style={{ minHeight: 'calc(100% - 40px)' }}>
+        <Helmet title={article.title} />
         <ArticleComponent article={article} />
-        {article.markdown ? <ShareToolbar message={document.title} /> : null}
+        {article.markdown ? <ShareToolbar
+          message={document.title}
+          url={`${global.location.origin}${location.pathname}`}
+        /> : null}
         {article.markdown ? (
           <Disqus
             shortname='logsugarshinnet'

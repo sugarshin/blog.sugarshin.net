@@ -1,16 +1,10 @@
 @import '../../stylus/media-query'
+@import '../../stylus/variables'
 
 .body
-  padding 8px
+  padding 16px 8px
   border-bottom 1px solid #f3f3f3
   @media $mq-large
-    padding 16px // @stylint ignore
-.loading
-  height 100%
-.spinner
-  position absolute
-  top 50%
-  left 50%
-  transform translate(-50%, -50%)
-  font-size 20px
-  color #999
+    padding 32px 16px // @stylint ignore
+    max-width $main-max-width
+    margin 0 auto

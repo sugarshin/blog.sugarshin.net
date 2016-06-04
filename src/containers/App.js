@@ -1,4 +1,5 @@
 import React, { Component, Children, PropTypes, cloneElement } from 'react';
+import Helmet from 'react-helmet';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as rawActions from 'actions';
@@ -25,6 +26,10 @@ class App extends Component {
   render() {
     return (
       <Main {...this.props}>
+        <Helmet
+          titleTemplate='%s | log.sugarshin.net'
+          defaultTitle='log.sugarshin.net'
+        />
         {Children.map(this.props.children, child => {
           return cloneElement(
             child,
