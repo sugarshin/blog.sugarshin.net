@@ -6,8 +6,12 @@ html(lang= lang)
     meta(charset="utf-8")
     title= title
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="author" content="Shingo Sato")
     if description
       meta(name="description" content= description)
+    if process.env.NODE_ENV === 'production'
+      link(rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml")
+      link(rel="alternate" type="application/rss+xml" title="RSS 2.0 Feed" href="/rss.xml")
   body
     if content
       div(style="display: none;")!= content

@@ -1,4 +1,7 @@
 module.exports = {
+  domain: 'log.sugarshin.net',
+  protocol: 'https://',
   siteName: 'log.sugarshin.net',
-  footerLicense: 'sugarshin | Shingo Sato All rights reserved.'
+  description: 'sugarshin\'s blog',
+  copyright: 'sugarshin | Shingo Sato All rights reserved.'
 };

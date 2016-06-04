@@ -4,6 +4,8 @@ const mkdirp = require('mkdirp');
 const uniq = require('lodash/uniq');
 const remarkRenderer = require('../universal/remarkRenderer');
 const argv = require('minimist')(process.argv.slice(2));
+const { siteName, description } = require('../config/settings');
+
 const production = process.env.NODE_ENV === 'production';
 const outDir = argv.o || argv.out || 'build'; // TODO
 const src = './src/template/index.pug';
@@ -11,8 +13,8 @@ const articlesJSON = fs.readFileSync(`./${outDir}/_articles/index.json`, { encod
 const articles = JSON.parse(articlesJSON);
 const baseOpts = {
   lang: 'ja',
-  title: 'log.sugarshin.net',
-  description: 'sugarshin\'s blog'
+  title: siteName,
+  description
 };
 
 // Articles

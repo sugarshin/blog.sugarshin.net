@@ -62,7 +62,7 @@ export default class Main extends Component {
             );
           })}
           <footer className={styles.footer}>
-            <p><small>{`© ${new Date().getFullYear()} ${settings.footerLicense}`}</small></p>
+            <p><small>{`© ${new Date().getFullYear()} ${settings.copyright}`}</small></p>
           </footer>
         </Sidebar>
       ) : (
