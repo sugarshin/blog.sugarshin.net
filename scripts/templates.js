@@ -51,7 +51,7 @@ tags.forEach(tag => {
 
 // index.html
 if (production) {
-  const html = pug.renderFile(src, baseOpts);
+  const html = pug.renderFile(src, Object.assign({}, baseOpts, { top: true }));
   const path = `./${outDir}`;
   fs.writeFileSync(`${path}/index.html`, html, { encoding: 'utf8' });
 }
