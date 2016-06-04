@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import styles from './index.styl';
 
 export default function ArticleItem({ article }) {
-  const to = `${article.date.split(' ')[0].replace(/-/g, '/')}/${article.url}`;
+  const to = `/${article.date.split(' ')[0].replace(/-/g, '/')}/${article.url}`;
   return (
     <div className={styles.root}>
       <Link to={to}>
