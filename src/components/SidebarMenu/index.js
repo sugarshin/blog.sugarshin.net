@@ -70,7 +70,7 @@ export default class SidebarMenu extends Component {
   }
   _renderTags() {
     return this.props.articles.tags.map(tag => {
-      const url = `/tags/${tag}/`;
+      const url = `/tags/${tag.replace(/\s/g, '_')}/`;
       return (
         <LinkContainer key={url} to={url}>
           <ListGroupItem key={url}>{tag}</ListGroupItem>

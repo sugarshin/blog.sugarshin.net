@@ -48,6 +48,6 @@ function _createArchives(items) {
 }
 
 function _createTags(items) {
-  return items.reduce((tags, item) => uniq([...tags, ...item.tags.map(t => t.replace(/\s/, '_'))]), [])
+  return items.reduce((tags, item) => uniq([...tags, ...item.tags]), [])
     .sort((a, b) => a === b ? 0 : (a > b ? 1 : -1));
 }
