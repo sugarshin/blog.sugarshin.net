@@ -6,6 +6,16 @@
 
 https://log.sugarshin.net
 
+## Add new article
+
+```
+npm run na --name example-article-title
+```
+
+## Deploy
+
+Merge to master branch will trigger Travis CI that deploys assets to GitHub Pages.
+
 ## Start dev-server
 
 ```
@@ -23,10 +33,6 @@ npm test
 ```
 NODE_ENV=production npm run build
 ```
-
-## Deploy
-
-Merge to master branch will trigger Travis CI that deploys assets to GitHub Pages.
 
 ## License
 
