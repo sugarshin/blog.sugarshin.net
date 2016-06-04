@@ -38,4 +38,6 @@ articles.forEach(article => {
 });
 
 fs.writeFileSync(`${OUT_DIR}/feed.xml`, feed.render('atom-1.0'), { encoding: 'utf8' });
+console.log('Success feed.xml !');
 fs.writeFileSync(`${OUT_DIR}/rss.xml`, feed.render('rss-2.0'), { encoding: 'utf8' });
+console.log('Success rss.xml !');

@@ -1,10 +1,11 @@
 const fs = require('fs');
 const pug = require('pug');
+const Sitemap = require('sitemap');
 const mkdirp = require('mkdirp');
 const uniq = require('lodash/uniq');
 const remarkRenderer = require('../universal/remarkRenderer');
 const argv = require('minimist')(process.argv.slice(2));
-const { siteName, description } = require('../config/settings');
+const { protocol, domain, siteName, description } = require('../config/settings');
 
 const production = process.env.NODE_ENV === 'production';
 const outDir = argv.o || argv.out || 'build'; // TODO
@@ -17,15 +18,33 @@ const baseOpts = {
   description
 };
 
+let sitemap = null;
+if (production) {
+  sitemap = Sitemap.createSitemap({
+    hostname: `${protocol}${domain}`,
+    cacheTime: 600000
+  });
+}
+
+// index.html
+if (production) {
+  const html = pug.renderFile(src, Object.assign({}, baseOpts, { top: true }));
+  fs.writeFileSync(`./${outDir}/index.html`, html, { encoding: 'utf8' });
+
+  sitemap && sitemap.add({ url: `${protocol}${domain}/`, priority: 1 });
+}
+
 // Articles
 articles.forEach(article => {
   const md = fs.readFileSync(`./articles/${article.date.split(' ')[0]}_${article.url}.md`, { encoding: 'utf8' });
   const content = remarkRenderer.process(md);
   const html = pug.renderFile(src, Object.assign({}, baseOpts, { content }));
   const [year, month, day] = article.date.split(' ')[0].split('-');
-  const path = `./${outDir}/${year}/${month}/${day}/${article.url}`;
-  mkdirp.sync(path);
-  fs.writeFileSync(`${path}/index.html`, html, { encoding: 'utf8' });
+  const url = `/${year}/${month}/${day}/${article.url}/`
+  mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
+  fs.writeFileSync(`./${outDir}${url}index.html`, html, { encoding: 'utf8' });
+
+  sitemap && sitemap.add({ url, priority: 0.9 });
 });
 
 // Archives
@@ -35,9 +54,11 @@ const dates = articles.reduce((result, a) => {
 }, []);
 dates.forEach(date => {
   const html = pug.renderFile(src, baseOpts);
-  const path = `./${outDir}/archives/${date}`;
-  mkdirp.sync(path);
-  fs.writeFileSync(`${path}/index.html`, html, { encoding: 'utf8' });
+  const url = `/archives/${date}/`;
+  mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
+  fs.writeFileSync(`./${outDir}${url}index.html`, html, { encoding: 'utf8' });
+
+  sitemap && sitemap.add({ url, priority: 0.8 });
 });
 
 // Tags
@@ -46,14 +67,17 @@ const tags = articles.reduce((result, a) => {
 }, []);
 tags.forEach(tag => {
   const html = pug.renderFile(src, baseOpts);
-  const path = `./${outDir}/tags/${tag}`;
-  mkdirp.sync(path);
-  fs.writeFileSync(`${path}/index.html`, html, { encoding: 'utf8' });
+  const url = `/tags/${tag}/`;
+  mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
+  fs.writeFileSync(`./${outDir}${url}index.html`, html, { encoding: 'utf8' });
+
+  sitemap && sitemap.add({ url, priority: 0.8 });
 });
 
-// index.html
+console.log('Success templates !');
+
+// Sitemap
 if (production) {
-  const html = pug.renderFile(src, Object.assign({}, baseOpts, { top: true }));
-  const path = `./${outDir}`;
-  fs.writeFileSync(`${path}/index.html`, html, { encoding: 'utf8' });
+  fs.writeFileSync(`./${outDir}/sitemap.xml`, sitemap.toString(), { encoding: 'utf8' });
+  console.log('Success sitemap.xml !');
 }
