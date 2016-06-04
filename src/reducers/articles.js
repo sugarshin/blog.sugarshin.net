@@ -12,15 +12,18 @@ export default function articles(state = initialState, action) {
     didInvalidate: false
   };
 
-  case types.RECEIVE_ARTICLES: return {
-    ...state,
-    items: action.items,
-    archives: _createArchives(action.items),
-    tags: _createTags(action.items),
-    isFetching: false,
-    isFetched: true,
-    didInvalidate: false
-  };
+  case types.RECEIVE_ARTICLES: {
+    const items = action.items.reverse();
+    return {
+      ...state,
+      items,
+      archives: _createArchives(items),
+      tags: _createTags(items),
+      isFetching: false,
+      isFetched: true,
+      didInvalidate: false
+    };
+  }
 
   case types.REQUEST_ERROR_ARTICLES: return {
     ...state,
@@ -45,5 +48,6 @@ function _createArchives(items) {
 }
 
 function _createTags(items) {
-  return items.reduce((tags, item) => uniq([...tags, ...item.tags.map(t => t.replace(/\s/, '_'))]), []);
+  return items.reduce((tags, item) => uniq([...tags, ...item.tags.map(t => t.replace(/\s/, '_'))]), [])
+    .sort((a, b) => a === b ? 0 : (a > b ? 1 : -1));
 }

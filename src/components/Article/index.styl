@@ -1,6 +1,16 @@
-@import '../../stylus/media-query';
+@import '../../stylus/media-query'
 
 .body
-  padding: 8px
+  padding 8px
+  border-bottom 1px solid #f3f3f3
   @media $mq-large
-    padding: 16px
+    padding 16px // @stylint ignore
+.loading
+  height 100%
+.spinner
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+  font-size 20px
+  color #999

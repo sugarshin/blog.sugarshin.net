@@ -1,3 +1,12 @@
+// Item
+// {
+//   date: '2016-04-30 15:00',
+//   public: true,
+//   tags: [],
+//   title : 'Title',
+//   preview: 'Preview...',
+//   url :'example-article'
+// }
 export const articles = {
   items: [],
   archives: {},

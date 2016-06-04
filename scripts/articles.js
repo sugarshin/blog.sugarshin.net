@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+const truncate = require('lodash/truncate');
 const yaml = require('js-yaml');
 const recursive  = require('recursive-readdir');
+const removeMarkdown = require('remove-markdown');
 const argv = require('minimist')(process.argv.slice(2));
 const writeFilePromisify = require('./helpers/writeFilePromisify');
 
@@ -24,12 +26,13 @@ const readFilePromisify = filePath => {
 };
 
 const HR = '---';
-const parseMarkdownYamlDataWithFilePath = ([markdown, filePath]) => {
+const parseMarkdownYamlDataWithFilePathAndPreview = ([markdown, filePath]) => {
   const rows = markdown.split('\n');
   const [firstLineIndex, secondLinesIndex] =
     rows.reduce((result, row, i) => row === HR ? [...result, i] : result, []);
   const yamlData = rows.slice(firstLineIndex, secondLinesIndex).join('\n');
-  return [yaml.safeLoad(yamlData), filePath];
+  const preview = rows.slice(secondLinesIndex + 1, secondLinesIndex + 5).join('');
+  return [yaml.safeLoad(yamlData), filePath, truncate(removeMarkdown(preview), { length: 140 })];
 };
 
 const readFileWithFilePath = filePath => {
@@ -43,12 +46,13 @@ const outDir = argv.o || argv.out || './';
 Promise.resolve(srcDir)
   .then(dirPath => recursivePromisify(dirPath, ['*.json']))
   .then(files => Promise.all(files.map(file => readFileWithFilePath(file))))
-  .then(markdownWithFilePathList => Promise.all(markdownWithFilePathList.map(parseMarkdownYamlDataWithFilePath)))
-  .then(dataWithFilePathList => {
-    return dataWithFilePathList
-      .map(([data, filePath]) => Object.assign({}, data, {
+  .then(markdownWithFilePathList => Promise.all(markdownWithFilePathList.map(parseMarkdownYamlDataWithFilePathAndPreview)))
+  .then(dataWithFilePathListAndPreivew => {
+    return dataWithFilePathListAndPreivew
+      .map(([data, filePath, preview]) => Object.assign({}, data, {
         tags: data.tags.split(',').map(tag => tag.trim()),
-        url: filePath.split('_')[1].replace('.md', '')
+        url: filePath.split('_')[1].replace('.md', ''),
+        preview
       }))
       .filter(data => data.public === true); // true, 'draft', false
   })

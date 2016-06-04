@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import 'bootswatch/cosmo/bootstrap.css'
+import 'highlight.js/styles/github.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

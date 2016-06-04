@@ -30,10 +30,10 @@ function requestErrorArticles(error) {
 function fetchArticles() {
   return dispatch => {
     dispatch(requestArticles());
-    return fetch('/articles/index.json')
+    return fetch('/_articles/index.json')
       .then(res => res.json())
       .then(articles => {
-        dispatch(receiveArticles(articles));
+        setTimeout(() => dispatch(receiveArticles(articles)), 4000);
       })
       .catch(err =>  dispatch(requestErrorArticles(err)));
   };

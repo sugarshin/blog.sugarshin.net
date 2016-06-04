@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
+import ArticleItem from 'components/ArticleItem';
+import styles from './index.styl';
 
 export default function Articles(props) {
   return (
-    <div>{props.articles.map((article, i) => {
-      const [year, month, day] = article.date.split(' ')[0].split('-');
-      return <div key={i}><Link to={`/${year}/${month}/${day}/${article.url}`}>{article.title}</Link></div>;
-    })}</div>
+    <div className={styles.wrapper}>
+      {props.articles.length > 0 ? props.articles.map(article => {
+        return <ArticleItem key={`${article.date.split(' ')[0]}_${article.url}`} article={article} />;
+      }) : <p>No results...</p>}
+    </div>
   );
 }

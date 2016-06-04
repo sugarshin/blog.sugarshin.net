@@ -7,7 +7,7 @@ const argv = require('minimist')(process.argv.slice(2));
 const production = process.env.NODE_ENV === 'production';
 const outDir = argv.o || argv.out || 'build'; // TODO
 const src = './src/template/index.pug';
-const articlesJSON = fs.readFileSync(`./${outDir}/articles/index.json`, { encoding: 'utf8' });
+const articlesJSON = fs.readFileSync(`./${outDir}/_articles/index.json`, { encoding: 'utf8' });
 const articles = JSON.parse(articlesJSON);
 const baseOpts = {
   lang: 'ja',
