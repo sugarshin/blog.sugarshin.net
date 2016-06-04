@@ -57,9 +57,7 @@ function fetchArticle(url) {
     dispatch(requestArticle());
     return fetch(url)
       .then(res => res.text())
-      .then(markdown => {
-        setTimeout(() => dispatch(receiveArticle({ markdown, url })), 2000);
-      })
+      .then(markdown => dispatch(receiveArticle({ markdown, url })))
       .catch(error =>  dispatch(requestErrorArticle({ error, url })));
   };
 }

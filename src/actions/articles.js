@@ -32,9 +32,7 @@ function fetchArticles() {
     dispatch(requestArticles());
     return fetch('/_articles/index.json')
       .then(res => res.json())
-      .then(articles => {
-        setTimeout(() => dispatch(receiveArticles(articles)), 4000);
-      })
+      .then(articles => dispatch(receiveArticles(articles)))
       .catch(err =>  dispatch(requestErrorArticles(err)));
   };
 }
