@@ -1,15 +1,17 @@
 const fs = require('fs');
 const Feed = require('feed');
-const { domain, protocol, siteName, copyright, description } = require('../config/settings');
+const {
+  domain, protocol, siteName, copyright, description, authorName, authorEmail, authorURL
+} = require('../config/settings');
 
 const OUT_DIR = 'build';
 const articlesJSON = fs.readFileSync(`./${OUT_DIR}/_articles/index.json`, { encoding: 'utf8' });
 const articles = JSON.parse(articlesJSON);
 
 const author = {
-  name: 'sugarshin | Shingo Sato',
-  email: 'shinsugar@gmail.com',
-  link: 'https://sugarshin.net'
+  name: authorName,
+  email: authorEmail,
+  link: authorURL
 };
 const HR = '---';
 

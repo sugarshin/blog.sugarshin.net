@@ -7,31 +7,30 @@ const remarkRenderer = require('../universal/remarkRenderer');
 const argv = require('minimist')(process.argv.slice(2));
 const { protocol, domain, siteName, description } = require('../config/settings');
 
-const production = process.env.NODE_ENV === 'production';
 const outDir = argv.o || argv.out || 'build'; // TODO
 const src = './src/template/index.pug';
 const articlesJSON = fs.readFileSync(`./${outDir}/_articles/index.json`, { encoding: 'utf8' });
 const articles = JSON.parse(articlesJSON);
+const faviconsHTML = JSON.parse(fs.readFileSync('./favicons.html.tmp', { encoding: 'utf8' }));
 const baseOpts = {
   lang: 'ja',
   title: siteName,
-  description
+  description,
+  favicons: faviconsHTML
 };
 
-let sitemap = null;
-if (production) {
-  sitemap = Sitemap.createSitemap({
-    hostname: `${protocol}${domain}`,
-    cacheTime: 600000
-  });
-}
+// TODO separate this task
+const sitemap = Sitemap.createSitemap({
+  hostname: `${protocol}${domain}`,
+  cacheTime: 600000
+});
 
 // index.html
-if (production) {
+{
   const html = pug.renderFile(src, Object.assign({}, baseOpts, { top: true }));
   fs.writeFileSync(`./${outDir}/index.html`, html, { encoding: 'utf8' });
 
-  sitemap && sitemap.add({ url: `${protocol}${domain}/`, priority: 1 });
+  sitemap.add({ url: `${protocol}${domain}/`, priority: 1 });
 }
 
 // Articles
@@ -44,7 +43,7 @@ articles.forEach(article => {
   mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
   fs.writeFileSync(`./${outDir}${url}index.html`, html, { encoding: 'utf8' });
 
-  sitemap && sitemap.add({ url, priority: 0.9 });
+  sitemap.add({ url, priority: 0.9 });
 });
 
 // Archives
@@ -58,7 +57,7 @@ dates.forEach(date => {
   mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
   fs.writeFileSync(`./${outDir}${url}index.html`, html, { encoding: 'utf8' });
 
-  sitemap && sitemap.add({ url, priority: 0.8 });
+  sitemap.add({ url, priority: 0.8 });
 });
 
 // Tags
@@ -71,13 +70,11 @@ tags.forEach(tag => {
   mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
   fs.writeFileSync(`./${outDir}${url}index.html`, html, { encoding: 'utf8' });
 
-  sitemap && sitemap.add({ url, priority: 0.8 });
+  sitemap.add({ url, priority: 0.8 });
 });
 
 console.log('Success templates !');
 
 // Sitemap
-if (production) {
-  fs.writeFileSync(`./${outDir}/sitemap.xml`, sitemap.toString(), { encoding: 'utf8' });
-  console.log('Success sitemap.xml !');
-}
+fs.writeFileSync(`./${outDir}/sitemap.xml`, sitemap.toString(), { encoding: 'utf8' });
+console.log('Success sitemap.xml !');
