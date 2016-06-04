@@ -13,21 +13,21 @@ import styles from './index.styl';
 export default function ShareToolbar({ message, url }) {
   return (
     <div className={styles.wrapper}>
-      <Button>
-        <FacebookButton element='span' url={url} message={message}><Icon name='facebook' /></FacebookButton>
-      </Button>
-      <Button>
-        <TwitterButton element='span' url={url} message={message}><Icon name='twitter' /></TwitterButton>
-      </Button>
-      <Button>
-        <GooglePlusButton element='span' url={url} message={message}><Icon name='google-plus' /></GooglePlusButton>
-      </Button>
-      <Button>
-        <TumblrButton element='span' url={url} message={message}><Icon name='tumblr' /></TumblrButton>
-      </Button>
-      <Button>
-        <PocketButton element='span' url={url} message={message}><Icon name='get-pocket' /></PocketButton>
-      </Button>
+      <FacebookButton element='span' message={message} url={url}>
+        <Button><Icon name='facebook' /></Button>
+      </FacebookButton>
+      <TwitterButton element='span' message={message} url={url}>
+        <Button><Icon name='twitter' /></Button>
+      </TwitterButton>
+      <GooglePlusButton element='span' message={message} url={url}>
+        <Button><Icon name='google-plus' /></Button>
+      </GooglePlusButton>
+      <TumblrButton element='span' message={message} url={url}>
+        <Button><Icon name='tumblr' /></Button>
+      </TumblrButton>
+      <PocketButton element='span' message={message} url={url}>
+        <Button><Icon name='get-pocket' /></Button>
+      </PocketButton>
     </div>
   );
 }

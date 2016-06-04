@@ -3,6 +3,7 @@ import Octicon from 'react-octicon';
 import Button from 'react-bootstrap/lib/Button';
 import Sidebar from 'react-sidebar';
 import { Link } from 'react-router';
+import Icon from 'react-fa';
 import SidebarMenu from 'components/SidebarMenu';
 import LoadingSpinner from 'components/LoadingSpinner';
 import settings from '../../../config/settings';
@@ -55,14 +56,22 @@ export default class Main extends Component {
               </div>
             ) : null}
           </header>
-          {Children.map(children, child => {
-            return cloneElement(
-              child,
-              { ...this.props }
-            );
-          })}
+          <main className={styles.main}>
+            {Children.map(children, child => {
+              return cloneElement(
+                child,
+                { ...this.props }
+              );
+            })}
+          </main>
           <footer className={styles.footer}>
-            <p><small>{`© ${new Date().getFullYear()} ${settings.copyright}`}</small></p>
+            <p>
+              <small>
+                <Icon name='copyright' />
+                {' '}
+                {`${new Date().getFullYear()} ${settings.copyright}`}
+              </small>
+            </p>
           </footer>
         </Sidebar>
       ) : (

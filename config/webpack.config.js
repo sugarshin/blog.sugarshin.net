@@ -2,7 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 
 const production = process.env.NODE_ENV === 'production';
-const cssModules = 'modules&importLoaders=1&localIdentName=[path][name]__[local]___[hash:base64:8]';
+const localIdentName = production ? '[hash:base64:32]' : '[path][name]__[local]___[hash:base64:8]';
+const cssModules = `modules&importLoaders=1&localIdentName=${localIdentName}`;
 const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}`;
 const buildDev = 'build-dev';
 const buildDir = production ? 'build' : buildDev;

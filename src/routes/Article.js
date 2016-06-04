@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import PageTitle from 'components/PageTitle';
 import ArticleComponent from 'components/Article';
 import ShareToolbar from 'components/ShareToolbar';
 import Disqus from 'components/Disqus';
@@ -19,9 +20,9 @@ export default class Article extends Component {
   render() {
     const { location, article } = this.props;
     return (
-      // TODO
-      <div style={{ minHeight: 'calc(100% - 40px)' }}>
+      <div>
         <Helmet title={article.title} />
+        <PageTitle title={article.title} />
         <ArticleComponent article={article} />
         {article.markdown ? <ShareToolbar
           message={document.title}

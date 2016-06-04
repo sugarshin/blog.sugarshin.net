@@ -1,6 +1,10 @@
 @import '../../stylus/media-query'
 @import '../../stylus/variables'
 
+// TODO
+$main-min-height-buffer = $header-height + $footer-height + $footer-margin-top + 13px
+$main-min-height = 'calc(100% - %s)' % ($main-min-height-buffer)
+
 .root
   &::after
     content ''
@@ -20,6 +24,16 @@
     @media $mq-large
       width 640px // @stylint ignore
       height 640px // @stylint ignore
+.content
+  -webkit-overflow-scrolling touch
+.sidebar
+  min-width 240px
+  max-width 320px
+  width 36%
+  background-color #fcfcfc
+  border-left 1px solid #f3f3f3
+  padding 16px
+  -webkit-overflow-scrolling touch
 .header
   height $header-height
   line-height 1
@@ -41,21 +55,13 @@
     width $header-height
     height $header-height
     padding 0
-.sidebar
-  min-width 240px
-  max-width 320px
-  width 36%
-  background-color #fcfcfc
-  border-left 1px solid #f3f3f3
-  padding 16px
-  -webkit-overflow-scrolling touch
-.content
-  -webkit-overflow-scrolling touch
+.main
+  min-height $main-min-height
 .footer
   border-top 1px solid #f3f3f3
-  height 40px
-  line-height 40px
+  height $footer-height
+  line-height $footer-height
   text-align center
-  margin-top 32px
+  margin-top $footer-margin-top
   small
     vertical-align middle

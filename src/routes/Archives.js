@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import PageTitle from 'components/PageTitle';
 import Articles from 'components/Articles';
 
 export default function Archives(props) {
@@ -7,6 +8,7 @@ export default function Archives(props) {
   return (
     <div>
       <Helmet title={`${date} | Archives`} />
+      <PageTitle title={`Entries from ${date}`} />
                                                         {/*TODO*/}
       <Articles articles={props.articles.archives[date] || []} />
     </div>
