@@ -9,7 +9,7 @@ https://log.sugarshin.net
 ## Add new article
 
 ```
-npm run na --name example-article-title
+npm run na -- --name example-article-url
 ```
 
 ## Deploy
