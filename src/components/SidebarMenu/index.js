@@ -45,8 +45,8 @@ export default class SidebarMenu extends Component {
           {this._renderLinks()}
         </SidebarMenuGroup>
         <div>
-          <a href='https://travis-ci.org/sugarshin/log.sugarshin.net'>
-            <img src='http://img.shields.io/travis/sugarshin/log.sugarshin.net/master.svg?branch=master&style=flat-square' />
+          <a href='//travis-ci.org/sugarshin/log.sugarshin.net'>
+            <img src='//img.shields.io/travis/sugarshin/log.sugarshin.net/master.svg?branch=master&style=flat-square' />
           </a>
         </div>
       </div>
