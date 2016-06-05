@@ -1,21 +1,30 @@
-// TODO Change to sync aproch code design
+// TODO Change code design to sync aproch
 const fs = require('fs');
 const path = require('path');
 const truncate = require('lodash/truncate');
 const yaml = require('js-yaml');
-const recursive  = require('recursive-readdir');
+// const recursive  = require('recursive-readdir');
 const removeMarkdown = require('remove-markdown');
 const argv = require('minimist')(process.argv.slice(2));
 const writeFilePromisify = require('./helpers/writeFilePromisify');
 
-const recursivePromisify = (dirPath, ignores) => {
+const readdirPromisify = dirPath => {
   return new Promise((resolve, reject) => {
-    recursive(dirPath, ignores, (err, files) => {
+    fs.readdir(dirPath, (err, files) => {
       if (err) reject(err);
       resolve(files);
     });
   });
 };
+
+// const recursivePromisify = (dirPath, ignores) => {
+//   return new Promise((resolve, reject) => {
+//     recursive(dirPath, ignores, (err, files) => {
+//       if (err) reject(err);
+//       resolve(files);
+//     });
+//   });
+// };
 
 const readFilePromisify = filePath => {
   return new Promise((resolve, reject) => {
@@ -45,7 +54,11 @@ const readFileWithFilePath = filePath => {
 const srcDir = argv.s || argv.src || './articles';
 const outDir = argv.o || argv.out || './';
 Promise.resolve(srcDir)
-  .then(dirPath => recursivePromisify(dirPath, ['*.json']))
+  //                                                         // TODO ignore assets dir
+  // .then(dirPath => recursivePromisify(dirPath, ['*.json', (file, stats) => stats.isDirectory()]))
+  .then(dirPath => readdirPromisify(dirPath))
+  .then(files => files.map(file => path.resolve(srcDir, file)))
+  .then(files => files.filter(file => /\.md$/.test(file)))
   .then(files => Promise.all(files.map(file => readFileWithFilePath(file))))
   .then(markdownWithFilePathList => Promise.all(markdownWithFilePathList.map(parseMarkdownYamlDataWithFilePathAndPreview)))
   .then(dataWithFilePathListAndPreivew => {

@@ -1,4 +1,5 @@
 const argv = require('minimist')(process.argv.slice(2));
+const mkdirp = require('mkdirp');
 const moment = require('moment');
 const writeFilePromisify = require('./helpers/writeFilePromisify');
 
@@ -20,3 +21,7 @@ const head = [
 ].join('\n');
 
 writeFilePromisify(`articles/${d.format('YYYY-MM-DD')}_${name}.md`, head);
+
+const imageDir = `articles/assets/images/${d.format('YYYY/MM/DD')}/${name}`;
+mkdirp.sync(imageDir);
+console.log(`Created ${imageDir} !`);
