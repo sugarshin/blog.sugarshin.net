@@ -4,6 +4,7 @@ import PageTitle from 'components/PageTitle';
 import ArticleComponent from 'components/Article';
 import ShareToolbar from 'components/ShareToolbar';
 import Disqus from 'components/Disqus';
+import { siteName } from '../../config/settings';
 
 export default class Article extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class Article extends Component {
         <PageTitle title={article.title} />
         <ArticleComponent article={article} />
         {article.markdown ? <ShareToolbar
-          message={document.title}
+          message={`${article.title} | ${siteName}`}
           url={`${global.location.origin}${location.pathname}`}
         /> : null}
         {article.markdown ? (
