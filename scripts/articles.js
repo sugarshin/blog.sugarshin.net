@@ -1,3 +1,4 @@
+// TODO Change to sync aproch code design
 const fs = require('fs');
 const path = require('path');
 const truncate = require('lodash/truncate');
@@ -54,7 +55,8 @@ Promise.resolve(srcDir)
         url: filePath.split('_')[1].replace('.md', ''),
         preview
       }))
-      .filter(data => data.public === true); // true, 'draft', false
+      .filter(data => data.public === true) // true, 'draft', false
+      .sort((a, b) => new Date(b.date) - new Date(a.date)); // Descending sort
   })
   .then(data => writeFilePromisify(path.resolve(outDir, 'index.json'), JSON.stringify(data)))
   .catch(err => console.log('Error `scripts/articles`: \n', err));

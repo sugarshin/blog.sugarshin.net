@@ -13,7 +13,7 @@ export default function articles(state = initialState, action) {
   };
 
   case types.RECEIVE_ARTICLES: {
-    const items = action.items.reverse();
+    const items = action.items;
     return {
       ...state,
       items,
@@ -49,5 +49,5 @@ function _createArchives(items) {
 
 function _createTags(items) {
   return items.reduce((tags, item) => uniq([...tags, ...item.tags]), [])
-    .sort((a, b) => a === b ? 0 : (a > b ? 1 : -1));
+    .sort((a, b) => a === b ? 0 : (a > b ? 1 : -1)); // 雑
 }
