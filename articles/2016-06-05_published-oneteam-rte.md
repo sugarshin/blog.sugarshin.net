@@ -80,7 +80,7 @@ https://github.com/oneteam-dev/draft-js-export-html/tree/oneteam
 
 PR 大歓迎です
 
-また、 [@ngs](https://ngs.io/) 氏もコントリビュートしてださっています
+また、 [@ngs](https://ngs.io/) 氏もコントリビュートしてくださっています
 
 @ngs 氏が Swift 版も公開していますのでそちらも要チェックです
 
