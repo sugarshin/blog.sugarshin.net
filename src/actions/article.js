@@ -1,4 +1,5 @@
-import types from '../constants/ActionTypes';
+import Articles from 'apis/Articles';
+import types from 'constants/ActionTypes';
 
 function hasObjectKey(object, key) {
   return Object.keys(object).some(k => k === key);
@@ -21,12 +22,12 @@ function shouldUseCachedArticle(state, url) {
 export function fetchArticleIfNeeded(url) {
   return (dispatch, getState) => {
     const state = getState().article;
-    if (!shouldUseCachedArticle(state, url)) {
+    if (shouldUseCachedArticle(state, url)) {
+      return dispatch(useCachedArticle(url));
+    } else {
       if (shouldFetchArticle(state)) {
         return dispatch(fetchArticle(url));
       }
-    } else {
-      return dispatch(useCachedArticle(url));
     }
   };
 }
@@ -55,9 +56,9 @@ function requestErrorArticle({ error, url }) {
 function fetchArticle(url) {
   return dispatch => {
     dispatch(requestArticle());
-    return fetch(url)
-      .then(res => res.text())
-      .then(markdown => dispatch(receiveArticle({ markdown, url })))
+    return Articles.get(url)
+      .then(res => res.json())
+      .then(({ content }) => dispatch(receiveArticle({ markdown: _atob(content), url })))
       .catch(error =>  dispatch(requestErrorArticle({ error, url })));
   };
 }
@@ -67,4 +68,8 @@ function shouldFetchArticle(state) {
     return false;
   }
   return true;
+}
+
+function _atob(value) {
+  return decodeURIComponent(escape(atob(value)));
 }

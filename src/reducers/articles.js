@@ -4,7 +4,6 @@ import { articles as initialState } from '../constants/initialState';
 
 export default function articles(state = initialState, action) {
   switch (action.type) {
-
   case types.REQUEST_ARTICLES: return {
     ...state,
     isFetching: true,
@@ -34,7 +33,6 @@ export default function articles(state = initialState, action) {
   };
 
   default: return state;
-
   }
 }
 

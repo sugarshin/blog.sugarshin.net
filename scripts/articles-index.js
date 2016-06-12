@@ -1,4 +1,5 @@
 // TODO Change code design to sync aproch
+// I want using GitHub API
 const fs = require('fs');
 const path = require('path');
 const truncate = require('lodash/truncate');

@@ -1,4 +1,4 @@
-import types from '../constants/ActionTypes';
+import types from 'constants/ActionTypes';
 
 export function fetchArticlesIfNeeded() {
   return (dispatch, getState) => {
@@ -30,7 +30,7 @@ function requestErrorArticles(error) {
 function fetchArticles() {
   return dispatch => {
     dispatch(requestArticles());
-    return fetch('/_articles/index.json')
+    return fetch('/index.json')
       .then(res => res.json())
       .then(articles => dispatch(receiveArticles(articles)))
       .catch(err =>  dispatch(requestErrorArticles(err)));

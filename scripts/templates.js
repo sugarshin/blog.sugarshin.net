@@ -9,7 +9,7 @@ const { protocol, domain, siteName, description } = require('../config/settings'
 
 const outDir = argv.o || argv.out || 'build'; // TODO
 const src = './src/template/index.pug';
-const articlesJSON = fs.readFileSync(`./${outDir}/_articles/index.json`, { encoding: 'utf8' });
+const articlesJSON = fs.readFileSync(`./${outDir}/index.json`, { encoding: 'utf8' });
 const articles = JSON.parse(articlesJSON);
 const faviconsHTML = JSON.parse(fs.readFileSync('./favicons.html.tmp', { encoding: 'utf8' }));
 const baseOpts = {
@@ -21,7 +21,7 @@ const baseOpts = {
 
 // TODO separate this task
 const sitemap = Sitemap.createSitemap({
-  hostname: `${protocol}${domain}`,
+  hostname: `${protocol}//${domain}`,
   cacheTime: 600000
 });
 
@@ -30,7 +30,7 @@ const sitemap = Sitemap.createSitemap({
   const html = pug.renderFile(src, Object.assign({}, baseOpts, { top: true }));
   fs.writeFileSync(`./${outDir}/index.html`, html, { encoding: 'utf8' });
 
-  sitemap.add({ url: `${protocol}${domain}/`, priority: 1 });
+  sitemap.add({ url: `${protocol}//${domain}/`, priority: 1 });
 }
 
 // Articles

@@ -1,15 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
+const { author, name } = require('../package.json');
 
-const production = process.env.NODE_ENV === 'production';
+const { NODE_ENV } = process.env;
+const production = NODE_ENV === 'production';
 const localIdentName = production ? '[hash:base64:32]' : '[path][name]__[local]___[hash:base64:8]';
 const cssModules = `modules&importLoaders=1&localIdentName=${localIdentName}`;
 const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}`;
 const buildDev = 'build-dev';
 const buildDir = production ? 'build' : buildDev;
+const API_BASE = production ? `https://api.github.com/repos/${author}/${name}` : '';
 const plugins = [
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    'process.env': {
+      NODE_ENV: JSON.stringify(NODE_ENV),
+      API_BASE: JSON.stringify(API_BASE)
+    }
   })
 ];
 const entry = ['babel-polyfill', './src/index.js'];
@@ -55,7 +61,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
-        query: { presets: ['es2015', 'stage-2', 'react'] }
+        query: { presets: ['es2015', 'stage-2', 'react'], plugins: ['transform-decorators-legacy'] }
       },
       {
         test: /\.styl$/,
