@@ -64,7 +64,7 @@
     "redux-infinite-scroll": "~1.0.9",
     "redux-search": "~2.1.0",
     "redux-thunk": "~2.1.0",
-    "remark": "~4.2.2",
+    "remark": "~5.0.1",
     "remark-highlight.js": "~3.1.0",
     "remark-html": "~3.0.0",
     "remark-react": "~2.1.0",
