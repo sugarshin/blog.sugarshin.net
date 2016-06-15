@@ -1,6 +1,5 @@
 // Mock GitHub API, GET: /contents
 const fs = require('fs');
-const path = require('path');
 const argv = require('minimist')(process.argv.slice(2));
 const mkdirp = require('mkdirp');
 const btoa = require('btoa');
