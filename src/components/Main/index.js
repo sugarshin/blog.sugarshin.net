@@ -2,7 +2,7 @@ import React, { Component, Children, cloneElement } from 'react';
 import Octicon from 'react-octicon';
 import Button from 'react-bootstrap/lib/Button';
 import Sidebar from 'react-sidebar';
-import { Link } from 'react-router';
+import Link from 'react-router/lib/Link';
 import Icon from 'react-fa';
 import SidebarMenu from 'components/SidebarMenu';
 import LoadingSpinner from 'components/LoadingSpinner';

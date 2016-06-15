@@ -1,4 +1,4 @@
-import types from '../constants/ActionTypes';
+import types from 'constants/ActionTypes';
 
 export function toggleSidebar(open) {
   return (dispatch, getState) => {

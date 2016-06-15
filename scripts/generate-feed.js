@@ -5,7 +5,7 @@ const {
 } = require('../config/settings');
 
 const OUT_DIR = 'build';
-const articlesJSON = fs.readFileSync(`./${OUT_DIR}/_articles/index.json`, { encoding: 'utf8' });
+const articlesJSON = fs.readFileSync(`./${OUT_DIR}/index.json`, { encoding: 'utf8' });
 const articles = JSON.parse(articlesJSON);
 
 const author = {
@@ -15,7 +15,7 @@ const author = {
 };
 const HR = '---';
 
-const link = `${protocol}${domain}`;
+const link = `${protocol}//${domain}`;
 const feed = new Feed({
   id: link,
   title: siteName,
@@ -32,7 +32,7 @@ articles.forEach(article => {
     rows.reduce((result, row, i) => row === HR ? [...result, i] : result, []);
 
   const title = article.title;
-  const link = `${protocol}${domain}/${article.date.split(' ')[0].replace(/-/g, '/')}/${article.url}/`;
+  const link = `${protocol}//${domain}/${article.date.split(' ')[0].replace(/-/g, '/')}/${article.url}/`;
   const description = rows.slice(secondLinesIndex + 1, secondLinesIndex + 5).join('');
   const date = new Date(article.date);
 

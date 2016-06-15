@@ -41,6 +41,6 @@ export default class Article extends Component {
   }
   _fetchArticleIfNeeded(params) {
     const { year, month, day, title } = params;
-    this.props.actions.fetchArticleIfNeeded(`/_articles/${year}-${month}-${day}_${title}.md`);
+    this.props.actions.fetchArticleIfNeeded(`${year}-${month}-${day}_${title}.md`);
   }
 }

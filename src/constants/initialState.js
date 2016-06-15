@@ -31,3 +31,11 @@ export const sidebar = {
   open: false,
   docked: false
 };
+
+export const searchResults = {
+  totalCount: 0,
+  isFetching: false,
+  incomplete: false,
+  items: [],
+  error: null
+};

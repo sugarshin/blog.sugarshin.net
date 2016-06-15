@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-fa';
-import { Link } from 'react-router';
+import Link from 'react-router/lib/Link';
 import styles from './index.styl';
 
 export default function ArticleItem({ article }) {
