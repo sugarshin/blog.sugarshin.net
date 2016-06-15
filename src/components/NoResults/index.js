@@ -6,7 +6,7 @@ export default function NoResults() {
   return (
     <div className={styles.wrapper}>
       <Octicon name='circle-slash' className={styles.icon} />
-      <div>No results...</div>
+      <p>No results...</p>
     </div>
   );
 }
