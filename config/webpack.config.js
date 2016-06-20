@@ -40,7 +40,7 @@ module.exports = {
   },
   display: { errorDetails: true },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.json'],
     modulesDirectories: ['web_modules', 'node_modules', 'src']
   },
   module: {
