@@ -18,7 +18,7 @@ const plugins = [
     }
   })
 ];
-let entry = ['babel-polyfill', './src/index.js'];
+const entry = ['babel-polyfill', './src/index.js'];
 if (production) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }));
 } else {

@@ -13,7 +13,7 @@ export default class Main extends Component {
   constructor(props) {
     super(props);
 
-    //                                                     TODO this.props
+    //                               TODO: move to this.props
     //                                                      ＼
     this._matchMedia = global.matchMedia ? global.matchMedia('screen and (min-width: 769px)') : null;
     this.handleChangeMediaQuery = ev => this._handleChangeMediaQuery(ev);
