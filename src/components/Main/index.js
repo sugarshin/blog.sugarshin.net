@@ -9,14 +9,13 @@ import LoadingSpinner from 'components/LoadingSpinner';
 import settings from '../../../config/settings';
 import styles from './index.styl';
 
-const _matchMedia = global.matchMedia ? global.matchMedia('screen and (min-width: 769px)') : null;
-
 export default class Main extends Component {
-  get _matchMedia() {
-    return _matchMedia;
-  }
   constructor(props) {
     super(props);
+
+    //                               TODO: move to this.props
+    //                                                      ＼
+    this._matchMedia = global.matchMedia ? global.matchMedia('screen and (min-width: 769px)') : null;
     this.handleChangeMediaQuery = ev => this._handleChangeMediaQuery(ev);
   }
   componentDidMount() {

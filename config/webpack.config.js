@@ -23,9 +23,9 @@ if (production) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }));
 } else {
   plugins.push(new webpack.HotModuleReplacementPlugin());
-  entry.push(
+  entry.unshift(
     'webpack-dev-server/client?http://localhost:8003',
-    'webpack/hot/dev-server'
+    'webpack/hot/only-dev-server'
   );
 }
 
@@ -48,7 +48,7 @@ module.exports = {
       {
         test: /\.styl$/,
         loader: 'stylint',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.jsx?$/,
@@ -60,8 +60,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: { presets: ['es2015', 'stage-2', 'react'], plugins: ['transform-decorators-legacy'] }
+        loaders: ['react-hot', 'babel']
       },
       {
         test: /\.styl$/,
