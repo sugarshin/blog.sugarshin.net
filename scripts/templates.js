@@ -28,7 +28,7 @@ const baseOpts = {
 articles.forEach(article => {
   const md = fs.readFileSync(`./articles/${article.date.split(' ')[0]}_${article.url}.md`, { encoding: 'utf8' });
   const content = remarkRenderer.process(md);
-  const html = pug.renderFile(src, Object.assign({}, baseOpts, { content }));
+  const html = pug.renderFile(src, Object.assign({}, baseOpts, { content, description: content.slice(0, 100) }));
   const [year, month, day] = article.date.split(' ')[0].split('-');
   const url = `/${year}/${month}/${day}/${article.url}/`
   mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
@@ -41,7 +41,7 @@ const dates = articles.reduce((result, a) => {
   return result.includes(d) ? result : [...result, d];
 }, []);
 dates.forEach(date => {
-  const html = pug.renderFile(src, baseOpts);
+  const html = pug.renderFile(src, Object.assign({}, baseOpts, { description: `Archives | ${date} | ${baseOpts.description}` }));
   const url = `/archives/${date}/`;
   mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
   fs.writeFileSync(`./${outDir}${url}index.html`, html, { encoding: 'utf8' });
@@ -52,7 +52,7 @@ const tags = articles.reduce((result, a) => {
   return uniq([...result, ...a.tags.map(t => t.replace(/\s/, '_'))]);
 }, []);
 tags.forEach(tag => {
-  const html = pug.renderFile(src, baseOpts);
+  const html = pug.renderFile(src, Object.assign({}, baseOpts, { description: `Tags | ${tag} | ${baseOpts.description}` }));
   const url = `/tags/${tag}/`;
   mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
   fs.writeFileSync(`./${outDir}${url}index.html`, html, { encoding: 'utf8' });
