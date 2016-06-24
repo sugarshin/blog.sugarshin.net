@@ -56,7 +56,7 @@
     "react-keydown": "~1.6.1",
     "react-octicon": "~2.0.0",
     "react-redux": "~4.4.5",
-    "react-router": "~2.4.0",
+    "react-router": "~2.5.1",
     "react-router-bootstrap": "~0.23.0",
     "react-router-redux": "~4.0.4",
     "react-sidebar": "github:sugarshin/react-sidebar#65c0d28c33d3db3093fe3f75084cbd55d0420b16",
