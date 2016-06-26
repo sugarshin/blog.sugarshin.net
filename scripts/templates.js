@@ -27,7 +27,7 @@ const baseOpts = {
 // Articles
 articles.forEach(article => {
   const md = fs.readFileSync(`./articles/${article.date.split(' ')[0]}_${article.url}.md`, { encoding: 'utf8' });
-  const content = remarkRenderer.process(md);
+  const content = remarkRenderer.process(md).contents;
   const html = pug.renderFile(src, Object.assign({}, baseOpts, { content, description: content.slice(0, 100) }));
   const [year, month, day] = article.date.split(' ')[0].split('-');
   const url = `/${year}/${month}/${day}/${article.url}/`

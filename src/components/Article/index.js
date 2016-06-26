@@ -9,7 +9,7 @@ export default function Article(props) {
   return props.article.markdown ? (
     // eslint-disable-next-line react/no-danger
     <div className={classnames('markdown-body', styles.body)} dangerouslySetInnerHTML={{
-      __html: remarkRenderer.process(props.article.markdown)
+      __html: remarkRenderer.process(props.article.markdown).contents
     }}></div>
   ) : <LoadingSpinner />;
 }

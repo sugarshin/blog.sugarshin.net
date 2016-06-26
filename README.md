@@ -2,7 +2,6 @@
 
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][david-image]][david-url]
-[![Devdependency Status][david-dev-image]][david-dev-url]
 
 https://log.sugarshin.net
 
@@ -42,5 +41,3 @@ NODE_ENV=production npm run build
 [travis-url]: https://travis-ci.org/sugarshin/log.sugarshin.net
 [david-image]: https://david-dm.org/sugarshin/log.sugarshin.net.svg?style=flat-square
 [david-url]: https://david-dm.org/sugarshin/log.sugarshin.net
-[david-dev-image]: https://david-dm.org/sugarshin/log.sugarshin.net/dev-status.svg?style=flat-square
-[david-dev-url]: https://david-dm.org/sugarshin/log.sugarshin.net#info=devDependencies
