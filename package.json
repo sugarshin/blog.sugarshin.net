@@ -81,7 +81,7 @@
     "mirror-key-value": "~1.0.5",
     "mkdirp": "~0.5.1",
     "mocha": "~2.5.3",
-    "moment": "~2.13.0",
+    "moment": "~2.14.1",
     "npm-run-all": "~2.2.0",
     "postcss-flexbugs-fixes": "~2.0.0",
     "postcss-loader": "~0.9.1",
