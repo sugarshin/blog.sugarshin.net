@@ -3,7 +3,13 @@ title: リッチテキストエディタ oneteam-rte を公開しました
 date: 2016-06-05 10:44
 public: true
 tags: javascript, draft.js, oneteam-rte, react.js
+ogp:
+  og:
+    image:
+      src: https://log.sugarshin.net/assets/images/2016/06/05/published-oneteam-rte/main.png
 ---
+
+![Main](/assets/images/2016/06/05/published-oneteam-rte/main.png)
 
 リッチテキストエディタ用の React コンポーネントを公開しました
 

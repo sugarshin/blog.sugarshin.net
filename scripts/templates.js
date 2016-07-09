@@ -1,9 +1,11 @@
 const fs = require('fs');
 const pug = require('pug');
 const mkdirp = require('mkdirp');
+const yaml = require('js-yaml');
 const uniq = require('lodash/uniq');
 const remarkRenderer = require('../universal/remarkRenderer');
 const argv = require('minimist')(process.argv.slice(2));
+const sliceYAMLConfig = require('../universal/sliceYAMLConfig');
 const { siteName, description } = require('../config/settings');
 
 const outDir = argv.o || argv.out || 'build'; // TODO
@@ -28,7 +30,15 @@ const baseOpts = {
 articles.forEach(article => {
   const md = fs.readFileSync(`./articles/${article.date.split(' ')[0]}_${article.url}.md`, { encoding: 'utf8' });
   const content = remarkRenderer.process(md).contents;
-  const html = pug.renderFile(src, Object.assign({}, baseOpts, { content, description: content.slice(0, 100) }));
+  const yamlConfig = yaml.safeLoad(sliceYAMLConfig(md));
+  const html = pug.renderFile(src, Object.assign({}, baseOpts, {
+    content,
+    description: content.slice(0, 100),
+    favicons: faviconsHTML.map(h =>
+      /twitter\:image|og\:image/.test(h) ?
+      h.replace(/content=".+"/, `content="${yamlConfig.ogp.og.image.src}"`) : h
+    )
+  }));
   const [year, month, day] = article.date.split(' ')[0].split('-');
   const url = `/${year}/${month}/${day}/${article.url}/`
   mkdirp.sync(`./${outDir}${url.replace(/\/$/, '')}`);
