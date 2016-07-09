@@ -37,7 +37,6 @@ const header = [
   '',
   `![Main](${ogImageContent.replace(origin, '')})`,
   '',
-  HR,
   ''
 ].join('\n');
 
