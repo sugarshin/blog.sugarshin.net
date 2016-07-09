@@ -11,6 +11,8 @@ ogp:
 
 ![Main](/assets/images/2016/06/05/published-oneteam-rte/main.png)
 
+---
+
 リッチテキストエディタ用の React コンポーネントを公開しました
 
 GitHub: https://github.com/oneteam-dev/oneteam-rte
