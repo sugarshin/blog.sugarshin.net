@@ -121,7 +121,7 @@
     "remark-slug": "~4.2.0",
     "remark-yaml-config": "~3.0.2",
     "remove-markdown": "~0.1.0",
-    "sitemap": "~1.6.0",
+    "sitemap": "~1.8.0",
     "style-loader": "~0.13.1",
     "stylint": "~1.5.3",
     "stylint-loader": "~1.0.0",
