@@ -21,7 +21,7 @@ ogp:
 
 https://github.com/sugarshin/log.sugarshin.net
 
-Redux 周りを最近触っていなかったので久しぶりに触りたかったというのも理由付けの一つです。
+Redux 周りを最近触っていなかったので久しぶりに触りたかったというのも理由付けの1つです。
 
 主な利用ツールは以下です。
 
@@ -141,7 +141,7 @@ webpack はやれることも多くドキュメントも貧弱ですが、これ
 また、 CSS Modules は css-loader で実現しています。
 
 ```js
-const production = NODE_ENV === 'production';
+const production = process.env.NODE_ENV === 'production';
 const localIdentName = production ? '[hash:base64:32]' : '[path][name]__[local]___[hash:base64:8]';
 const cssModules = `modules&importLoaders=1&localIdentName=${localIdentName}`;
 const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}`;
