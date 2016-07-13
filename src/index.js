@@ -1,6 +1,7 @@
 import 'whatwg-fetch';
 import 'bootswatch/cosmo/bootstrap.css'
 import 'highlight.js/styles/github.css'
+import 'stylus/index.styl';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from 'containers/Root';
