@@ -130,7 +130,11 @@ describe('Article suite', () => {
 
 テスト周りは Mocha, power-assert, babel-preset-power-assert, なこちらも定番な感じす。
 
+<!-- textlint-disable -->
+
 が、まだテストはほとんど書けてません。。
+
+<!-- textlint-enable -->
 
 ## webpack
 
@@ -140,6 +144,8 @@ webpack はやれることも多くドキュメントも貧弱ですが、これ
 
 また、 CSS Modules は css-loader で実現しています。
 
+<!-- textlint-disable -->
+
 ```js
 const production = process.env.NODE_ENV === 'production';
 const localIdentName = production ? '[hash:base64:32]' : '[path][name]__[local]___[hash:base64:8]';
@@ -147,9 +153,13 @@ const cssModules = `modules&importLoaders=1&localIdentName=${localIdentName}`;
 const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}`;
 ```
 
+<!-- textlint-enable -->
+
 コンポーネントを意識した構成にさえしていれば、ある程度雑に CSS を書いても大丈夫ですし、面倒な class 名の命名に悩む必要もないのでとっても気に入っています。
 
 Stylus で書いて PostCSS でポストプロセスしつつ最終的に style-loader でインライン化しています。
+
+<!-- textlint-disable -->
 
 ```js
 {
@@ -157,6 +167,8 @@ Stylus で書いて PostCSS でポストプロセスしつつ最終的に style-
   loaders: ['style', cssLoader, 'postcss', 'stylus']
 }
 ```
+
+<!-- textlint-enable -->
 
 CSS ファイルの管理を意識しなくていいので楽です。
 
@@ -176,8 +188,35 @@ CSS ファイルの管理を意識しなくていいので楽です。
 
 ```json
 {
+  "filters": {
+    "comments": true
+  },
   "rules": {
-    "preset-ja-technical-writing": true,
+    "sentence-length": {
+      "max": 140
+    },
+    "max-comma": {
+      "max": 3
+    },
+    "max-ten": {
+      "max": 3
+    },
+    "max-kanji-continuous-len": {
+      "max": 5
+    },
+    "no-mix-dearu-desumasu": {
+      "preferInHeader": "",
+      "preferInBody": "ですます",
+      "preferInList": "である",
+      "strict": true
+    },
+    "no-double-negative-ja": true,
+    "no-dropping-the-ra": true,
+    "no-doubled-conjunctive-particle-ga": true,
+    "no-hankaku-kana": true,
+    "ja-no-successive-word": true,
+    "ja-no-abusage": true,
+    "preset-jtf-style": true,
     "eslint": {
       "configFile": ".eslintrc"
     }
@@ -197,7 +236,11 @@ CSS ファイルの管理を意識しなくていいので楽です。
 
 なので、 SEO のためにも各記事ごとに静的ファイルを用意しないといけないのですが、
 
+<!-- textlint-disable -->
+
 当初は `ReactDOMServer.renderToStaticMarkup` でビルド時に、サーバーサイドレンダリングライクな感じで吐いて、レンダリング済みの DOM とスムーズに連携できる予定でしたがうまくいかず。。
+
+<!-- textlint-enable -->
 
 結局、 [Pug](https://github.com/pugjs/pug) で各ページ分、内容を雑にレンダリングして内容部分は `style="display: none;"` しつつ生成するようにしています。笑
 

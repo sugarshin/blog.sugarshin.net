@@ -1,6 +1,33 @@
 {
+  "filters": {
+    "comments": true
+  },
   "rules": {
-    "preset-ja-technical-writing": true,
+    "sentence-length": {
+      "max": 140
+    },
+    "max-comma": {
+      "max": 3
+    },
+    "max-ten": {
+      "max": 3
+    },
+    "max-kanji-continuous-len": {
+      "max": 5
+    },
+    "no-mix-dearu-desumasu": {
+      "preferInHeader": "",
+      "preferInBody": "ですます",
+      "preferInList": "である",
+      "strict": true
+    },
+    "no-double-negative-ja": true,
+    "no-dropping-the-ra": true,
+    "no-doubled-conjunctive-particle-ga": true,
+    "no-hankaku-kana": true,
+    "ja-no-successive-word": true,
+    "ja-no-abusage": true,
+    "preset-jtf-style": true,
     "eslint": {
       "configFile": ".eslintrc"
     }
