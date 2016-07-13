@@ -20,7 +20,7 @@ const ogp = yaml.safeDump({
   ogp: {
     og: {
       image: {
-        content: ogImageContent
+        src: ogImageContent
       }
     }
   }
