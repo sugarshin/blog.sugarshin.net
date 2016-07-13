@@ -4,6 +4,7 @@ const mkdirp = require('mkdirp');
 const yaml = require('js-yaml');
 const uniq = require('lodash/uniq');
 const remarkRenderer = require('../universal/remarkRenderer');
+const removeMarkdown = require('remove-markdown');
 const argv = require('minimist')(process.argv.slice(2));
 const sliceYAMLConfig = require('../universal/sliceYAMLConfig');
 const { siteName, description } = require('../config/settings');
@@ -33,7 +34,8 @@ articles.forEach(article => {
   const yamlConfig = yaml.safeLoad(sliceYAMLConfig(md));
   const html = pug.renderFile(src, Object.assign({}, baseOpts, {
     content,
-    description: content.slice(0, 100),
+    title: `${yamlConfig.title} | ${siteName}`,
+    description: removeMarkdown(md).slice(0, 140),
     favicons: faviconsHTML.map(h =>
       /twitter\:image|og\:image/.test(h) ?
       h.replace(/content=".+"/, `content="${yamlConfig.ogp.og.image.src}"`) : h
