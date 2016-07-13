@@ -238,7 +238,7 @@ CSS ファイルの管理を意識しなくていいので楽です。
 
 <!-- textlint-disable -->
 
-当初は `ReactDOMServer.renderToStaticMarkup` でビルド時に、サーバーサイドレンダリングライクな感じで吐いて、レンダリング済みの DOM とスムーズに連携できる予定でしたがうまくいかず。。
+当初は `ReactDOMServer.renderToString` でビルド時に、サーバーサイドレンダリングライクな感じで吐いて、クライアントでレンダリング済みの DOM と React がスムーズに連携できる予定でしたがうまくいかず。。
 
 <!-- textlint-enable -->
 
@@ -265,6 +265,6 @@ OSS のリポジトリだと無料で利用できるので、他の自分の OSS
 ## TODOs
 
 - テストをかく
-- `ReactDOMServer.renderToStaticMarkup` でスマートにしたい
+- `ReactDOMServer.renderToString` でスマートにしたい
 - SEO をもう少しがんばる
 - もろもろ整理、パッケージにして OSS 化（React static blog generator ?）したい
