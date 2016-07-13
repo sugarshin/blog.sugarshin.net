@@ -6,7 +6,7 @@ tags: react.js, redux, javascript, software development
 ogp:
   og:
     image:
-      content: https://log.sugarshin.net/assets/images/2016/07/14/blog-like-software-development/main.png
+      src: https://log.sugarshin.net/assets/images/2016/07/14/blog-like-software-development/main.png
 ---
 
 ![Main](/assets/images/2016/07/14/blog-like-software-development/main.png)
