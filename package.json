@@ -14,7 +14,7 @@
     "dev-articles": "node scripts/dev-articles",
     "articles-index:dev": "node scripts/articles-index --out=build-dev",
     "pug:dev": "pug -o build-dev -P -O '{\"title\": \"log\", \"lang\": \"ja\"}' -w src/template/index.pug",
-    "dev-server": "webpack-dev-server --config config/webpack.config.js --hot --port 8003 --host 0.0.0.0 --progress",
+    "dev-server": "webpack-dev-server --config config/webpack.config.js --progress",
     "lint:js": "eslint src",
     "lint:styl": "stylint src",
     "lint:md": "textlint articles/*.md",
