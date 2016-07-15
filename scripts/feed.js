@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Feed = require('feed');
+const removeMarkdown = require('remove-markdown');
 const {
   domain, protocol, siteName, copyright, description, authorName, authorEmail, authorURL
 } = require('../config/settings');
@@ -28,12 +29,11 @@ const feed = new Feed({
 articles.forEach(article => {
   const md = fs.readFileSync(`./articles/${article.date.split(' ')[0]}_${article.url}.md`, { encoding: 'utf8' });
   const rows = md.split('\n');
-  const [firstLineIndex, secondLinesIndex] =
-    rows.reduce((result, row, i) => row === HR ? [...result, i] : result, []);
+  const lineIndexes = rows.reduce((result, row, i) => row === HR ? [...result, i] : result, []);
 
   const title = article.title;
   const link = `${protocol}//${domain}/${article.date.split(' ')[0].replace(/-/g, '/')}/${article.url}/`;
-  const description = rows.slice(secondLinesIndex + 1, secondLinesIndex + 5).join('');
+  const description = removeMarkdown(rows.slice(lineIndexes[1] + 2, lineIndexes[1] + 10).join('\n')).replace(/\n/g, '');
   const date = new Date(article.date);
 
   feed.addItem({ title, link, description, author: [author], date });
