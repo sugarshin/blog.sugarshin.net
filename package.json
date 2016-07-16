@@ -118,7 +118,7 @@
     "redux-thunk": "~2.1.0",
     "remark": "~5.0.1",
     "remark-highlight.js": "~3.1.1",
-    "remark-html": "3.0.1",
+    "remark-html": "5.0.0",
     "remark-slug": "~4.2.0",
     "remark-yaml-config": "~3.0.2",
     "remove-markdown": "~0.1.0",
