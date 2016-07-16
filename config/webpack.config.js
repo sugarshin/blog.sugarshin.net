@@ -10,6 +10,7 @@ const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}
 const buildDev = 'build-dev';
 const buildDir = production ? 'build' : buildDev;
 const API_BASE = production ? `https://api.github.com/repos/${author}/${name}` : '';
+const PORT = 8003;
 const plugins = [
   new webpack.DefinePlugin({
     'process.env': {
@@ -24,7 +25,7 @@ if (production) {
 } else {
   plugins.push(new webpack.HotModuleReplacementPlugin());
   entry.unshift(
-    'webpack-dev-server/client?http://localhost:8003',
+    `webpack-dev-server/client?http://localhost:${PORT}`,
     'webpack/hot/only-dev-server'
   );
 }
@@ -101,6 +102,8 @@ module.exports = {
     historyApiFallback: true,
     contentBase: `./${buildDev}`,
     hot: true,
-    publicPath: '/assets/'
+    publicPath: '/assets/',
+    host: '0.0.0.0',
+    port: PORT
   }
 };

@@ -27,7 +27,9 @@
     "no-hankaku-kana": true,
     "ja-no-successive-word": true,
     "ja-no-abusage": true,
-    "preset-jtf-style": true,
+    "preset-jtf-style": {
+      "3.1.1.全角文字と半角文字の間": false
+    },
     "eslint": {
       "configFile": ".eslintrc"
     }
