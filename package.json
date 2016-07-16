@@ -71,7 +71,7 @@
     "gh-pages": "~0.11.0",
     "github-markdown-css": "~2.3.0",
     "highlight.js": "~9.5.0",
-    "image-webpack-loader": "~1.8.0",
+    "image-webpack-loader": "~2.0.0",
     "imagemin": "~5.2.1",
     "imagemin-pngquant": "~5.0.0",
     "js-yaml": "~3.6.1",
