@@ -7,6 +7,7 @@ const remarkRenderer = require('../universal/remarkRenderer');
 const removeMarkdown = require('remove-markdown');
 const argv = require('minimist')(process.argv.slice(2));
 const sliceYAMLConfig = require('../universal/sliceYAMLConfig');
+const removeYAMLConfig = require('../universal/removeYAMLConfig');
 const { siteName, description } = require('../config/settings');
 
 const outDir = argv.o || argv.out || 'build'; // TODO
@@ -35,7 +36,7 @@ articles.forEach(article => {
   const html = pug.renderFile(src, Object.assign({}, baseOpts, {
     content,
     title: `${yamlConfig.title} | ${siteName}`,
-    description: removeMarkdown(md).slice(0, 140),
+    description: removeMarkdown(removeYAMLConfig(md)).replace(/\n/g, '').slice(0, 140),
     favicons: faviconsHTML.map(h =>
       /twitter\:image|og\:image/.test(h) ?
       h.replace(/content=".+"/, `content="${yamlConfig.ogp.og.image.src}"`) : h
