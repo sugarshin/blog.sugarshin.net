@@ -10,12 +10,14 @@ const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}
 const buildDev = 'build-dev';
 const buildDir = production ? 'build' : buildDev;
 const API_BASE = production ? `https://api.github.com/repos/${author}/${name}` : '';
+const SEGMENT_WRITE_KEY = production ? 'K0C4nouS0njLcqt5oX0qFLOhdbq3zFwH' : '';
 const PORT = 8003;
 const plugins = [
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(NODE_ENV),
-      API_BASE: JSON.stringify(API_BASE)
+      API_BASE: JSON.stringify(API_BASE),
+      SEGMENT_WRITE_KEY: JSON.stringify(SEGMENT_WRITE_KEY)
     }
   })
 ];
