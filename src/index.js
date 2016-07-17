@@ -9,12 +9,22 @@ import browserHistory from 'react-router/lib/browserHistory';
 import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from 'store/configureStore';
 import APIBase from 'apis/Base';
+import analytics from '../vendor/analytics';
 
-APIBase.baseURI = process.env.API_BASE;
-APIBase.ref = process.env.NODE_ENV === 'production' ? 'master' : null;
+const main = () => {
+  const production = process.env.NODE_ENV === 'production';
 
-const store = configureStore();
-const history = syncHistoryWithStore(browserHistory, store);
-history.listen(() => window.analytics.page());
+  if (production) analytics.load(process.env.SEGMENT_WRITE_KEY);
 
-ReactDOM.render(<Root store={store} history={history} />, document.querySelector('#app-root'));
+  APIBase.baseURI = process.env.API_BASE;
+  APIBase.ref = production ? 'master' : null;
+
+  const store = configureStore();
+  const history = syncHistoryWithStore(browserHistory, store);
+  const historyListener = production ? () => analytics.page() : () => {};
+  history.listen(historyListener);
+
+  ReactDOM.render(<Root store={store} history={history} />, document.querySelector('#app-root'));
+}
+
+main();
