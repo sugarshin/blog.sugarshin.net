@@ -15,5 +15,6 @@ APIBase.ref = process.env.NODE_ENV === 'production' ? 'master' : null;
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
+history.listen(() => window.analytics.page());
 
 ReactDOM.render(<Root store={store} history={history} />, document.querySelector('#app-root'));
