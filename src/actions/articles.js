@@ -21,10 +21,7 @@ function receiveArticles(items) {
 }
 
 function requestErrorArticles(error) {
-  return {
-    type: types.REQUEST_ERROR_ARTICLES,
-    error
-  };
+  return { type: types.REQUEST_ERROR_ARTICLES, error };
 }
 
 function fetchArticles() {
@@ -38,8 +35,5 @@ function fetchArticles() {
 }
 
 function shouldFetchArticles({ articles }) {
-  if (articles.isFetching || articles.isFetched) {
-    return false;
-  }
-  return true;
+  return !(articles.isFetching || articles.isFetched);
 }

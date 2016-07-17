@@ -29,8 +29,5 @@ function receiveSearchArticle(res) {
 }
 
 function requestErrorSearchArticle(error) {
-  return {
-    type: types.REQUEST_ERROR_SEARCH_ARTICLE,
-    error
-  };
+  return { type: types.REQUEST_ERROR_SEARCH_ARTICLE, error };
 }

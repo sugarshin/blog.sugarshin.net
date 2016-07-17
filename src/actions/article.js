@@ -6,17 +6,11 @@ function hasObjectKey(object, key) {
 }
 
 function useCachedArticle(url) {
-  return {
-    type: types.USE_CACHED_ARTICLE,
-    url
-  };
+  return { type: types.USE_CACHED_ARTICLE, url };
 }
 
 function shouldUseCachedArticle(state, url) {
-  if (hasObjectKey(state.cache, url)) {
-    return true;
-  }
-  return false;
+  return hasObjectKey(state.cache, url);
 }
 
 export function fetchArticleIfNeeded(url) {
@@ -46,11 +40,7 @@ function receiveArticle({ markdown, url }) {
 }
 
 function requestErrorArticle({ error, url }) {
-  return {
-    type: types.REQUEST_ERROR_ARTICLE,
-    url,
-    error
-  };
+  return { type: types.REQUEST_ERROR_ARTICLE, error, url };
 }
 
 function fetchArticle(url) {
@@ -64,13 +54,11 @@ function fetchArticle(url) {
 }
 
 function shouldFetchArticle(state) {
-  if (state.isFetching) {
-    return false;
-  }
-  return true;
+  return !state.isFetching;
 }
 
 function _atob(value) {
-                                              // http://stackoverflow.com/questions/14695988/dom-exception-5-invalid-character-error-on-valid-base64-image-string-in-javascri
+  // http://stackoverflow.com/questions/14695988/dom-exception-5-invalid-character-error-on-valid-base64-image-string-in-javascri
+  //                                        ＼
   return decodeURIComponent(escape(atob(value.replace(/\s/g, ''))));
 }
