@@ -3,7 +3,7 @@ const pug = require('pug');
 const mkdirp = require('mkdirp');
 const yaml = require('js-yaml');
 const uniq = require('lodash/uniq');
-const remarkRenderer = require('../universal/remarkRenderer');
+const markdownRenderer = require('../universal/markdownRenderer');
 const removeMarkdown = require('remove-markdown');
 const argv = require('minimist')(process.argv.slice(2));
 const sliceYAMLConfig = require('../universal/sliceYAMLConfig');
@@ -31,7 +31,7 @@ const baseOpts = {
 // Articles
 articles.forEach(article => {
   const md = fs.readFileSync(`./articles/${article.date.split(' ')[0]}_${article.url}.md`, { encoding: 'utf8' });
-  const content = remarkRenderer.process(md).contents;
+  const content = markdownRenderer.process(md).contents;
   const yamlConfig = yaml.safeLoad(sliceYAMLConfig(md));
   const html = pug.renderFile(src, Object.assign({}, baseOpts, {
     content,
