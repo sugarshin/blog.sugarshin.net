@@ -37,6 +37,12 @@ const header = [
   '',
   `![Main](${ogImageContent.replace(origin, '')})`,
   '',
+  '${Introductory paragraph...}',
+  '',
+  '## Table of Contents',
+  '',
+  '## ${First content heading}',
+  '',
   ''
 ].join('\n');
 
