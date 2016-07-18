@@ -5,7 +5,7 @@ CNAME=log.sugarshin.net
 
 npm run clean:build && \
 npm run webpack && \
-npm run cp:build && \
+node scripts/imagemin && \
 node scripts/articles-index -o build && \
 node scripts/dev-articles -o build/contents/articles && \
 node scripts/favicons && \
