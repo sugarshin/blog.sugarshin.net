@@ -23,6 +23,10 @@ https://github.com/sugarshin/log.sugarshin.net
 
 Redux 周りを最近触っていなかったので久しぶりに触りたかったというのも理由付けの1つです。
 
+## Table of Contents
+
+## 利用ツール
+
 主な利用ツールは以下です。
 
 - React
