@@ -8,7 +8,7 @@ const removeMarkdown = require('remove-markdown');
 const argv = require('minimist')(process.argv.slice(2));
 const sliceYAMLConfig = require('../universal/sliceYAMLConfig');
 const removeYAMLConfig = require('../universal/removeYAMLConfig');
-const { siteName, description, authorName } = require('../config/settings');
+const { lang, siteName, description, authorName, googleSiteVerificationKey } = require('../config/settings');
 
 const outDir = argv.o || argv.out || 'build'; // TODO
 const src = './src/template/index.pug';
@@ -16,7 +16,7 @@ const articlesJSON = fs.readFileSync(`./${outDir}/index.json`, { encoding: 'utf8
 const articles = JSON.parse(articlesJSON);
 const faviconsHTML = JSON.parse(fs.readFileSync('./favicons.html.tmp', { encoding: 'utf8' }));
 const baseOpts = {
-  lang: 'ja',
+  lang,
   title: siteName,
   author: authorName,
   description,
@@ -25,7 +25,7 @@ const baseOpts = {
 
 // root
 {
-  const html = pug.renderFile(src, Object.assign({}, baseOpts, { top: true }));
+  const html = pug.renderFile(src, Object.assign({}, baseOpts, { googleSiteVerificationKey }));
   fs.writeFileSync(`./${outDir}/index.html`, html, { encoding: 'utf8' });
 }
 
