@@ -6,7 +6,8 @@ html(lang= lang)
     meta(charset="utf-8")
     title= title
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    meta(name="author" content="Shingo Sato")
+    if author
+      meta(name="author" content= author)
     if description
       meta(name="description" content= description)
     if process.env.NODE_ENV === 'production'
