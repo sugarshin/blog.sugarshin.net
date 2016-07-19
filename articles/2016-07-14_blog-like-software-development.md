@@ -46,7 +46,6 @@ Redux 周りを最近触っていなかったので久しぶりに触りたか�
 - Mocha
 - power-assert
 - Enzyme
-
 - Travis CI
 - Greenkeeper
 
@@ -56,7 +55,7 @@ Redux 周りを最近触っていなかったので久しぶりに触りたか�
 
 本体は特に変哲もない普通の React + react-router です。 Redux のディレクトリ構成に沿ってはいます。
 
-特に複雑な非同期処理もないので普通に redux-thunk でよっこいしょしています。
+特に複雑な非同期処理もないので redux-thunk でよっこいしょしています。
 
 ```sh
 src
@@ -106,12 +105,33 @@ Markdown で書いた記事を XHR で取ってきて remark でレンダリン�
 
 ```json
 {
-  "remark": "~5.0.1",
-  "remark-highlight.js": "~3.1.1",
-  "remark-html": "3.0.1",
-  "remark-slug": "~4.2.0",
-  "remark-yaml-config": "~3.0.2"
+  "rehype-highlight": "~1.0.0",
+  "rehype-stringify": "~1.0.0",
+  "remark-parse": "~1.0.0",
+  "remark-rehype": "~1.0.0",
+  "remark-toc": "~3.0.1",
+  "remark-yaml-config": "~3.0.2",
+  "unified": "~4.1.2"
 }
+```
+
+```js
+const unified = require('unified');
+const parse = require('remark-parse');
+const toc = require('remark-toc');
+const yamlConfig = require('remark-yaml-config');
+const remarkToRehype = require('remark-rehype');
+const highlight = require('rehype-highlight');
+const stringify = require('rehype-stringify');
+
+unified()
+  .use(parse)
+  .use(toc)
+  .use(yamlConfig)
+  .use(remarkToRehype)
+  .use(highlight)
+  .use(stringify)
+  .process('# markdown');
 ```
 
 ### Enzyme
@@ -142,9 +162,7 @@ describe('Article suite', () => {
 
 ## webpack
 
-webpack はやれることも多くドキュメントも貧弱ですが、これじゃないといろいろ実現しないですね。
-
-普通に Babel, ESLint, [Stylint](https://github.com/rossPatton/stylint) な感じです。
+webpack はやれることが多くドキュメントは充実しているとは言い難いですが、これじゃないといろいろ実現しないですね。
 
 また、 CSS Modules は css-loader で実現しています。
 
@@ -159,7 +177,7 @@ const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}
 
 <!-- textlint-enable -->
 
-コンポーネントを意識した構成にさえしていれば、ある程度雑に CSS を書いても大丈夫ですし、面倒な class 名の命名に悩む必要もないのでとっても気に入っています。
+コンポーネントを意識した構成にさえしていれば、ある程度雑に CSS を書いても大丈夫ですし、面倒な class 命名に悩む必要もないのでとっても気に入っています。
 
 Stylus で書いて PostCSS でポストプロセスしつつ最終的に style-loader でインライン化しています。
 
@@ -168,7 +186,7 @@ Stylus で書いて PostCSS でポストプロセスしつつ最終的に style-
 ```js
 {
   test: /\.styl$/,
-  loaders: ['style', cssLoader, 'postcss', 'stylus']
+  loaders: ['style', 'css', 'postcss', 'stylus']
 }
 ```
 
@@ -184,9 +202,13 @@ CSS ファイルの管理を意識しなくていいので楽です。
 
 新しい記事を書くときは `npm run na -- --name example-name` で `.md` ファイルと必要なディレクトリを生成します。
 
-また、 [textlint](https://github.com/textlint/textlint) を利用し、自然言語のリントも行っています。
+### textlint
+
+[textlint](https://github.com/textlint/textlint) を利用し、自然言語のリントも行っています。
 
 文章のフォーマットなどは気分によって変わる場合もあったり、文章校正はどうしてもヒューマンエラーが起こるのでこういうツールに丸投げするのも有りですね。
+
+こちらもビルド時にその他リントと一緒に走ります。
 
 採用ルールは一旦こんな感じです。
 
@@ -230,10 +252,6 @@ CSS ファイルの管理を意識しなくていいので楽です。
 
 記事内のコードブロックに対しても ESLint でリントします。
 
-こちらもビルド時にその他リントと一緒に走ります。
-
-また、開発時は index.html のみで SPA として動きます。
-
 ## ビルド、デプロイ
 
 ホスティングは GitHub Pages です。
@@ -252,7 +270,7 @@ CSS ファイルの管理を意識しなくていいので楽です。
 
 Google Search Console でも今のところ特に問題視されていません。
 
-その他、 Sitemap や RSS, Atom フィード用のファイル、 Favicon, OG 画像等もビルド時 script でつくっています。
+その他、 sitemap.xml や RSS, Atom フィード用の xml 、 Favicon, OG 画像等もビルド時に script でつくっています。
 
 master ブランチにマージされると、テスト、ビルド、デプロイと Travis CI で CI がまわります。
 
