@@ -8,7 +8,7 @@ const removeMarkdown = require('remove-markdown');
 const argv = require('minimist')(process.argv.slice(2));
 const sliceYAMLConfig = require('../universal/sliceYAMLConfig');
 const removeYAMLConfig = require('../universal/removeYAMLConfig');
-const { siteName, description } = require('../config/settings');
+const { siteName, description, authorName } = require('../config/settings');
 
 const outDir = argv.o || argv.out || 'build'; // TODO
 const src = './src/template/index.pug';
@@ -18,6 +18,7 @@ const faviconsHTML = JSON.parse(fs.readFileSync('./favicons.html.tmp', { encodin
 const baseOpts = {
   lang: 'ja',
   title: siteName,
+  author: authorName,
   description,
   favicons: faviconsHTML
 };
