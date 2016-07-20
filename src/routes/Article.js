@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import PageTitle from 'components/PageTitle';
 import ArticleComponent from 'components/Article';
-import ShareToolbar from 'components/ShareToolbar';
-import Disqus from 'components/Disqus';
+import LoadingSpinner from 'components/LoadingSpinner';
 import { siteName } from '../../config/settings';
 
 export default class Article extends Component {
@@ -24,18 +23,11 @@ export default class Article extends Component {
       <div>
         <Helmet title={article.title} />
         <PageTitle title={article.title} />
-        <ArticleComponent article={article} />
-        {article.markdown ? <ShareToolbar
-          message={`${article.title} | ${siteName}`}
-          url={`${global.location.origin}${location.pathname}`}
-        /> : null}
         {article.markdown ? (
-          <Disqus
-            shortname='logsugarshinnet'
-            identifier={location.pathname}
-            title={article.title}
-          />
-        ) : null}
+          <ArticleComponent article={article} currentPathname={location.pathname} baseShareMessage={siteName} />
+        ) : (
+          <LoadingSpinner />
+        )}
       </div>
     );
   }

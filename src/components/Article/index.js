@@ -1,15 +1,29 @@
-import React from 'react';
-import LoadingSpinner from 'components/LoadingSpinner';
-import classnames from 'classnames';
-import markdownRenderer from '../../../universal/markdownRenderer';
-import 'github-markdown-css';
-import styles from './index.styl';
+import React, { PropTypes } from 'react';
+import ArticleBody from 'components/ArticleBody';
+import ShareToolbar from 'components/ShareToolbar';
+import Disqus from 'components/Disqus';
 
-export default function Article(props) {
-  return props.article.markdown ? (
-    // eslint-disable-next-line react/no-danger
-    <div className={classnames('markdown-body', styles.body)} dangerouslySetInnerHTML={{
-      __html: markdownRenderer.process(props.article.markdown).contents
-    }}></div>
-  ) : <LoadingSpinner />;
+const propTypes = {
+  // article:
+  currentPathname: PropTypes.string.isRequired,
+  baseShareMessage: PropTypes.string.isRequired
+};
+
+export default function Article({ article, currentPathname, baseShareMessage }) {
+  return (
+    <div>
+      <ArticleBody markdown={article.markdown} />
+      <ShareToolbar
+        message={`${article.title} | ${baseShareMessage}`}
+        url={`${global.location.origin}${currentPathname}`}
+      />
+      <Disqus
+        shortname='logsugarshinnet'
+        identifier={currentPathname}
+        title={article.title}
+      />
+    </div>
+  );
 }
+
+Article.propTypes = propTypes;
