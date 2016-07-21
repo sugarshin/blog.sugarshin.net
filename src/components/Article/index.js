@@ -15,7 +15,7 @@ export default function Article({ article, currentPathname, baseShareMessage }) 
       <ArticleBody markdown={article.markdown} />
       <ShareToolbar
         message={`${article.title} | ${baseShareMessage}`}
-        url={`${global.location.origin}${currentPathname}`}
+        url={`${window.location.origin}${currentPathname}`}
       />
       <Disqus
         shortname='logsugarshinnet'
