@@ -135,7 +135,7 @@
     "stylus-loader": "~2.2.0",
     "textlint": "~7.0.1",
     "textlint-filter-rule-comments": "~1.2.1",
-    "textlint-rule-eslint": "~1.1.1",
+    "textlint-rule-eslint": "~1.2.0",
     "textlint-rule-ja-no-abusage": "~1.1.0",
     "textlint-rule-ja-no-mixed-period": "~1.0.2",
     "textlint-rule-ja-no-successive-word": "~1.0.1",
