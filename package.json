@@ -97,7 +97,7 @@
     "react-addons-test-utils": "~15.2.1",
     "react-bootstrap": "~0.29.4",
     "react-disqus-thread": "~0.4.0",
-    "react-dom": "~15.2.1",
+    "react-dom": "~15.3.0",
     "react-fa": "~4.1.2",
     "react-github-fork-ribbon": "~0.4.4",
     "react-helmet": "~3.1.0",
