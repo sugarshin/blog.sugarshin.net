@@ -123,7 +123,7 @@
     "rehype-stringify": "~1.0.0",
     "remark-parse": "~1.1.0",
     "remark-rehype": "~1.0.0",
-    "remark-toc": "~3.0.1",
+    "remark-toc": "~3.1.0",
     "remark-yaml-config": "~3.0.2",
     "remove-markdown": "~0.1.0",
     "sitemap": "~1.8.0",
