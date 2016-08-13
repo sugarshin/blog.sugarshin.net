@@ -8,12 +8,14 @@ import {
   PocketButton
 } from 'react-social';
 import Icon from 'react-fa';
+import { facebookAppID } from '../../../config/settings';
+
 import styles from './index.styl';
 
 export default function ShareToolbar({ message, url }) {
   return (
     <div className={styles.wrapper}>
-      <FacebookButton element='span' message={message} url={url}>
+      <FacebookButton element='span' message={message} url={url} appId={facebookAppID}>
         <Button><Icon name='facebook' /></Button>
       </FacebookButton>
       <TwitterButton element='span' message={message} url={url}>
