@@ -1,10 +1,9 @@
-import types from '../constants/ActionTypes';
-import { article as initialState } from '../constants/initialState';
+import createReducer from 'utils/createReducer';
+import types from 'constants/ActionTypes';
+import { article as initialState } from 'constants/initialState';
 
-export default function article(state = initialState, action) {
-  switch (action.type) {
-
-  case types.REQUEST_ARTICLE: return {
+export default createReducer(initialState, {
+  [types.REQUEST_ARTICLE]: state => ({
     ...state,
     title: '',
     markdown: '',
@@ -12,9 +11,9 @@ export default function article(state = initialState, action) {
     isFetching: true,
     didInvalidate: false,
     error: null
-  };
+  }),
 
-  case types.RECEIVE_ARTICLE: return {
+  [types.RECEIVE_ARTICLE]: (state, action) => ({
     ...state,
     title: getArticleTitle(action.markdown),
     markdown: action.markdown,
@@ -23,9 +22,9 @@ export default function article(state = initialState, action) {
     didInvalidate: false,
     cache: { ...state.cache, [action.url]: action.markdown },
     error: null
-  };
+  }),
 
-  case types.USE_CACHED_ARTICLE: return {
+  [types.USE_CACHED_ARTICLE]: (state, action) => ({
     ...state,
     title: getArticleTitle(state.cache[action.url]),
     markdown: state.cache[action.url],
@@ -33,9 +32,9 @@ export default function article(state = initialState, action) {
     isFetching: false,
     didInvalidate: false,
     error: null
-  }
+  }),
 
-  case types.REQUEST_ERROR_ARTICLE: return {
+  [types.REQUEST_ERROR_ARTICLE]: (state, action) => ({
     ...state,
     title: '',
     markdown: '',
@@ -43,12 +42,8 @@ export default function article(state = initialState, action) {
     isFetching: false,
     didInvalidate: true,
     error: action.error
-  };
-
-  default: return state;
-
-  }
-}
+  })
+});
 
 // TODO
 function getArticleTitle(markdown) {

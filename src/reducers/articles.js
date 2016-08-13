@@ -1,18 +1,18 @@
 import uniq from 'lodash/uniq';
-import types from '../constants/ActionTypes';
-import { articles as initialState } from '../constants/initialState';
+import createReducer from 'utils/createReducer';
+import types from 'constants/ActionTypes';
+import { articles as initialState } from 'constants/initialState';
 
-export default function articles(state = initialState, action) {
-  switch (action.type) {
-  case types.REQUEST_ARTICLES: return {
+export default createReducer(initialState, {
+  [types.REQUEST_ARTICLES]: state => ({
     ...state,
     isFetching: true,
     isFetched: false,
     didInvalidate: false
-  };
+  }),
 
-  case types.RECEIVE_ARTICLES: {
-    const items = action.items;
+  [types.RECEIVE_ARTICLES]: (state, action) => {
+    const { items } = action;
     return {
       ...state,
       items,
@@ -22,19 +22,16 @@ export default function articles(state = initialState, action) {
       isFetched: true,
       didInvalidate: false
     };
-  }
+  },
 
-  case types.REQUEST_ERROR_ARTICLES: return {
+  [types.REQUEST_ERROR_ARTICLES]: (state, action) => ({
     ...state,
     isFetching: false,
     isFetched: false,
     didInvalidate: true,
     error: action.error
-  };
-
-  default: return state;
-  }
-}
+  })
+});
 
 function _createArchives(items) {
   return items.reduce((archives, item) => {
