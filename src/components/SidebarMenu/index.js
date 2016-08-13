@@ -114,10 +114,11 @@ export default class SidebarMenu extends Component {
   }
   _renderLinks() {
     return [
-      <ListGroupItem key='sugarshin.net' href='//sugarshin.net'>About</ListGroupItem>,
-      <ListGroupItem key='github' href='//github.com/sugarshin'>GitHub</ListGroupItem>,
-      <ListGroupItem key='npm' href='//www.npmjs.com/~sugarshin'>npm</ListGroupItem>,
-      <ListGroupItem key='twitter' href='//twitter.com/sugarshin'>Twitter</ListGroupItem>,
+      <ListGroupItem key='sugarshin.net' href='//sugarshin.net/'>About</ListGroupItem>,
+      <ListGroupItem key='github' href='//github.com/sugarshin/'>GitHub</ListGroupItem>,
+      <ListGroupItem key='npm' href='//www.npmjs.com/~sugarshin/'>npm</ListGroupItem>,
+      <ListGroupItem key='keybase' href='//keybase.io/sugarshin/'>Keybase</ListGroupItem>,
+      <ListGroupItem key='twitter' href='//twitter.com/sugarshin/'>Twitter</ListGroupItem>,
       <ListGroupItem key='instagram' href='//www.instagram.com/sugarshin/'>Instagram</ListGroupItem>
     ];
   }
