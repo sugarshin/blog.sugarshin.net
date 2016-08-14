@@ -1,6 +1,6 @@
 import createReducer from 'utils/createReducer';
 import types from 'constants/ActionTypes';
-import { article as initialState } from 'constants/initialState';
+import { article as initialState } from 'initialState';
 
 export default createReducer(initialState, {
   [types.REQUEST_ARTICLE]: state => ({

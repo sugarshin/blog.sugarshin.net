@@ -1,7 +1,7 @@
 import uniq from 'lodash/uniq';
 import createReducer from 'utils/createReducer';
 import types from 'constants/ActionTypes';
-import { articles as initialState } from 'constants/initialState';
+import { articles as initialState } from 'initialState';
 
 export default createReducer(initialState, {
   [types.REQUEST_ARTICLES]: state => ({
