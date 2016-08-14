@@ -37,7 +37,7 @@ NODE_ENV=production npm run build
 
 © sugarshin
 
-[travis-image]: http://img.shields.io/travis/sugarshin/log.sugarshin.net/master.svg?branch=master&style=flat-square
+[travis-image]: https://img.shields.io/travis/sugarshin/log.sugarshin.net/master.svg?branch=master&style=flat-square
 [travis-url]: https://travis-ci.org/sugarshin/log.sugarshin.net
 [david-image]: https://david-dm.org/sugarshin/log.sugarshin.net.svg?style=flat-square
 [david-url]: https://david-dm.org/sugarshin/log.sugarshin.net
