@@ -11,7 +11,7 @@ export function* fetchArticleList() {
   }
   yield put(actions.requestArticles());
   try {
-    const articles = yield call(Articles.getList);
+    const articles = yield call([Articles, Articles.getList]);
     yield put(actions.receiveArticles(articles));
   } catch (error) {
     yield put(actions.requestErrorArticles(error));
@@ -28,11 +28,20 @@ export function* fetchArticle({ url }) {
     }
     yield put(actions.requestArticle());
     try {
-      const { content } = yield call([Articles, Articles.get], url);
+      const { content } = yield call([Articles, Articles.getArticle], url);
       yield put(actions.receiveArticle({ markdown: decodeArticleContent(content), url }))
     } catch (error) {
       yield put(actions.requestErrorArticle(error));
     }
+  }
+}
+
+export function* searchArticle({ query }) {
+  try {
+    const data = yield call([Articles, Articles.search], query);
+    yield put(actions.receiveSearchArticle(data))
+  } catch (error) {
+    yield put(actions.requestErrorSearchArticle(error));
   }
 }
 

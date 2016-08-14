@@ -1,6 +1,9 @@
 export default class Base {
-  static get(path) {
-    return fetch(`${this.baseURI}/${this.path}/${path}${this.ref ? `?ref=${this.ref}` : ''}`);
+  static requestJSON(url, option) {
+    return fetch(url, option).then(res => res.json());
+  }
+  static get(url) {
+    return this.requestJSON(`${this.baseURI}/${this.path}/${url}${this.ref ? `?ref=${this.ref}` : ''}`);
   }
   static set baseURI(uri) {
     this._baseURI = uri;
