@@ -9,6 +9,6 @@ export default class Articles extends Base {
   }
   // HOTFIX:
   static get(path) {
-    return fetch(`/${this.path}/${path}`);
+    return fetch(`/${this.path}/${path}`).then(res => res.json());
   }
 }
