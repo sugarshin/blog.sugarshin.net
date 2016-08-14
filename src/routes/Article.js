@@ -10,11 +10,11 @@ export default class Article extends Component {
     super(props);
   }
   componentDidMount() {
-    this._fetchArticleIfNeeded(this.props.params);
+    this.fetchArticle(this.props.params);
   }
   componentWillReceiveProps({ params }) {
     if (this.props.params !== params) {
-      this._fetchArticleIfNeeded(params);
+      this.fetchArticle(params);
     }
   }
   render() {
@@ -31,8 +31,8 @@ export default class Article extends Component {
       </div>
     );
   }
-  _fetchArticleIfNeeded(params) {
+  fetchArticle(params) {
     const { year, month, day, title } = params;
-    this.props.actions.fetchArticleIfNeeded(`${year}-${month}-${day}_${title}.md`);
+    this.props.actions.fetchArticle(`${year}-${month}-${day}_${title}.md`);
   }
 }
