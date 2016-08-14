@@ -1,6 +1,6 @@
 import createReducer from 'utils/createReducer';
 import types from 'constants/ActionTypes';
-import { searchResults as initialState } from 'constants/initialState';
+import { searchResults as initialState } from 'initialState';
 
 export default createReducer(initialState, {
   [types.REQUEST_SEARCH_ARTICLE]: state => ({

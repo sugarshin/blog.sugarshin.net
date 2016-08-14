@@ -1,6 +1,6 @@
 import createReducer from 'utils/createReducer';
 import types from 'constants/ActionTypes';
-import { sidebar as initialState } from 'constants/initialState';
+import { sidebar as initialState } from 'initialState';
 
 export default createReducer(initialState, {
   [types.TOGGLE_SIDEBAR_OPEN]: (state, action) => ({
