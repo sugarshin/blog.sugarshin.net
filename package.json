@@ -88,7 +88,7 @@
     "moment": "^2.14.1",
     "npm-run-all": "^2.3.0",
     "postcss-flexbugs-fixes": "^2.0.0",
-    "postcss-loader": "~0.9.1",
+    "postcss-loader": "~0.10.0",
     "postcss-partial-import": "^2.0.0",
     "power-assert": "^1.4.1",
     "pug": "2.0.0-beta3",
