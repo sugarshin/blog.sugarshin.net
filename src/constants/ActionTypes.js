@@ -1,7 +1,7 @@
 import mirrorKeyValue from 'mirror-key-value';
 
 export default mirrorKeyValue([
-  'FETCH_ALL_ARTICLE_LIST',
+  'FETCH_ARTICLE_LIST',
   'FETCH_ARTICLE',
   'RECEIVE_ARTICLE',
   'RECEIVE_ARTICLES',

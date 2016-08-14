@@ -19,7 +19,7 @@ export default class Main extends Component {
     this.handleChangeMediaQuery = ev => this._handleChangeMediaQuery(ev);
   }
   componentDidMount() {
-    this.props.actions.fetchArticlesIfNeeded();
+    this.props.actions.fetchArticleList();
     if (this._matchMedia) {
       this._matchMedia.addListener(this.handleChangeMediaQuery);
       this.props.actions.toggleDocked(this._matchMedia.matches);

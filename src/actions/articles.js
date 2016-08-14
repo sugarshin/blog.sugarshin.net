@@ -1,18 +1,14 @@
 import types from 'constants/ActionTypes';
 
-export function fetchArticlesIfNeeded() {
-  return (dispatch, getState) => {
-    if (shouldFetchArticles(getState())) {
-      return dispatch(fetchArticles());
-    }
-  };
+export function fetchArticleList() {
+  return { type: types.FETCH_ARTICLE_LIST };
 }
 
-function requestArticles() {
+export function requestArticles() {
   return { type: types.REQUEST_ARTICLES };
 }
 
-function receiveArticles(items) {
+export function receiveArticles(items) {
   return {
     type: types.RECEIVE_ARTICLES,
     items,
@@ -20,20 +16,6 @@ function receiveArticles(items) {
   };
 }
 
-function requestErrorArticles(error) {
+export function requestErrorArticles(error) {
   return { type: types.REQUEST_ERROR_ARTICLES, error };
-}
-
-function fetchArticles() {
-  return dispatch => {
-    dispatch(requestArticles());
-    return fetch('/index.json')
-      .then(res => res.json())
-      .then(articles => dispatch(receiveArticles(articles)))
-      .catch(err =>  dispatch(requestErrorArticles(err)));
-  };
-}
-
-function shouldFetchArticles({ articles }) {
-  return !(articles.isFetching || articles.isFetched);
 }
