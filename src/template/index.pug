@@ -16,9 +16,6 @@ html(lang= lang)
     if favicons
       each tag in favicons
         != tag
-    if process.env.NODE_ENV === 'production'
-      script
-        include ../../vendor/new-relic.js
   body
     if content
       div(style="display: none;")!= content
