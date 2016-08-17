@@ -87,7 +87,7 @@
     "mkdirp": "~0.5.1",
     "mocha": "^3.0.2",
     "moment": "^2.14.1",
-    "npm-run-all": "^2.3.0",
+    "npm-run-all": "^3.0.0",
     "postcss-flexbugs-fixes": "^2.0.0",
     "postcss-loader": "~0.10.0",
     "postcss-partial-import": "^2.0.0",
