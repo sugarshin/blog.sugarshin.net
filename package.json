@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "na": "node scripts/new-article",
-    "start": "npm-run-all clean:dev mkdir:dev articles-index:dev --parallel pug:dev cp:dev watch:dev:articles dev-server",
+    "start": "opn http://localhost:8003/ && npm-run-all clean:dev mkdir:dev articles-index:dev --parallel pug:dev cp:dev watch:dev:articles dev-server",
     "clean:dev": "if [ -d build-dev ]; then rm -rf build-dev; fi",
     "mkdir:dev": "mkdirp build-dev",
     "cp:dev": "npm-run-all --parallel cp:dev:article-images",
@@ -88,6 +88,7 @@
     "mocha": "^3.0.2",
     "moment": "^2.14.1",
     "npm-run-all": "^3.0.0",
+    "opn-cli": "^3.1.0",
     "postcss-flexbugs-fixes": "^2.0.0",
     "postcss-loader": "~0.10.0",
     "postcss-partial-import": "^2.0.0",

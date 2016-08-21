@@ -2,8 +2,8 @@ import React, { Component, Children, PropTypes, cloneElement } from 'react';
 import Helmet from 'react-helmet';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as rawActions from 'actions';
 import Main from 'components/Main';
+import * as rawActions from 'actions';
 
 const mapStateToProps = state => ({ ...state });
 

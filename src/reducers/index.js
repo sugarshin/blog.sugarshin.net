@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { routerReducer as routing } from 'react-router-redux';
 import article from './article';
 import articles from './articles';
 import sidebar from './sidebar';
@@ -10,5 +10,5 @@ export default combineReducers({
   articles,
   sidebar,
   searchResults,
-  routing: routerReducer
+  routing
 });

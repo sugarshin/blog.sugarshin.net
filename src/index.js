@@ -1,15 +1,15 @@
-import 'whatwg-fetch';
-import 'bootswatch/cosmo/bootstrap.css'
-import 'highlight.js/styles/github.css'
-import 'stylus/index.styl';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from 'containers/Root';
 import browserHistory from 'react-router/lib/browserHistory';
-import { syncHistoryWithStore } from 'react-router-redux';
+import syncHistoryWithStore from 'react-router-redux/lib/sync';
+import noop from 'lodash/noop';
+import Root from 'containers/Root';
 import configureStore from 'store/configureStore';
 import APIBase from 'apis/Base';
 import analytics from '../vendor/analytics';
+import 'bootswatch/cosmo/bootstrap.css'
+import 'highlight.js/styles/github.css'
+import 'stylus/index.styl';
 
 const main = () => {
   const production = process.env.NODE_ENV === 'production';
@@ -21,10 +21,9 @@ const main = () => {
 
   const store = configureStore();
   const history = syncHistoryWithStore(browserHistory, store);
-  const historyListener = production ? () => analytics.page() : () => {};
-  history.listen(historyListener);
+  history.listen(production ? () => analytics.page() : noop);
 
   ReactDOM.render(<Root store={store} history={history} />, document.querySelector('#app-root'));
-}
+};
 
 main();
