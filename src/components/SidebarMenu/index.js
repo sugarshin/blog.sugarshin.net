@@ -28,7 +28,7 @@ export default class SidebarMenu extends Component {
     return (
       <div>
         <SidebarMenuGroup
-          { ...this.props }
+          {...this.props}
           id='recent-posts'
           title='Recent posts'
           titleIcon={<Octicon name='megaphone' />}
@@ -36,7 +36,7 @@ export default class SidebarMenu extends Component {
           {this._renderRecentPosts()}
         </SidebarMenuGroup>
         <SidebarMenuGroup
-          { ...this.props }
+          {...this.props}
           id='archives'
           title='Archives'
           titleIcon={<Octicon name='calendar' />}
@@ -44,7 +44,7 @@ export default class SidebarMenu extends Component {
           {this._renderArchives()}
         </SidebarMenuGroup>
         <SidebarMenuGroup
-          { ...this.props }
+          {...this.props}
           id='tags'
           title='Tags'
           titleIcon={<Octicon name='tag' />}
@@ -52,7 +52,7 @@ export default class SidebarMenu extends Component {
           {this._renderTags()}
         </SidebarMenuGroup>
         <SidebarMenuGroup
-          { ...this.props }
+          {...this.props}
           id='links'
           title='Links'
           titleIcon={<Octicon name='link' />}
@@ -60,7 +60,7 @@ export default class SidebarMenu extends Component {
           {this._renderLinks()}
         </SidebarMenuGroup>
         <SidebarMenuGroup
-          { ...this.props }
+          {...this.props}
           id='search-article'
           title='Search'
           titleIcon={<Octicon name='search' />}

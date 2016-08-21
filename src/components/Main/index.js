@@ -1,4 +1,4 @@
-import React, { Component, Children, cloneElement } from 'react';
+import React, { Component } from 'react';
 import Octicon from 'react-octicon';
 import Button from 'react-bootstrap/lib/Button';
 import Sidebar from 'react-sidebar';
@@ -16,7 +16,7 @@ export default class Main extends Component {
     //                              TODO: move to this.props
     //                                                      ＼
     this._matchMedia = window.matchMedia ? window.matchMedia('screen and (min-width: 769px)') : null;
-    this.handleChangeMediaQuery = ev => this._handleChangeMediaQuery(ev);
+    this.handleChangeMediaQuery = ev => this.props.actions.toggleDocked(ev.matches);
   }
   componentDidMount() {
     this.props.actions.fetchArticleList();
@@ -31,7 +31,7 @@ export default class Main extends Component {
     }
   }
   render() {
-    const { sidebar, actions, children, articles } = this.props;
+    const { children, sidebar, articles, actions } = this.props;
     return articles.items.length > 0 ? (
       <Sidebar
         rootClassName={styles.root}
@@ -48,19 +48,14 @@ export default class Main extends Component {
           <Link to='/'>{settings.siteName}</Link>
           {!sidebar.docked ? (
             <div className={styles.toggleButton}>
-              <Button onClick={() => actions.toggleSidebar()}>
+              <Button onClick={actions.toggleSidebar}>
                 <Octicon name='three-bars' />
               </Button>
             </div>
           ) : null}
         </header>
         <main className={styles.main}>
-          {Children.map(children, child => {
-            return cloneElement(
-              child,
-              { ...this.props }
-            );
-          })}
+          {children}
         </main>
         <footer className={styles.footer}>
           <p>
@@ -75,8 +70,5 @@ export default class Main extends Component {
     ) : (
       <LoadingSpinner />
     );
-  }
-  _handleChangeMediaQuery(ev) {
-    this.props.actions.toggleDocked(ev.matches);
   }
 }

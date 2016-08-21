@@ -6,12 +6,12 @@ import Main from 'components/Main';
 import * as rawActions from 'actions';
 
 const mapStateToProps = state => ({ ...state });
-
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(rawActions, dispatch)
 });
 
-class App extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class App extends Component {
   static get propTypes() {
     return {
       children: PropTypes.oneOfType([
@@ -24,21 +24,15 @@ class App extends Component {
     super(props);
   }
   render() {
+    const { children, ...props } = this.props;
     return (
-      <Main {...this.props}>
+      <Main {...props}>
         <Helmet
           titleTemplate='%s | log.sugarshin.net'
           defaultTitle='log.sugarshin.net'
         />
-        {Children.map(this.props.children, child => {
-          return cloneElement(
-            child,
-            { ...this.props }
-          );
-        })}
+        {Children.map(children, child => cloneElement(child, { ...props }))}
       </Main>
     );
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
