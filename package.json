@@ -14,7 +14,7 @@
     "dev-articles": "node scripts/dev-articles",
     "articles-index:dev": "node scripts/articles-index --out=build-dev",
     "pug:dev": "pug -o build-dev -P -O '{\"title\": \"log | development\", \"lang\": \"ja\"}' -w src/template/index.pug",
-    "dev-server": "webpack-dev-server --config config/webpack.config.js --progress",
+    "dev-server": "DEV_SERVER=1 webpack-dashboard -- webpack-dev-server --config config/webpack.config.js --progress",
     "lint:js": "eslint src",
     "lint:styl": "stylint src",
     "lint:md": "textlint articles/*.md",
@@ -156,6 +156,7 @@
     "url-loader": "~0.5.7",
     "watch": "~0.19.1",
     "webpack": "^1.13.0",
+    "webpack-dashboard": "~0.1.6",
     "webpack-dev-server": "^1.14.1",
     "whatwg-fetch": "^1.0.0"
   }
