@@ -15,7 +15,7 @@ import NotFound from 'components/NotFound'; // TODO
 
 // https://github.com/gaearon/redux-devtools-dock-monitor/blob/master/src/actions.js#L1
 const TOGGLE_VISIBILITY = '@@redux-devtools-log-monitor/TOGGLE_VISIBILITY';
-let devTools = null;
+let devTools;
 
 export default function Root({ store, history }) {
   return (

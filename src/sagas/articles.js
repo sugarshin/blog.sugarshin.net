@@ -1,14 +1,10 @@
+import has from 'lodash/has';
 import { call, put, select } from 'redux-saga/effects'
 import Articles from 'apis/Articles';
 import * as actions from 'actions';
 import decodeArticleContent from 'utils/decodeArticleContent';
-import hasObjectKey from 'utils/hasObjectKey';
 
 export function* fetchArticleList() {
-  const { articles } = yield select();
-  if (!shouldFetchArticles(articles)) {
-    return;
-  }
   yield put(actions.requestArticles());
   try {
     const articles = yield call([Articles, Articles.getList]);
@@ -23,9 +19,6 @@ export function* fetchArticle({ url }) {
   if (shouldUseCachedArticle(article, url)) {
     yield put(actions.useCachedArticle(url));
   } else {
-    if (!shouldFetchArticle(article)) {
-      return;
-    }
     yield put(actions.requestArticle());
     try {
       const { content } = yield call([Articles, Articles.getArticle], url);
@@ -45,14 +38,6 @@ export function* searchArticle({ query }) {
   }
 }
 
-function shouldFetchArticles(state) {
-  return !(state.isFetching || state.isFetched);
-}
-
 function shouldUseCachedArticle(state, url) {
-  return hasObjectKey(state.cache, url);
-}
-
-function shouldFetchArticle(state) {
-  return !state.isFetching;
+  return has(state.cache, url);
 }
