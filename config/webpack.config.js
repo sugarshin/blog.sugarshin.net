@@ -1,8 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const { author, name } = require('../package.json');
 
-const { NODE_ENV } = process.env;
+const { NODE_ENV, DEV_SERVER } = process.env;
 const production = NODE_ENV === 'production';
 const localIdentName = production ? '[hash:base64:32]' : '[path][name]__[local]___[hash:base64:8]';
 const cssModules = `modules&importLoaders=1&localIdentName=${localIdentName}`;
@@ -22,6 +23,11 @@ const plugins = [
   })
 ];
 const entry = ['babel-polyfill', 'whatwg-fetch', './src/index.js'];
+
+if (DEV_SERVER) {
+  plugins.push(new DashboardPlugin());
+}
+
 if (production) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }));
 } else {
