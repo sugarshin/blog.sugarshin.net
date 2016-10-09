@@ -154,7 +154,7 @@
     "textlint-rule-sentence-length": "^1.0.7",
     "unified": "^4.2.1",
     "url-loader": "~0.5.7",
-    "watch": "~0.19.1",
+    "watch": "~1.0.1",
     "webpack": "^1.13.0",
     "webpack-dashboard": "~0.2.0",
     "webpack-dev-server": "^1.14.1",
