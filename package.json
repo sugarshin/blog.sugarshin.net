@@ -90,7 +90,7 @@
     "npm-run-all": "^3.0.0",
     "opn-cli": "^3.1.0",
     "postcss-flexbugs-fixes": "^2.0.0",
-    "postcss-loader": "~1.0.0",
+    "postcss-loader": "~1.1.0",
     "postcss-partial-import": "^2.0.0",
     "power-assert": "^1.4.1",
     "pug": "2.0.0-beta3",
