@@ -63,7 +63,7 @@
     "enzyme": "^2.4.0",
     "eslint": "^3.2.2",
     "eslint-loader": "^1.5.0",
-    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-react": "^6.0.0",
     "favicons": "^4.7.1",
     "feed": "~0.3.0",
