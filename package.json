@@ -72,7 +72,7 @@
     "github-markdown-css": "^2.4.0",
     "globby": "^6.0.0",
     "highlight.js": "^9.6.0",
-    "image-webpack-loader": "^2.0.0",
+    "image-webpack-loader": "^3.0.0",
     "imagemin": "^5.2.2",
     "imagemin-gifsicle": "^5.1.0",
     "imagemin-jpegtran": "^5.0.2",
