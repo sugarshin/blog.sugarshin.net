@@ -1,6 +1,5 @@
-import assert from 'assert';
-import { shallow } from 'enzyme';
 import React from 'react';
+import { shallow } from 'enzyme';
 
 describe('ArticleBody suite', () => {
   const ArticleBody = require('../../src/components/ArticleBody').default;
@@ -25,6 +24,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 `;
 
   it('contains spec with an expectation', () => {
-    assert(shallow(<ArticleBody markdown={markdown} />).is('.markdown-body'));
+    expect(shallow(<ArticleBody markdown={markdown} />).is('.markdown-body'));
   });
 });

@@ -3,7 +3,7 @@
   "plugins": ["transform-decorators-legacy"],
   "env": {
     "development": {
-      "presets": ["power-assert"]
+      "plugins": ["react-hot-loader/babel"]
     }
   }
 }
