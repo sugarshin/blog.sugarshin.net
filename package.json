@@ -73,7 +73,7 @@
     "eslint-plugin-react": "^6.9.0",
     "favicons": "^4.8.3",
     "feed": "^0.3.1",
-    "file-loader": "^0.9.0",
+    "file-loader": "^0.10.0",
     "gh-pages": "^0.12.0",
     "github-markdown-css": "^2.4.1",
     "globby": "^6.1.0",
