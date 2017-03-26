@@ -1,16 +1,7 @@
-import React, { Component, Children, PropTypes, cloneElement } from 'react';
-import Helmet from 'react-helmet';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Main from 'components/Main';
-import * as rawActions from 'actions';
+import React, { Component, PropTypes } from 'react'
+import Helmet from 'react-helmet'
+import Main from 'components/Main'
 
-const mapStateToProps = state => ({ ...state });
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(rawActions, dispatch)
-});
-
-@connect(mapStateToProps, mapDispatchToProps)
 export default class App extends Component {
   static get propTypes() {
     return {
@@ -18,21 +9,17 @@ export default class App extends Component {
         PropTypes.arrayOf(PropTypes.element),
         PropTypes.element
       ])
-    };
-  }
-  constructor(props) {
-    super(props);
+    }
   }
   render() {
-    const { children, ...props } = this.props;
     return (
-      <Main {...props}>
+      <Main>
         <Helmet
           titleTemplate='%s | log.sugarshin.net'
           defaultTitle='log.sugarshin.net'
         />
-        {Children.map(children, child => cloneElement(child, { ...props }))}
+        {this.props.children}
       </Main>
-    );
+    )
   }
 }

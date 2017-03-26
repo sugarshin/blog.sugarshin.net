@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import Octicon from 'react-octicon';
-import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
-import FormControl from 'react-bootstrap/lib/FormControl';
-import { LinkContainer } from 'react-router-bootstrap';
-import browserHistory from 'react-router/lib/browserHistory';
-import keydown, { Keys } from 'react-keydown';
-import moment from 'moment';
-import SidebarMenuGroup from 'components/SidebarMenuGroup';
-
-// const defaultProps = { location: { query: { q: '' } } };
+import React, { Component } from 'react'
+import Octicon from 'react-octicon'
+import ListGroupItem from 'react-bootstrap/lib/ListGroupItem'
+import FormControl from 'react-bootstrap/lib/FormControl'
+// import { LinkContainer } from 'react-router-bootstrap'
+import keydown, { Keys } from 'react-keydown'
+import moment from 'moment'
+import queryString from 'query-string'
+import SidebarMenuGroup from 'components/SidebarMenuGroup'
+import ListGroupItemLink from 'components/utils/ListGroupItemLink'
 
 export default class SidebarMenu extends Component {
-  // static get defaultProps() {
-  //   return defaultProps;
-  // }
   constructor(props) {
-    super(props);
-
-    this.state = { searchQuery: this.props.location.query.q || '' };
+    super(props)
+    this.state = { searchQuery: this.parseSearchQuery(this.props.location.search) }
   }
-  componentWillReceiveProps({ location: { query } }) {
-    if (this.props.location.query.q !== query.q) {
-      this.setState({ searchQuery: query.q });
+  componentWillReceiveProps({ location: { search } }) {
+    const currentSearchQuery = this.parseSearchQuery(this.props.location.search)
+    const newSearchQuery = this.parseSearchQuery(search)
+    if (currentSearchQuery !== newSearchQuery) {
+      this.setState({ searchQuery: newSearchQuery })
     }
+  }
+  parseSearchQuery(search) {
+    return queryString.parse(search).q || ''
   }
   render() {
     return (
@@ -79,37 +79,35 @@ export default class SidebarMenu extends Component {
           </a>
         </div>
       </div>
-    );
+    )
   }
   _renderRecentPosts() {
     return this.props.articles.items.filter((a, i) => i < 5).map(item => {
-      const [year, month, day] = item.date.split(' ')[0].split('-');
+      const [year, month, day] = item.date.split(' ')[0].split('-')
       return (
-        <LinkContainer key={item.url} to={`/${year}/${month}/${day}/${item.url}`}>
-          <ListGroupItem>{item.title}</ListGroupItem>
-        </LinkContainer>
-      );
-    });
+        <ListGroupItemLink key={item.url} to={`/${year}/${month}/${day}/${item.url}`}>
+          {item.title}
+        </ListGroupItemLink>
+      )
+    })
   }
   _renderArchives() {
     return Object.keys(this.props.articles.archives).map(date => {
-      const [year, month] = date.split('-');
-      const url = `/archives/${year}-${month}/`;
+      const [year, month] = date.split('-')
+      const url = `/archives/${year}-${month}/`
       return (
-        <LinkContainer key={url} to={url}>
-          <ListGroupItem>{moment(date).format('MMMM YYYY')}</ListGroupItem>
-        </LinkContainer>
-      );
+        <ListGroupItemLink key={url} to={url}>
+          {moment(date).format('MMMM YYYY')}
+        </ListGroupItemLink>
+      )
     })
   }
   _renderTags() {
     return this.props.articles.tags.map(tag => {
-      const url = `/tags/${tag.replace(/\s/g, '_')}/`;
+      const url = `/tags/${tag.replace(/\s/g, '_')}/`
       return (
-        <LinkContainer key={url} to={url}>
-          <ListGroupItem key={url}>{tag}</ListGroupItem>
-        </LinkContainer>
-      );
+        <ListGroupItemLink key={url} to={url}>{tag}</ListGroupItemLink>
+      )
     })
   }
   _renderLinks() {
@@ -120,15 +118,15 @@ export default class SidebarMenu extends Component {
       <ListGroupItem key='keybase' href='//keybase.io/sugarshin/'>Keybase</ListGroupItem>,
       <ListGroupItem key='twitter' href='//twitter.com/sugarshin/'>Twitter</ListGroupItem>,
       <ListGroupItem key='instagram' href='//www.instagram.com/sugarshin/'>Instagram</ListGroupItem>
-    ];
+    ]
   }
   _handleChangeSearchQuery(ev) {
-    this.setState({ searchQuery: ev.target.value });
+    this.setState({ searchQuery: ev.target.value })
   }
   @keydown(Keys.ENTER)
   submitSearchQuery({ target: { value } }) {
     if (value) {
-      browserHistory.push(`/search/?q=${value}`);
+      this.props.actions.goTo('/search', { search: `q=${value}` })
     }
   }
 }
