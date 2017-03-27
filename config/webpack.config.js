@@ -118,10 +118,12 @@ module.exports = {
           },
           {
             loader: 'image-webpack-loader',
-            options: {
+            query: {
               progressive: true,
               bypassOnDebug: true,
-              optimizationLevel: 7
+              optipng: {
+                optimizationLevel: 7
+              }
             }
           }
         ]
@@ -134,6 +136,6 @@ module.exports = {
     hot: true,
     publicPath: '/assets/',
     host: '0.0.0.0',
-    port: parseInt(PORT, 10)
+    port: PORT
   }
 };

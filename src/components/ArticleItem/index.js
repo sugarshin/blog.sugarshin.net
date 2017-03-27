@@ -1,10 +1,10 @@
-import React from 'react';
-import Icon from 'react-fa';
-import Link from 'react-router/lib/Link';
-import styles from './index.styl';
+import React from 'react'
+import Icon from 'react-fa'
+import { Link } from 'react-router-dom'
+import styles from './index.styl'
 
 export default function ArticleItem({ article }) {
-  const to = `/${article.date.split(' ')[0].replace(/-/g, '/')}/${article.url}`;
+  const to = `/${article.date.split(' ')[0].replace(/-/g, '/')}/${article.url}`
   return (
     <div className={styles.root}>
       <Link to={to}>
@@ -16,5 +16,5 @@ export default function ArticleItem({ article }) {
         </p>
         <div className={styles.time}><time>{article.date}</time></div>
     </div>
-  );
+  )
 }
