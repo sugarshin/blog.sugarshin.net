@@ -6999,7 +6999,7 @@ remark-rehype@^2.0.0:
   dependencies:
     mdast-util-to-hast "^2.2.0"
 
-remark-slug@^4.0.0:
+remark-slug@^4.0.0, remark-slug@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/remark-slug/-/remark-slug-4.2.2.tgz#3cfaa02e2e24d98405b296072f2ebbdfad279eb6"
   dependencies:
