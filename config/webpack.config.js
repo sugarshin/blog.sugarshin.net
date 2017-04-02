@@ -91,7 +91,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 102400,
+              limit: 10240,
               mimetype: 'application/font-woff'
             }
           }
@@ -100,7 +100,7 @@ module.exports = {
       {
         test: /\.(otf|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
-          { loader: 'url-loader', options: { limit: 102400 } },
+          { loader: 'url-loader', options: { limit: 10240 } },
           'file-loader',
         ],
       },
@@ -110,7 +110,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 102400,
+              limit: 10240,
               hash: 'sha512',
               digest: 'hex',
               name: '[name]__[hash].[ext]'
@@ -118,7 +118,7 @@ module.exports = {
           },
           {
             loader: 'image-webpack-loader',
-            query: {
+            options: {
               progressive: true,
               bypassOnDebug: true,
               optipng: {

@@ -32,7 +32,7 @@ const baseOpts = {
 // Articles
 articles.forEach(article => {
   const md = fs.readFileSync(`./articles/${article.date.split(' ')[0]}_${article.url}.md`, { encoding: 'utf8' });
-  const content = markdownRenderer.processSync(md).toString();
+  const content = markdownRenderer.toString(md);
   const yamlConfig = yaml.safeLoad(sliceYAMLConfig(md));
   const html = pug.renderFile(src, Object.assign({}, baseOpts, {
     content,
