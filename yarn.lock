@@ -7160,9 +7160,9 @@ remark-parse@^3.0.0:
     vfile-location "^2.0.0"
     xtend "^4.0.1"
 
-remark-react-lowlight@sugarshin/remark-react-lowlight#8c03a57bebe6bfaf4157709348ba52f0f7b8fd1f:
+remark-react-lowlight@sugarshin/remark-react-lowlight#56c7764efe723835490d507ad3ce60df3bc2c0b8:
   version "0.3.0"
-  resolved "https://codeload.github.com/sugarshin/remark-react-lowlight/tar.gz/8c03a57bebe6bfaf4157709348ba52f0f7b8fd1f"
+  resolved "https://codeload.github.com/sugarshin/remark-react-lowlight/tar.gz/56c7764efe723835490d507ad3ce60df3bc2c0b8"
   dependencies:
     react-lowlight "^1.0.0"
 
