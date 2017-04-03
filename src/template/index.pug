@@ -13,6 +13,8 @@ html(lang= lang)
     if process.env.NODE_ENV === 'production'
       link(rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml")
       link(rel="alternate" type="application/rss+xml" title="RSS 2.0 Feed" href="/rss.xml")
+    if process.env.NODE_ENV === 'production'
+      link(rel="stylesheet" href= process.env.MAIN_STYLESHEET)
     if favicons
       each tag in favicons
         != tag
@@ -20,4 +22,5 @@ html(lang= lang)
     if content
       div(style="display: none;")!= content
     #app-root
-    script(src=(process.env.MAIN_SCRIPT || "/assets/app.js"))
+    if process.env.NODE_ENV === 'production'
+      script(src= process.env.MAIN_SCRIPT)

@@ -9,7 +9,7 @@ node scripts/imagemin && \
 node scripts/articles-index -o build && \
 node scripts/dev-articles -o build/contents/articles && \
 node scripts/favicons && \
-MAIN_SCRIPT=/assets/$(basename `ls build/assets/app-*.js`) npm run templates:build && \
+MAIN_SCRIPT=/assets/$(basename `ls build/assets/app-*.js`) MAIN_STYLESHEET=/assets/$(basename `ls build/assets/app-*.css`) npm run templates:build && \
 rm -rf ./favicons.html.tmp && \
 node scripts/sitemap && \
 node scripts/feed && \
