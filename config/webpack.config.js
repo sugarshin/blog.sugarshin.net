@@ -2,7 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
-const { styl: stylRule, css: cssRule } = require('./webpack-rules');
+const {
+  styl: stylRule,
+  css: cssRule,
+  image: imageRule,
+  webFonts: webFontRules
+} = require('./webpack-rules');
 const { author, name } = require('../package.json');
 
 const production = process.env.NODE_ENV === 'production';
@@ -78,53 +83,14 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
-      stylRule,
-      cssRule,
       {
         test: /\.pug$/,
         loader: 'pug-loader'
       },
-      {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 100000,
-              mimetype: 'application/font-woff'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(otf|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader',
-        options: { limit: 100000 }
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 100000,
-              hash: 'sha512',
-              digest: 'hex',
-              name: '[name]__[hash].[ext]'
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              progressive: true,
-              bypassOnDebug: true,
-              optipng: {
-                optimizationLevel: 7
-              }
-            }
-          }
-        ]
-      }
+      stylRule,
+      cssRule,
+      imageRule,
+      ...webFontRules
     ]
   },
   devServer: {
