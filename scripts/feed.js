@@ -23,7 +23,8 @@ const feed = new Feed({
   description,
   link,
   copyright,
-  author
+  author,
+  updated: new Date()
 });
 
 articles.forEach(article => {
