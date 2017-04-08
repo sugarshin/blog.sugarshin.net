@@ -1,6 +1,6 @@
 // ref: https://segment.com/docs/sources/website/analytics.js/quickstart/
 
-const analytics = [];
+const analytics = window.analytics = window.analytics || [];
 
 // A list of the methods in Analytics.js to stub.
 analytics.methods = [
@@ -26,14 +26,6 @@ analytics.methods = [
 // for it to load to actually record data. The `method` is
 // stored as the first argument, so we can replay the data.
 analytics.factory = method => (...args) => {
-  const argStr = JSON.stringify(args).replace(/^\[|\]$/g, '');
-  if (window.console && window.console.info && process.env.NODE_ENV !== 'production') {
-    window.console.info(`Segment: ${method}(${argStr})`);
-  }
-  if (window.analytics && window.analytics[method]) {
-    window.analytics[method].apply(window.analytics, args);
-    return window.analytics;
-  }
   args.unshift(method);
   analytics.push(args);
   return analytics;
@@ -62,7 +54,7 @@ analytics.load = key => {
 };
 
 // Add a version to keep track of what's in the wild.
-analytics.SNIPPET_VERSION = '3.1.0';
+analytics.SNIPPET_VERSION = '4.0.0';
 
 // Load Analytics.js with your key, which will automatically
 // load the tools you've enabled for your account. Boosh!
