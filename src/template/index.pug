@@ -20,7 +20,9 @@ html(lang= lang)
         != tag
   body
     if content
-      div(style="display: none;")!= content
+      div(style="display: none;")
+        h1= title
+        div!= content
     #app-root
     if process.env.NODE_ENV === 'production'
       script(src= process.env.MAIN_SCRIPT)
