@@ -3,7 +3,7 @@ import types from 'constants/ActionTypes';
 import { searchResults as initialState } from 'initialState';
 
 export default createReducer(initialState, {
-  [types.REQUEST_SEARCH_ARTICLE]: state => ({
+  [types.SEARCH_ARTICLE]: state => ({
     ...state,
     isFetching: true
   }),
@@ -16,7 +16,7 @@ export default createReducer(initialState, {
     totalCount: action.total_count
   }),
 
-  [types.REQUEST_ERROR_SEARCH_ARTICLE]: (state, action) => ({
+  [types.RECEIVE_SEARCH_ARTICLE_ERROR]: (state, action) => ({
     ...state,
     isFetching: false,
     error: action.error

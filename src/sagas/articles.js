@@ -34,7 +34,7 @@ export function* searchArticle({ query }) {
     const data = yield call([Articles, Articles.search], query);
     yield put(actions.receiveSearchArticle(data))
   } catch (error) {
-    yield put(actions.requestErrorSearchArticle(error));
+    yield put(actions.receiveSearchArticleError(error));
   }
 }
 
