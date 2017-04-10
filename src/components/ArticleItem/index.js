@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from 'react-fa'
 import { Link } from 'react-router-dom'
+import Tags from 'components/Tags'
 import styles from './index.styl'
 
 export default function ArticleItem({ article }) {
@@ -14,6 +15,7 @@ export default function ArticleItem({ article }) {
           {article.preview}
           <span className={styles.more}><Link to={to}>more <Icon name='angle-double-right ' /></Link></span>
         </p>
+        <div className={styles.tags}><Tags values={article.tags} /></div>
         <div className={styles.time}><time>{article.date}</time></div>
     </div>
   )
