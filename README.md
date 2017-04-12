@@ -7,12 +7,12 @@ https://log.sugarshin.net
 
 ## Setup
 
-https://github.com/sugarshin/log.sugarshin/blob/master/.env.example
-
 ```sh
 cp .env{.example,}
 vim .env
 ```
+
+https://github.com/sugarshin/log.sugarshin.net/blob/master/.env.example
 
 ## Start dev-server
 

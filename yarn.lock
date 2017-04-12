@@ -3056,7 +3056,7 @@ file-loader@^0.11.1:
   dependencies:
     loader-utils "^1.0.2"
 
-file-type@^3.1.0, file-type@^3.6.0, file-type@^3.8.0:
+file-type@^3.1.0, file-type@^3.8.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-3.9.0.tgz#257a078384d1db8087bc449d107d52a52672b9e9"
 
@@ -5804,17 +5804,7 @@ onetime@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
 
-opn-cli@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/opn-cli/-/opn-cli-3.1.0.tgz#f819ae6cae0b411bd0149b8560fe6c88adad20f8"
-  dependencies:
-    file-type "^3.6.0"
-    get-stdin "^5.0.1"
-    meow "^3.7.0"
-    opn "^4.0.0"
-    temp-write "^2.1.0"
-
-opn@4.0.2, opn@^4.0.0:
+opn@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/opn/-/opn-4.0.2.tgz#7abc22e644dff63b0a96d5ab7f2790c0f01abc95"
   dependencies:
@@ -6088,7 +6078,7 @@ phantomjs-prebuilt@^2.1.10:
     request-progress "~2.0.1"
     which "~1.2.10"
 
-pify@^2.0.0, pify@^2.2.0, pify@^2.3.0:
+pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
 
@@ -6844,7 +6834,7 @@ react-keydown@^1.6.9:
   version "1.6.9"
   resolved "https://registry.yarnpkg.com/react-keydown/-/react-keydown-1.6.9.tgz#019b84887f7c3ce74f18ba33ece3369324bc8489"
 
-react-lowlight@^1.0.0:
+react-lowlight@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-lowlight/-/react-lowlight-1.0.4.tgz#bcafe7f48f43c9b10e7354b93d6c7741cf1b81d4"
   dependencies:
@@ -7268,11 +7258,11 @@ remark-parse@^3.0.0:
     vfile-location "^2.0.0"
     xtend "^4.0.1"
 
-remark-react-lowlight@sugarshin/remark-react-lowlight#56c7764efe723835490d507ad3ce60df3bc2c0b8:
-  version "0.3.0"
-  resolved "https://codeload.github.com/sugarshin/remark-react-lowlight/tar.gz/56c7764efe723835490d507ad3ce60df3bc2c0b8"
+remark-react-lowlight@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/remark-react-lowlight/-/remark-react-lowlight-0.4.1.tgz#f707c1c883eed07b0a6dae6205d314ee29b2cde7"
   dependencies:
-    react-lowlight "^1.0.0"
+    react-lowlight "^1.0.4"
 
 remark-react@^4.0.0:
   version "4.0.0"
@@ -8225,17 +8215,6 @@ tar@^2.2.1:
     block-stream "*"
     fstream "^1.0.2"
     inherits "2"
-
-temp-write@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/temp-write/-/temp-write-2.1.0.tgz#59890918e0ef09d548aaa342f4bd3409d8404e96"
-  dependencies:
-    graceful-fs "^4.1.2"
-    mkdirp "^0.5.0"
-    os-tmpdir "^1.0.0"
-    pify "^2.2.0"
-    pinkie-promise "^2.0.0"
-    uuid "^2.0.1"
 
 tempfile@^1.0.0, tempfile@^1.1.1:
   version "1.1.1"
