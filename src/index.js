@@ -12,16 +12,13 @@ import 'highlight.js/styles/github.css'
 import 'stylus/index.styl'
 
 const main = () => {
-  const production = process.env.NODE_ENV === 'production'
-
-  if (production) analytics.load(process.env.SEGMENT_WRITE_KEY)
-
   APIBase.baseURI = process.env.API_BASE
-  APIBase.ref = production ? 'master' : null
+  APIBase.ref = process.env.NODE_ENV === 'production' ? 'master' : null
+
+  if (process.env.SEGMENT_WRITE_KEY) analytics.load(process.env.SEGMENT_WRITE_KEY)
+  history.listen(process.env.SEGMENT_WRITE_KEY ? analytics.page : noop)
 
   const store = configureStore()
-  history.listen(production ? () => analytics.page() : noop)
-
   const root = document.querySelector('#app-root')
   ReactDOM.render(<AppContainer><Root store={store} /></AppContainer> , root)
 

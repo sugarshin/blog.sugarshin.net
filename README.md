@@ -5,9 +5,36 @@
 
 https://log.sugarshin.net
 
+## Setup
+
+https://github.com/sugarshin/log.sugarshin/blob/master/.env.example
+
+```sh
+cp .env{.example,}
+vim .env
+```
+
+## Start dev-server
+
+```bash
+npm start
+```
+
+## Run tests
+
+```bash
+npm test
+```
+
+## Build assets
+
+```bash
+NODE_ENV=production npm run build
+```
+
 ## Add new article
 
-```
+```bash
 npm run na -- --name example-article-url
 ```
 
@@ -15,27 +42,9 @@ npm run na -- --name example-article-url
 
 Merge to master branch will trigger Travis CI that deploys assets to GitHub Pages.
 
-## Start dev-server
-
-```
-npm start
-```
-
-## Run tests
-
-```
-npm test
-```
-
-## Build assets
-
-```
-NODE_ENV=production npm run build
-```
-
 ## License
 
-© sugarshin
+MIT © sugarshin
 
 [travis-image]: https://img.shields.io/travis/sugarshin/log.sugarshin.net/master.svg?branch=master&style=flat-square
 [travis-url]: https://travis-ci.org/sugarshin/log.sugarshin.net
