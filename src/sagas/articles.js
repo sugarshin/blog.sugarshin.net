@@ -1,6 +1,7 @@
 import has from 'lodash/has';
 import { call, put, select } from 'redux-saga/effects'
 import Articles from 'apis/Articles';
+import Search from 'apis/Search';
 import * as actions from 'actions';
 import decodeArticleContent from 'utils/decodeArticleContent';
 
@@ -21,7 +22,7 @@ export function* fetchArticle({ url }) {
   } else {
     yield put(actions.requestArticle());
     try {
-      const { content } = yield call([Articles, Articles.getArticle], url);
+      const { content } = yield call([Articles, Articles.get], url);
       yield put(actions.receiveArticle({ markdown: decodeArticleContent(content), url }))
     } catch (error) {
       yield put(actions.requestErrorArticle(error));
@@ -31,7 +32,7 @@ export function* fetchArticle({ url }) {
 
 export function* searchArticle({ query }) {
   try {
-    const data = yield call([Articles, Articles.search], query);
+    const data = yield call([Search, Search.execute], query);
     yield put(actions.receiveSearchArticle(data))
   } catch (error) {
     yield put(actions.receiveSearchArticleError(error));

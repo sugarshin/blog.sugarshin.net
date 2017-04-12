@@ -7,7 +7,6 @@ npm run clean:build && \
 npm run webpack && \
 node scripts/imagemin && \
 node scripts/articles-index -o build && \
-node scripts/dev-articles -o build/contents/articles && \
 node scripts/favicons && \
 MAIN_SCRIPT=/assets/$(basename `ls build/assets/app-*.js`) MAIN_STYLESHEET=/assets/$(basename `ls build/assets/app-*.css`) npm run templates:build && \
 rm -rf ./favicons.html.tmp && \
