@@ -116,13 +116,13 @@ Markdown で書いた記事を XHR で取ってきて remark でレンダリン�
 ```
 
 ```js
-const unified = require('unified');
-const parse = require('remark-parse');
-const toc = require('remark-toc');
-const yamlConfig = require('remark-yaml-config');
-const remarkToRehype = require('remark-rehype');
-const highlight = require('rehype-highlight');
-const stringify = require('rehype-stringify');
+const unified = require('unified')
+const parse = require('remark-parse')
+const toc = require('remark-toc')
+const yamlConfig = require('remark-yaml-config')
+const remarkToRehype = require('remark-rehype')
+const highlight = require('rehype-highlight')
+const stringify = require('rehype-stringify')
 
 unified()
   .use(parse)
@@ -131,7 +131,7 @@ unified()
   .use(remarkToRehype)
   .use(highlight)
   .use(stringify)
-  .process('# markdown');
+  .process('# markdown')
 ```
 
 ### Enzyme
@@ -139,17 +139,17 @@ unified()
 React コンポーネントのテストは [Enzyme](https://github.com/airbnb/enzyme) を使ってみました。普通に DOM を触っている感じでテストが書けるので面白いかなと思います。
 
 ```js
-import assert from 'assert';
-import { shallow } from 'enzyme';
-import React from 'react';
+import assert from 'assert'
+import { shallow } from 'enzyme'
+import React from 'react'
 
 describe('Article suite', () => {
-  const Article = require('../../src/components/Article').default;
+  const Article = require('../../src/components/Article').default
   it('contains spec with an expectation', () => {
-    const markdown = '';
-    assert(shallow(<Article article={{ markdown }} />).is('.markdown-body'));
-  });
-});
+    const markdown = ''
+    assert(shallow(<Article article={{ markdown }} />).is('.markdown-body'))
+  })
+})
 ```
 
 テスト周りは Mocha, power-assert, babel-preset-power-assert, なこちらも定番な感じす。
