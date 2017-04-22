@@ -6,7 +6,7 @@ const {
   styl: stylRule,
   css: cssRule,
   image: imageRule,
-  webFonts: webFontRules
+  webFonts: webFontRules,
 } = require('./webpack-rules')
 require('dotenv').config()
 
@@ -25,9 +25,9 @@ const plugins = [
       NODE_ENV: JSON.stringify(NODE_ENV),
       API_BASE: JSON.stringify(apiBase),
       SEGMENT_WRITE_KEY: JSON.stringify(segmentWriteKey),
-      GITHUB_ACCESS_TOKENS: JSON.stringify(githubAccessTokens)
-    }
-  })
+      GITHUB_ACCESS_TOKENS: JSON.stringify(githubAccessTokens),
+    },
+  }),
 ]
 const entry = ['babel-polyfill', 'whatwg-fetch', './src/index.js']
 
@@ -42,7 +42,7 @@ if (production) {
     new HtmlPlugin({
       template: 'src/template/index.pug',
       title: 'development',
-      lang: 'en'
+      lang: 'en',
     })
   )
   entry.unshift(
@@ -63,38 +63,39 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    modules: ['node_modules', path.resolve(__dirname, '..', 'src')]
+    modules: ['node_modules', path.resolve(__dirname, '..', 'src')],
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         use: [
-          { loader: 'eslint-loader', options: { configFile: '.eslintrc' } }
+          { loader: 'eslint-loader', options: { configFile: '.eslintrc' } },
         ],
         exclude: /node_modules/,
-        enforce: 'pre'
+        enforce: 'pre',
       },
       {
         test: /\.styl$/,
         loader: 'stylint-loader',
         exclude: /node_modules/,
-        enforce: 'pre'
+        enforce: 'pre',
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: { cacheDirectory: true },
       },
       {
         test: /\.pug$/,
-        loader: 'pug-loader'
+        loader: 'pug-loader',
       },
       stylRule,
       cssRule,
       imageRule,
-      ...webFontRules
-    ]
+      ...webFontRules,
+    ],
   },
   devServer: {
     historyApiFallback: true,
@@ -108,8 +109,8 @@ module.exports = {
       '/search/code': {
         target: 'https://api.github.com',
         secure: false,
-        changeOrigin: true
-      }
-    }
-  }
+        changeOrigin: true,
+      },
+    },
+  },
 }

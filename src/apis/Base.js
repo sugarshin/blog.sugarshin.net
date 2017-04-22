@@ -14,7 +14,7 @@ export default class Base {
     return querystring.stringify({
       ref: this.ref,
       access_token: this.accessToken,
-      ...params
+      ...params,
     })
   }
   static set baseURI(uri) {

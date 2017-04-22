@@ -1,16 +1,17 @@
-import React from 'react';
-import Button from 'react-bootstrap/lib/Button';
+import React from 'react'
+import Button from 'react-bootstrap/lib/Button'
 import {
   FacebookButton,
   TwitterButton,
   GooglePlusButton,
   TumblrButton,
   PocketButton
-} from 'react-social';
-import Icon from 'react-fa';
-import { facebookAppID } from '../../../config/settings';
+} from 'react-social'
+import Icon from 'react-fa'
+import PropTypes from 'prop-types'
+import { facebookAppID } from '../../../config/settings'
 
-import styles from './index.styl';
+import styles from './index.styl'
 
 export default function ShareToolbar({ message, url }) {
   return (
@@ -31,5 +32,10 @@ export default function ShareToolbar({ message, url }) {
         <Button><Icon name='get-pocket' /></Button>
       </PocketButton>
     </div>
-  );
+  )
+}
+
+ShareToolbar.propTypes = {
+  message: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 }

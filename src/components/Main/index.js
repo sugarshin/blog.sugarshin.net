@@ -1,40 +1,42 @@
-import React, { Component } from 'react';
-import Octicon from 'react-octicon';
-import Button from 'react-bootstrap/lib/Button';
-import Sidebar from 'react-sidebar';
+/* eslint-disable react/prop-types */
+
+import React, { Component } from 'react'
+import Button from 'react-bootstrap/lib/Button'
+import Sidebar from 'react-sidebar'
 import { Link, withRouter } from 'react-router-dom'
-import Icon from 'react-fa';
-import SidebarMenu from 'components/SidebarMenu';
-import LoadingSpinner from 'components/LoadingSpinner';
+import Icon from 'react-fa'
+import SidebarMenu from 'components/SidebarMenu'
+import LoadingSpinner from 'components/utils/LoadingSpinner'
+import Octicon from 'components/utils/Octicon'
 import connectStore from 'modules/connectStore'
-import settings from '../../../config/settings';
-import styles from './index.styl';
+import settings from '../../../config/settings'
+import styles from './index.styl'
 
 @withRouter
 @connectStore()
 export default class Main extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     //                              TODO: move to this.props
     //                                                      ＼
-    this._matchMedia = window.matchMedia ? window.matchMedia('screen and (min-width: 769px)') : null;
-    this.handleChangeMediaQuery = ev => this.props.actions.toggleDocked(ev.matches);
+    this._matchMedia = window.matchMedia ? window.matchMedia('screen and (min-width: 769px)') : null
+    this.handleChangeMediaQuery = ev => this.props.actions.toggleDocked(ev.matches)
   }
   componentDidMount() {
-    this.props.actions.fetchArticleList();
+    this.props.actions.fetchArticleList()
     if (this._matchMedia) {
-      this._matchMedia.addListener(this.handleChangeMediaQuery);
-      this.props.actions.toggleDocked(this._matchMedia.matches);
+      this._matchMedia.addListener(this.handleChangeMediaQuery)
+      this.props.actions.toggleDocked(this._matchMedia.matches)
     }
   }
   componentWillUnmount() {
     if (this._matchMedia) {
-      this._matchMedia.removeListener(this.handleChangeMediaQuery);
+      this._matchMedia.removeListener(this.handleChangeMediaQuery)
     }
   }
   render() {
-    const { children, sidebar, articles, actions } = this.props;
+    const { children, sidebar, articles, actions } = this.props
     return articles.items.length > 0 ? (
       <Sidebar
         rootClassName={styles.root}
@@ -72,6 +74,6 @@ export default class Main extends Component {
       </Sidebar>
     ) : (
       <LoadingSpinner />
-    );
+    )
   }
 }

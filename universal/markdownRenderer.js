@@ -5,7 +5,6 @@ const slug = require('remark-slug')
 const toc = require('remark-toc')
 const yamlConfig = require('remark-yaml-config')
 const remarkToRehype = require('remark-rehype')
-const highlight = require('rehype-highlight')
 const reactRenderer = require('remark-react')
 const reactLowlight = require('remark-react-lowlight').default
 const stringify = require('rehype-stringify')
@@ -26,16 +25,15 @@ const reactComponentRenderer = unified().use(basePlugins).use(reactRenderer, {
   sanitize,
   remarkReactComponents: {
     code: reactLowlight({
-      js, json, bash
-    })
-  }
+      js, json, bash,
+    }),
+  },
 })
 const renderer = unified().use(basePlugins)
   .use(remarkToRehype)
-  .use(highlight) // not required
   .use(stringify)
 
 module.exports = {
   toReact: value => reactComponentRenderer.processSync(value).contents,
-  toString: value => renderer.processSync(value).toString()
+  toString: value => renderer.processSync(value).toString(),
 }

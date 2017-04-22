@@ -1,6 +1,6 @@
-import React from 'react';
-import Octicon from 'react-octicon';
-import styles from './index.styl';
+import React from 'react'
+import Octicon from 'components/utils/Octicon'
+import styles from './index.styl'
 
 export default function NoResults() {
   return (
@@ -8,5 +8,5 @@ export default function NoResults() {
       <Octicon name='circle-slash' className={styles.icon} />
       <p>No results...</p>
     </div>
-  );
+  )
 }

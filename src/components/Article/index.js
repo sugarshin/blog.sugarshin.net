@@ -1,13 +1,8 @@
-import React, { PropTypes } from 'react';
-import ArticleBody from 'components/ArticleBody';
-import ShareToolbar from 'components/ShareToolbar';
-import Disqus from 'components/Disqus';
-
-const propTypes = {
-  // article:
-  currentPathname: PropTypes.string.isRequired,
-  baseShareMessage: PropTypes.string.isRequired
-};
+import React from 'react'
+import PropTypes from 'prop-types'
+import ArticleBody from 'components/ArticleBody'
+import ShareToolbar from 'components/ShareToolbar'
+import Disqus from 'components/Disqus'
 
 export default function Article({ article, currentPathname, baseShareMessage }) {
   return (
@@ -23,7 +18,11 @@ export default function Article({ article, currentPathname, baseShareMessage }) 
         title={article.title}
       />
     </div>
-  );
+  )
 }
 
-Article.propTypes = propTypes;
+Article.propTypes = {
+  article: PropTypes.shape({ markdown: PropTypes.string, title: PropTypes.string }),
+  currentPathname: PropTypes.string.isRequired,
+  baseShareMessage: PropTypes.string.isRequired,
+}

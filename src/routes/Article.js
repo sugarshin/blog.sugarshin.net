@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
+
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import isEqual from 'lodash/isEqual'
 import PageTitle from 'components/PageTitle'
 import ArticleComponent from 'components/Article'
-import LoadingSpinner from 'components/LoadingSpinner'
+import LoadingSpinner from 'components/utils/LoadingSpinner'
 import connectStore from 'modules/connectStore'
 import { siteName } from '../../config/settings'
 

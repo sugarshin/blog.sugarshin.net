@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 export default function ListGroupItemLink({ to, children }) {
@@ -13,4 +14,9 @@ export default function ListGroupItemLink({ to, children }) {
       )}
     />
   )
+}
+
+ListGroupItemLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node,
 }

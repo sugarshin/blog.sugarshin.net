@@ -14,6 +14,6 @@ export function goTo(pathname, options = {}) {
   return push({
     pathname,
     search: options.search,
-    state: options.state
+    state: options.state,
   })
 }

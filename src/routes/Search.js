@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
+
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import queryString from 'query-string'
 import PageTitle from 'components/PageTitle'
 import SearchResults from 'components/SearchResults'
-import LoadingSpinner from 'components/LoadingSpinner'
+import LoadingSpinner from 'components/utils/LoadingSpinner'
 import NoResults from 'components/NoResults'
 import connectStore from 'modules/connectStore'
 

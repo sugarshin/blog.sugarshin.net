@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
+
 import React, { Component } from 'react'
-import Octicon from 'react-octicon'
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem'
 import FormControl from 'react-bootstrap/lib/FormControl'
-// import { LinkContainer } from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import keydown, { Keys } from 'react-keydown'
 import moment from 'moment'
 import queryString from 'query-string'
 import SidebarMenuGroup from 'components/SidebarMenuGroup'
-import ListGroupItemLink from 'components/utils/ListGroupItemLink'
+import Octicon from 'components/utils/Octicon'
 
 export default class SidebarMenu extends Component {
   constructor(props) {
@@ -85,9 +86,9 @@ export default class SidebarMenu extends Component {
     return this.props.articles.items.filter((a, i) => i < 5).map(item => {
       const [year, month, day] = item.date.split(' ')[0].split('-')
       return (
-        <ListGroupItemLink key={item.url} to={`/${year}/${month}/${day}/${item.url}`}>
-          {item.title}
-        </ListGroupItemLink>
+        <LinkContainer key={item.url} to={`/${year}/${month}/${day}/${item.url}`}>
+          <ListGroupItem>{item.title}</ListGroupItem>
+        </LinkContainer>
       )
     })
   }
@@ -96,9 +97,9 @@ export default class SidebarMenu extends Component {
       const [year, month] = date.split('-')
       const url = `/archives/${year}-${month}/`
       return (
-        <ListGroupItemLink key={url} to={url}>
-          {moment(date).format('MMMM YYYY')}
-        </ListGroupItemLink>
+        <LinkContainer key={url} to={url}>
+          <ListGroupItem>{moment(date).format('MMMM YYYY')}</ListGroupItem>
+        </LinkContainer>
       )
     })
   }
@@ -106,7 +107,9 @@ export default class SidebarMenu extends Component {
     return this.props.articles.tags.map(tag => {
       const url = `/tags/${tag.replace(/\s/g, '_')}/`
       return (
-        <ListGroupItemLink key={url} to={url}>{tag}</ListGroupItemLink>
+        <LinkContainer key={url} to={url}>
+          <ListGroupItem>{tag}</ListGroupItem>
+        </LinkContainer>
       )
     })
   }
@@ -117,7 +120,7 @@ export default class SidebarMenu extends Component {
       <ListGroupItem key='npm' href='//www.npmjs.com/~sugarshin/'>npm</ListGroupItem>,
       <ListGroupItem key='keybase' href='//keybase.io/sugarshin/'>Keybase</ListGroupItem>,
       <ListGroupItem key='twitter' href='//twitter.com/sugarshin/'>Twitter</ListGroupItem>,
-      <ListGroupItem key='instagram' href='//www.instagram.com/sugarshin/'>Instagram</ListGroupItem>
+      <ListGroupItem key='instagram' href='//www.instagram.com/sugarshin/'>Instagram</ListGroupItem>,
     ]
   }
   _handleChangeSearchQuery(ev) {

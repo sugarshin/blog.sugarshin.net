@@ -4,7 +4,7 @@ import * as actions from 'actions'
 
 export const mapStateToProps = state => ({ ...state })
 export const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch)
+  actions: bindActionCreators(actions, dispatch),
 })
 
 const connectStore = (...args) => WrappedComponent => {

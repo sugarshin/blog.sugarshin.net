@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const prod = process.env.NODE_ENV === 'production'
@@ -11,7 +11,7 @@ const stylLoaderOptions = assign(
   baseCSSLoaderOptions,
   {
     modules: true,
-    importLoaders: 1,
+    importLoaders: 2,
     localIdentName: prod ? '[hash:base64:32]' : '[path][name]__[local]___[hash:base64:8]',
   }
 )
@@ -27,11 +27,11 @@ if (!prod) {
 } else {
   stylRule.loader = ExtractTextPlugin.extract({
     fallback: 'style-loader',
-    loader: [
-      `css-loader?${JSON.stringify(stylLoaderOptions)}`,
+    use: [
+      { loader: 'css-loader', options: stylLoaderOptions },
       'postcss-loader',
       'stylus-loader',
-    ]
+    ],
   })
 }
 
@@ -49,8 +49,8 @@ if (!prod) {
 } else {
   cssRule.loader = ExtractTextPlugin.extract({
     fallback: 'style-loader',
-    loader: [
-      `css-loader?${JSON.stringify(cssLoaderOptions)}`,
+    use: [
+      { loader: 'css-loader', options: cssLoaderOptions },
     ],
   })
 }
@@ -81,7 +81,7 @@ const libFontPaths = [
 const imageRule = {
   test: /\.(jpe?g|png|gif|svg)$/,
   exclude: libFontPaths,
-};
+}
 if (prod) {
   imageRule.use = [
     urlLoader,

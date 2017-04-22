@@ -1,6 +1,6 @@
-import createReducer from 'utils/createReducer';
-import types from 'constants/ActionTypes';
-import { article as initialState } from 'initialState';
+import createReducer from 'utils/createReducer'
+import types from 'constants/ActionTypes'
+import { article as initialState } from 'initialState'
 
 export default createReducer(initialState, {
   [types.REQUEST_ARTICLE]: state => ({
@@ -10,7 +10,7 @@ export default createReducer(initialState, {
     url: '',
     isFetching: true,
     didInvalidate: false,
-    error: null
+    error: null,
   }),
 
   [types.RECEIVE_ARTICLE]: (state, action) => ({
@@ -21,7 +21,7 @@ export default createReducer(initialState, {
     isFetching: false,
     didInvalidate: false,
     cache: { ...state.cache, [action.url]: action.markdown },
-    error: null
+    error: null,
   }),
 
   [types.USE_CACHED_ARTICLE]: (state, action) => ({
@@ -31,7 +31,7 @@ export default createReducer(initialState, {
     url: action.url,
     isFetching: false,
     didInvalidate: false,
-    error: null
+    error: null,
   }),
 
   [types.REQUEST_ERROR_ARTICLE]: (state, action) => ({
@@ -41,11 +41,11 @@ export default createReducer(initialState, {
     url: action.url,
     isFetching: false,
     didInvalidate: true,
-    error: action.error
-  })
-});
+    error: action.error,
+  }),
+})
 
 // TODO
 function getArticleTitle(markdown) {
-  return markdown.split('\n')[1].replace(/^title:/, '').trim();
+  return markdown.split('\n')[1].replace(/^title:/, '').trim()
 }

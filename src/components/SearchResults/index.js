@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { protocol, domain } from '../../../config/settings'
 import styles from './index.styl'
 
-export default function SearchResults(props) {
+export default function SearchResults({ items }) {
   return (
     <div className={styles.root}>
       <ul>
-        {props.items.map(a => {
+        {items.map(a => {
           const [date, name] = a.name.split('_')
           const to = `/${date.replace(/-/g, '/')}/${name.replace(/\.md$/, '')}/`
           return (
@@ -19,4 +20,8 @@ export default function SearchResults(props) {
       </ul>
     </div>
   )
+}
+
+SearchResults.propTypes = {
+  items:PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.stirng })),
 }
