@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from 'react-fa'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import Tags from 'components/Tags'
 import styles from './index.styl'
 
@@ -19,4 +20,8 @@ export default function ArticleItem({ article }) {
         <div className={styles.time}><time>{article.date}</time></div>
     </div>
   )
+}
+
+ArticleItem.propTypes = {
+  article: PropTypes.shape({}), // TODO:
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Label } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import Octicon from 'react-octicon'
+import PropTypes from 'prop-types'
+import Octicon from 'components/utils/Octicon'
 import styles from './index.styl'
 
 export default function Tag({ value }) {
@@ -13,4 +14,8 @@ export default function Tag({ value }) {
       </Label>
     </Link>
   )
+}
+
+Tag.propTypes = {
+  value: PropTypes.string.isRequired,
 }

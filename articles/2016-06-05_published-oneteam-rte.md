@@ -28,10 +28,10 @@ npm: https://www.npmjs.com/package/oneteam-rte
 ## 使用例
 
 ```js
-import React from 'react';
-import { render } from 'react-dom';
-import RichTextEditor, { Toolbar, Body } from 'oneteam-rte';
-import 'oneteam-rte/lib/base.css';
+import React from 'react'
+import { render } from 'react-dom'
+import RichTextEditor, { Toolbar, Body } from 'oneteam-rte'
+import 'oneteam-rte/lib/base.css'
 
 render((
   <RichTextEditor
@@ -39,7 +39,7 @@ render((
     <Toolbar />
     <Body />
   </RichTextEditor>
-), document.querySelector('#app-root'));
+), document.querySelector('#app-root'))
 ```
 
 ## ツールバー

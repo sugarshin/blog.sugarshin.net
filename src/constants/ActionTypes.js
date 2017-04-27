@@ -1,4 +1,4 @@
-import mirrorKeyValue from 'mirror-key-value';
+import mirrorKeyValue from 'mirror-key-value'
 
 export default mirrorKeyValue([
   'FETCH_ARTICLE_LIST',
@@ -16,5 +16,5 @@ export default mirrorKeyValue([
   'SELECT_CATEGORY',
   'USE_CACHED_ARTICLE',
   'TOGGLE_SIDEBAR_OPEN',
-  'TOGGLE_SIDEBAR_DOCKED'
-]);
+  'TOGGLE_SIDEBAR_DOCKED',
+])

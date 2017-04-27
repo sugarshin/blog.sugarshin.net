@@ -9,5 +9,5 @@ module.exports = {
   authorEmail: 'shinsugar@gmail.com',
   authorURL: 'https://sugarshin.net/',
   googleSiteVerificationKey: '4O7-qR4PXF2KacXibd4CB6biuOWFLAm_UduYbxa5G4E',
-  facebookAppID: '1691251117863979'
-};
+  facebookAppID: '1691251117863979',
+}

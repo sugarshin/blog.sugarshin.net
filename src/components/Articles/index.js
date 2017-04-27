@@ -1,13 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ArticleItem from 'components/ArticleItem'
 import styles from './index.styl'
 
-export default function Articles(props) {
+export default function Articles({ articles }) {
   return (
     <div className={styles.wrapper}>
-      {props.articles.length > 0 ? props.articles.map(article => {
+      {articles.length > 0 ? articles.map(article => {
         return <ArticleItem key={`${article.date.split(' ')[0]}_${article.url}`} article={article} />
       }) : <p>No results...</p>}
     </div>
   )
+}
+
+Articles.propTypes = {
+  articles: PropTypes.arrayOf(PropTypes.shape({ date: PropTypes.string, url: PropTypes.string })),
 }

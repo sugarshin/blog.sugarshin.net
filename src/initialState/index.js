@@ -14,8 +14,8 @@ export const articles = {
   isFetching: false,
   isFetched: false,
   didInvalidate: false,
-  error: null
-};
+  error: null,
+}
 
 export const article = {
   title: '',
@@ -24,18 +24,18 @@ export const article = {
   isFetching: false,
   didInvalidate: false,
   cache: {},
-  error: null
-};
+  error: null,
+}
 
 export const sidebar = {
   open: false,
-  docked: false
-};
+  docked: false,
+}
 
 export const searchResults = {
   totalCount: 0,
   isFetching: false,
   incomplete: false,
   items: [],
-  error: null
-};
+  error: null,
+}

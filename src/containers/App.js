@@ -7,8 +7,8 @@ export default class App extends Component {
     return {
       children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.element),
-        PropTypes.element
-      ])
+        PropTypes.element,
+      ]),
     }
   }
   render() {
