@@ -6,7 +6,11 @@ import 'octicons/build/octicons.css'
 import styles from './index.styl'
 
 const Octicon = ({ name, spin, className, ...props }) => (
-  <span {...props} className={classnames(className, { [styles.spin]: spin })} dangerouslySetInnerHTML={{ __html: octicons[name].toSVG() }} />
+  <span
+    {...props}
+    className={classnames('octicon-container', className, { [styles.spin]: spin })}
+    dangerouslySetInnerHTML={{ __html: octicons[name].toSVG() }}
+  />
 )
 
 Octicon.propTypes = {

@@ -9,6 +9,8 @@ import moment from 'moment'
 import queryString from 'query-string'
 import SidebarMenuGroup from 'components/SidebarMenuGroup'
 import Octicon from 'components/utils/Octicon'
+import { feedURL } from '../../../config/settings'
+import styles from './index.styl'
 
 export default class SidebarMenu extends Component {
   constructor(props) {
@@ -74,6 +76,11 @@ export default class SidebarMenu extends Component {
             value={this.state.searchQuery}
           />
         </SidebarMenuGroup>
+        <div className={styles.feed}>
+          <a href={`/${feedURL}`}>
+            <Octicon name='rss' className={styles['feed-octicon']} /><span>Subscribe Feed</span>
+          </a>
+        </div>
         <div>
           <a href='//travis-ci.org/sugarshin/log.sugarshin.net'>
             <img src='//img.shields.io/travis/sugarshin/log.sugarshin.net/master.svg?branch=master&style=flat-square' />
