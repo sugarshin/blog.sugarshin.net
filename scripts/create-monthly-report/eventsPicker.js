@@ -33,11 +33,20 @@ module.exports.pickTargetIssuesEvents = data => {
   }, [])
 }
 module.exports.pickTargetPullRequestEvents = data => {
-  return pickPullRequestEvents(data).reduce((ret, event) => {
-    return event.payload.action === 'opened' || (
-      event.payload.action === 'closed' && event.payload.pull_request.merged
-    ) ? [...ret, event] : ret
-  }, [])
+  return pickPullRequestEvents(data)
+    .reduce((ret, event) => {
+      return event.payload.action === 'opened' || (
+        event.payload.action === 'closed' && event.payload.pull_request.merged
+      ) ? [...ret, event] : ret
+    }, [])
+    // exclude already merged create events
+    .filter((event, i, list) => {
+      return !(
+        event.payload.action === 'opened' && list.some(e =>
+          e.payload.number === event.payload.number && e.payload.pull_request.merged === true
+        )
+      )
+    })
 }
 module.exports.pickStarredEvents = data => {
   return pickWatchEvents(data).reduce((ret, event) => {
