@@ -2,7 +2,7 @@
 title: "[Monthly report] 2017-04 my activity this month on GitHub"
 date: 2017-04-30 00:00
 public: true
-tags: monthly-report
+tags: monthly report
 ogp:
   og:
     image:
