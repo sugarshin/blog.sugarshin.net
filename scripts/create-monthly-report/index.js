@@ -31,7 +31,7 @@ Promise.resolve()
 .then(res => {
   responses.push(res)
   const flattedData = responses.reduce((ret, res) => [...ret, ...res.data], [])
-  const now = moment()
+  const now = moment().subtract(1, 'day')
   const month = `${now.month() + 1}`
   const paddedMonth = padStart(month, 2, '0')
   const thisMonth = `${now.year()}${paddedMonth}01`
@@ -52,7 +52,7 @@ Promise.resolve()
   }
 
   const article = articleTemplate({
-    title: `[Monthly report] ${now.format('YYYY-MM')} my activity this month on GitHub`,
+    title: `"[Monthly report] ${now.format('YYYY-MM')} my activity this month on GitHub"`,
     date: now.format('YYYY-MM-DD HH:mm'),
     ogImageURL: `${protocol}//${domain}/assets/images/common/report/main.png`,
     body: [
@@ -94,7 +94,7 @@ Promise.resolve()
   })
 
   fs.writeFileSync(`articles/${now.format('YYYY-MM-DD')}_monthly-report.md`, article)
-  console.log('Success write monthly report!')
+  console.log('Successfully write monthly report!')
 })
 .catch(errors => {
   throw new Error('Error `getEvents()`', JSON.stringify(errors))
