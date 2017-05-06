@@ -1,6 +1,6 @@
 ---
 title: "[Monthly report] 2017-05 my activity this month on GitHub"
-date: 2017-05-06 03:28
+date: 2017-05-06 03:30
 public: true
 tags:
 ogp:
@@ -30,6 +30,8 @@ ogp:
 
 ## Pull requests
 
+- [Monthly · Pull Request #225 · sugarshin/log.sugarshin.net](https://github.com/sugarshin/log.sugarshin.net/pull/225)
+  - created_at: 2017-05-06T18:28:45Z
 - [Monthly report 2017-05-07 · Pull Request #224 · sugarshin/log.sugarshin.net](https://github.com/sugarshin/log.sugarshin.net/pull/224)
   - created_at: 2017-05-06T17:23:26Z
 - [Monthly report 2017-05-07 · Pull Request #223 · sugarshin/log.sugarshin.net](https://github.com/sugarshin/log.sugarshin.net/pull/223)
