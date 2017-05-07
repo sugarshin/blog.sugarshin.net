@@ -10,13 +10,15 @@ const {
 } = require('./webpack-rules')
 require('dotenv').config()
 
-const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT } = process.env
+const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM } = process.env
 const production = NODE_ENV === 'production'
 const buildDev = 'build-dev'
 const buildDir = production ? 'build' : buildDev
 const apiBase = API_BASE || ''
 const segmentWriteKey = SEGMENT_WRITE_KEY || null
 const githubAccessTokens = GITHUB_ACCESS_TOKENS || null
+const circleBuildNum = CIRCLE_BUILD_NUM || 0
+const sentryDSN = SENTRY_DSN || null
 const port = PORT || 8003
 
 const plugins = [
@@ -24,8 +26,10 @@ const plugins = [
     'process.env': {
       NODE_ENV: JSON.stringify(NODE_ENV),
       API_BASE: JSON.stringify(apiBase),
+      BUILD_NUMBER: JSON.stringify(circleBuildNum),
       SEGMENT_WRITE_KEY: JSON.stringify(segmentWriteKey),
       GITHUB_ACCESS_TOKENS: JSON.stringify(githubAccessTokens),
+      SENTRY_DSN: JSON.stringify(sentryDSN),
     },
   }),
 ]
