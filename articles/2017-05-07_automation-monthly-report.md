@@ -38,7 +38,8 @@ ogp:
 ## List events performed by a user
 
 User event は `GET /users/:username/events` エンドポイントから取得します。パブリックなイベントのみでいいはずなのでアクセストークンは必要ないです。
-ただ、 API の仕様で、過去 90 日以内でかつ 上限 300 件しか取得できないので、活動が多かった月は漏れがあるかもです。週ごと程度定期で取得してストックしておくなどの対応が必要かもですね。
+
+ただ API の仕様で、過去 90 日以内でかつ上限 300 件しか取得できないので、活動が多かった月は漏れがあるかもです。週ごと程度定期で取得してストックしておくなどの対応が必要かもですね。
 
 ref: https://developer.github.com/v3/activity/events/#list-events-performed-by-a-user
 
