@@ -79,6 +79,12 @@ Promise.resolve()
         )
       ),
       createSectionIfNeeded(
+        'Releases',
+        formatter.formatCreateTagEvents(
+          picker.pickCreateTagEvents(laterThisMonthData)
+        )
+      ),
+      createSectionIfNeeded(
         'Starred repositories',
         formatter.formatStarredEvents(
           picker.pickStarredEvents(laterThisMonthData)

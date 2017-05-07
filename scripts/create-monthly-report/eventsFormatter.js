@@ -2,7 +2,7 @@ const { truncate } = require('lodash')
 const removeMarkdown = require('remove-markdown')
 
 const baseURL = 'https://github.com'
-const toPlain = text => truncate(removeMarkdown(text).replace(/\n|\r/g, ' '), { length: 140 })
+const toPlain = text => `${truncate(removeMarkdown(text).replace(/\n|\r/g, ' '), { length: 140 })}...`
 
 const formatCreateRepoEvent = event => {
   return [
@@ -31,14 +31,12 @@ const formatIssuesEvent = ({ payload, created_at }) => {
 }
 
 const formatPullRequestEvent = ({
-  payload: { action, pull_request: { title, number, html_url, closed_at } },
+  payload: { action, pull_request: { title, number, html_url, created_at, merged_at } },
   repo,
-  created_at,
 }) => {
   return [
     `- ${action === 'closed' ? `**merged** ` : ''}[${title} · Pull Request #${number} · ${repo.name}](${html_url})`,
-    `  - created_at: ${created_at}`,
-    ...(closed_at ? [`  - merged_at: ${closed_at}`] : []),
+    `  - ${merged_at ? `merged_at: ${merged_at}` : `created_at: ${created_at}`}`,
   ].join('\n')
 }
 
