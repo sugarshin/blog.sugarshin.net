@@ -27,6 +27,11 @@ module.exports.pickCreateRepoEvents = data => {
     return 'repository' === event.payload.ref_type ? [...ret, event] : ret
   }, [])
 }
+module.exports.pickCreateTagEvents = data => {
+  return pickCreateRepoOrTagEvents(data).reduce((ret, event) => {
+    return 'tag' === event.payload.ref_type ? [...ret, event] : ret
+  }, [])
+}
 module.exports.pickTargetIssuesEvents = data => {
   return pickIssuesEvents(data).reduce((ret, event) => {
     return ['opened', 'closed'].includes(event.payload.action) ? [...ret, event] : ret
