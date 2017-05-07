@@ -6,14 +6,18 @@ html(lang= lang)
     meta(charset="utf-8")
     title= title
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    if author
-      meta(name="author" content= author)
-    if description
-      meta(name="description" content= description)
+    meta(name="title" content= title)
+    meta(name="author" content= author)
+    meta(name="description" content= description)
+    meta(property="og:title", content= title)
+    meta(property="og:description", content= description)
+    meta(property="og:type", content= type)
+    meta(property="og:image", content= ogImageURL)
+    meta(property="og:url", content= url)
+    meta(property="og:site_name", content= siteName)
     if process.env.NODE_ENV === 'production'
       link(rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml")
       link(rel="alternate" type="application/rss+xml" title="RSS 2.0 Feed" href="/rss.xml")
-    if process.env.NODE_ENV === 'production'
       link(rel="stylesheet" href= process.env.MAIN_STYLESHEET)
     if favicons
       each tag in favicons
