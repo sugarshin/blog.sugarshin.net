@@ -72,6 +72,45 @@ ogp:
 - **merged** [Update module · Pull Request #203 · sugarshin/log.sugarshin.net](https://github.com/sugarshin/log.sugarshin.net/pull/203)
   - merged_at: 2017-04-02T17:16:33Z
 
+## Releases
+
+- [Release v0.1.2 · sugarshin/draft-js-modifiers](https://github.com/sugarshin/draft-js-modifiers/releases/tag/v0.1.2)
+  - description: Modular state modifiers for Draft.js
+  - created_at: 2017-04-29T06:09:21Z
+- [Release v0.1.1 · sugarshin/draft-js-modifiers](https://github.com/sugarshin/draft-js-modifiers/releases/tag/v0.1.1)
+  - description: Modular state modifiers for Draft.js
+  - created_at: 2017-04-29T03:23:54Z
+- [Release v0.1.0 · sugarshin/draft-js-modifiers](https://github.com/sugarshin/draft-js-modifiers/releases/tag/v0.1.0)
+  - description: Modular state modifiers for Draft.js
+  - created_at: 2017-04-23T15:35:55Z
+- [Release v1.2.5 · oneteam-dev/oneteam-rte](https://github.com/oneteam-dev/oneteam-rte/releases/tag/v1.2.5)
+  - description: Oneteam Rich text editor
+  - created_at: 2017-04-17T06:59:16Z
+- [Release v2.0.4 · sugarshin/draft-js-checkable-list-item](https://github.com/sugarshin/draft-js-checkable-list-item/releases/tag/v2.0.4)
+  - description: Checkable list item for Draft.js
+  - created_at: 2017-04-14T14:53:01Z
+- [Release v2.0.0 · sugarshin/draft-js-checkable-list-plugin](https://github.com/sugarshin/draft-js-checkable-list-plugin/releases/tag/v2.0.0)
+  - description: Checkable list plugin for Draft.js
+  - created_at: 2017-04-14T14:22:15Z
+- [Release v2.0.3 · sugarshin/draft-js-checkable-list-item](https://github.com/sugarshin/draft-js-checkable-list-item/releases/tag/v2.0.3)
+  - description: Checkable list item for Draft.js
+  - created_at: 2017-04-14T07:56:11Z
+- [Release v1.2.4 · oneteam-dev/oneteam-rte](https://github.com/oneteam-dev/oneteam-rte/releases/tag/v1.2.4)
+  - description: Oneteam Rich text editor
+  - created_at: 2017-04-13T05:40:34Z
+- [Release v.1.2.3 · oneteam-dev/oneteam-rte](https://github.com/oneteam-dev/oneteam-rte/releases/tag/v.1.2.3)
+  - description: Oneteam Rich text editor
+  - created_at: 2017-04-11T10:19:07Z
+- [Release v1.2.2 · oneteam-dev/oneteam-rte](https://github.com/oneteam-dev/oneteam-rte/releases/tag/v1.2.2)
+  - description: Oneteam Rich text editor
+  - created_at: 2017-04-11T09:52:57Z
+- [Release v1.2.1 · oneteam-dev/oneteam-rte](https://github.com/oneteam-dev/oneteam-rte/releases/tag/v1.2.1)
+  - description: Oneteam Rich text editor
+  - created_at: 2017-04-11T09:13:29Z
+- [Release v1.2.0 · oneteam-dev/oneteam-rte](https://github.com/oneteam-dev/oneteam-rte/releases/tag/v1.2.0)
+  - description: Oneteam Rich text editor
+  - created_at: 2017-04-11T05:29:51Z
+
 ## Starred repositories
 
 - [danthareja/node-google-apps-script](https://github.com/danthareja/node-google-apps-script)
