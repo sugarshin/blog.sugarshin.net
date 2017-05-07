@@ -15,8 +15,11 @@ const main = () => {
   APIBase.baseURI = process.env.API_BASE
   APIBase.ref = process.env.NODE_ENV === 'production' ? 'master' : null
 
-  if (process.env.SEGMENT_WRITE_KEY) analytics.load(process.env.SEGMENT_WRITE_KEY)
-  history.listen(process.env.SEGMENT_WRITE_KEY ? analytics.page : noop)
+  if (process.env.SEGMENT_WRITE_KEY) {
+    analytics.load(process.env.SEGMENT_WRITE_KEY)
+    analytics.page()
+  }
+  history.listen(process.env.SEGMENT_WRITE_KEY ? () => (window.analytics || analytics).page() : noop)
 
   const store = configureStore()
   const root = document.querySelector('#app-root')
