@@ -1,3 +1,5 @@
+const pkg = require('../../package.json')
+
 /**
  * @param {Array} data
  * @param {string} type
@@ -39,6 +41,8 @@ module.exports.pickTargetIssuesEvents = data => {
 }
 module.exports.pickTargetPullRequestEvents = data => {
   return pickPullRequestEvents(data)
+    // ignore this repository
+    .filter(d => d.repo.name !== `${pkg.author}/${pkg.name}`)
     .reduce((ret, event) => {
       return event.payload.action === 'opened' || (
         event.payload.action === 'closed' && event.payload.pull_request.merged
