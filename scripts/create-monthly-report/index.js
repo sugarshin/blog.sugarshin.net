@@ -31,7 +31,7 @@ Promise.resolve()
 .then(res => {
   responses.push(res)
   const flattedData = responses.reduce((ret, res) => [...ret, ...res.data], [])
-  const now = moment().subtract(1, 'day')
+  const now = moment().subtract(6, 'minutes') // https://github.com/sugarshin/sugarshin-hubot/blob/ae5fdb43da5a40ad8008c071416279887afb7c75/scripts/mr-blog-cron.coffee#L16
   const month = `${now.month() + 1}`
   const paddedMonth = padStart(month, 2, '0')
   const thisMonth = `${now.year()}${paddedMonth}01`
