@@ -19,6 +19,6 @@ deployment:
     branch: master
     commands:
       - NODE_ENV=production npm run build
-      - COMMIT=$(git rev-parse --short HEAD) && node_modules/.bin/gh-pages -d build -xt --repo https://github.com/sugarshin/log.sugarshin.net.git -m "Built artifacts of ${COMMIT}"
+      - COMMIT=$(git rev-parse --short HEAD) && node_modules/.bin/gh-pages -d build -xt --repo https://github.com/sugarshin/log.sugarshin.net.git -m "Built artifacts of ${COMMIT} [ci skip]"
       - |
-        curl -XPOST -d '{"text": "log.sugarshin.net has been updated! <https://log.sugarshin.net>"}' $SLACK_WEBHOOK_URL
+        curl -XPOST -d '{"text": "blog has been updated! <https://log.sugarshin.net>"}' $SLACK_WEBHOOK_URL
