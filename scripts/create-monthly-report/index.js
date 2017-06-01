@@ -115,7 +115,7 @@ Promise.resolve()
     ].filter(row => !isNil(row)),
   })
 
-  fs.writeFileSync(`articles/${target.format('YYYY-MM-DD')}_monthly-report.md`, article)
+  fs.writeFileSync(`articles/${target.format('YYYY-MM-DD')}_monthly-report-${target.format('YYMM')}.md`, article)
   console.log('Successfully write monthly report!')
 })
 .catch(errors => {
