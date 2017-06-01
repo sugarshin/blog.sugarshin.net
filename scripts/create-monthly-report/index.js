@@ -7,6 +7,14 @@ const formatter = require('./eventsFormatter')
 const articleTemplate = require('../helpers/articleTemplate')
 const { protocol, domain } = require('../../config/settings')
 const { author: username } = require('../../package.json')
+const argv = require('minimist')(process.argv.slice(2))
+
+const per = parseInt(argv.p || argv.per || 16, 10)
+const unit = argv.u || argv.unit || 'minutes'
+
+if (typeof per !== 'number' || typeof unit !== 'string') {
+  throw new TypeError('`per` must be `number`, `unit` must be `string`')
+}
 
 const github = new GitHub()
 
@@ -31,12 +39,19 @@ Promise.resolve()
 .then(res => {
   responses.push(res)
   const flattedData = responses.reduce((ret, res) => [...ret, ...res.data], [])
-  const now = moment().subtract(6, 'minutes') // https://github.com/sugarshin/sugarshin-hubot/blob/ae5fdb43da5a40ad8008c071416279887afb7c75/scripts/mr-blog-cron.coffee#L16
-  const month = `${now.month() + 1}`
-  const paddedMonth = padStart(month, 2, '0')
-  const thisMonth = `${now.year()}${paddedMonth}01`
-  const thisMonthM = moment(thisMonth)
-  const laterThisMonthData = flattedData.filter(d => moment(d.created_at).valueOf() > thisMonthM.valueOf())
+  const target = moment().subtract(per, unit)
+  const targetMonth = `${target.month() + 1}`
+  const nextMonth = `${moment().month() + 1}`
+  const targetPaddedMonth = padStart(targetMonth, 2, '0')
+  const nextPaddedMonth = padStart(nextMonth, 2, '0')
+  const targetDate = `${target.year()}${targetPaddedMonth}01`
+  const nextDate = `${target.year()}${nextPaddedMonth}01`
+  const targetM = moment.utc(targetDate)
+  const nextM = moment.utc(nextDate)
+  const laterThisMonthData = flattedData.filter(d => {
+    const val = moment.utc(d.created_at).valueOf()
+    return nextM.valueOf() > val && val > targetM.valueOf()
+  })
 
   const createSection = (header, content) => {
     return [
@@ -52,9 +67,10 @@ Promise.resolve()
   }
 
   const article = articleTemplate({
-    title: `"[Monthly report] ${now.format('YYYY-MM')} my activity this month on GitHub"`,
-    date: now.format('YYYY-MM-DD HH:mm'),
+    title: `"[Monthly report] ${target.format('YYYY-MM')} my activity this month on GitHub"`,
+    date: target.format('YYYY-MM-DD HH:mm'),
     ogImageURL: `${protocol}//${domain}/assets/images/common/report/main.png`,
+    tags: ['monthly report'],
     body: [
       '今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ',
       '',
@@ -99,7 +115,7 @@ Promise.resolve()
     ].filter(row => !isNil(row)),
   })
 
-  fs.writeFileSync(`articles/${now.format('YYYY-MM-DD')}_monthly-report.md`, article)
+  fs.writeFileSync(`articles/${target.format('YYYY-MM-DD')}_monthly-report.md`, article)
   console.log('Successfully write monthly report!')
 })
 .catch(errors => {
