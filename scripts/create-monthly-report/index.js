@@ -74,7 +74,7 @@ Promise.resolve()
     body: [
       '今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ',
       '',
-      '---',
+      '***',
       '',
       createSectionIfNeeded(
         'Create new repositories',

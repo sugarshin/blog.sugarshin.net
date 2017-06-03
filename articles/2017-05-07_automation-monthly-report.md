@@ -13,7 +13,7 @@ ogp:
 
 月ごとに、 OSS コントリビューションや GitHub 上での活動をまとめたレポートの当ブログへの投稿を自動化しました。
 
----
+***
 
 なかなかブログも書けないので、これから GitHub の月報を投稿していくことにしました。
 
@@ -157,7 +157,7 @@ module.exports = () ->
 
 ref: https://github.com/sugarshin/log.sugarshin.net/blob/53700e705c6f154510d853fa5cbdd5f393a376ce/scripts/create-monthly-report/index.js#L42
 
----
+***
 
 GitHub の API でとれるデータを元に、エンジニアのパフォーマンス計測や作業量などの算出に利用して、エンジニアの働き方やワークライフバランス改善の 1 つの指針に利用できたりしないかなと考えてみたりしています。
 
