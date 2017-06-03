@@ -11,7 +11,7 @@ ogp:
 
 今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ
 
----
+***
 
 ## Make private repository public
 
