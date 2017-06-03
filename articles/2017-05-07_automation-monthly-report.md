@@ -17,7 +17,7 @@ ogp:
 
 なかなかブログも書けないので、これから GitHub の月報を投稿していくことにしました。
 
-[[Monthly report] 2017-04 my activity this month on GitHub](https://log.sugarshin.net/2017/04/30/monthly-report/)
+[[Monthly report] 2017-04 my activity this month on GitHub](/2017/04/30/monthly-report-1704)
 
 ## Table of Contents
 
@@ -33,7 +33,7 @@ ogp:
 
 前提として、 GitHub 上で投稿までのサイクルが回るようになっています。
 
-[React と Redux なブログ運用をソフトウェア開発する話し](https://log.sugarshin.net/2016/07/14/blog-like-software-development)
+[React と Redux なブログ運用をソフトウェア開発する話し](/2016/07/14/blog-like-software-development)
 
 ## List events performed by a user
 
@@ -110,18 +110,17 @@ $ curl "https://api.github.com/users/sugarshin/events"
 
 ## ビルド
 
-ビルドは CircleCI 上で Shell script で実行します。
+ビルドは CircleCI 上で行います。
 
 ブログのリポジトリだけで完結させられるかと思いましたが、ごちゃごちゃしそうだったので別環境を用意しています。
 
 https://github.com/sugarshin/build.log.sugarshin.net
 
-現状、 Pull request のマージは、ステータスが `mergeable` になるまでポーリングしています。ステータス変更をトリガーできればいいですね。
+現状、 Pull request のマージは、ステータスが `mergeable` かつ `mergeable_state === 'clean'` になるまでポーリングしています。ステータス変更をトリガーできればいいですね。
 
-- https://github.com/sugarshin/build.log.sugarshin.net/blob/master/monthly-report.sh#L21
-- https://github.com/sugarshin/build.log.sugarshin.net/blob/master/merge-pull-request.js#L33
+- https://github.com/sugarshin/build.log.sugarshin.net/blob/42bf302cb92cfffccbc98b30339906dc5c4cbf15/merge-pull-request.js#L36
 
-CircleCI の API でビルドを実行します。
+CircleCI の API からビルドを実行します。
 
 ref: [Recent Builds For a Project Branch - CircleCI API v1.1 Reference - CircleCI](https://circleci.com/docs/api/v1-reference/#recent-builds-project-branch)
 
@@ -131,7 +130,7 @@ $ curl -XPOST "https://circleci.com/api/v1/project/sugarshin/build.log.sugarshin
 
 ## 定期実行
 
-月末に定期実行させるために、 cron などで上述 API を叩きます
+月末に定期実行させるために、 cron などで上述 CircleCI の API を叩きます。
 
 今回は既存の自分のプライベート Hubot 内で起動させてあります。
 
@@ -141,7 +140,8 @@ $ curl -XPOST "https://circleci.com/api/v1/project/sugarshin/build.log.sugarshin
 
 { CronJob } = require 'cron'
 fetch = require 'node-fetch'
-{ BLOG_REPO_BUILDER_CIRCLE_TOKEN: TOKEN } = process.env
+
+{ HUBOT_BLOG_BUILDER_CIRCLE_TOKEN: TOKEN } = process.env
 
 module.exports = () ->
   executeMonthlyReport = ->
@@ -150,14 +150,16 @@ module.exports = () ->
       method: 'POST'
     )
 
-  new CronJob('0 01 00 01 * *', () ->
-    executeMonthlyReport()
-  ).start()
+  new CronJob('0 01 00 01 * *', executeMonthlyReport).start()
 ```
 
-月の末日をとるのが難しかったので、月初の 0 時 1 分とし、そこから -1 日して計算するようにしてあります。
+月の末日をとるのが難しかったので、月初の 0 時 1 分とし、そこからビルド時間を考慮した分をマイナスして計算するようにしてあります。
 
-ref: https://github.com/sugarshin/log.sugarshin.net/blob/master/scripts/create-monthly-report/index.js#L34
+ref: https://github.com/sugarshin/log.sugarshin.net/blob/53700e705c6f154510d853fa5cbdd5f393a376ce/scripts/create-monthly-report/index.js#L42
+
+---
+
+GitHub の API でとれるデータを元に、エンジニアのパフォーマンス計測や作業量などの算出に利用して、エンジニアの働き方やワークライフバランス改善の 1 つの指針に利用できたりしないかなと考えてみたりしています。
 
 ## リンク
 
