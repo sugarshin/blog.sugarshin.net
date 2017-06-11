@@ -1,14 +1,23 @@
 import types from 'constants/ActionTypes'
 
-export function toggleSidebar() {
-  return (dispatch, getState) => {
-    return dispatch({
-      type: types.TOGGLE_SIDEBAR_OPEN,
-      open: !getState().sidebar.open,
-    })
+export const toggleSidebar = () => {
+  return {
+    type: types.TOGGLE_SIDEBAR,
   }
 }
 
-export function toggleDocked(docked) {
+export const openSidebar = () => {
+  return {
+    type: types.OPEN_SIDEBAR,
+  }
+}
+
+export const closeSidebar = () => {
+  return {
+    type: types.CLOSE_SIDEBAR,
+  }
+}
+
+export const toggleDocked = docked => {
   return { type: types.TOGGLE_SIDEBAR_DOCKED, docked }
 }

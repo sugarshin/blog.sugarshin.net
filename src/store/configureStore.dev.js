@@ -1,16 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import { persistState } from 'redux-devtools'
-import thunk from 'redux-thunk'
-import createSagaMiddleware from 'redux-saga'
+import { createEpicMiddleware } from 'redux-observable'
 import logger from 'redux-logger'
 import history from 'modules/history'
 import rootReducer from 'reducers'
-import rootSaga from 'sagas'
+import rootEpic from 'epics'
 import DevTools from 'enhancers/DevTools'
 
 export default function configureStore(initialState) {
-  const saga = createSagaMiddleware()
+  const epic = createEpicMiddleware(rootEpic)
 
   const store = createStore(
     rootReducer,
@@ -18,16 +17,13 @@ export default function configureStore(initialState) {
     compose(
       applyMiddleware(
         routerMiddleware(history),
-        thunk,
-        saga,
-        logger
+        epic,
+        logger,
       ),
       DevTools.instrument(),
-      persistState(window.location.href.match(/[?&]debug_session=([^&#]+)\b/))
-    )
+      persistState(window.location.href.match(/[?&]debug_session=([^&#]+)\b/)),
+    ),
   )
-
-  saga.run(rootSaga)
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

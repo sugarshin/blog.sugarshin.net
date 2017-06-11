@@ -3,9 +3,19 @@ import types from 'constants/ActionTypes'
 import { sidebar as initialState } from 'initialState'
 
 export default createReducer(initialState, {
-  [types.TOGGLE_SIDEBAR_OPEN]: (state, action) => ({
+  [types.OPEN_SIDEBAR]: state => ({
     ...state,
-    open: action.open,
+    open: true,
+  }),
+
+  [types.CLOSE_SIDEBAR]: state => ({
+    ...state,
+    open: false,
+  }),
+
+  [types.TOGGLE_SIDEBAR]: state => ({
+    ...state,
+    open: !state.open,
   }),
 
   [types.TOGGLE_SIDEBAR_DOCKED]: (state, action) => ({

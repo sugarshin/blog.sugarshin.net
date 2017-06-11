@@ -5,10 +5,23 @@ export default class Base {
   static fetchJSON(url, option) {
     return fetch(url, option).then(res => res.json())
   }
+  static fetchRaw(url, option = {}) {
+    const opt = {
+      ...option,
+      headers: {
+        ...option.headers,
+        Accept: 'application/vnd.github.v3.raw',
+      },
+    }
+    return fetch(url, opt).then(res => res.text())
+  }
   static get(url, params) {
     return this.fetchJSON(
-      `${this.baseURI}/${this.path}${url ? `/${url}` : ''}?${this.querystring(params)}`
+      this.requestURL(url, params),
     )
+  }
+  static requestURL(url, params) {
+    return `${this.baseURI}/${this.path}${url ? `/${url}` : ''}?${this.querystring(params)}`
   }
   static querystring(params = {}) {
     return querystring.stringify({

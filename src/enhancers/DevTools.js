@@ -14,5 +14,5 @@ export default createDevTools(
   >
     <LogMonitor />
     <SlideMonitor />
-  </DockMonitor>
+  </DockMonitor>,
 )
