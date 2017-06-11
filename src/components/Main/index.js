@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/lib/Button'
+import Alert from 'react-bootstrap/lib/Alert'
 import Sidebar from 'react-sidebar'
 import { Link, withRouter } from 'react-router-dom'
 import Icon from 'react-fa'
@@ -18,8 +19,8 @@ export default class Main extends Component {
   constructor(props) {
     super(props)
 
-    //                              TODO: move to this.props
-    //                                                      ＼
+    // TODO: move to this.props______________________________
+    //                                                       \
     this._matchMedia = window.matchMedia ? window.matchMedia('screen and (min-width: 769px)') : null
     this.handleChangeMediaQuery = ev => this.props.actions.toggleDocked(ev.matches)
   }
@@ -36,8 +37,17 @@ export default class Main extends Component {
     }
   }
   render() {
-    const { children, sidebar, articles, actions } = this.props
-    return articles.items.length > 0 ? (
+    const { articles } = this.props
+    if (articles.items.length > 0) {
+      return this.renderContent()
+    } else if (articles.error) {
+      return <Alert bsStyle='danger'>{articles.error.message || 'Unknown error'}</Alert>
+    }
+    return <LoadingSpinner />
+  }
+  renderContent() {
+    const { children, sidebar, actions } = this.props
+    return (
       <Sidebar
         rootClassName={styles.root}
         sidebarClassName={styles.sidebar}
@@ -72,8 +82,6 @@ export default class Main extends Component {
           </p>
         </footer>
       </Sidebar>
-    ) : (
-      <LoadingSpinner />
     )
   }
 }

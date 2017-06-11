@@ -8,4 +8,9 @@ export default class Articles extends Base {
   static getList() {
     return this.fetchJSON('/index.json')
   }
+  static get(url) {
+    return this.fetchRaw(
+      this.requestURL(url),
+    )
+  }
 }

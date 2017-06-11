@@ -9,6 +9,7 @@ export default createReducer(initialState, {
     isFetching: true,
     isFetched: false,
     didInvalidate: false,
+    error: null,
   }),
 
   [types.RECEIVE_ARTICLES]: (state, action) => {
@@ -21,6 +22,7 @@ export default createReducer(initialState, {
       isFetching: false,
       isFetched: true,
       didInvalidate: false,
+      error: null,
     }
   },
 
@@ -44,5 +46,5 @@ function _createArchives(items) {
 
 function _createTags(items) {
   return items.reduce((tags, item) => uniq([...tags, ...item.tags]), [])
-    .sort((a, b) => a === b ? 0 : (a > b ? 1 : -1)) // 雑
+    .sort((a, b) => a === b ? 0 : (a > b ? 1 : -1))
 }
