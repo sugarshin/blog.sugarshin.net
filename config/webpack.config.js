@@ -49,10 +49,16 @@ if (production) {
       lang: 'en',
     })
   )
+
   entry.unshift(
     `webpack-dev-server/client?http://localhost:${port}`,
-    'webpack/hot/only-dev-server',
-    'react-hot-loader/patch'
+    'webpack/hot/only-dev-server'
+  )
+
+  const main = entry.pop()
+  entry.push(
+    'react-hot-loader/patch',
+    main
   )
 }
 
