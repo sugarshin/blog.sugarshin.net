@@ -10,7 +10,7 @@ import { push } from 'react-router-redux'
  *
  * @returns {Function}
  */
-export function goTo(pathname, options = {}) {
+export const goTo = (pathname, options = {}) => {
   return push({
     pathname,
     search: options.search,
