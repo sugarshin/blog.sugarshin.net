@@ -45,7 +45,7 @@ const shouldUseCachedArticle = (state, url) => has(state.article.cache, url)
 
 export const searchArticle = action$ => action$
   .ofType(types.SEARCH_ARTICLE)
-  .mergeMap(({ query }) => Search.execute(query))
+  .mergeMap(({ payload: query }) => Search.execute(query))
   .map(actions.receiveSearchArticle)
   .catch(e => of$(actions.receiveSearchArticleError(e)))
 

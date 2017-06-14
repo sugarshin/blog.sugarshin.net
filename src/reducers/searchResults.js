@@ -1,24 +1,34 @@
-import createReducer from 'utils/createReducer'
-import types from 'constants/ActionTypes'
+import { handleActions } from 'redux-actions'
+import * as actions from 'actions/search'
 import { searchResults as initialState } from 'initialState'
 
-export default createReducer(initialState, {
-  [types.SEARCH_ARTICLE]: state => ({
-    ...state,
-    isFetching: true,
-  }),
+export default handleActions(
+  {
+    [actions.searchArticle]: state => ({
+      ...state,
+      isFetching: true,
+      error: null,
+    }),
 
-  [types.RECEIVE_SEARCH_ARTICLE]: (state, action) => ({
-    ...state,
-    isFetching: false,
-    items: action.items,
-    incomplete: action.incomplete_results,
-    totalCount: action.total_count,
-  }),
-
-  [types.RECEIVE_SEARCH_ARTICLE_ERROR]: (state, action) => ({
-    ...state,
-    isFetching: false,
-    error: action.error,
-  }),
-})
+    [actions.receiveSearchArticle]: {
+      next(state, { payload }) {
+        return {
+          ...state,
+          isFetching: false,
+          items: payload.items,
+          incomplete: payload.incomplete,
+          totalCount: payload.totalCount,
+          error: null,
+        }
+      },
+      throw(state, { payload: error }) {
+        return {
+          ...state,
+          isFetching: false,
+          error,
+        }
+      },
+    },
+  },
+  initialState,
+)
