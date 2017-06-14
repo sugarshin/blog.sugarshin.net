@@ -1,21 +1,12 @@
+import { createAction } from 'redux-actions'
 import types from 'constants/ActionTypes'
 
-export function fetchArticleList() {
-  return { type: types.FETCH_ARTICLE_LIST }
-}
-
-export function requestArticles() {
-  return { type: types.REQUEST_ARTICLES }
-}
-
-export function receiveArticles(items) {
-  return {
-    type: types.RECEIVE_ARTICLES,
+export const fetchArticleList = createAction(types.FETCH_ARTICLE_LIST)
+export const requestArticleList = createAction(types.REQUEST_ARTICLE_LIST)
+export const receiveArticleList = createAction(
+  types.RECEIVE_ARTICLE_LIST,
+  items => ({
     items,
     receivedAt: Date.now(),
-  }
-}
-
-export function requestErrorArticles(error) {
-  return { type: types.REQUEST_ERROR_ARTICLES, error }
-}
+  }),
+)

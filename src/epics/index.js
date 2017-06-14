@@ -14,14 +14,14 @@ import * as actions from 'actions'
 export const fetchArticleList = action$ => action$
   .ofType(types.FETCH_ARTICLE_LIST)
   .mergeMap(() => concat$(
-    of$(actions.requestArticles()),
+    of$(actions.requestArticleList()),
     fromPromise$(Articles.getList())
-    .map(actions.receiveArticles)
+    .map(actions.receiveArticleList)
     .catch(e =>
-      of$(actions.requestErrorArticles(e)),
+      of$(actions.receiveArticleList(e)),
     ),
   ))
-  .catch(e => of$(actions.requestErrorArticles(e)))
+  .catch(e => of$(actions.receiveArticleList(e)))
 
 // TODO: I think this is a not Rx way...
 export const fetchArticle = (action$, store) => action$
