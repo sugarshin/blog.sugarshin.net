@@ -26,20 +26,20 @@ export const fetchArticleList = action$ => action$
 // TODO: I think this is a not Rx way...
 export const fetchArticle = (action$, store) => action$
   .ofType(types.FETCH_ARTICLE)
-  .mergeMap(({ url }) => {
+  .mergeMap(({ payload: url }) => {
     if (shouldUseCachedArticle(store.getState(), url)) {
       return Promise.resolve().then(() => actions.useCachedArticle(url))
     }
     return concat$(
       of$(actions.requestArticle()),
       fromPromise$(Articles.get(url))
-      .map(markdown => actions.receiveArticle({ markdown, url }))
+      .map(markdown => actions.receiveArticle({ markdown, url }, url))
       .catch(error =>
-        of$(actions.requestErrorArticle({ error, url })),
+        of$(actions.receiveArticle(error, url)),
       ),
     )
   })
-  .catch(error => of$(actions.requestErrorArticle({ error })))
+  .catch(error => of$(actions.receiveArticle(error)))
 
 const shouldUseCachedArticle = (state, url) => has(state.article.cache, url)
 
