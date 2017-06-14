@@ -22,13 +22,13 @@ export default class Main extends Component {
     // TODO: move to this.props______________________________
     //                                                       \
     this._matchMedia = window.matchMedia ? window.matchMedia('screen and (min-width: 769px)') : null
-    this.handleChangeMediaQuery = ev => this.props.actions.toggleDocked(ev.matches)
+    this.handleChangeMediaQuery = e => this.props.actions.toggleSidebarDocked(e.matches)
   }
   componentDidMount() {
     this.props.actions.fetchArticleList()
     if (this._matchMedia) {
       this._matchMedia.addListener(this.handleChangeMediaQuery)
-      this.props.actions.toggleDocked(this._matchMedia.matches)
+      this.props.actions.toggleSidebarDocked(this._matchMedia.matches)
     }
   }
   componentWillUnmount() {

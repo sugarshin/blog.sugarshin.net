@@ -1,25 +1,28 @@
-import createReducer from 'utils/createReducer'
-import types from 'constants/ActionTypes'
+import { handleActions } from 'redux-actions'
+import * as actions from 'actions/sidebar'
 import { sidebar as initialState } from 'initialState'
 
-export default createReducer(initialState, {
-  [types.OPEN_SIDEBAR]: state => ({
-    ...state,
-    open: true,
-  }),
+export default handleActions(
+  {
+    [actions.toggleSidebar]: state => ({
+      ...state,
+      open: true,
+    }),
 
-  [types.CLOSE_SIDEBAR]: state => ({
-    ...state,
-    open: false,
-  }),
+    [actions.closeSidebar]: state => ({
+      ...state,
+      open: false,
+    }),
 
-  [types.TOGGLE_SIDEBAR]: state => ({
-    ...state,
-    open: !state.open,
-  }),
+    [actions.toggleSidebar]: state => ({
+      ...state,
+      open: !state.open,
+    }),
 
-  [types.TOGGLE_SIDEBAR_DOCKED]: (state, action) => ({
-    ...state,
-    docked: action.docked,
-  }),
-})
+    [actions.toggleSidebarDocked]: (state, { payload }) => ({
+      ...state,
+      docked: payload.docked,
+    }),
+  },
+  initialState,
+)

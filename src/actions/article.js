@@ -1,26 +1,15 @@
+import { createAction } from 'redux-actions'
 import types from 'constants/ActionTypes'
 
-export function fetchArticle(url) {
-  return { type: types.FETCH_ARTICLE, url }
-}
-
-export function useCachedArticle(url) {
-  return { type: types.USE_CACHED_ARTICLE, url }
-}
-
-export function requestArticle() {
-  return { type: types.REQUEST_ARTICLE }
-}
-
-export function receiveArticle({ markdown, url }) {
-  return {
-    type: types.RECEIVE_ARTICLE,
+export const fetchArticle = createAction(types.FETCH_ARTICLE)
+export const useCachedArticle = createAction(types.USE_CACHED_ARTICLE, url => ({ url }))
+export const requestArticle = createAction(types.REQUEST_ARTICLE)
+export const receiveArticle = createAction(
+  types.RECEIVE_ARTICLE,
+  ({ markdown, url }) => ({
     markdown,
     url,
     receivedAt: Date.now(),
-  }
-}
-
-export function requestErrorArticle({ error, url }) {
-  return { type: types.REQUEST_ERROR_ARTICLE, error, url }
-}
+  }),
+  (payload, url) => ({ url }),
+)
