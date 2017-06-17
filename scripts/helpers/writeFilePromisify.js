@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const fs = require('fs')
 
 module.exports = function writeFilePromisify(filePath, data) {

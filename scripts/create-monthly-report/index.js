@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const fs = require('fs')
 const { padStart, isNil } = require('lodash')
 const GitHub = require('github')

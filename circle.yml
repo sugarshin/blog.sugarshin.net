@@ -14,6 +14,10 @@ dependencies:
     - yarn
   cache_directories:
     - ~/.cache/yarn
+test:
+  override:
+    - npm run lint
+    - npm run test:coverage && node_modules/.bin/codecov
 deployment:
   production:
     branch: master

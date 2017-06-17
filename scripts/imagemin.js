@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const path = require('path')
 const globby = require('globby')
 const { flatten } = require('lodash')

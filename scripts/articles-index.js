@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 // TODO Change code design to sync aproch
 // I want using GitHub API
 const fs = require('fs')

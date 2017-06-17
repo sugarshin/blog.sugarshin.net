@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const fs = require('fs')
 const argv = require('minimist')(process.argv.slice(2))
 const Sitemap = require('sitemap')
