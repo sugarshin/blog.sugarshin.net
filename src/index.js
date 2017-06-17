@@ -16,7 +16,7 @@ const main = () => {
   if (process.env.SENTRY_DSN) {
     Raven.config(
       process.env.SENTRY_DSN,
-      { release: process.env.BUILD_NUMBER, debug: process.env.NODE_ENV !== 'production' },
+      { release: process.env.BUILD_NUMBER, debug: process.env.NODE_ENV !== 'production' }
     ).install()
   }
 

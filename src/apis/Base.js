@@ -17,7 +17,7 @@ export default class Base {
   }
   static get(url, params) {
     return this.fetchJSON(
-      this.requestURL(url, params),
+      this.requestURL(url, params)
     )
   }
   static requestURL(url, params) {

@@ -14,15 +14,15 @@ export default function configureStore(initialState) {
     applyMiddleware(
       routerMiddleware(history),
       epic,
-      logger,
+      logger
     ),
-    DevTools.instrument(),
+    DevTools.instrument()
   )
 
   const store = createStore(
     rootReducer,
     initialState,
-    enhancer,
+    enhancer
   )
 
   if (module.hot) {

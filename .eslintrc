@@ -18,7 +18,7 @@
     "comma-dangle": [2, {
       "arrays": "always-multiline",
       "objects": "always-multiline",
-      "functions": "always-multiline",
+      "functions": "never",
       "imports": "always-multiline",
       "exports": "always-multiline"
     }]

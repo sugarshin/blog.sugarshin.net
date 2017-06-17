@@ -8,5 +8,5 @@ export const receiveSearchArticle = createAction(
     items: res.items,
     incomplete: res.incomplete_results,
     totalCount: res.total_count,
-  }),
+  })
 )

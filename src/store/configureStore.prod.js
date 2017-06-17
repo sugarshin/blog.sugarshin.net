@@ -12,8 +12,8 @@ export default function configureStore(initialState) {
     initialState,
     applyMiddleware(
       routerMiddleware(history),
-      epic,
-    ),
+      epic
+    )
   )
   return store
 }

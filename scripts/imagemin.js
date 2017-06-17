@@ -21,7 +21,7 @@ globby(`${baseSrcDir}/assets/**/*.{jpg,jpeg,png,gif,svg}`)
   .then(paths => Promise.all(paths.map(p => imagemin(
     [p],
     `${baseOutDir}/${path.dirname(p).replace(baseSrcDirRegex, '')}`,
-    { plugins },
+    { plugins }
   ))))
   .then(files => {
     flatten(files).forEach(({ path }) => console.log(`  ${chalk.bgGreen(' minified ')} ${chalk.gray(path)}`))
