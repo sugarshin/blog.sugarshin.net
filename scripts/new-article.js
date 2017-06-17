@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const { writeFileSync } = require('fs')
 const argv = require('minimist')(process.argv.slice(2))
 const mkdirp = require('mkdirp')

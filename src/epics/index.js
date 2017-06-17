@@ -47,7 +47,7 @@ export const searchArticle = action$ => action$
   .ofType(types.SEARCH_ARTICLE)
   .mergeMap(({ payload: query }) => Search.execute(query))
   .map(actions.receiveSearchArticle)
-  .catch(e => of$(actions.receiveSearchArticleError(e)))
+  .catch(e => of$(actions.receiveSearchArticle(e)))
 
 export default combineEpics(
   fetchArticleList,

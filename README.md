@@ -2,6 +2,7 @@
 
 [![Build Status][circleci-image]][circleci-url]
 [![Dependency Status][david-image]][david-url]
+[![codecov](https://codecov.io/gh/sugarshin/log.sugarshin.net/branch/master/graph/badge.svg)](https://codecov.io/gh/sugarshin/log.sugarshin.net)
 
 https://log.sugarshin.net
 

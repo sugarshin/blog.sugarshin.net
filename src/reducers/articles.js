@@ -6,7 +6,7 @@ import { articles as initialState } from 'initialState'
 // TODO:
 const createArchives = items => {
   return items.reduce((archives, item) => {
-    const date = item.date.split(' ')[0].replace(/\-\d\d$/, '') // TODO
+    const date = item.date.split(' ')[0].replace(/-\d\d$/, '') // TODO
     archives[date] = Array.isArray(archives[date]) ?
       [...archives[date], item] : [item]
     return archives

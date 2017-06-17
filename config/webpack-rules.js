@@ -13,7 +13,7 @@ const stylLoaderOptions = assign(
     modules: true,
     importLoaders: 2,
     localIdentName: prod ? '[hash:base64:32]' : '[path][name]__[local]___[hash:base64:8]',
-  }
+  },
 )
 
 const stylRule = { test: /\.styl$/ }
@@ -37,7 +37,7 @@ if (!prod) {
 
 const cssLoaderOptions = assign(
   {},
-  baseCSSLoaderOptions
+  baseCSSLoaderOptions,
 )
 
 const cssRule = { test: /\.css$/ }
@@ -61,12 +61,12 @@ const fileOptions = {
 const urlOptions = assign(
   {},
   fileOptions,
-  { limit: 10000 }
+  { limit: 10000 },
 )
 const fontFileOptions = assign(
   {},
   urlOptions,
-  { outputPath: 'fonts/' }
+  { outputPath: 'fonts/' },
 )
 const urlLoader = {
   loader: 'url-loader',
@@ -102,7 +102,7 @@ if (prod) {
 
 const webFontRule = assign(
   { test: /\.(otf|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/ },
-  assign({}, urlLoader, { options: fontFileOptions })
+  assign({}, urlLoader, { options: fontFileOptions }),
 )
 
 const otherWebFontRule = {

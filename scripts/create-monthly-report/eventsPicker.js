@@ -51,9 +51,9 @@ module.exports.pickTargetPullRequestEvents = data => {
     // exclude already merged create events
     .filter((event, i, list) => {
       return !(
-        event.payload.action === 'opened' && list.some(e =>
+        event.payload.action === 'opened' && list.some(e => (
           e.payload.number === event.payload.number && e.payload.pull_request.merged === true
-        )
+        ))
       )
     })
 }

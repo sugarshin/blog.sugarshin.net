@@ -38,7 +38,7 @@ const entry = ['babel-polyfill', 'whatwg-fetch', './src/index.js']
 if (production) {
   plugins.push(
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false, screw_ie8: true } }),
-    new ExtractTextPlugin({ filename: 'app-[hash].css', disable: false, allChunks: true })
+    new ExtractTextPlugin({ filename: 'app-[hash].css', disable: false, allChunks: true }),
   )
 } else {
   plugins.push(
@@ -47,18 +47,18 @@ if (production) {
       template: 'src/template/index.pug',
       title: 'development',
       lang: 'en',
-    })
+    }),
   )
 
   entry.unshift(
     `webpack-dev-server/client?http://localhost:${port}`,
-    'webpack/hot/only-dev-server'
+    'webpack/hot/only-dev-server',
   )
 
   const main = entry.pop()
   entry.push(
     'react-hot-loader/patch',
-    main
+    main,
   )
 }
 

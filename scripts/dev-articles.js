@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 // Mock GitHub API, GET: /repos/${author}/${repo_name}/contents/articles
 const fs = require('fs')
 const argv = require('minimist')(process.argv.slice(2))
