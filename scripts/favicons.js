@@ -1,12 +1,12 @@
-const fs = require('fs');
-const argv = require('minimist')(process.argv.slice(2));
-const favicons = require('favicons');
-const { protocol, domain, siteName, description, authorName, authorURL } = require('../config/settings');
+const fs = require('fs')
+const argv = require('minimist')(process.argv.slice(2))
+const favicons = require('favicons')
+const { protocol, domain, siteName, description, authorName, authorURL } = require('../config/settings')
 
-const url = argv.u || argv.url || `${protocol}//${domain}/open-graph.png`;
-const source = argv.s || argv.source || './src/images/p.jpg';
+const url = argv.u || argv.url || `${protocol}//${domain}/open-graph.png`
+const source = argv.s || argv.source || './src/images/p.jpg'
 
-const outDir = 'build';
+const outDir = 'build'
 const configuration = {
   appName: siteName,
   appDescription: description,
@@ -30,14 +30,14 @@ const configuration = {
     opengraph: true,
     twitter: true,
     windows: true,
-    yandex: false
-  }
-};
+    yandex: false,
+  },
+}
 
 favicons(source, configuration, (err, res) => {
-  if (err) throw new Error(err);
-  res.images.forEach(({ name, contents }) => fs.writeFileSync(`./${outDir}/${name}`, contents));
-  console.log('Success create favicons contents !');
-  fs.writeFileSync(`./favicons.html.tmp`, JSON.stringify(res.html), { encoding: 'utf8' });
-  console.log('Success create favicons.html.tmp !');
-});
+  if (err) throw new Error(err)
+  res.images.forEach(({ name, contents }) => fs.writeFileSync(`./${outDir}/${name}`, contents))
+  console.log('Success create favicons contents !')
+  fs.writeFileSync(`./favicons.html.tmp`, JSON.stringify(res.html), { encoding: 'utf8' })
+  console.log('Success create favicons.html.tmp !')
+})

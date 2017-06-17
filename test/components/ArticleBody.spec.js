@@ -1,8 +1,8 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
 describe('ArticleBody suite', () => {
-  const ArticleBody = require('../../src/components/ArticleBody').default;
+  const ArticleBody = require('../../src/components/ArticleBody').default
 
   const markdown = `# yo
 
@@ -21,9 +21,9 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 1. Ordered list 1
 2. Ordered list 2
 3. Ordered list 3
-`;
+`
 
   it('contains spec with an expectation', () => {
-    expect(shallow(<ArticleBody markdown={markdown} />).is('.markdown-body'));
-  });
-});
+    expect(shallow(<ArticleBody markdown={markdown} />).is('.markdown-body'))
+  })
+})

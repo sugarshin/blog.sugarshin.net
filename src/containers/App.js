@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
 import Main from 'components/Main'
 
 export default class App extends Component {

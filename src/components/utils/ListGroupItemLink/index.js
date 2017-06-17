@@ -7,7 +7,7 @@ export default function ListGroupItemLink({ to, children }) {
   return (
     <Route
       path={to}
-      children={({ match: active }) => (
+      children={({ match: active }) => ( // eslint-disable-line react/no-children-prop
         <Link to={to} className={cx('list-group-item', { active })}>
           {children}
         </Link>

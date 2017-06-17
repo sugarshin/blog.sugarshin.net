@@ -5,7 +5,7 @@ import {
   TwitterButton,
   GooglePlusButton,
   TumblrButton,
-  PocketButton
+  PocketButton,
 } from 'react-social'
 import Icon from 'react-fa'
 import PropTypes from 'prop-types'

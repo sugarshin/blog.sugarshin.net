@@ -2,6 +2,9 @@
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parser": "babel-eslint",
   "plugins": ["babel", "react"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "env": {
     "es6": true,
     "browser": true,
@@ -16,8 +19,8 @@
       "arrays": "always-multiline",
       "objects": "always-multiline",
       "functions": "always-multiline",
-      "imports": "never",
-      "exports": "never"
+      "imports": "always-multiline",
+      "exports": "always-multiline"
     }]
   }
 }

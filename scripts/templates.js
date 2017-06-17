@@ -45,7 +45,7 @@ const getArticlePublicPath = article => {
     articles.map(a => {
       const url = `${baseURL}${getArticlePublicPath(a)}`
       return `- [${a.title}](${url})`
-    }).join('\n')
+    }).join('\n'),
   )
   const options = Object.assign(
     {},
@@ -54,7 +54,7 @@ const getArticlePublicPath = article => {
       googleSiteVerificationKey,
       type: 'website',
       content,
-    }
+    },
   )
   const html = pug.renderFile(src, options)
   fs.writeFileSync(`./${outDir}/index.html`, html, { encoding: 'utf8' })
@@ -80,7 +80,7 @@ articles.forEach(article => {
 
 // Archives
 const dates = articles.reduce((result, a) => {
-  const d = a.date.split(' ')[0].replace(/\-\d\d$/, '')
+  const d = a.date.split(' ')[0].replace(/-\d\d$/, '')
   return result.includes(d) ? result : [...result, d]
 }, [])
 dates.forEach(date => {

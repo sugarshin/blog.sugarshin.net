@@ -79,38 +79,38 @@ Promise.resolve()
       createSectionIfNeeded(
         'Create new repositories',
         formatter.formatCreateRepoEvents(
-          picker.pickCreateRepoEvents(laterThisMonthData)
-        )
+          picker.pickCreateRepoEvents(laterThisMonthData),
+        ),
       ),
       createSectionIfNeeded(
         'Make private repository public',
         formatter.formatPublicEvents(
-          picker.pickPublicEvents(laterThisMonthData)
-        )
+          picker.pickPublicEvents(laterThisMonthData),
+        ),
       ),
       createSectionIfNeeded(
         'Pull requests',
         formatter.formatPullRequestEvents(
-          picker.pickTargetPullRequestEvents(laterThisMonthData)
-        )
+          picker.pickTargetPullRequestEvents(laterThisMonthData),
+        ),
       ),
       createSectionIfNeeded(
         'Releases',
         formatter.formatCreateTagEvents(
-          picker.pickCreateTagEvents(laterThisMonthData)
-        )
+          picker.pickCreateTagEvents(laterThisMonthData),
+        ),
       ),
       createSectionIfNeeded(
         'Starred repositories',
         formatter.formatStarredEvents(
-          picker.pickStarredEvents(laterThisMonthData)
-        )
+          picker.pickStarredEvents(laterThisMonthData),
+        ),
       ),
       createSectionIfNeeded(
         'Issues events',
         formatter.formatIssuesEvents(
-          picker.pickTargetIssuesEvents(laterThisMonthData)
-        )
+          picker.pickTargetIssuesEvents(laterThisMonthData),
+        ),
       ),
     ].filter(row => !isNil(row)),
   })
