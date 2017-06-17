@@ -10,7 +10,7 @@ export default class Articles extends Base {
   }
   static get(url) {
     return this.fetchRaw(
-      this.requestURL(url),
+      this.requestURL(url)
     )
   }
 }

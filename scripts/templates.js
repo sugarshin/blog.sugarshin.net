@@ -47,7 +47,7 @@ const getArticlePublicPath = article => {
     articles.map(a => {
       const url = `${baseURL}${getArticlePublicPath(a)}`
       return `- [${a.title}](${url})`
-    }).join('\n'),
+    }).join('\n')
   )
   const options = Object.assign(
     {},
@@ -56,7 +56,7 @@ const getArticlePublicPath = article => {
       googleSiteVerificationKey,
       type: 'website',
       content,
-    },
+    }
   )
   const html = pug.renderFile(src, options)
   fs.writeFileSync(`./${outDir}/index.html`, html, { encoding: 'utf8' })

@@ -11,5 +11,5 @@ export const receiveArticle = createAction(
     url,
     receivedAt: Date.now(),
   }),
-  (payload, url) => ({ url }),
+  (payload, url) => ({ url })
 )

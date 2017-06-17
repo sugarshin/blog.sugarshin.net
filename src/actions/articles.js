@@ -8,5 +8,5 @@ export const receiveArticleList = createAction(
   items => ({
     items,
     receivedAt: Date.now(),
-  }),
+  })
 )

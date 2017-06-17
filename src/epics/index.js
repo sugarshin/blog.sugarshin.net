@@ -18,8 +18,8 @@ export const fetchArticleList = action$ => action$
     fromPromise$(Articles.getList())
     .map(actions.receiveArticleList)
     .catch(e =>
-      of$(actions.receiveArticleList(e)),
-    ),
+      of$(actions.receiveArticleList(e))
+    )
   ))
   .catch(e => of$(actions.receiveArticleList(e)))
 
@@ -35,8 +35,8 @@ export const fetchArticle = (action$, store) => action$
       fromPromise$(Articles.get(url))
       .map(markdown => actions.receiveArticle({ markdown, url }, url))
       .catch(error =>
-        of$(actions.receiveArticle(error, url)),
-      ),
+        of$(actions.receiveArticle(error, url))
+      )
     )
   })
   .catch(error => of$(actions.receiveArticle(error)))
@@ -52,5 +52,5 @@ export const searchArticle = action$ => action$
 export default combineEpics(
   fetchArticleList,
   fetchArticle,
-  searchArticle,
+  searchArticle
 )
