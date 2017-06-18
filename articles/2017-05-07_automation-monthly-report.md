@@ -118,7 +118,7 @@ https://github.com/sugarshin/build.log.sugarshin.net
 
 現状、 Pull request のマージは、ステータスが `mergeable` かつ `mergeable_state === 'clean'` になるまでポーリングしています。ステータス変更をトリガーできればいいですね。
 
-- https://github.com/sugarshin/build.log.sugarshin.net/blob/42bf302cb92cfffccbc98b30339906dc5c4cbf15/merge-pull-request.js#L36
+- [build.log.sugarshin.net/merge-pull-request.js at 42bf302cb92cfffccbc98b30339906dc5c4cbf15 · sugarshin/build.log.sugarshin.net](https://github.com/sugarshin/build.log.sugarshin.net/blob/42bf302cb92cfffccbc98b30339906dc5c4cbf15/merge-pull-request.js#L36)
 
 CircleCI の API からビルドを実行します。
 
@@ -155,7 +155,7 @@ module.exports = () ->
 
 月の末日をとるのが難しかったので、月初の 0 時 1 分とし、そこからビルド時間を考慮した分をマイナスして計算するようにしてあります。
 
-ref: https://github.com/sugarshin/log.sugarshin.net/blob/53700e705c6f154510d853fa5cbdd5f393a376ce/scripts/create-monthly-report/index.js#L42
+ref: [log.sugarshin.net/index.js at 53700e705c6f154510d853fa5cbdd5f393a376ce · sugarshin/log.sugarshin.net]( https://github.com/sugarshin/log.sugarshin.net/blob/53700e705c6f154510d853fa5cbdd5f393a376ce/scripts/create-monthly-report/index.js#L42)
 
 ***
 
@@ -163,6 +163,6 @@ GitHub の API でとれるデータを元に、エンジニアのパフォー�
 
 ## リンク
 
-- [log.sugarshin.net](https://log.sugarshin.net/)
-- [sugarshin/log.sugarshin.net](https://github.com/sugarshin/log.sugarshin.net)
-- [sugarshin/build.log.sugarshin.net](https://github.com/sugarshin/build.log.sugarshin.net)
+- https://log.sugarshin.net/
+- https://github.com/sugarshin/log.sugarshin.net
+- https://github.com/sugarshin/build.log.sugarshin.net
