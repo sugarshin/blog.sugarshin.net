@@ -6,9 +6,11 @@ export const useCachedArticle = createAction(types.USE_CACHED_ARTICLE, url => ({
 export const requestArticle = createAction(types.REQUEST_ARTICLE)
 export const receiveArticle = createAction(
   types.RECEIVE_ARTICLE,
-  ({ markdown, url }) => ({
+  ({ markdown, url, next, prev }) => ({
     markdown,
     url,
+    next,
+    prev,
   }),
   (payload, url) => ({ url })
 )

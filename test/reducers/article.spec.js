@@ -18,6 +18,8 @@ describe('article reducer suite', () => {
       title: '',
       markdown: '',
       url: '',
+      next: null,
+      prev: null,
       isFetching: true,
       didInvalidate: false,
       cache: {},
@@ -33,14 +35,18 @@ title: Foo
 - buz
 `
     const url = '/foo'
-    const actual = reducer(state, actions.receiveArticle({ markdown, url }))
+    const next = { title: 'Next articel title', url: '/hoge' }
+    const prev = { title: 'Previous articel title', url: '/fuga' }
+    const actual = reducer(state, actions.receiveArticle({ markdown, url, next, prev }))
     expect(actual).toMatchObject({
       title: 'Foo',
       markdown,
       url,
+      next,
+      prev,
       isFetching: false,
       didInvalidate: false,
-      cache: { [url]: markdown },
+      cache: { [url]: { markdown, next, prev } },
       error: null,
     })
   })
