@@ -21,6 +21,8 @@ export const article = {
   title: '',
   markdown: '',
   url: '',
+  next: null,
+  prev: null,
   isFetching: false,
   didInvalidate: false,
   cache: {},

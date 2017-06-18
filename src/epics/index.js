@@ -10,6 +10,7 @@ import Articles from 'apis/Articles'
 import Search from 'apis/Search'
 import types from 'constants/ActionTypes'
 import * as actions from 'actions'
+import createNextAndPrev from './helpers/createNextAndPrev'
 
 export const fetchArticleList = action$ => action$
   .ofType(types.FETCH_ARTICLE_LIST)
@@ -32,8 +33,13 @@ export const fetchArticle = (action$, store) => action$
     }
     return concat$(
       of$(actions.requestArticle()),
-      fromPromise$(Articles.get(url))
-      .map(markdown => actions.receiveArticle({ markdown, url }, url))
+      fromPromise$(
+        Promise.all([Articles.getList(), Articles.get(url)])
+      )
+      .map(([items, markdown]) => {
+        const [next, prev] = createNextAndPrev(items, url)
+        return actions.receiveArticle({ markdown, url, next, prev }, url)
+      })
       .catch(error =>
         of$(actions.receiveArticle(error, url))
       )

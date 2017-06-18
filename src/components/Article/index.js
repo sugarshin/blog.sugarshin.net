@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ArticleBody from 'components/ArticleBody'
 import ShareToolbar from 'components/ShareToolbar'
+import ArticleNavigation from 'components/ArticleNavigation'
 import Disqus from 'components/Disqus'
 
 export default function Article({ article, currentPathname, baseShareMessage }) {
@@ -12,6 +13,7 @@ export default function Article({ article, currentPathname, baseShareMessage }) 
         message={`${article.title} | ${baseShareMessage}`}
         url={`${window.location.origin}${currentPathname}`}
       />
+      <ArticleNavigation next={article.next} prev={article.prev} />
       <Disqus
         shortname='logsugarshinnet'
         identifier={currentPathname}
@@ -22,7 +24,12 @@ export default function Article({ article, currentPathname, baseShareMessage }) 
 }
 
 Article.propTypes = {
-  article: PropTypes.shape({ markdown: PropTypes.string, title: PropTypes.string }),
+  article: PropTypes.shape({
+    markdown: PropTypes.string,
+    title: PropTypes.string,
+    next: PropTypes.shape({ title: PropTypes.string, url: PropTypes.string }),
+    prev: PropTypes.shape({ title: PropTypes.string, url: PropTypes.string }),
+  }),
   currentPathname: PropTypes.string.isRequired,
   baseShareMessage: PropTypes.string.isRequired,
 }
