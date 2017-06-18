@@ -9,7 +9,6 @@ export const receiveArticle = createAction(
   ({ markdown, url }) => ({
     markdown,
     url,
-    receivedAt: Date.now(),
   }),
   (payload, url) => ({ url })
 )

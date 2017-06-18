@@ -19,7 +19,7 @@
     "lint:styl": "stylint src",
     "lint:md": "textlint articles/*.md",
     "lint": "npm-run-all lint:*",
-    "test": "jest",
+    "test": "NODE_PATH=src:node_modules jest --verbose",
     "test:coverage": "npm test -- --coverage",
     "clean:build": "if [ -d build ]; then rm -rf build; fi",
     "templates:build": "node scripts/templates",
@@ -51,6 +51,9 @@
       "!**/node_modules/**",
       "!**/vendor/**",
       "!**/config/**",
+      "!**/build/**",
+      "!**/build-dev/**",
+      "!**/coverage/**",
       "!postcss.config.js"
     ]
   },

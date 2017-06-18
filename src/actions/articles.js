@@ -7,6 +7,5 @@ export const receiveArticleList = createAction(
   types.RECEIVE_ARTICLE_LIST,
   items => ({
     items,
-    receivedAt: Date.now(),
   })
 )
