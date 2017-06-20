@@ -3,12 +3,13 @@ import { Pager } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import PropTypes from 'prop-types'
 import truncate from 'lodash/truncate'
+import classnames from 'classnames'
 import Octicon from 'components/utils/Octicon'
 import styles from './index.styl'
 
 const ArticleNavigation = ({ next, prev }) => {
   return (
-    <Pager className={styles.root}>
+    <Pager className={classnames(styles.root, styles.pager)}>
       {next ? (
         <LinkContainer to={next.url} title={`Next Article: ${next.title}`}>
           <Pager.Item next>
