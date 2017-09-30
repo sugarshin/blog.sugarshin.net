@@ -6,11 +6,6 @@ jobs:
       - image: circleci/node:8.6.0
     steps:
       - checkout
-      - run:
-          name: Configure Git
-          command: |
-            git config --global user.name 'CircleCI'
-            git config --global user.email 's+circleci@sugarshin.net'
       - restore_cache:
           name: Restoring Cache - dependencies
           keys:
@@ -41,6 +36,6 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               NODE_ENV=production npm run build
-              /bin/bash ./scripts/deploy.sh
+              COMMIT=$(git rev-parse --short HEAD) && node_modules/.bin/gh-pages -d build -xt --repo https://github.com/sugarshin/log.sugarshin.net.git -m "Built artifacts of ${COMMIT} [ci skip]"
               curl -XPOST -d '{"text": "blog has been updated! <https://log.sugarshin.net>"}' $SLACK_WEBHOOK_URL
             fi
