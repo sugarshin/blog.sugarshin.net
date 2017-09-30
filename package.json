@@ -30,9 +30,6 @@
     "type": "git",
     "url": "git+https://github.com/sugarshin/log.sugarshin.net.git"
   },
-  "engines": {
-    "node": "6"
-  },
   "author": "sugarshin",
   "license": "MIT",
   "bugs": {
