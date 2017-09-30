@@ -41,8 +41,8 @@ module.exports.pickTargetIssuesEvents = data => {
 }
 module.exports.pickTargetPullRequestEvents = data => {
   return pickPullRequestEvents(data)
-    // ignore this repository
-    .filter(d => d.repo.name !== `${pkg.author}/${pkg.name}`)
+    // ignore repository of myself
+    .filter(d => d.repo.name.split('/')[0] !== pkg.author)
     .reduce((ret, event) => {
       return event.payload.action === 'opened' || (
         event.payload.action === 'closed' && event.payload.pull_request.merged
