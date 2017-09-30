@@ -1,0 +1,28 @@
+machine:
+  timezone: Asia/Tokyo
+  node:
+    version: 6.11.0
+  pre:
+    - git config --global user.name "CircleCI"
+    - git config --global user.email "s+circleci@sugarshin.net"
+  post:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+dependencies:
+  pre:
+    - yarn --version
+  override:
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+test:
+  override:
+    - npm run lint
+    - npm run test:coverage && node_modules/.bin/codecov
+deployment:
+  production:
+    branch: master
+    commands:
+      - NODE_ENV=production npm run build
+      - COMMIT=$(git rev-parse --short HEAD) && node_modules/.bin/gh-pages -d build -xt --repo https://github.com/sugarshin/log.sugarshin.net.git -m "Built artifacts of ${COMMIT} [ci skip]"
+      - |
+        curl -XPOST -d '{"text": "blog has been updated! <https://log.sugarshin.net>"}' $SLACK_WEBHOOK_URL
