@@ -32,13 +32,19 @@ const plugins = [
       SENTRY_DSN: JSON.stringify(sentryDSN),
     },
   }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    minChunks: module => !!module.context && module.context.indexOf('node_modules') !== -1,
+  }),
 ]
-const entry = ['babel-polyfill', 'whatwg-fetch', './src/index.js']
+const entry = {
+  app: ['babel-polyfill', 'whatwg-fetch', './src/index.js'],
+}
 
 if (production) {
   plugins.push(
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false, screw_ie8: true } }),
-    new ExtractTextPlugin({ filename: 'app-[hash].css', disable: false, allChunks: true })
+    new ExtractTextPlugin({ filename: '[name]-[contenthash].css', disable: false, allChunks: true })
   )
 } else {
   plugins.push(
@@ -50,13 +56,13 @@ if (production) {
     })
   )
 
-  entry.unshift(
+  entry.app.unshift(
     `webpack-dev-server/client?http://localhost:${port}`,
     'webpack/hot/only-dev-server'
   )
 
-  const main = entry.pop()
-  entry.push(
+  const main = entry.app.pop()
+  entry.app.push(
     'react-hot-loader/patch',
     main
   )
@@ -68,7 +74,7 @@ module.exports = {
   cache: true,
   output: {
     path: path.resolve(__dirname, '..', buildDir, production ? 'assets' : ''),
-    filename: production ? 'app-[hash].js' : 'assets/app.js',
+    filename: production ? '[name]-[chunkhash].js' : 'assets/[name].js',
     publicPath: production ? '/assets/' : '/',
   },
   resolve: {
