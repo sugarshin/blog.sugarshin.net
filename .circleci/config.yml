@@ -14,7 +14,7 @@ jobs:
       - restore_cache:
           name: Restoring Cache - dependencies
           keys:
-            - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
             - v1-dependencies-
       - run:
           name: System information
@@ -36,7 +36,7 @@ jobs:
           paths:
             - ~/workspace/node_modules
             - ~/.cache/yarn/
-          key: v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
