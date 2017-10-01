@@ -24,14 +24,12 @@
     "clean:build": "if [ -d build ]; then rm -rf build; fi",
     "templates:build": "node scripts/templates",
     "webpack": "webpack --config config/webpack.config.js",
-    "build": "sh scripts/build.sh"
+    "build": "sh scripts/build.sh",
+    "deploy": "sh scripts/deploy.sh"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sugarshin/log.sugarshin.net.git"
-  },
-  "engines": {
-    "node": "6"
   },
   "author": "sugarshin",
   "license": "MIT",
@@ -89,7 +87,6 @@
     "favicons": "^4.8.6",
     "feed": "^1.1.0",
     "file-loader": "^0.11.2",
-    "gh-pages": "^1.0.0",
     "github": "^9.2.0",
     "github-markdown-css": "^2.8.0",
     "globby": "^6.1.0",
