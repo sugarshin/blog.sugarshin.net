@@ -1,6 +1,7 @@
 const merge = require('lodash/merge')
 const unified = require('unified')
 const parse = require('remark-parse')
+const frontmatter = require('remark-frontmatter')
 const slug = require('remark-slug')
 const toc = require('remark-toc')
 const yamlConfig = require('remark-yaml-config')
@@ -16,9 +17,10 @@ const coffeescript = require('highlight.js/lib/languages/coffeescript')
 
 const basePlugins = [
   parse,
+  frontmatter,
+  yamlConfig,
   slug,
   toc,
-  yamlConfig,
 ]
 
 const sanitize = merge(sanitizeGitHubSchema, { clobberPrefix: '', attributes: { code: ['className'] } })
