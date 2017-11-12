@@ -9,7 +9,11 @@ const getYamlConfig = markdown => yaml.load(sliceYAMLConfig(markdown))
 const getTitle = markdown => getYamlConfig(markdown).title
 const getAuthor = markdown => getYamlConfig(markdown).author
 const getDate = markdown => getYamlConfig(markdown).date
-const getTags = markdown => getYamlConfig(markdown).tags.split(/\s+/)
+const getTags = markdown => {
+  const { tags } = getYamlConfig(markdown)
+  if (!tags) return []
+  return tags.split(/\s+/)
+}
 
 export default handleActions(
   {
