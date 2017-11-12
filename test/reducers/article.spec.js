@@ -29,6 +29,11 @@ describe('article reducer suite', () => {
   it('receiveArticle', () => {
     const markdown = `---
 title: Foo
+date: 2016-06-05 10:44
+author:
+  name: Shingo Sato
+  url: https://sugarshin.net/
+tags: nitto
 ---
 
 - bar
@@ -41,6 +46,12 @@ title: Foo
     expect(actual).toMatchObject({
       title: 'Foo',
       markdown,
+      author: {
+        name: 'Shingo Sato',
+        url: 'https://sugarshin.net/',
+      },
+      date: '2016-06-05 10:44',
+      tags: ['nitto'],
       url,
       next,
       prev,

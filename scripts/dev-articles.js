@@ -4,12 +4,12 @@
 const fs = require('fs')
 const argv = require('minimist')(process.argv.slice(2))
 const mkdirp = require('mkdirp')
-const { author, name } = require('../package.json')
+const { authorGitHubUserName, repositoryName } = require('../config/settings')
 
 const ARTICLES_DIR = './articles'
 // TODO: to dry with apis/Articles____
 //                                    \
-const OUT_DIR = argv.o || argv.out || `./build-dev/repos/${author}/${name}/contents/articles`
+const OUT_DIR = argv.o || argv.out || `./build-dev/repos/${authorGitHubUserName}/${repositoryName}/contents/articles`
 
 const filenames = fs.readdirSync(ARTICLES_DIR)
 mkdirp.sync(OUT_DIR)

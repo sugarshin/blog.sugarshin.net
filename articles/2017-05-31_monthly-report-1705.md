@@ -2,6 +2,9 @@
 title: "[Monthly report] 2017-05 my activity this month on GitHub"
 date: 2017-05-31 00:36
 public: true
+author:
+  name: CircleCI
+  url: https://circleci.com/
 tags: monthly report
 ogp:
   og:

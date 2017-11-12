@@ -11,7 +11,7 @@ const argv = require('minimist')(process.argv.slice(2))
 const sliceYAMLConfig = require('../universal/sliceYAMLConfig')
 const removeYAMLConfig = require('../universal/removeYAMLConfig')
 const {
-  lang, siteName, description, authorName, googleSiteVerificationKey, protocol, domain,
+  lang, siteName, description, authorName, authorGitHubUserName, googleSiteVerificationKey, protocol, domain,
 } = require('../config/settings')
 
 const outDir = argv.o || argv.out || 'build' // TODO
@@ -23,7 +23,7 @@ const baseURL = `${protocol}//${domain}`
 const baseOpts = {
   lang,
   title: siteName,
-  author: authorName,
+  author: `${authorGitHubUserName} | ${authorName}`,
   description,
   favicons: faviconsHTML,
   url: baseURL,

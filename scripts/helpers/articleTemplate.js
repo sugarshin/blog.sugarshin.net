@@ -1,5 +1,6 @@
 const moment = require('moment')
 const yaml = require('js-yaml')
+const { author: { name, url } } = require('../../package.json')
 
 /**
  * @param {}
@@ -9,6 +10,7 @@ const articleTemplate = ({
   title = 'Untitled',
   date = moment().format('YYYY-MM-DD HH:mm'),
   isPublic = true,
+  author = { name, url },
   tags = [],
   ogImageURL = '',
   body,
@@ -28,6 +30,9 @@ const articleTemplate = ({
     `title: ${title}`,
     `date: ${date}`,
     `public: ${isPublic}`,
+    `author:`,
+    `  name: ${author.name}`,
+    `  url: ${author.url}`,
     `tags:${tags.length > 0 ? ` ${tags.join(', ')}` : ''}`,
     ogp.replace(/'/g, '') // Remove quote for src string
       .replace(/\n$/, ''),

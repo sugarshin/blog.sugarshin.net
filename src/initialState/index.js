@@ -20,6 +20,9 @@ export const articles = {
 export const article = {
   title: '',
   markdown: '',
+  author: {},
+  date: '',
+  tags: [],
   url: '',
   next: null,
   prev: null,

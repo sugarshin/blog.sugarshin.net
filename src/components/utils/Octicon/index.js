@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import octicons from 'octicons'
 import classnames from 'classnames'
-import 'octicons/build/octicons.css'
+import 'octicons/build/build.css'
 import styles from './index.styl'
 
 const Octicon = ({ name, spin, className, ...props }) => (

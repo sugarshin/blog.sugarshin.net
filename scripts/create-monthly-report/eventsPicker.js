@@ -1,4 +1,4 @@
-const pkg = require('../../package.json')
+const { authorGitHubUserName } = require('../config/settings')
 
 /**
  * @param {Array} data
@@ -42,7 +42,7 @@ module.exports.pickTargetIssuesEvents = data => {
 module.exports.pickTargetPullRequestEvents = data => {
   return pickPullRequestEvents(data)
     // ignore repository of myself
-    .filter(d => d.repo.name.split('/')[0] !== pkg.author)
+    .filter(d => d.repo.name.split('/')[0] !== authorGitHubUserName)
     .reduce((ret, event) => {
       return event.payload.action === 'opened' || (
         event.payload.action === 'closed' && event.payload.pull_request.merged
