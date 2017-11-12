@@ -33,7 +33,7 @@ date: 2016-06-05 10:44
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: nitto
+tags: nitto, sugino, fixed gear
 ---
 
 - bar
@@ -51,7 +51,7 @@ tags: nitto
         url: 'https://sugarshin.net/',
       },
       date: '2016-06-05 10:44',
-      tags: ['nitto'],
+      tags: ['nitto', 'sugino', 'fixed gear'],
       url,
       next,
       prev,
