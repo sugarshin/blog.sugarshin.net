@@ -11,6 +11,7 @@ export const articles = {
   items: [],
   archives: {},
   tags: [],
+  author: {},
   isFetching: false,
   isFetched: false,
   didInvalidate: false,

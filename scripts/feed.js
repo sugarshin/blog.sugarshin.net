@@ -4,7 +4,7 @@ const fs = require('fs')
 const Feed = require('feed')
 const removeMarkdown = require('remove-markdown')
 const {
-  domain, protocol, siteName, copyright, description, authorName, authorEmail, authorURL,
+  domain, protocol, siteName, copyright, description, authorName, authorEmail, authorURL, authorGitHubUserName,
   feedURL, rssURL,
 } = require('../config/settings')
 
@@ -13,7 +13,7 @@ const articlesJSON = fs.readFileSync(`./${OUT_DIR}/index.json`, { encoding: 'utf
 const articles = JSON.parse(articlesJSON)
 
 const author = {
-  name: authorName,
+  name: `${authorGitHubUserName} | ${authorName}`,
   email: authorEmail,
   link: authorURL,
 }

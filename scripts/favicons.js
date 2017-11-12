@@ -3,7 +3,7 @@
 const fs = require('fs')
 const argv = require('minimist')(process.argv.slice(2))
 const favicons = require('favicons')
-const { protocol, domain, siteName, description, authorName, authorURL } = require('../config/settings')
+const { protocol, domain, siteName, description, authorName, authorURL, authorGitHubUserName } = require('../config/settings')
 
 const url = argv.u || argv.url || `${protocol}//${domain}/open-graph.png`
 const source = argv.s || argv.source || './src/images/p.jpg'
@@ -12,7 +12,7 @@ const outDir = 'build'
 const configuration = {
   appName: siteName,
   appDescription: description,
-  developerName: authorName,
+  developerName: `${authorGitHubUserName} | ${authorName}`,
   developerURL: authorURL,
   background: '#fff',
   path: '/',

@@ -2,6 +2,9 @@
 title: リッチテキストエディタ oneteam-rte を公開しました
 date: 2016-06-05 10:44
 public: true
+author:
+  name: Shingo Sato
+  url: https://sugarshin.net/
 tags: javascript, draft.js, oneteam-rte, react.js
 ogp:
   og:

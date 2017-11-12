@@ -7,8 +7,7 @@ const moment = require('moment')
 const picker = require('./eventsPicker')
 const formatter = require('./eventsFormatter')
 const articleTemplate = require('../helpers/articleTemplate')
-const { protocol, domain } = require('../../config/settings')
-const { author: username } = require('../../package.json')
+const { protocol, domain, authorGitHubUserName: username } = require('../../config/settings')
 const argv = require('minimist')(process.argv.slice(2))
 
 const per = parseInt(argv.p || argv.per || 16, 10)
@@ -71,6 +70,10 @@ Promise.resolve()
   const article = articleTemplate({
     title: `"[Monthly report] ${target.format('YYYY-MM')} my activity this month on GitHub"`,
     date: target.format('YYYY-MM-DD HH:mm'),
+    author: {
+      name: 'CircleCI',
+      url: 'https://circleci.com/',
+    },
     ogImageURL: `${protocol}//${domain}/assets/images/common/report/main.png`,
     tags: ['monthly report'],
     body: [

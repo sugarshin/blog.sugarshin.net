@@ -1,9 +1,9 @@
 import Base from 'apis/Base'
-import { author, name } from '../../package.json'
+import { authorGitHubUserName, repositoryName } from '../../config/settings'
 
 export default class Articles extends Base {
   static get path() {
-    return `repos/${author}/${name}/contents/articles`
+    return `repos/${authorGitHubUserName}/${repositoryName}/contents/articles`
   }
   static getList() {
     return this.fetchJSON('/index.json')

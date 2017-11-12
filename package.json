@@ -31,7 +31,11 @@
     "type": "git",
     "url": "git+https://github.com/sugarshin/log.sugarshin.net.git"
   },
-  "author": "sugarshin",
+  "author": {
+    "name": "Shingo Sato",
+    "email": "shinsugar@gmail.com",
+    "url": "https://sugarshin.net/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sugarshin/log.sugarshin.net/issues"

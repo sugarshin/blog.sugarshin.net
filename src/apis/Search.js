@@ -1,6 +1,6 @@
 import querystring from 'query-string'
 import Base from 'apis/Base'
-import { author, name } from '../../package.json'
+import { authorGitHubUserName, repositoryName } from '../../config/settings'
 
 export default class Search extends Base {
   static get path() {
@@ -12,7 +12,7 @@ export default class Search extends Base {
   static q(query) {
     return `${
       encodeURIComponent(query)
-    }+in:file+in:path+extension:md+repo:${author}/${name}+path:/articles/&per_page=100`
+    }+in:file+in:path+extension:md+repo:${authorGitHubUserName}/${repositoryName}+path:/articles/&per_page=100`
   }
   static querystring(params = {}) {
     return `${
