@@ -70,6 +70,7 @@ Promise.resolve()
   const article = articleTemplate({
     title: `"[Monthly report] ${target.format('YYYY-MM')} my activity this month on GitHub"`,
     date: target.format('YYYY-MM-DD HH:mm'),
+    // TODO:
     author: {
       name: 'CircleCI',
       url: 'https://circleci.com/',

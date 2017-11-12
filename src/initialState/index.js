@@ -11,7 +11,6 @@ export const articles = {
   items: [],
   archives: {},
   tags: [],
-  author: {},
   isFetching: false,
   isFetched: false,
   didInvalidate: false,
@@ -21,6 +20,9 @@ export const articles = {
 export const article = {
   title: '',
   markdown: '',
+  author: {},
+  date: '',
+  tags: [],
   url: '',
   next: null,
   prev: null,
