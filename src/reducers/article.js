@@ -12,7 +12,7 @@ const getDate = markdown => getYamlConfig(markdown).date
 const getTags = markdown => {
   const { tags } = getYamlConfig(markdown)
   if (!tags) return []
-  return tags.split(/\s+/)
+  return tags.split(',').map(tag => tag.trim())
 }
 
 export default handleActions(
