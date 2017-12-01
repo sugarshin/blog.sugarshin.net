@@ -1,4 +1,4 @@
-const { authorGitHubUserName } = require('../config/settings')
+const { authorGitHubUserName } = require('../../config/settings')
 
 /**
  * @param {Array} data
