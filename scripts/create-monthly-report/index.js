@@ -7,13 +7,21 @@ const moment = require('moment')
 const picker = require('./eventsPicker')
 const formatter = require('./eventsFormatter')
 const articleTemplate = require('../helpers/articleTemplate')
-const { protocol, domain, authorGitHubUserName: username } = require('../../config/settings')
+const {
+  protocol,
+  domain,
+  authorGitHubUserName: username,
+  authorName: defaultAuthorName,
+  authorURL: defaultAuthorURL,
+} = require('../../config/settings')
 const argv = require('minimist')(process.argv.slice(2))
 
 const per = parseInt(argv.p || argv.per || 16, 10)
 const unit = argv.u || argv.unit || 'minutes'
+const authorName = argv.n || argv['author-name'] || defaultAuthorName
+const authorUrl = argv.U || argv['author-url'] || defaultAuthorURL
 
-if (typeof per !== 'number' || typeof unit !== 'string') {
+if (typeof per !== 'number' || [unit, authorName, authorUrl].some(t => typeof t !== 'string')) {
   throw new TypeError('`per` must be `number`, `unit` must be `string`')
 }
 
@@ -70,11 +78,7 @@ Promise.resolve()
   const article = articleTemplate({
     title: `"[Monthly report] ${target.format('YYYY-MM')} my activity this month on GitHub"`,
     date: target.format('YYYY-MM-DD HH:mm'),
-    // TODO:
-    author: {
-      name: 'CircleCI',
-      url: 'https://circleci.com/',
-    },
+    author: { name: authorName, url: authorUrl },
     ogImageURL: `${protocol}//${domain}/assets/images/common/report/main.png`,
     tags: ['monthly report'],
     body: [
