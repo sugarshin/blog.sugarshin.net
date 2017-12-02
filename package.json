@@ -129,7 +129,7 @@
     "raven-js": "^3.19.1",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.5",
-    "react-disqus-thread": "sugarshin/react-disqus-thread#057f5e223276d87a1edbdcafbe440b37e7e57434",
+    "react-disqus-comments": "^1.1.1",
     "react-dom": "^16.0.0",
     "react-fa": "^5.0.0",
     "react-github-fork-ribbon": "^0.5.1",
