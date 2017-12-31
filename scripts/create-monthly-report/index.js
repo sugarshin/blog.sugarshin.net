@@ -54,11 +54,11 @@ Promise.resolve()
   const targetPaddedMonth = padStart(targetMonth, 2, '0')
   const nextPaddedMonth = padStart(nextMonth, 2, '0')
   const targetDate = `${target.year()}${targetPaddedMonth}01`
-  const nextDate = `${target.year()}${nextPaddedMonth}01`
-  const targetM = moment.utc(targetDate)
-  const nextM = moment.utc(nextDate)
+  const nextDate = `${moment().year()}${nextPaddedMonth}01`
+  const targetM = moment(targetDate)
+  const nextM = moment(nextDate)
   const laterThisMonthData = flattedData.filter(d => {
-    const val = moment.utc(d.created_at).valueOf()
+    const val = moment(d.created_at).valueOf()
     return nextM.valueOf() > val && val > targetM.valueOf()
   })
 
