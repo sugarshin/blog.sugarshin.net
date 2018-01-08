@@ -1,6 +1,6 @@
 last 2 versions
 not ie < 11
-not last 1 QQAndroid versions
+not last 1 and_qq versions
 not last 1 Android versions
 not Android < 5
 not last 1 Baidu versions
