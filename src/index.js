@@ -1,3 +1,8 @@
+import 'bootswatch/cosmo/bootstrap.css'
+import 'highlight.js/styles/github.css'
+import 'github-markdown-css/github-markdown.css'
+import 'octicons/build/build.css'
+import 'stylus/index.styl'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
@@ -8,9 +13,6 @@ import configureStore from 'store/configureStore'
 import history from 'modules/history'
 import APIBase from 'apis/Base'
 import analytics from '../vendor/analytics'
-import 'bootswatch/cosmo/bootstrap.css'
-import 'highlight.js/styles/github.css'
-import 'stylus/index.styl'
 
 const main = () => {
   if (process.env.SENTRY_DSN) {
