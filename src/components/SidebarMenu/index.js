@@ -13,6 +13,8 @@ import { feedURL } from '../../../config/settings'
 import styles from './index.styl'
 
 export default class SidebarMenu extends Component {
+  handleChangeSearchQuery = e => this.setState({ searchQuery: e.target.value })
+
   constructor(props) {
     super(props)
     this.state = { searchQuery: this.parseSearchQuery(this.props.location.search) }
@@ -24,9 +26,6 @@ export default class SidebarMenu extends Component {
       this.setState({ searchQuery: newSearchQuery })
     }
   }
-  parseSearchQuery(search) {
-    return queryString.parse(search).q || ''
-  }
   render() {
     return (
       <div>
@@ -36,7 +35,7 @@ export default class SidebarMenu extends Component {
           title='Recent posts'
           titleIcon={<Octicon name='megaphone' />}
         >
-          {this._renderRecentPosts()}
+          {this.renderRecentPosts()}
         </SidebarMenuGroup>
         <SidebarMenuGroup
           {...this.props}
@@ -44,7 +43,7 @@ export default class SidebarMenu extends Component {
           title='Archives'
           titleIcon={<Octicon name='calendar' />}
         >
-          {this._renderArchives()}
+          {this.renderArchives()}
         </SidebarMenuGroup>
         <SidebarMenuGroup
           {...this.props}
@@ -52,7 +51,7 @@ export default class SidebarMenu extends Component {
           title='Tags'
           titleIcon={<Octicon name='tag' />}
         >
-          {this._renderTags()}
+          {this.renderTags()}
         </SidebarMenuGroup>
         <SidebarMenuGroup
           {...this.props}
@@ -60,7 +59,7 @@ export default class SidebarMenu extends Component {
           title='Links'
           titleIcon={<Octicon name='link' />}
         >
-          {this._renderLinks()}
+          {this.renderLinks()}
         </SidebarMenuGroup>
         <SidebarMenuGroup
           {...this.props}
@@ -70,7 +69,7 @@ export default class SidebarMenu extends Component {
         >
           <FormControl
             onKeyDown={this.submitSearchQuery}
-            onChange={ev => this._handleChangeSearchQuery(ev)}
+            onChange={this.handleChangeSearchQuery}
             type='text'
             placeholder='Search article'
             value={this.state.searchQuery}
@@ -89,7 +88,7 @@ export default class SidebarMenu extends Component {
       </div>
     )
   }
-  _renderRecentPosts() {
+  renderRecentPosts() {
     return this.props.articles.items.filter((a, i) => i < 5).map(item => {
       const [year, month, day] = item.date.split(' ')[0].split('-')
       return (
@@ -99,7 +98,7 @@ export default class SidebarMenu extends Component {
       )
     })
   }
-  _renderArchives() {
+  renderArchives() {
     return Object.keys(this.props.articles.archives).map(date => {
       const [year, month] = date.split('-')
       const url = `/archives/${year}-${month}/`
@@ -110,7 +109,7 @@ export default class SidebarMenu extends Component {
       )
     })
   }
-  _renderTags() {
+  renderTags() {
     return this.props.articles.tags.map(tag => {
       const url = `/tags/${tag.replace(/\s/g, '_')}/`
       return (
@@ -120,7 +119,7 @@ export default class SidebarMenu extends Component {
       )
     })
   }
-  _renderLinks() {
+  renderLinks() {
     return [
       <ListGroupItem key='sugarshin.net' href='//sugarshin.net/'>About</ListGroupItem>,
       <ListGroupItem key='github' href='//github.com/sugarshin/'>GitHub</ListGroupItem>,
@@ -130,8 +129,9 @@ export default class SidebarMenu extends Component {
       <ListGroupItem key='instagram' href='//www.instagram.com/sugarshin/'>Instagram</ListGroupItem>,
     ]
   }
-  _handleChangeSearchQuery(ev) {
-    this.setState({ searchQuery: ev.target.value })
+
+  parseSearchQuery(search) {
+    return queryString.parse(search).q || ''
   }
   @keydown(Keys.ENTER)
   submitSearchQuery({ target: { value } }) {
