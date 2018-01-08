@@ -19,7 +19,6 @@ const segmentWriteKey = SEGMENT_WRITE_KEY || null
 const githubAccessTokens = GITHUB_ACCESS_TOKENS || null
 const circleBuildNum = CIRCLE_BUILD_NUM || 0
 const sentryDSN = SENTRY_DSN || null
-const port = PORT || 8003
 
 const plugins = [
   new webpack.DefinePlugin({
@@ -38,7 +37,7 @@ const plugins = [
   }),
 ]
 const entry = {
-  app: ['babel-polyfill', 'whatwg-fetch', './src/index.js'],
+  app: ['@babel/polyfill', 'whatwg-fetch', './src/index.js'],
 }
 
 if (production) {
@@ -48,23 +47,18 @@ if (production) {
   )
 } else {
   plugins.push(
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlPlugin({
       template: 'src/template/index.pug',
       title: 'development',
       lang: 'en',
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   )
 
-  entry.app.unshift(
-    `webpack-dev-server/client?http://localhost:${port}`,
-    'webpack/hot/only-dev-server'
-  )
-
-  const main = entry.app.pop()
   entry.app.push(
     'react-hot-loader/patch',
-    main
+    entry.app.pop()
   )
 }
 
@@ -119,7 +113,7 @@ module.exports = {
     hot: true,
     publicPath: '/',
     host: '0.0.0.0',
-    port,
+    port: PORT || 8003,
     proxy: {
       // TODO: for GitHub search api. what should access token
       '/search/code': {
