@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 
 const fs = require('fs')
-const { padStart, isNil } = require('lodash')
+const { flatten, padStart, isNil } = require('lodash')
 const GitHub = require('github')
+const pMap = require('p-map')
 const moment = require('moment')
 const picker = require('./eventsPicker')
 const formatter = require('./eventsFormatter')
@@ -33,21 +34,8 @@ const getEvents = page => github.activity.getEventsForUser({
   page,
 })
 
-let responses = []
-
-Promise.resolve()
-.then(() => getEvents(1))
-.then(res => {
-  responses.push(res)
-  return getEvents(2)
-})
-.then(res => {
-  responses.push(res)
-  return getEvents(3)
-})
-.then(res => {
-  responses.push(res)
-  const flattedData = responses.reduce((ret, res) => [...ret, ...res.data], [])
+pMap([1, 2, 3], page => getEvents(page).then(res => res.data))
+.then(results => {
   const target = moment().subtract(per, unit)
   const targetMonth = `${target.month() + 1}`
   const nextMonth = `${moment().month() + 1}`
@@ -57,7 +45,7 @@ Promise.resolve()
   const nextDate = `${moment().year()}${nextPaddedMonth}01`
   const targetM = moment(targetDate)
   const nextM = moment(nextDate)
-  const laterThisMonthData = flattedData.filter(d => {
+  const laterThisMonthData = flatten(results).filter(d => {
     const val = moment(d.created_at).valueOf()
     return nextM.valueOf() > val && val > targetM.valueOf()
   })
@@ -128,6 +116,7 @@ Promise.resolve()
   fs.writeFileSync(`articles/${target.format('YYYY-MM-DD')}_monthly-report-${target.format('YYMM')}.md`, article)
   console.log('Successfully write monthly report!')
 })
-.catch(errors => {
-  throw new Error('Error `getEvents()`', JSON.stringify(errors))
+.catch(error => {
+  console.log('Error `getEvents()`:\n', error)
+  throw error
 })
