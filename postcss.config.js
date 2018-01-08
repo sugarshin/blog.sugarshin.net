@@ -1,8 +1,8 @@
 module.exports = {
   plugins: [
-    require('autoprefixer')({ browsers: ['last 3 versions'] }),
+    require('autoprefixer'),
     require('css-mqpacker'),
     require('postcss-flexbugs-fixes'),
-    require('postcss-partial-import')()
-  ]
-};
+    require('postcss-partial-import')(),
+  ],
+}
