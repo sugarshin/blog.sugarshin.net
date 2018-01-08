@@ -38,7 +38,7 @@ const plugins = [
   }),
 ]
 const entry = {
-  app: ['babel-polyfill', 'whatwg-fetch', './src/index.js'],
+  app: ['@babel/polyfill', 'whatwg-fetch', './src/index.js'],
 }
 
 if (production) {
@@ -61,10 +61,9 @@ if (production) {
     'webpack/hot/only-dev-server'
   )
 
-  const main = entry.app.pop()
   entry.app.push(
     'react-hot-loader/patch',
-    main
+    entry.app.pop()
   )
 }
 
