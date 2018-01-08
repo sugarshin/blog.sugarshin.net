@@ -18,11 +18,15 @@ const baseSrcDirRegex = new RegExp(String.raw`^${baseSrcDir}\/`)
 console.log(`\nStart [${chalk.green('imagemin')}] !!\n`)
 
 globby(`${baseSrcDir}/assets/**/*.{jpg,jpeg,png,gif,svg}`)
-  .then(paths => Promise.all(paths.map(p => imagemin(
-    [p],
-    `${baseOutDir}/${path.dirname(p).replace(baseSrcDirRegex, '')}`,
-    { plugins }
-  ))))
-  .then(files => {
-    flatten(files).forEach(({ path }) => console.log(`  ${chalk.bgGreen(' minified ')} ${chalk.gray(path)}`))
-  })
+.then(paths => {
+  return Promise.all(
+    paths.map(p => imagemin(
+      [p],
+      `${baseOutDir}/${path.dirname(p).replace(baseSrcDirRegex, '')}`,
+      { plugins }
+    ))
+  )
+})
+.then(files => {
+  flatten(files).forEach(({ path }) => console.log(`  ${chalk.bgGreen(' minified ')} ${chalk.gray(path)}`))
+})
