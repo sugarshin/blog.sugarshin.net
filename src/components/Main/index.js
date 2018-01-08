@@ -16,13 +16,14 @@ import styles from './index.styl'
 @withRouter
 @connectStore()
 export default class Main extends Component {
+  handleChangeMediaQuery = e => this.props.actions.toggleSidebarDocked(e.matches)
+
   constructor(props) {
     super(props)
 
     // TODO: move to this.props______________________________
     //                                                       \
     this._matchMedia = window.matchMedia ? window.matchMedia('screen and (min-width: 769px)') : null
-    this.handleChangeMediaQuery = e => this.props.actions.toggleSidebarDocked(e.matches)
   }
   componentDidMount() {
     this.props.actions.fetchArticleList()
