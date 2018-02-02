@@ -36,8 +36,6 @@ const getEvents = page => github.activity.getEventsForUser({
 
 pMap([1, 2, 3], page => getEvents(page).then(res => res.data))
 .then(results => {
-  console.log('DEBUG - results:\n\n', results)
-
   const target = moment().subtract(per, unit)
   const targetMonth = `${target.month() + 1}`
   const nextMonth = `${moment().month() + 1}`
@@ -51,8 +49,6 @@ pMap([1, 2, 3], page => getEvents(page).then(res => res.data))
     const val = moment(d.created_at).valueOf()
     return nextM.valueOf() > val && val > targetM.valueOf()
   })
-
-  console.log('DEBUG - laterThisMonthData:\n\n', laterThisMonthData)
 
   const createSection = (header, content) => {
     return [
