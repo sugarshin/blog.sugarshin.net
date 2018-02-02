@@ -4,6 +4,8 @@ jobs:
     working_directory: ~/workspace
     docker:
       - image: circleci/node:8.9.1
+    environment:
+      TZ: /usr/share/zoneinfo/Asia/Tokyo
     steps:
       - checkout
       - run:
