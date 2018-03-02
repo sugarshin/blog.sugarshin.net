@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-GIT_URL=git@github.com:sugarshin/log.sugarshin.net.git
+GIT_URL=git@github.com:sugarshin/blog.sugarshin.net.git
 BRANCH=gh-pages
 COMMIT=$(git rev-parse --short HEAD)
 BUILD=build

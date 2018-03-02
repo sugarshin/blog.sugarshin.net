@@ -4,12 +4,12 @@ date: 2018-01-31 23:30
 public: true
 author:
   name: CircleCI
-  url: https://circleci.com/gh/sugarshin/build.log.sugarshin.net/49
+  url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/49
 tags: monthly report
 ogp:
   og:
     image:
-      src: https://log.sugarshin.net/assets/images/common/report/main.png
+      src: https://blog.sugarshin.net/assets/images/common/report/main.png
 ---
 
 今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ

@@ -16,8 +16,8 @@ export default class App extends Component {
     return (
       <Main>
         <Helmet
-          titleTemplate='%s | log.sugarshin.net'
-          defaultTitle='log.sugarshin.net'
+          titleTemplate='%s | blog.sugarshin.net'
+          defaultTitle='blog.sugarshin.net'
         />
         {this.props.children}
       </Main>

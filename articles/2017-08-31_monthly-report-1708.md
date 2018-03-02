@@ -9,7 +9,7 @@ tags: monthly report
 ogp:
   og:
     image:
-      src: https://log.sugarshin.net/assets/images/common/report/main.png
+      src: https://blog.sugarshin.net/assets/images/common/report/main.png
 ---
 
 今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ
@@ -18,7 +18,7 @@ ogp:
 
 ## Create new repositories
 
-- [sugarshin/qiita-sync.log.sugarshin.net](https://github.com/sugarshin/qiita-sync.log.sugarshin.net)
+- [sugarshin/qiita-sync.blog.sugarshin.net](https://github.com/sugarshin/qiita-sync.blog.sugarshin.net)
   - description: null
   - created_at: 2017-08-28T14:12:59Z
 - [sugarshin/redux-online-status](https://github.com/sugarshin/redux-online-status)

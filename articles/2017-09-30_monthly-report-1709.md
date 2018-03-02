@@ -9,7 +9,7 @@ tags: monthly report
 ogp:
   og:
     image:
-      src: https://log.sugarshin.net/assets/images/common/report/main.png
+      src: https://blog.sugarshin.net/assets/images/common/report/main.png
 ---
 
 今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ

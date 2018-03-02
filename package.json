@@ -1,5 +1,5 @@
 {
-  "name": "log.sugarshin.net",
+  "name": "blog.sugarshin.net",
   "version": "1.0.0",
   "description": "blog",
   "private": true,
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sugarshin/log.sugarshin.net.git"
+    "url": "git+https://github.com/sugarshin/blog.sugarshin.net.git"
   },
   "author": {
     "name": "Shingo Sato",
@@ -38,9 +38,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sugarshin/log.sugarshin.net/issues"
+    "url": "https://github.com/sugarshin/blog.sugarshin.net/issues"
   },
-  "homepage": "https://github.com/sugarshin/log.sugarshin.net#readme",
+  "homepage": "https://github.com/sugarshin/blog.sugarshin.net#readme",
   "jest": {
     "testRegex": "/test/.+\\.spec\\.js$",
     "moduleNameMapper": {

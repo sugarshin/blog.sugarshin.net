@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-CNAME=log.sugarshin.net
+CNAME=blog.sugarshin.net
 BUILD=build
 
 npm run clean:build
