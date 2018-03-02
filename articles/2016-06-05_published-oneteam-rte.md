@@ -9,7 +9,7 @@ tags: javascript, draft.js, oneteam-rte, react.js
 ogp:
   og:
     image:
-      src: https://log.sugarshin.net/assets/images/2016/06/05/published-oneteam-rte/main.png
+      src: https://blog.sugarshin.net/assets/images/2016/06/05/published-oneteam-rte/main.png
 ---
 
 ![Main](/assets/images/2016/06/05/published-oneteam-rte/main.png)

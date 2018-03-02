@@ -9,7 +9,7 @@ tags: monthly report, javascript, circleci, github
 ogp:
   og:
     image:
-      src: https://log.sugarshin.net/assets/images/2017/05/07/automation-monthly-report/main.png
+      src: https://blog.sugarshin.net/assets/images/2017/05/07/automation-monthly-report/main.png
 ---
 
 ![Main](/assets/images/2017/05/07/automation-monthly-report/main.png)
@@ -63,8 +63,8 @@ $ curl "https://api.github.com/users/sugarshin/events"
     },
     "repo": {
       "id": 58251000,
-      "name": "sugarshin/log.sugarshin.net",
-      "url": "https://api.github.com/repos/sugarshin/log.sugarshin.net"
+      "name": "sugarshin/blog.sugarshin.net",
+      "url": "https://api.github.com/repos/sugarshin/blog.sugarshin.net"
     },
     "payload": {
       "push_id": 1723998566,
@@ -82,7 +82,7 @@ $ curl "https://api.github.com/users/sugarshin/events"
           },
           "message": "Updates",
           "distinct": true,
-          "url": "https://api.github.com/repos/sugarshin/log.sugarshin.net/commits/2944a811f7f2c9f58b994ad46da1a7d67f1a5de8"
+          "url": "https://api.github.com/repos/sugarshin/blog.sugarshin.net/commits/2944a811f7f2c9f58b994ad46da1a7d67f1a5de8"
         }
       ]
     },
@@ -97,7 +97,7 @@ $ curl "https://api.github.com/users/sugarshin/events"
 
 記事作成は取得したイベントデータを元にパース、フォーマットして Markdown ファイルとして書き出します。
 
-[log.sugarshin.net/scripts/create-monthly-report/index.js](https://github.com/sugarshin/log.sugarshin.net/blob/6370f753134c3ba9592afd7cac5c7640746a060e/scripts/create-monthly-report/index.js)
+[blog.sugarshin.net/scripts/create-monthly-report/index.js](https://github.com/sugarshin/blog.sugarshin.net/blob/6370f753134c3ba9592afd7cac5c7640746a060e/scripts/create-monthly-report/index.js)
 
 対象のイベントは現状、下記に絞ってあります。
 
@@ -117,18 +117,18 @@ $ curl "https://api.github.com/users/sugarshin/events"
 
 ブログのリポジトリだけで完結させられるかと思いましたが、ごちゃごちゃしそうだったので別環境を用意しています。
 
-https://github.com/sugarshin/build.log.sugarshin.net
+https://github.com/sugarshin/build.blog.sugarshin.net
 
 現状、 Pull request のマージは、ステータスが `mergeable` かつ `mergeable_state === 'clean'` になるまでポーリングしています。ステータス変更をトリガーできればいいですね。
 
-- [build.log.sugarshin.net/merge-pull-request.js at 42bf302cb92cfffccbc98b30339906dc5c4cbf15 · sugarshin/build.log.sugarshin.net](https://github.com/sugarshin/build.log.sugarshin.net/blob/42bf302cb92cfffccbc98b30339906dc5c4cbf15/merge-pull-request.js#L36)
+- [build.blog.sugarshin.net/merge-pull-request.js at 42bf302cb92cfffccbc98b30339906dc5c4cbf15 · sugarshin/build.blog.sugarshin.net](https://github.com/sugarshin/build.blog.sugarshin.net/blob/42bf302cb92cfffccbc98b30339906dc5c4cbf15/merge-pull-request.js#L36)
 
 CircleCI の API からビルドを実行します。
 
 ref: [Recent Builds For a Project Branch - CircleCI API v1.1 Reference - CircleCI](https://circleci.com/docs/api/v1-reference/#recent-builds-project-branch)
 
 ```bash
-$ curl -XPOST "https://circleci.com/api/v1/project/sugarshin/build.log.sugarshin.net/tree/monthly-report?circle-token=$TOKEN"
+$ curl -XPOST "https://circleci.com/api/v1/project/sugarshin/build.blog.sugarshin.net/tree/monthly-report?circle-token=$TOKEN"
 ```
 
 ## 定期実行
@@ -149,7 +149,7 @@ fetch = require 'node-fetch'
 module.exports = () ->
   executeMonthlyReport = ->
     fetch(
-      "https://circleci.com/api/v1/project/sugarshin/build.log.sugarshin.net/tree/monthly-report?circle-token=#{TOKEN}"
+      "https://circleci.com/api/v1/project/sugarshin/build.blog.sugarshin.net/tree/monthly-report?circle-token=#{TOKEN}"
       method: 'POST'
     )
 
@@ -158,7 +158,7 @@ module.exports = () ->
 
 月の末日をとるのが難しかったので、月初の 0 時 1 分とし、そこからビルド時間を考慮した分をマイナスして計算するようにしてあります。
 
-ref: [log.sugarshin.net/index.js at 53700e705c6f154510d853fa5cbdd5f393a376ce · sugarshin/log.sugarshin.net]( https://github.com/sugarshin/log.sugarshin.net/blob/53700e705c6f154510d853fa5cbdd5f393a376ce/scripts/create-monthly-report/index.js#L42)
+ref: [blog.sugarshin.net/index.js at 53700e705c6f154510d853fa5cbdd5f393a376ce · sugarshin/blog.sugarshin.net]( https://github.com/sugarshin/blog.sugarshin.net/blob/53700e705c6f154510d853fa5cbdd5f393a376ce/scripts/create-monthly-report/index.js#L42)
 
 ***
 
@@ -166,6 +166,6 @@ GitHub の API でとれるデータを元に、エンジニアのパフォー�
 
 ## リンク
 
-- https://log.sugarshin.net/
-- https://github.com/sugarshin/log.sugarshin.net
-- https://github.com/sugarshin/build.log.sugarshin.net
+- https://blog.sugarshin.net/
+- https://github.com/sugarshin/blog.sugarshin.net
+- https://github.com/sugarshin/build.blog.sugarshin.net

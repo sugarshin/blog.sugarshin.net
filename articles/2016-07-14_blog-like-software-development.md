@@ -9,7 +9,7 @@ tags: react.js, redux, javascript, software development
 ogp:
   og:
     image:
-      src: https://log.sugarshin.net/assets/images/2016/07/14/blog-like-software-development/main.png
+      src: https://blog.sugarshin.net/assets/images/2016/07/14/blog-like-software-development/main.png
 ---
 
 ![Main](/assets/images/2016/07/14/blog-like-software-development/main.png)
@@ -22,7 +22,7 @@ ogp:
 
 過去の経験上、普通にブログを続けていくだけではモチベーションを保てないなぁと思い、ソフトウェア開発的なプロセスや自動化を取り入れつつという感じです。
 
-https://github.com/sugarshin/log.sugarshin.net
+https://github.com/sugarshin/blog.sugarshin.net
 
 Redux 周りを最近触っていなかったので久しぶりに触りたかったというのも理由付けの1つです。
 

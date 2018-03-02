@@ -9,7 +9,7 @@ tags: monthly report
 ogp:
   og:
     image:
-      src: https://log.sugarshin.net/assets/images/common/report/main.png
+      src: https://blog.sugarshin.net/assets/images/common/report/main.png
 ---
 
 今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ
@@ -79,7 +79,7 @@ ogp:
 - [Release v1.3.0 · sugarshin/react-instagram-embed](https://github.com/sugarshin/react-instagram-embed/releases/tag/v1.3.0)
   - description: React embedding Instagram posts component
   - created_at: 2017-06-26T15:43:47Z
-- [Release v2.0.0 · sugarshin/log.sugarshin.net](https://github.com/sugarshin/log.sugarshin.net/releases/tag/v2.0.0)
+- [Release v2.0.0 · sugarshin/blog.sugarshin.net](https://github.com/sugarshin/blog.sugarshin.net/releases/tag/v2.0.0)
   - description: blog
   - created_at: 2017-06-24T22:02:57Z
 - [Release v1.4.2 · oneteam-dev/oneteam-rte](https://github.com/oneteam-dev/oneteam-rte/releases/tag/v1.4.2)
@@ -151,6 +151,6 @@ ogp:
 - **opened** [Unable to find element with ID 2.](https://github.com/sugarshin/sugarshin.net/issues/19)
   - > app-c7f439c….js:1 Uncaught Error: Minified React error #32; visit http://facebook.github.io/react/docs/error-decoder.html?invariant=32&ar......
   - created_at: 2017-06-05T16:04:16Z
-- **opened** [Should delete merged branch](https://github.com/sugarshin/build.log.sugarshin.net/issues/1)
+- **opened** [Should delete merged branch](https://github.com/sugarshin/build.blog.sugarshin.net/issues/1)
   - > ref: https://developer.github.com/v3/git/refs/#delete-a-reference...
   - created_at: 2017-06-04T03:08:11Z

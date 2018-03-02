@@ -44,5 +44,5 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               NODE_ENV=production npm run build
               npm run deploy
-              curl -XPOST -d '{"text": "Blog has been updated! <https://log.sugarshin.net>"}' $SLACK_WEBHOOK_URL
+              curl -XPOST -d '{"text": "Blog has been updated! <https://blog.sugarshin.net>"}' $SLACK_WEBHOOK_URL
             fi
