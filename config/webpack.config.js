@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
+const Stylish = require('webpack-stylish')
 const {
   styl: stylRule,
   css: cssRule,
@@ -35,6 +36,7 @@ const plugins = [
     name: 'vendor',
     minChunks: module => !!module.context && module.context.indexOf('node_modules') !== -1,
   }),
+  new Stylish(),
 ]
 const entry = {
   app: ['@babel/polyfill', 'whatwg-fetch', './src/index.js'],
@@ -54,11 +56,6 @@ if (production) {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
-  )
-
-  entry.app.push(
-    'react-hot-loader/patch',
-    entry.app.pop()
   )
 }
 
