@@ -3,6 +3,7 @@
 [![Build Status][circleci-image]][circleci-url]
 [![Dependency Status][david-image]][david-url]
 [![codecov](https://codecov.io/gh/sugarshin/blog.sugarshin.net/branch/master/graph/badge.svg)](https://codecov.io/gh/sugarshin/blog.sugarshin.net)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1196aa03a6e44784b5eeebfea14d3243)](https://www.codacy.com/app/sugarshin/blog.sugarshin.net?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sugarshin/blog.sugarshin.net&amp;utm_campaign=Badge_Grade)
 
 https://blog.sugarshin.net
 
