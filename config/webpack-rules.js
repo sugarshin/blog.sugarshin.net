@@ -88,10 +88,12 @@ if (prod) {
     {
       loader: 'image-webpack-loader',
       options: {
-        progressive: true,
         bypassOnDebug: true,
         optipng: {
           optimizationLevel: 7,
+        },
+        mozjpeg: {
+          progressive: true,
         },
       },
     },
