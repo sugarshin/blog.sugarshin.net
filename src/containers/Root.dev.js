@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react'
+import { hot } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import Ribbon from 'react-github-fork-ribbon'
@@ -12,7 +13,7 @@ import DevTools from 'enhancers/DevTools'
 const TOGGLE_VISIBILITY = '@@redux-devtools-log-monitor/TOGGLE_VISIBILITY'
 let devTools
 
-export default function Root({ store }) {
+const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <div>
@@ -30,3 +31,5 @@ export default function Root({ store }) {
     </Provider>
   )
 }
+
+export default hot(module)(Root)

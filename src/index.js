@@ -5,7 +5,6 @@ import 'octicons/build/build.css'
 import 'stylus/index.styl'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
 import Raven from 'raven-js'
 import noop from 'lodash/noop'
 import Root from 'containers/Root'
@@ -33,14 +32,7 @@ const main = () => {
 
   const store = configureStore()
   const root = document.querySelector('#app-root')
-  ReactDOM.render(<AppContainer><Root store={store} /></AppContainer> , root)
-
-  if (module.hot) {
-    module.hot.accept('./containers/Root', () => {
-      const NextRoot = require('./containers/Root').default
-      ReactDOM.render(<AppContainer><NextRoot store={store} /></AppContainer>, root)
-    })
-  }
+  ReactDOM.render(<Root store={store} />, root)
 }
 
 main()
