@@ -34,6 +34,7 @@ module.exports = (
   date: target.format('YYYY-MM-DD HH:mm'),
   author: { name: authorName, url: authorUrl },
   ogImageURL: `${protocol}//${domain}/assets/images/common/report/main.png`,
+  qiita: false,
   tags: ['monthly report'],
   body: [
     '今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ',

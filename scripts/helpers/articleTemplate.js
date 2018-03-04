@@ -1,5 +1,6 @@
 const moment = require('moment')
 const yaml = require('js-yaml')
+const { isBoolean } = require('lodash')
 const { author: { name, url } } = require('../../package.json')
 
 /**
@@ -10,6 +11,7 @@ const articleTemplate = ({
   title = 'Untitled',
   date = moment().format('YYYY-MM-DD HH:mm'),
   isPublic = true,
+  qiita = true,
   author = { name, url },
   tags = [],
   ogImageURL = '',
@@ -30,6 +32,7 @@ const articleTemplate = ({
     `title: ${title}`,
     `date: ${date}`,
     `public: ${isPublic}`,
+    ...(isBoolean(qiita) ? [`qiita: ${qiita}`] : []),
     `author:`,
     `  name: ${author.name}`,
     `  url: ${author.url}`,
