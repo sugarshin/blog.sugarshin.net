@@ -78,30 +78,13 @@ const libFontPaths = [
   path.resolve(nodeModulesPath, 'bootswatch/fonts'),
   path.resolve(nodeModulesPath, 'font-awesome/fonts'),
 ]
-const imageRule = {
-  test: /\.(jpe?g|png|gif|svg)$/,
-  exclude: libFontPaths,
-}
-if (prod) {
-  imageRule.use = [
-    urlLoader,
-    {
-      loader: 'image-webpack-loader',
-      options: {
-        bypassOnDebug: true,
-        optipng: {
-          optimizationLevel: 7,
-        },
-        // TODO:
-        // mozjpeg: {
-        //   progressive: true,
-        // },
-      },
-    },
-  ]
-} else {
-  assign(imageRule, urlLoader)
-}
+const imageRule = assign(
+  {
+    test: /\.(jpe?g|png|gif|svg)$/,
+    exclude: libFontPaths,
+  },
+  urlLoader
+)
 
 const webFontRule = assign(
   { test: /\.(otf|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/ },
