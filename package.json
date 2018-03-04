@@ -102,7 +102,7 @@
     "highlight.js": "^9.12.0",
     "history": "^4.7.2",
     "html-webpack-plugin": "^3.0.4",
-    "image-webpack-loader": "^3.6.0",
+    "image-webpack-loader": "~3.4.2",
     "imagemin": "^5.3.1",
     "imagemin-gifsicle": "^5.2.0",
     "imagemin-jpegtran": "^5.0.2",
