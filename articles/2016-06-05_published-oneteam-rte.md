@@ -2,6 +2,7 @@
 title: リッチテキストエディタ oneteam-rte を公開しました
 date: 2016-06-05 10:44
 public: true
+qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/

@@ -2,6 +2,7 @@
 title: React と Redux なブログ運用をソフトウェア開発する話し
 date: 2016-07-14 00:52
 public: true
+qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/

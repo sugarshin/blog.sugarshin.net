@@ -2,6 +2,7 @@
 title: OSS コントリビューションや GitHub 上のアクティビティのまとめレポート投稿を自動化する
 date: 2017-05-07 10:17
 public: true
+qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
