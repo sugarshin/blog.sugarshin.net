@@ -25,7 +25,10 @@ jobs:
             echo "npm $(npm -v)"
             echo "Yarn v$(yarn --version)"
       - run:
-          name: Install dependencies
+          name: Install Homebrew dependencies
+          command: brew install libpng
+      - run:
+          name: Install Node.js dependencies
           command: yarn
       - run:
           name: Lint
