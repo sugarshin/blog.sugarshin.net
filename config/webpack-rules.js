@@ -92,9 +92,10 @@ if (prod) {
         optipng: {
           optimizationLevel: 7,
         },
-        mozjpeg: {
-          progressive: true,
-        },
+        // TODO:
+        // mozjpeg: {
+        //   progressive: true,
+        // },
       },
     },
   ]
