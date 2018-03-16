@@ -6,7 +6,7 @@
     "@babel/preset-stage-2",
     "@babel/preset-react"
   ],
-  "plugins": ["transform-decorators-legacy"],
+  "plugins": ["transform-decorators-legacy", "add-react-displayname"],
   "env": {
     "development": {
       "plugins": ["react-hot-loader/babel"]

@@ -11,7 +11,7 @@ const {
 } = require('./webpack-rules')
 require('dotenv').config()
 
-const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM } = process.env
+const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM, LOGROCKET_APP_ID } = process.env
 const production = NODE_ENV === 'production'
 const buildDev = 'build-dev'
 const buildDir = production ? 'build' : buildDev
@@ -20,6 +20,7 @@ const segmentWriteKey = SEGMENT_WRITE_KEY || null
 const githubAccessTokens = GITHUB_ACCESS_TOKENS || null
 const circleBuildNum = CIRCLE_BUILD_NUM || 0
 const sentryDSN = SENTRY_DSN || null
+const logrocketAppId = LOGROCKET_APP_ID || ''
 
 const plugins = [
   new webpack.DefinePlugin({
@@ -30,6 +31,7 @@ const plugins = [
       SEGMENT_WRITE_KEY: JSON.stringify(segmentWriteKey),
       GITHUB_ACCESS_TOKENS: JSON.stringify(githubAccessTokens),
       SENTRY_DSN: JSON.stringify(sentryDSN),
+      LOGROCKET_APP_ID: JSON.stringify(logrocketAppId),
     },
   }),
   new webpack.optimize.CommonsChunkPlugin({
