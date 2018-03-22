@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
+const WebappPlugin = require('webapp-webpack-plugin')
 const Stylish = require('webpack-stylish')
 const {
   styl: stylRule,
@@ -9,12 +10,15 @@ const {
   image: imageRule,
   webFonts: webFontRules,
 } = require('./webpack-rules')
+const getBaseHtmlPluginConfig = require('./webpack/getBaseHtmlPluginConfig')
+const webappPluginConfig = require('./webpack/webappPluginConfig')
+const createHtmlPlugins = require('./webpack/createHtmlPlugins')
+const { assetsDir, buildDir } = require('./dir')
+
 require('dotenv').config()
 
 const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM, LOGROCKET_APP_ID } = process.env
 const production = NODE_ENV === 'production'
-const buildDev = 'build-dev'
-const buildDir = production ? 'build' : buildDev
 const apiBase = API_BASE || ''
 const segmentWriteKey = SEGMENT_WRITE_KEY || null
 const githubAccessTokens = GITHUB_ACCESS_TOKENS || null
@@ -40,6 +44,7 @@ const plugins = [
   }),
   new Stylish(),
 ]
+
 const entry = {
   app: ['@babel/polyfill', 'whatwg-fetch', './src/index.js'],
 }
@@ -47,15 +52,15 @@ const entry = {
 if (production) {
   plugins.push(
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false, screw_ie8: true } }),
-    new ExtractTextPlugin({ filename: '[name]-[contenthash].css', disable: false, allChunks: true })
+    new ExtractTextPlugin({ filename: `${assetsDir}/[name]-[contenthash].css`, disable: false, allChunks: true }),
+    new WebappPlugin(webappPluginConfig),
+    ...createHtmlPlugins()
   )
 } else {
   plugins.push(
-    new HtmlPlugin({
-      template: 'src/template/index.pug',
-      title: 'development',
-      lang: 'en',
-    }),
+    new HtmlPlugin(
+      getBaseHtmlPluginConfig()
+    ),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   )
@@ -66,9 +71,9 @@ module.exports = {
   plugins,
   cache: true,
   output: {
-    path: path.resolve(__dirname, '..', buildDir, production ? 'assets' : ''),
-    filename: production ? '[name]-[chunkhash].js' : 'assets/[name].js',
-    publicPath: production ? '/assets/' : '/',
+    path: path.resolve(__dirname, '..', buildDir),
+    filename: production ? `${assetsDir}/[name]-[chunkhash].js` : '[name].js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -96,10 +101,6 @@ module.exports = {
         loader: 'babel-loader',
         options: { cacheDirectory: true },
       },
-      {
-        test: /\.pug$/,
-        loader: 'pug-loader',
-      },
       stylRule,
       cssRule,
       imageRule,
@@ -108,7 +109,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: `./${buildDev}`,
+    contentBase: `./${buildDir}`,
     hot: true,
     publicPath: '/',
     host: '0.0.0.0',
