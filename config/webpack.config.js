@@ -4,15 +4,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const WebappPlugin = require('webapp-webpack-plugin')
 const Stylish = require('webpack-stylish')
-const {
-  styl: stylRule,
-  css: cssRule,
-  image: imageRule,
-  webFonts: webFontRules,
-} = require('./webpack-rules')
 const getBaseHtmlPluginConfig = require('./webpack/getBaseHtmlPluginConfig')
 const webappPluginConfig = require('./webpack/webappPluginConfig')
 const createHtmlPlugins = require('./webpack/createHtmlPlugins')
+const getStylRule = require('./webpack/rules/getStylRule')
+const getCssRule = require('./webpack/rules/getCssRule')
+const getImageRule = require('./webpack/rules/image/getImageRule')
+const getWebFontRules = require('./webpack/rules/image/getWebFontRules')
 const { assetsDir, buildDir } = require('./dir')
 
 require('dotenv').config()
@@ -38,10 +36,6 @@ const plugins = [
       LOGROCKET_APP_ID: JSON.stringify(logrocketAppId),
     },
   }),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-    minChunks: module => !!module.context && module.context.indexOf('node_modules') !== -1,
-  }),
   new Stylish(),
 ]
 
@@ -51,6 +45,10 @@ const entry = {
 
 if (production) {
   plugins.push(
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: module => !!module.context && module.context.indexOf('node_modules') !== -1,
+    }),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false, screw_ie8: true } }),
     new ExtractTextPlugin({ filename: `${assetsDir}/[name]-[contenthash].css`, disable: false, allChunks: true }),
     new WebappPlugin(webappPluginConfig),
@@ -101,10 +99,10 @@ module.exports = {
         loader: 'babel-loader',
         options: { cacheDirectory: true },
       },
-      stylRule,
-      cssRule,
-      imageRule,
-      ...webFontRules,
+      getStylRule(production),
+      getCssRule(production),
+      getImageRule(production),
+      ...getWebFontRules(production),
     ],
   },
   devServer: {
