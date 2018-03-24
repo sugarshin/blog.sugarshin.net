@@ -1,5 +1,6 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const { assetsDir } = require('./dir')
 
 const prod = process.env.NODE_ENV === 'production'
 const { assign } = Object
@@ -66,13 +67,14 @@ const urlOptions = assign(
 const fontFileOptions = assign(
   {},
   urlOptions,
-  { outputPath: 'fonts/' }
+  { outputPath: `${assetsDir}/fonts/` }
 )
 const urlLoader = {
   loader: 'url-loader',
   options: urlOptions,
 }
-const nodeModulesPath = path.resolve(__dirname, '..', 'node_modules')
+const rootPath = path.resolve(__dirname, '..')
+const nodeModulesPath = path.resolve(rootPath, 'node_modules')
 const libFontPaths = [
   path.resolve(nodeModulesPath, 'octicons/octicons'),
   path.resolve(nodeModulesPath, 'bootswatch/fonts'),
