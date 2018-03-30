@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const WebappPlugin = require('webapp-webpack-plugin')
 const Stylish = require('webpack-stylish')
@@ -12,11 +14,12 @@ const getCssRule = require('./webpack/rules/getCssRule')
 const getImageRule = require('./webpack/rules/image/getImageRule')
 const getWebFontRules = require('./webpack/rules/image/getWebFontRules')
 const { assetsDir, buildDir } = require('./dir')
+const { PRODUCTION, DEVELOPMENT } = require('./env')
 
 require('dotenv').config()
 
 const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM, LOGROCKET_APP_ID } = process.env
-const production = NODE_ENV === 'production'
+const prod = NODE_ENV === PRODUCTION
 const apiBase = API_BASE || ''
 const segmentWriteKey = SEGMENT_WRITE_KEY || null
 const githubAccessTokens = GITHUB_ACCESS_TOKENS || null
@@ -43,14 +46,12 @@ const entry = {
   app: ['@babel/polyfill', 'whatwg-fetch', './src/index.js'],
 }
 
-if (production) {
+if (prod) {
   plugins.push(
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: module => !!module.context && module.context.indexOf('node_modules') !== -1,
+    new MiniCssExtractPlugin({
+      filename: `${assetsDir}/[name]-[contenthash].css`,
+      chunkFilename: `${assetsDir}/[name]-[contenthash].css`,
     }),
-    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false, screw_ie8: true } }),
-    new ExtractTextPlugin({ filename: `${assetsDir}/[name]-[contenthash].css`, disable: false, allChunks: true }),
     new WebappPlugin(webappPluginConfig),
     ...createHtmlPlugins()
   )
@@ -65,13 +66,29 @@ if (production) {
 }
 
 module.exports = {
+  mode: prod ? PRODUCTION : DEVELOPMENT,
+  cache: !prod,
   entry,
   plugins,
-  cache: true,
   output: {
     path: path.resolve(__dirname, '..', buildDir),
-    filename: production ? `${assetsDir}/[name]-[chunkhash].js` : '[name].js',
+    filename: prod ? `${assetsDir}/[name]-[chunkhash].js` : '[name].js',
     publicPath: '/',
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({ sourceMap: false, parallel: true }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          name: 'vendor',
+          chunks: 'initial',
+        },
+      },
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -88,21 +105,15 @@ module.exports = {
         enforce: 'pre',
       },
       {
-        test: /\.styl$/,
-        loader: 'stylint-loader',
-        exclude: /node_modules/,
-        enforce: 'pre',
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: { cacheDirectory: true },
       },
-      getStylRule(production),
-      getCssRule(production),
-      getImageRule(production),
-      ...getWebFontRules(production),
+      getStylRule(prod),
+      getCssRule(prod),
+      getImageRule(prod),
+      ...getWebFontRules(prod),
     ],
   },
   devServer: {
