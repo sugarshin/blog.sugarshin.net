@@ -63,3 +63,4 @@ typings/
 build
 build-dev
 .deploy
+.wwp-cache
