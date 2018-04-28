@@ -14,6 +14,7 @@ const js = require('highlight.js/lib/languages/javascript')
 const bash = require('highlight.js/lib/languages/bash')
 const json = require('highlight.js/lib/languages/json')
 const coffeescript = require('highlight.js/lib/languages/coffeescript')
+const yaml = require('highlight.js/lib/languages/yaml')
 
 const basePlugins = [
   parse,
@@ -28,7 +29,7 @@ const reactComponentRenderer = unified().use(basePlugins).use(reactRenderer, {
   sanitize,
   remarkReactComponents: {
     code: reactLowlight({
-      js, json, bash, coffeescript,
+      js, json, bash, coffeescript, yaml,
     }),
   },
 })
