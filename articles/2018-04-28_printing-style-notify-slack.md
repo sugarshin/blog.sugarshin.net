@@ -15,7 +15,7 @@ ogp:
 
 ![Main](/assets/images/2018/04/28/printing-style-notify-slack/main.png)
 
-Web ページの印刷は、気をつけていないとスタイルくずれを起こしやすいかなと思います。それが、日々機能追加や改善を行う Web アプリケーションとなるとさらにこの問題がでてきます。
+Web ページの印刷は、気をつけていないとスタイルくずれを起こしやすいかなと思います。それが、日々、機能追加や改善を行う Web アプリケーションとなるとさらにこの問題がでてきます。
 
 業務で開発している Web アプリケーションで印刷時のスタイリングをサポートするにあたり、継続的な見た目のチェックを自動化し、結果を Slack に通知するようにしました。
 
@@ -101,7 +101,7 @@ e.g.
 ```js
 const puppeteer = require('puppeteer')
 
-(async () => {
+const main = async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   await page.goto(process.env.TARGET_URL, { waitUntil: 'networkidle0' })
@@ -114,7 +114,8 @@ const puppeteer = require('puppeteer')
   await page.emulateMedia('print')
   await page.screenshot({ path: 'print.png', fullPage: true })
   await browser.close()
-})()
+}
+main()
 ```
 
 ## Slack に通知
@@ -131,7 +132,7 @@ const getArtifacts = require('./getArtifacts')
 
 const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
 
-(async () => {
+const main = async () => {
   const artifacts = await getArtifacts()
   const pdf = artifacts.find(a => /print\.pdf$/.test(a.path))
   const png = artifacts.find(a => /print\.png$/.test(a.path))
@@ -142,13 +143,14 @@ const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
     author_name: 'Puppeteer',
     title: 'Build by CircleCI',
     title_link: process.env.CIRCLE_BUILD_URL,
-    image_url: `${process.env.THUMBNAIL_IMAGE_URL}?circle-token=${process.env.CIRCLE_TOKEN}`,
+    image_url: `${png.url}?circle-token=${process.env.CIRCLE_TOKEN}`,
     fields: [
-      { value: `<${process.env.PDF_URL}?circle-token=${process.env.CIRCLE_TOKEN}|Download PDF>` },
+      { value: `<${pdf.url}?circle-token=${process.env.CIRCLE_TOKEN}|Download PDF>` },
     ],
   }]
   await webhook.send({ attachments })
-})()
+}
+main()
 ```
 
 ## Diff
