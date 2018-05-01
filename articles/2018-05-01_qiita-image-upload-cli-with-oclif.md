@@ -6,7 +6,7 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags:
+tags: qiita, cli, oclif, puppeteer, typescript
 ogp:
   og:
     image:
