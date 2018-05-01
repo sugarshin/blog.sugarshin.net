@@ -34,6 +34,9 @@ jobs:
           name: Test
           command: |
             npm run test:coverage && node_modules/.bin/codecov
+      - run:
+          name: Build
+          command: NODE_ENV=production npm run build
       - save_cache:
           paths:
             - ~/workspace/node_modules
@@ -42,7 +45,6 @@ jobs:
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              NODE_ENV=production npm run build
               npm run deploy
               curl -XPOST -d '{"text": "Blog has been updated! <https://blog.sugarshin.net>"}' $SLACK_WEBHOOK_URL
             fi
