@@ -18,11 +18,13 @@ ogp:
 [Qiita](https://qiita.com/) に画像をアップロードする CLI ツールを、 [Heroku](https://www.heroku.com/) 製の CLI フレームワーク [oclif](https://oclif.io/) を使ってつくってみました。
 
 ```bash
-yarn global add qiiu
+$ yarn global add qiiu
 
 # or
 
-npm install -g qiiu
+$ npm install -g qiiu
+
+# ...
 
 $ qiiu --username=$QIITA_USERNAME --password=$PASSWORD ./path/to/example.png
 
