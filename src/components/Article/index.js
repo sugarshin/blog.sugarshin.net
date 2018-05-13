@@ -9,6 +9,7 @@ import Disqus from 'components/Disqus'
 import styles from './index.styl'
 
 export default function Article({ article, currentPathname, baseShareMessage }) {
+  const url = `${window.location.origin}${currentPathname}`
   return (
     <div>
       <div className={styles.meta}>
@@ -19,13 +20,14 @@ export default function Article({ article, currentPathname, baseShareMessage }) 
       <ArticleBody markdown={article.markdown} />
       <ShareToolbar
         message={`${article.title} | ${baseShareMessage}`}
-        url={`${window.location.origin}${currentPathname}`}
+        url={url}
       />
       <ArticleNavigation next={article.next} prev={article.prev} />
       <Disqus
         shortname='logsugarshinnet'
         identifier={currentPathname}
         title={article.title}
+        url={url}
       />
     </div>
   )

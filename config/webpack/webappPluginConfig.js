@@ -38,6 +38,5 @@ const configuration = {
 module.exports = {
   logo: './src/images/p.jpg',
   prefix: '',
-  cache: false,
   favicons: configuration,
 }

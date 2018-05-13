@@ -33,7 +33,7 @@ export default class Main extends Component {
     }
     this.restoreScroll()
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
       this.restoreScroll()
     }

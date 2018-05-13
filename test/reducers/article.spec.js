@@ -1,4 +1,4 @@
-import { ActionTypes as ReduxActionTypes } from 'redux/lib/createStore'
+import { __DO_NOT_USE__ActionTypes as ReduxActionTypes } from 'redux'
 import reducer from 'reducers/article'
 import * as actions from 'actions/article'
 import { article as initialState } from 'initialState'
