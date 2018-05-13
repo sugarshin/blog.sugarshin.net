@@ -7,11 +7,11 @@ import { ConnectedRouter } from 'react-router-redux'
 import Ribbon from 'react-github-fork-ribbon'
 import Routes from 'routes'
 import history from 'modules/history'
-import DevTools from 'enhancers/DevTools'
+// import DevTools from 'enhancers/DevTools'
 
-// https://github.com/gaearon/redux-devtools-dock-monitor/blob/master/src/actions.js#L1
-const TOGGLE_VISIBILITY = '@@redux-devtools-log-monitor/TOGGLE_VISIBILITY'
-let devTools
+// // https://github.com/gaearon/redux-devtools-dock-monitor/blob/master/src/actions.js#L1
+// const TOGGLE_VISIBILITY = '@@redux-devtools-log-monitor/TOGGLE_VISIBILITY'
+// let devTools
 
 const Root = ({ store }) => {
   return (
@@ -19,14 +19,15 @@ const Root = ({ store }) => {
       <div>
         <Ribbon
           color='black'
-          onClick={() => devTools.liftedStore.dispatch({ type: TOGGLE_VISIBILITY })}
+          // onClick={() => devTools.liftedStore.dispatch({ type: TOGGLE_VISIBILITY })}
         >
           control + {'{h,p,m}'}
         </Ribbon>
         <ConnectedRouter history={history}>
           <Routes />
         </ConnectedRouter>
-        <DevTools ref={c => devTools = c} />
+        {/* @see https://github.com/reduxjs/redux-devtools/issues/399 */}
+        {/* <DevTools ref={c => devTools = c} /> */}
       </div>
     </Provider>
   )

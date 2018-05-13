@@ -6,7 +6,7 @@ import LogRocket from 'logrocket'
 import history from 'modules/history'
 import rootReducer from 'reducers'
 import rootEpic from 'epics'
-import DevTools from 'enhancers/DevTools'
+// import DevTools from 'enhancers/DevTools'
 
 export default function configureStore(initialState) {
   const epic = createEpicMiddleware(rootEpic)
@@ -17,8 +17,9 @@ export default function configureStore(initialState) {
       epic,
       logger,
       LogRocket.reduxMiddleware()
-    ),
-    DevTools.instrument()
+    )//,
+    // @see https://github.com/reduxjs/redux-devtools/issues/399
+    // DevTools.instrument()
   )
 
   const store = createStore(
