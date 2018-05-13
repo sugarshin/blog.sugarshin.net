@@ -14,7 +14,7 @@ export default class Article extends Component {
   componentDidMount() {
     this.fetchArticle(this.props.match.params)
   }
-  componentWillReceiveProps({ match: { params } }) {
+  UNSAFE_componentWillReceiveProps({ match: { params } }) {
     if (!isEqual(this.props.match.params, params)) {
       this.fetchArticle(params)
     }

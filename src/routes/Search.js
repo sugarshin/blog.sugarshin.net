@@ -22,7 +22,7 @@ export default class Search extends Component {
       this.props.actions.searchArticle(this.q)
     }
   }
-  componentWillReceiveProps({ location: { search } }) {
+  UNSAFE_componentWillReceiveProps({ location: { search } }) {
     const q = this.parseQuery(search)
     if (this.q !== q) {
       this.props.actions.searchArticle(q)
