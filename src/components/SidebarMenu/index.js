@@ -19,11 +19,11 @@ export default class SidebarMenu extends Component {
     super(props)
     this.state = { searchQuery: this.parseSearchQuery(this.props.location.search) }
   }
-  UNSAFE_componentWillReceiveProps({ location: { search } }) {
+  componentDidUpdate({ location: { search: prevSearch } }) {
     const currentSearchQuery = this.parseSearchQuery(this.props.location.search)
-    const newSearchQuery = this.parseSearchQuery(search)
-    if (currentSearchQuery !== newSearchQuery) {
-      this.setState({ searchQuery: newSearchQuery })
+    const prevSearchQuery = this.parseSearchQuery(prevSearch)
+    if (prevSearchQuery !== currentSearchQuery) {
+      this.setState({ searchQuery: currentSearchQuery })
     }
   }
   render() {
