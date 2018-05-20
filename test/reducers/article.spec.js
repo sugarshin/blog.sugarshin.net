@@ -1,7 +1,7 @@
 import { __DO_NOT_USE__ActionTypes as ReduxActionTypes } from 'redux'
 import reducer from 'reducers/article'
 import * as actions from 'actions/article'
-import { article as initialState } from 'initialState'
+import { article as initialState } from 'reducers/initialState'
 
 describe('article reducer suite', () => {
   let state

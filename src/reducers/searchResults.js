@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 import * as actions from 'actions/search'
-import { searchResults as initialState } from 'initialState'
+import { searchResults as initialState } from './initialState'
 
 export default handleActions(
   {
