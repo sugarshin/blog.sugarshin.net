@@ -22,10 +22,10 @@ export default class Search extends Component {
       this.props.actions.searchArticle(this.q)
     }
   }
-  UNSAFE_componentWillReceiveProps({ location: { search } }) {
-    const q = this.parseQuery(search)
-    if (this.q !== q) {
-      this.props.actions.searchArticle(q)
+  componentDidUpdate({ location: { search: prevSearch } }) {
+    const prevQ = this.parseQuery(prevSearch)
+    if (this.q !== prevQ) {
+      this.props.actions.searchArticle(this.q)
     }
   }
   render() {
