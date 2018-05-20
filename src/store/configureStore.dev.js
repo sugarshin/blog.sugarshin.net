@@ -5,8 +5,8 @@ import logger from 'redux-logger'
 import LogRocket from 'logrocket'
 import history from 'modules/history'
 import rootReducer from 'reducers'
-import rootEpic from 'epics'
-// import DevTools from 'enhancers/DevTools'
+import rootEpic from 'store/epics'
+// import DevTools from 'store/debugger/DevTools'
 
 export default function configureStore(initialState) {
   const epic = createEpicMiddleware(rootEpic)

@@ -7,7 +7,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import Ribbon from 'react-github-fork-ribbon'
 import Routes from 'routes'
 import history from 'modules/history'
-// import DevTools from 'enhancers/DevTools'
+// import DevTools from 'store/debugger/DevTools'
 
 // // https://github.com/gaearon/redux-devtools-dock-monitor/blob/master/src/actions.js#L1
 // const TOGGLE_VISIBILITY = '@@redux-devtools-log-monitor/TOGGLE_VISIBILITY'

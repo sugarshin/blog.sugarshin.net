@@ -4,7 +4,7 @@ import { createEpicMiddleware } from 'redux-observable'
 import LogRocket from 'logrocket'
 import history from 'modules/history'
 import rootReducer from 'reducers'
-import rootEpic from 'epics'
+import rootEpic from 'store/epics'
 
 export default function configureStore(initialState) {
   const epic = createEpicMiddleware(rootEpic)

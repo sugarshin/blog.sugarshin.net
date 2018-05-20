@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions'
 import yaml from 'js-yaml'
 import * as actions from 'actions/article'
-import { article as initialState } from 'initialState'
+import { article as initialState } from './initialState'
 import sliceYAMLConfig from '../../universal/sliceYAMLConfig'
 
 // TODO: commonize

@@ -1,7 +1,7 @@
 import uniq from 'lodash/uniq'
 import { handleActions } from 'redux-actions'
 import * as actions from 'actions/articles'
-import { articles as initialState } from 'initialState'
+import { articles as initialState } from './initialState'
 
 // TODO:
 const createArchives = items => {
