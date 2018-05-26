@@ -11,6 +11,7 @@ import setupLogRocketReact from 'logrocket-react'
 import Root from 'containers/Root'
 import configureStore from 'store/configureStore'
 import APIBase from 'apis/Base'
+import history from 'modules/history'
 
 const main = () => {
   if (process.env.SENTRY_DSN) {
@@ -37,7 +38,7 @@ const main = () => {
 
   const store = configureStore()
   const root = document.querySelector('#app-root')
-  ReactDOM.render(<Root store={store} />, root)
+  ReactDOM.render(<Root store={store} history={history} />, root)
 }
 
 main()
