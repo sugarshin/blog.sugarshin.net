@@ -73,7 +73,6 @@
     "@babel/preset-react": "^7.0.0-beta.47",
     "@babel/preset-stage-2": "^7.0.0-beta.47",
     "@redux-beacon/logger": "^1.0.0",
-    "@redux-beacon/offline-web": "^1.0.0",
     "@redux-beacon/segment": "^1.0.0",
     "@segment/snippet": "^4.3.1",
     "autoprefixer": "^8.5.0",

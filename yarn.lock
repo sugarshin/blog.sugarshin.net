@@ -828,10 +828,6 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@redux-beacon/logger/-/logger-1.0.0.tgz#8b2939f236b9f2640d8b043b8486eea72926afe8"
 
-"@redux-beacon/offline-web@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@redux-beacon/offline-web/-/offline-web-1.0.0.tgz#eef08776e6e37a3cd0b46e864f5622b79ed38423"
-
 "@redux-beacon/segment@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@redux-beacon/segment/-/segment-1.0.0.tgz#87e7eff88bcaee9ae6074c789fad6198e8e81b53"

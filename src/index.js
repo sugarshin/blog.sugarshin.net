@@ -8,12 +8,9 @@ import ReactDOM from 'react-dom'
 import Raven from 'raven-js'
 import LogRocket from 'logrocket'
 import setupLogRocketReact from 'logrocket-react'
-import noop from 'lodash/noop'
 import Root from 'containers/Root'
 import configureStore from 'store/configureStore'
-import history from 'modules/history'
 import APIBase from 'apis/Base'
-import analytics from '../vendor/analytics'
 
 const main = () => {
   if (process.env.SENTRY_DSN) {
@@ -37,12 +34,6 @@ const main = () => {
 
   APIBase.baseURI = process.env.API_BASE
   APIBase.ref = process.env.NODE_ENV === 'production' ? 'master' : null
-
-  if (process.env.SEGMENT_WRITE_KEY) {
-    analytics.load(process.env.SEGMENT_WRITE_KEY)
-    analytics.page()
-  }
-  history.listen(process.env.SEGMENT_WRITE_KEY ? () => (window.analytics || analytics).page() : noop)
 
   const store = configureStore()
   const root = document.querySelector('#app-root')

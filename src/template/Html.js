@@ -1,4 +1,5 @@
 import React from 'react'
+import segmentSnippet from '@segment/snippet'
 
 const Html = props => {
   const {
@@ -13,6 +14,7 @@ const Html = props => {
     url,
     siteName,
     content,
+    segmentWriteKey,
     children,
     /* eslint-emable react/prop-types */
   } = props
@@ -45,6 +47,7 @@ const Html = props => {
           />
         ) : null}
         <div id='app-root'>{children}</div>
+        {segmentWriteKey ? <script dangerouslySetInnerHTML={{ __html: segmentSnippet.min({ apiKey: segmentWriteKey, page: false }) }} /> : null}
       </body>
     </html>
   )
