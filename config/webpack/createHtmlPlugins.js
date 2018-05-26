@@ -18,14 +18,6 @@ const articlesJSON = fs.readFileSync(
   { encoding: 'utf8' }
 )
 const articles = JSON.parse(articlesJSON)
-const baseHtmlPluginConfig = getBaseHtmlPluginConfig()
-const baseConfig = assign(
-  baseHtmlPluginConfig,
-  {
-    type: 'article',
-    ogImageURL: `${baseHtmlPluginConfig.url}/assets/images/common/open-graph.jpg`,
-  }
-)
 
 const getArticleSrcPath = article => {
   const date = article.date.split(' ')[0]
@@ -36,7 +28,16 @@ const getArticlePublicPath = article => {
   return `/${year}/${month}/${day}/${article.url}/`
 }
 
-module.exports = () => {
+module.exports = ({ segmentWriteKey }) => {
+  const baseHtmlPluginConfig = getBaseHtmlPluginConfig({ segmentWriteKey })
+  const baseConfig = assign(
+    baseHtmlPluginConfig,
+    {
+      type: 'article',
+      ogImageURL: `${baseHtmlPluginConfig.url}/assets/images/common/open-graph.jpg`,
+    }
+  )
+
   const plugins = []
 
   // Root

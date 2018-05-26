@@ -1,19 +1,20 @@
 import { createStore, applyMiddleware } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
-import { createEpicMiddleware } from 'redux-observable'
 import LogRocket from 'logrocket'
-import history from 'modules/history'
 import rootReducer from 'reducers'
-import rootEpic from 'store/epics'
+import routerMiddleware from './middlewares/router'
+import epicMiddleware from './middlewares/epic'
+import analyticsMiddleware from './middlewares/analytics'
+import handleLocationAndDocumentChange from './middlewares/handleLocationAndDocumentChange'
 
 export default function configureStore(initialState) {
-  const epic = createEpicMiddleware(rootEpic)
   const store = createStore(
     rootReducer,
     initialState,
     applyMiddleware(
-      routerMiddleware(history),
-      epic,
+      routerMiddleware(),
+      epicMiddleware(),
+      analyticsMiddleware(),
+      handleLocationAndDocumentChange,
       LogRocket.reduxMiddleware()
     )
   )

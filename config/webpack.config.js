@@ -53,12 +53,12 @@ if (prod) {
       chunkFilename: `${assetsDir}/[name]-[contenthash].css`,
     }),
     new WebappPlugin(webappPluginConfig),
-    ...createHtmlPlugins()
+    ...createHtmlPlugins({ segmentWriteKey })
   )
 } else {
   plugins.push(
     new HtmlPlugin(
-      getBaseHtmlPluginConfig()
+      getBaseHtmlPluginConfig({ segmentWriteKey })
     ),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
