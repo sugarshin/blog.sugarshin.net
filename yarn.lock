@@ -808,6 +808,40 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@ndhoule/each@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@ndhoule/each/-/each-2.0.1.tgz#bbed372a603e0713a3193c706a73ddebc5b426a9"
+  dependencies:
+    "@ndhoule/keys" "^2.0.0"
+
+"@ndhoule/keys@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ndhoule/keys/-/keys-2.0.0.tgz#3d64ae677c65a261747bf3a457c62eb292a4e0ce"
+
+"@ndhoule/map@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@ndhoule/map/-/map-2.0.1.tgz#f5ca0a47424ea67f46e2a6d499b9e9bc886aefa8"
+  dependencies:
+    "@ndhoule/each" "^2.0.1"
+
+"@redux-beacon/logger@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@redux-beacon/logger/-/logger-1.0.0.tgz#8b2939f236b9f2640d8b043b8486eea72926afe8"
+
+"@redux-beacon/offline-web@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@redux-beacon/offline-web/-/offline-web-1.0.0.tgz#eef08776e6e37a3cd0b46e864f5622b79ed38423"
+
+"@redux-beacon/segment@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@redux-beacon/segment/-/segment-1.0.0.tgz#87e7eff88bcaee9ae6074c789fad6198e8e81b53"
+
+"@segment/snippet@^4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.3.1.tgz#11c345eb88ea5c64879212ae81a67da0f6e7a80c"
+  dependencies:
+    "@ndhoule/map" "^2.0.1"
+
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
@@ -1329,7 +1363,7 @@ array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
 
-array-flatten@^2.1.0:
+array-flatten@2.1.1, array-flatten@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-2.1.1.tgz#426bb9da84090c1838d812c8150af20a8331e296"
 
@@ -10369,6 +10403,12 @@ redux-actions@^2.3.2:
     lodash "^4.13.1"
     lodash-es "^4.17.4"
     reduce-reducers "^0.1.0"
+
+redux-beacon@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/redux-beacon/-/redux-beacon-2.0.3.tgz#9b057aa9521af6225a1b8f60175c85e3ba29a629"
+  dependencies:
+    array-flatten "2.1.1"
 
 redux-devtools-dock-monitor@^1.1.3:
   version "1.1.3"
