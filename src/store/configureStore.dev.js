@@ -1,31 +1,25 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
-import { createEpicMiddleware } from 'redux-observable'
 import logger from 'redux-logger'
 import LogRocket from 'logrocket'
-import history from 'modules/history'
 import rootReducer from 'reducers'
-import rootEpic from 'store/epics'
+import routerMiddleware from './middlewares/router'
+import epicMiddleware from './middlewares/epic'
 // import DevTools from 'store/debugger/DevTools'
 
 export default function configureStore(initialState) {
-  const epic = createEpicMiddleware(rootEpic)
-
-  const enhancer = compose(
-    applyMiddleware(
-      routerMiddleware(history),
-      epic,
-      logger,
-      LogRocket.reduxMiddleware()
-    )//,
-    // @see https://github.com/reduxjs/redux-devtools/issues/399
-    // DevTools.instrument()
-  )
-
   const store = createStore(
     rootReducer,
     initialState,
-    enhancer
+    compose(
+      applyMiddleware(
+        routerMiddleware(),
+        epicMiddleware(),
+        logger,
+        LogRocket.reduxMiddleware()
+      )//,
+      // @see https://github.com/reduxjs/redux-devtools/issues/399
+      // DevTools.instrument()
+    )
   )
 
   if (module.hot) {
