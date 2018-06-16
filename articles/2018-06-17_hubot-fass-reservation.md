@@ -47,14 +47,14 @@ npm install hubot-fass-reservation
 
 [受付システム](http://www.fasssalon.com/sys/#flow)があり、来店して受付機から発券するか、 [Web](http://www.fasssalon.com/sys/#accept) でも発券できます。
 
-順番が近づくとメールが届いたり、専用の Web ページから順番を確認できたりするのですが、もっと手軽に Slack でそれを行いたいので Hubot スクリプトをつくりました。
+事前に登録しておけば、順番が近づくとメールが届いたり、専用の Web ページから順番を確認できたりするのですが、もっと手軽に Slack でそれを行いたかったので Hubot スクリプトとしてつくってみました。
 
 ## リスト
 
 店舗と識別子一覧を表示します。 http://www.fasssalon.com/salonlist/
 
 ```bash
-> hubot fass list
+> hubot fass ls
 
 FaSS有楽町マルイ店 - yurakuchomarui
   e.g., `hubot fass yurakuchomarui w`
@@ -95,18 +95,18 @@ FaSSアトレ川崎店 - atrekawasaki
 ```bash
 > hubot fass futakotamagawarisesc w
 
-ＦａＳＳニ子玉川ライズＳ．Ｃ．店
- ・待ち人数：6人
- ・待ち時間の目安：40 ～ 50分
- 　01) 207
- 　02) 208
- 　03) 209
- 　04) 210
- 　05) 212
- 　06) 213
+> ＦａＳＳニ子玉川ライズＳ．Ｃ．店
+>  ・待ち人数：6人
+>  ・待ち時間の目安：40 ～ 50分
+>  　01) 207
+>  　02) 208
+>  　03) 209
+>  　04) 210
+>  　05) 212
+>  　06) 213
 ```
 
-予約番号を入れると順番が近づくとステップで通知してくれます。
+予約番号を入れると、順番が近づくとステップで通知してくれます。
 
 ```bash
 > hubot fass futakotamagawarisesc w 39
@@ -122,7 +122,7 @@ FaSSアトレ川崎店 - atrekawasaki
 
 ## TODO
 
-受付できるようにもする予定です。まだ実装していません。
+受付できるようにもする予定です。まだ実装はしていません。
 
 ```bash
 > hubot fass futakotamagawarisesc rsv
