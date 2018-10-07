@@ -8,7 +8,7 @@ const ArticleMeta = ({ article }) => {
     <div className={styles.meta}>
       <span className={styles.metaContent}>
         <Octicon name='pencil' className={styles.metaIcon} />
-        <a href={article.author.url} target='_blank'>{article.author.name}</a>
+        <a href={article.author.url} target='_blank' rel='noopener noreferrer'>{article.author.name}</a>
       </span>
       <span className={styles.metaContent}>
         <Octicon name='clock' className={styles.metaIcon} />
