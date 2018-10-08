@@ -29,7 +29,7 @@ https://github.com/sugarshin/blog.sugarshin.net/blob/master/.env.example
 ## Start dev-server
 
 ```bash
-npm start
+npm run dev
 ```
 
 ## Run tests
