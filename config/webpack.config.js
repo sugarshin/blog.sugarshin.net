@@ -99,7 +99,7 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
-          { loader: 'eslint-loader', options: { configFile: '.eslintrc' } },
+          { loader: 'eslint-loader', options: { configFile: '.eslintrc.js' } },
         ],
         exclude: /node_modules/,
         enforce: 'pre',
