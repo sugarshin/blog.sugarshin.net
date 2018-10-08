@@ -9,6 +9,16 @@ https://blog.sugarshin.net
 
 ## Setup
 
+### Node.js
+
+Node.js 8.12.0
+
+```sh
+cat .node-version
+```
+
+### Environments
+
 ```sh
 cp .env{.example,}
 vim .env

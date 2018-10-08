@@ -47,7 +47,7 @@ export default class Base {
   }
   static get accessToken() {
     const { GITHUB_ACCESS_TOKENS } = process.env
-    if (!GITHUB_ACCESS_TOKENS) return
+    if (!GITHUB_ACCESS_TOKENS) return ''
     const tokens = GITHUB_ACCESS_TOKENS.split(',')
     return tokens[random(0, tokens.length - 1)]
   }

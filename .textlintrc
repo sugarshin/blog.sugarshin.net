@@ -31,7 +31,8 @@
       "3.1.1.全角文字と半角文字の間": false
     },
     "eslint": {
-      "configFile": ".eslintrc"
+      "configFile": ".eslintrc.js",
+      "ignoreParsingErrors": true
     }
   }
 }
