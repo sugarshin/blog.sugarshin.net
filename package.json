@@ -84,7 +84,7 @@
     "@redux-beacon/logger": "1.0.0",
     "@redux-beacon/segment": "1.0.0",
     "@segment/snippet": "4.3.1",
-    "autoprefixer": "8.5.1",
+    "autoprefixer": "8.6.5",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "23.6.0",
