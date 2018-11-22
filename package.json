@@ -92,7 +92,7 @@
     "babel-plugin-add-react-displayname": "0.0.5",
     "bootswatch": "3.3.7",
     "chalk": "2.4.1",
-    "classnames": "2.2.5",
+    "classnames": "2.2.6",
     "codecov": "3.0.2",
     "cpx": "1.5.0",
     "css-loader": "0.28.11",
