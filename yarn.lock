@@ -744,9 +744,9 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@redux-beacon/logger/-/logger-1.0.0.tgz#8b2939f236b9f2640d8b043b8486eea72926afe8"
 
-"@redux-beacon/segment@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@redux-beacon/segment/-/segment-1.0.0.tgz#87e7eff88bcaee9ae6074c789fad6198e8e81b53"
+"@redux-beacon/segment@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@redux-beacon/segment/-/segment-1.0.1.tgz#fe81deacd32a1b3c360a0243289ef00774e32f9f"
 
 "@segment/snippet@4.3.1":
   version "4.3.1"
