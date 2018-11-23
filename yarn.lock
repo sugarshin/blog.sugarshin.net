@@ -4768,9 +4768,9 @@ github-slugger@^1.0.0, github-slugger@^1.1.1:
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
-github@13.1.0:
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/github/-/github-13.1.0.tgz#fc925950beebdff0cb0583197598b86f41bedaa4"
+github@13.1.1:
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/github/-/github-13.1.1.tgz#e4775be32c3a72e44d5cbec965dbeb8c0aac7c1f"
   dependencies:
     debug "^3.1.0"
     dotenv "^4.0.0"
