@@ -4,20 +4,29 @@ import segmentSnippet from '@segment/snippet'
 const Html = props => {
   const {
     /* eslint-disable react/prop-types */
-    lang,
-    googleSiteVerificationKey,
-    title,
-    author,
-    description,
-    type,
-    ogImageURL,
-    url,
-    siteName,
-    content,
-    segmentWriteKey,
-    children,
+    htmlWebpackPlugin: {
+      options: {
+        lang,
+        googleSiteVerificationKey,
+        title,
+        author,
+        description,
+        type,
+        ogImageURL,
+        url,
+        siteName,
+        content,
+        segmentWriteKey,
+        children,
+      },
+      files,
+    },
+    compilation,
     /* eslint-emable react/prop-types */
   } = props
+
+  const isProd = process.env.NODE_ENV === 'production'
+
   return (
     <html lang={lang}>
       <head>
@@ -34,10 +43,13 @@ const Html = props => {
         <meta property='og:image' content={ogImageURL} />
         <meta property='og:url' content={url} />
         <meta property='og:site_name' content={siteName} />
-        {process.env.NODE_ENV === 'production' ? [
+        {isProd ? [
           <link key='atom-feed' rel='alternate' type='application/atom+xml' title='Atom Feed' href='/feed.xml' />,
           <link key='rss-feed' rel='alternate' type='application/rss+xml' title='RSS 2.0 Feed' href='/rss.xml' />,
         ] : null}
+        {isProd && files && files.css ? files.css.map((css, i) => {
+          return <style key={i} dangerouslySetInnerHTML={{ __html: compilation.assets[css.substr(files.publicPath.length)].source() }} />
+        }) : null}
       </head>
       <body>
         {content ? (
@@ -48,6 +60,9 @@ const Html = props => {
         ) : null}
         <div id='app-root'>{children}</div>
         {segmentWriteKey ? <script dangerouslySetInnerHTML={{ __html: segmentSnippet.min({ apiKey: segmentWriteKey, page: false }) }} /> : null}
+        {isProd && files && files.js ? files.js.map((js, i) => {
+          return <script key={i} dangerouslySetInnerHTML={{ __html: compilation.assets[js.substr(files.publicPath.length)].source() }} />
+        }) : null}
       </body>
     </html>
   )

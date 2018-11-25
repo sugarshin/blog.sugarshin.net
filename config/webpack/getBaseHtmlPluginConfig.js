@@ -18,4 +18,6 @@ module.exports = ({ segmentWriteKey }) => ({
   type: 'website',
   siteName,
   segmentWriteKey,
+  inject: false,
+  cache: false,
 })
