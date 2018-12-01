@@ -3480,7 +3480,7 @@ cssesc@^0.1.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-0.1.0.tgz#c814903e45623371a0477b40109aaafbeeaddbb4"
   integrity sha1-yBSQPkViM3GgR3tAEJqq++6t27Q=
 
-cssnano@^3.10.0, cssnano@^3.4.0:
+cssnano@^3.10.0:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-3.10.0.tgz#4f38f6cea2b9b17fa01490f23f1dc68ea65c1c38"
   integrity sha1-Tzj2zqK5sX+gFJDyPx3GjqZcHDg=
@@ -9405,12 +9405,12 @@ optimist@^0.6.1:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
-optimize-css-assets-webpack-plugin@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-4.0.1.tgz#48f016766752c7648b92cc1e795b999732bd87a2"
-  integrity sha512-2pIcqmQDEBvVKt5Bt+Nj8wMNvotfaklYRTd/zRJakZradPS0/xhj1hM1mdydyA4utygTmjPZCuOa+Dl5TjtxWw==
+optimize-css-assets-webpack-plugin@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-4.0.3.tgz#4f714e276b279700892c4a6202b7e22812d6f683"
+  integrity sha512-iOfMsuGMPbM/bZZ731gwtAXfXjIkR97BXqUXsPGIzBaQzpvqajsoIFlR+z+Q7FLcq2TmV4JFGo80d98ttfRzhA==
   dependencies:
-    cssnano "^3.4.0"
+    cssnano "^3.10.0"
     last-call-webpack-plugin "^3.0.0"
 
 optionator@^0.8.0, optionator@^0.8.1, optionator@^0.8.2:
