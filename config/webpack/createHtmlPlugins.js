@@ -118,5 +118,22 @@ module.exports = ({ segmentWriteKey }) => {
     )
   })
 
+  // Search
+  {
+    const title = `Search | ${baseConfig.siteName}`
+    const publicPath = '/search/'
+    const url = `${baseConfig.url}${publicPath}`
+    const config = assign({}, baseConfig, {
+      title,
+      url,
+      description: title,
+    })
+    plugins.push(
+      new HtmlPlugin(
+        assign(config, { filename: `${publicPath.replace(/^\//, '')}index.html` })
+      )
+    )
+  }
+
   return plugins
 }
