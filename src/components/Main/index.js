@@ -62,7 +62,6 @@ export default class Main extends Component {
     const { children, sidebar, actions } = this.props
     return (
       <Sidebar
-        rootClassName={styles.root}
         sidebarClassName={styles.sidebar}
         contentClassName={styles.content}
         sidebar={<SidebarMenu {...this.props} />}
