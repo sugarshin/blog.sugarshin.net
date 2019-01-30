@@ -5,25 +5,6 @@
 $main-min-height-buffer = $header-height + $footer-height + $footer-margin-top + 13px
 $main-min-height = 'calc(100% - %s)' % ($main-min-height-buffer)
 
-.root
-  &::after
-    content ''
-    position absolute
-    bottom 0
-    left 0
-    z-index -1
-    background url(../../images/p.jpg) no-repeat center
-    background-size 100% auto
-    width 320px
-    height 320px
-    opacity .05
-    transform translate(-50%, 30%)
-    @media $mq-medium
-      width 480px // @stylint ignore
-      height 480px // @stylint ignore
-    @media $mq-large
-      width 640px // @stylint ignore
-      height 640px // @stylint ignore
 .content
   -webkit-overflow-scrolling touch
 .sidebar
