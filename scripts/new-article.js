@@ -8,13 +8,22 @@ const articleTemplate = require('./helpers/articleTemplate')
 const { protocol, domain } = require('../config/settings')
 
 const name = argv.n || argv.name
+const publishDate = argv.p || argv['publish-date']
 
-if (!name) {
-  throw new Error('`npm run na -- -n article-title` or `npm run na -- --name=article-title`')
+if (typeof name !== 'string' || !name) {
+  console.error('`name` is required. `npm run na -- -n article-title` or `npm run na -- --name=article-title`')
+  process.exit(1)
 }
 
+if (publishDate && !/^20[0-9]{2}-(?:0|1)[0-9]-[0-9]{2}$/.test(publishDate)) {
+  console.error('`--publish-date` is invalide format. `npm run na -- -p 2019-01-30`')
+  process.exit(1)
+}
+
+console.log(`[INFO] Generating new article..\n`)
+
 const origin = `${protocol}//${domain}`
-const d = moment()
+const d = moment(publishDate)
 const imagePath = `assets/images/${d.format('YYYY/MM/DD')}/${name}`
 const ogImageContent = `${origin}/${imagePath}/main.png`
 const content = articleTemplate({
@@ -32,9 +41,19 @@ const content = articleTemplate({
   ],
 })
 
-writeFileSync(`articles/${d.format('YYYY-MM-DD')}_${name}.md`, content)
-console.log(`Success write new article file !`)
-
 const imageDir = `articles/${imagePath}`
+const files = [
+  `articles/${d.format('YYYY-MM-DD')}_${name}.md`,
+  `${imageDir}/.gitkeep`,
+]
+
+// Write files
+writeFileSync(files[0], content)
 mkdirp.sync(imageDir)
-console.log(`Created ${imageDir} !`)
+writeFileSync(files[1], '')
+
+// Log files
+files.forEach(file => console.log(file))
+
+console.log('')
+console.log('[INFO] Completed successfully\n')
