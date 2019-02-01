@@ -198,7 +198,7 @@
     "textlint-rule-preset-jtf-style": "2.3.1",
     "textlint-rule-sentence-length": "2.1.1",
     "uglifyjs-webpack-plugin": "1.2.5",
-    "unified": "6.1.6",
+    "unified": "6.2.0",
     "url-loader": "1.0.1",
     "watch": "1.0.2",
     "webapp-webpack-plugin": "2.1.0",
