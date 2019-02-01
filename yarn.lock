@@ -961,10 +961,10 @@
   resolved "https://registry.yarnpkg.com/@redux-beacon/segment/-/segment-1.0.1.tgz#fe81deacd32a1b3c360a0243289ef00774e32f9f"
   integrity sha512-vEMGsK/x0o6yC+r1Fj7aBXxbIre7GNLS4DuoivaiJGNWKPMOB3AiEMiAN9dijgUOZNXebG5AtYWIGnu1Nd2L2w==
 
-"@segment/snippet@4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.3.1.tgz#11c345eb88ea5c64879212ae81a67da0f6e7a80c"
-  integrity sha1-EcNF64jqXGSHkhKugaZ9oPbnqAw=
+"@segment/snippet@4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.4.0.tgz#153f17b8048a2764bbb1343a61f3c3c24da038e2"
+  integrity sha1-FT8XuASKJ2S7sTQ6YfPDwk2gOOI=
   dependencies:
     "@ndhoule/map" "^2.0.1"
 
