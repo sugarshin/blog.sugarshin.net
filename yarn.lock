@@ -11754,10 +11754,10 @@ remark-react@4.0.3:
     hast-util-sanitize "^1.0.0"
     mdast-util-to-hast "^3.0.0"
 
-remark-rehype@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/remark-rehype/-/remark-rehype-3.0.0.tgz#699342e76cc1dead191cc924fdf21910b3746160"
-  integrity sha512-WUinfb6vi34f4VYs2XS4HvuYNd0tCu68HOlG4aMp1dfFyVuVfL3aiL9WPw+Q6W99xTTHyxwr7BGO94jF0psoEA==
+remark-rehype@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/remark-rehype/-/remark-rehype-3.0.2.tgz#ba03aa55d85ede210147dee0952d4d0a73feef61"
+  integrity sha512-KDRCnMzRyyCDr0I14Kfk5094W7jjhQwAIJ1C6NniGNjp2OIhcrtqRaiTZCoyEtoYILXTmZKmuOnL5yYGaEFFJA==
   dependencies:
     mdast-util-to-hast "^3.0.0"
 
