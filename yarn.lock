@@ -995,15 +995,15 @@
   resolved "https://registry.yarnpkg.com/@redux-beacon/logger/-/logger-1.0.0.tgz#8b2939f236b9f2640d8b043b8486eea72926afe8"
   integrity sha512-/WTYDLJPYaA+JUKs7E0xNrn2NRLQKBIYvaA9vfx6Ig5ZiwnrycUYeiNP9L1DTyawtC+mlrvm5fB87u21hJceFg==
 
-"@redux-beacon/segment@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@redux-beacon/segment/-/segment-1.0.1.tgz#fe81deacd32a1b3c360a0243289ef00774e32f9f"
-  integrity sha512-vEMGsK/x0o6yC+r1Fj7aBXxbIre7GNLS4DuoivaiJGNWKPMOB3AiEMiAN9dijgUOZNXebG5AtYWIGnu1Nd2L2w==
+"@redux-beacon/segment@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@redux-beacon/segment/-/segment-1.1.0.tgz#862aaa7f4f8a3868cef0fb068ade56dd1db10756"
+  integrity sha512-NLRoP3Jfx5z99YX6TFFznwXIMjqjD6/qdMZIKFRgGO8NtMWrCruA8EeQYPJZUBnuOjw6RtOA1UdjbqyRmdhc/Q==
 
-"@segment/snippet@4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.3.1.tgz#11c345eb88ea5c64879212ae81a67da0f6e7a80c"
-  integrity sha1-EcNF64jqXGSHkhKugaZ9oPbnqAw=
+"@segment/snippet@4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.4.0.tgz#153f17b8048a2764bbb1343a61f3c3c24da038e2"
+  integrity sha1-FT8XuASKJ2S7sTQ6YfPDwk2gOOI=
   dependencies:
     "@ndhoule/map" "^2.0.1"
 
@@ -11562,10 +11562,10 @@ redux-actions@2.6.4:
     reduce-reducers "^0.4.3"
     to-camel-case "^1.0.0"
 
-redux-beacon@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/redux-beacon/-/redux-beacon-2.0.3.tgz#9b057aa9521af6225a1b8f60175c85e3ba29a629"
-  integrity sha512-a0awbPHWBYYcPLJzEG/INXAfqx2zlLkjgnmgX98pBN1kzQjguxg2MfugaXxG/jWSycl9b17arRBMqw1rTpX96Q==
+redux-beacon@2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/redux-beacon/-/redux-beacon-2.0.5.tgz#1aa1db7c4544a31e8df91676adca2e7277b08cc6"
+  integrity sha512-h2XCqu72+TWz2HHUDKSgp3y4OlnnmMsp9EOfdI5+BWNcch/kxaJbm+rt3SSqjOPdP9CL3aqSISZ4VD4Ev85xcw==
   dependencies:
     array-flatten "2.1.1"
 
