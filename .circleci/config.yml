@@ -3,30 +3,21 @@ jobs:
   build:
     working_directory: ~/blog.sugarshin.net
     docker:
-      - image: circleci/node:10.13.0
-    environment:
-      TZ: /usr/share/zoneinfo/Asia/Tokyo
+      - image: circleci/node:10.15.1
     steps:
       - checkout
-      - run:
-          name: System information
-          command: |
-            echo "Node.js $(node -v)"
-            echo "npm $(npm -v)"
-            echo "Yarn v$(yarn --version)"
       - restore_cache:
           name: Restoring Cache - dependencies
           keys:
-            - v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
             - v1-dependencies-
       - run:
-          name: Install dependencies
-          command: yarn
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
       - save_cache:
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
           paths:
-            - ~/workspace/node_modules
-            - ~/.cache/yarn/
-          key: v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - ~/.cache/yarn
       - run:
           name: Lint
           command: npm run lint
@@ -35,7 +26,7 @@ jobs:
           command: |
             npm run test:coverage && node_modules/.bin/codecov
       - run:
-          name: Build
+          name: Build Assets
           command: NODE_ENV=production npm run build
       - deploy:
           name: Deploy
