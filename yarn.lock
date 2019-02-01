@@ -8629,10 +8629,10 @@ mdast-util-to-string@^1.0.0, mdast-util-to-string@^1.0.2:
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-1.0.4.tgz#5c455c878c9355f0c1e7f3e8b719cf583691acfb"
   integrity sha1-XEVch4yTVfDB5/PotxnPWDaRrPs=
 
-mdast-util-toc@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/mdast-util-toc/-/mdast-util-toc-2.0.1.tgz#b1d2cb23bfb01f812fa7b55bffe8b0a8bedf6f21"
-  integrity sha1-sdLLI7+wH4Evp7Vb/+iwqL7fbyE=
+mdast-util-toc@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/mdast-util-toc/-/mdast-util-toc-3.0.1.tgz#78b3265b9fd9125c0dcc7a6bb4a69127acd7e93b"
+  integrity sha512-Z8lKq6sQr/vDNIcUkIWzPwKo5JQIzlDLouZuzIMVajOdUAyjnkA+s98RhjVpFt7SiuJzase9oh6Iw7n4zhVNDQ==
   dependencies:
     github-slugger "^1.1.1"
     mdast-util-to-string "^1.0.2"
@@ -11770,12 +11770,12 @@ remark-slug@5.0.0, remark-slug@^5.0.0:
     mdast-util-to-string "^1.0.0"
     unist-util-visit "^1.0.0"
 
-remark-toc@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/remark-toc/-/remark-toc-5.0.0.tgz#f1e13ed11062ad4d102b02e70168bd85015bf129"
-  integrity sha512-j2A/fpio1nzNRJtY6nVaFUCtXNfFPxaj6I5UHFsFgo4xKmc0VokRRIzGqz4Vfs7u+dPrHjnoHkImu1Dia0jDSQ==
+remark-toc@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/remark-toc/-/remark-toc-5.1.1.tgz#8c229d6f834cdb43fde6685e2d43248d3fc82d78"
+  integrity sha512-vCPW4YOsm2CfyuScdktM9KDnJXVHJsd/ZeRtst+dnBU3B3KKvt8bc+bs5syJjyptAHfqo7H+5Uhz+2blWBfwow==
   dependencies:
-    mdast-util-toc "^2.0.0"
+    mdast-util-toc "^3.0.0"
     remark-slug "^5.0.0"
 
 remark-yaml-config@4.0.1:

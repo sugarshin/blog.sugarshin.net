@@ -171,7 +171,7 @@
     "remark-react-lowlight": "0.7.0",
     "remark-rehype": "3.0.0",
     "remark-slug": "5.0.0",
-    "remark-toc": "5.0.0",
+    "remark-toc": "5.1.1",
     "remark-yaml-config": "4.0.1",
     "remove-markdown": "0.3.0",
     "rxjs": "5.5.8",
