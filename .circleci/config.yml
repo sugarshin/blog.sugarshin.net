@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/blog.sugarshin.net
     docker:
-      - image: circleci/node:10.13.0
+      - image: circleci/node:10.15.1
     environment:
       TZ: /usr/share/zoneinfo/Asia/Tokyo
     steps:
