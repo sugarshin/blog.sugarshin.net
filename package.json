@@ -27,8 +27,8 @@
     "clean:wwp-cache": "if [ -d .wwp-cache ]; then rm -rf .wwp-cache; fi",
     "templates:build": "node scripts/templates",
     "webpack": "webpack --config config/webpack.config.js",
-    "build": "sh scripts/build.sh",
-    "deploy": "sh scripts/deploy.sh",
+    "build": "/bin/bash scripts/build.bash",
+    "deploy": "/bin/bash scripts/deploy.bash",
     "codecov": "codecov"
   },
   "repository": {
