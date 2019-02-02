@@ -88,7 +88,7 @@ jobs:
       - configure_git
       - deploy:
           name: Deploy
-          command: npm run deploy
+          command: /bin/sh scripts/build.sh
   notify_slack:
     machine: true
     steps:
