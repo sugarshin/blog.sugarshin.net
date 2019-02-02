@@ -95,6 +95,7 @@ jobs:
       - slack/notify:
           message: "Blog has been updated! <https://blog.sugarshin.net>"
           mentions: "${SLACK_UUID}"
+          webhook: ${SLACK_WEBHOOK_URL}
 
 workflows:
   test_build_deploy:
