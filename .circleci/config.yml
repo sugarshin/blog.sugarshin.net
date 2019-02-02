@@ -86,7 +86,7 @@ jobs:
       - attach_workspace:
           at: *workspace_root
       - configure_git
-      - deploy:
+      - run:
           name: Deploy
           command: /bin/sh scripts/build.sh
   notify_slack:
