@@ -1,41 +1,113 @@
-version: 2
-jobs:
-  build:
-    working_directory: ~/blog.sugarshin.net
+version: 2.1
+
+references:
+  workspace_root: &workspace_root
+      ~/blog.sugarshin.net
+
+orbs:
+  slack: circleci/slack@1.1.0
+
+executors:
+  nodejs:
+    working_directory: *workspace_root
     docker:
       - image: circleci/node:10.15.1
+        environment:
+          TZ: "Asia/Tokyo"
+  buildpack_deps:
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/buildpack-deps
+
+commands:
+  restore_yarn_cache:
     steps:
-      - checkout
       - restore_cache:
-          name: Restoring Cache - dependencies
+          name: Restoring Yarn Cache
           keys:
             - v1-dependencies-{{ checksum "yarn.lock" }}
             - v1-dependencies-
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
+  save_yarn_cache:
+    steps:
       - save_cache:
+          name: Saving Yarn Cache
           key: v1-dependencies-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+  configure_git:
+    steps:
+      - run:
+          name: Configure Git
+          command: |
+            git config --global user.name 'CircleCI'
+            git config --global user.email 's+circleci@sugarshin.net'
+
+jobs:
+  test:
+    executor:
+      name: nodejs
+    steps:
+      - checkout
+      - restore_yarn_cache
+      - run: yarn install --frozen-lockfile
+      - save_yarn_cache
       - run:
           name: Lint
           command: npm run lint
       - run:
           name: Test
-          command: |
-            npm run test:coverage && node_modules/.bin/codecov
+          command: npm run test:coverage
+      - run:
+          name: Coverage Report
+          command: npm run codecov
+  build:
+    executor:
+      name: nodejs
+    steps:
+      - checkout
+      - restore_yarn_cache
+      - run: yarn install --frozen-lockfile
+      - save_yarn_cache
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - build
+      - store_artifacts:
+          path: build
+          destination: build
+  deploy:
+    executor:
+      name: buildpack_deps
+    steps:
+      - checkout
+      - attach_workspace:
+          at: *workspace_root
+      - configure_git
       - deploy:
           name: Deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              git config --global user.name 'CircleCI'
-              git config --global user.email 's+circleci@sugarshin.net'
-              npm run deploy
-              curl -XPOST -d '{"text": "Blog has been updated! <https://blog.sugarshin.net>"}' $SLACK_WEBHOOK_URL
-            else
-              echo 'It was skip deployment because not master branch.'
-            fi
+          command: npm run deploy
+  notify_slack:
+    machine: true
+    steps:
+      - slack/notify:
+          message: "Blog has been updated! <https://blog.sugarshin.net>"
+          mentions: "${SLACK_UUID}"
+
+workflows:
+  test_build_deploy:
+    jobs:
+      - test
+      - build
+      - deploy:
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: master
+      - notify_slack:
+          requires:
+            - deploy
