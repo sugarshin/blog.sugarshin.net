@@ -99,8 +99,14 @@ jobs:
 workflows:
   test_build_deploy:
     jobs:
-      - test
-      - build
+      - test:
+          filters:
+            branches:
+              ignore: gh-pages
+      - build:
+          filters:
+            branches:
+              ignore: gh-pages
       - deploy:
           requires:
             - test
