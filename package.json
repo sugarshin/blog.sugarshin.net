@@ -28,7 +28,8 @@
     "templates:build": "node scripts/templates",
     "webpack": "webpack --config config/webpack.config.js",
     "build": "sh scripts/build.sh",
-    "deploy": "sh scripts/deploy.sh"
+    "deploy": "sh scripts/deploy.sh",
+    "codecov": "codecov"
   },
   "repository": {
     "type": "git",
