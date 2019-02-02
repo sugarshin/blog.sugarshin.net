@@ -104,7 +104,7 @@
     "eslint": "5.10.0",
     "eslint-loader": "2.1.1",
     "eslint-plugin-babel": "5.3.0",
-    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-react": "7.12.4",
     "feed": "1.1.1",
     "file-loader": "1.1.11",
     "github": "13.1.1",
