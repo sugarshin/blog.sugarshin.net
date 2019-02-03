@@ -46,6 +46,7 @@
   },
   "homepage": "https://github.com/sugarshin/blog.sugarshin.net#readme",
   "jest": {
+    "preset": "jest-puppeteer",
     "testRegex": "/test/.+\\.spec\\.js$",
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
@@ -207,5 +208,9 @@
     "webpack-cli": "3.2.1",
     "webpack-dev-server": "3.1.14",
     "whatwg-fetch": "3.0.0"
+  },
+  "devDependencies": {
+    "jest-puppeteer": "3.9.0",
+    "puppeteer": "1.12.1"
   }
 }
