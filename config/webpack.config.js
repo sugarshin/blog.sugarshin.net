@@ -5,7 +5,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const WebappPlugin = require('webapp-webpack-plugin')
-const Stylish = require('webpack-stylish')
 const getBaseHtmlPluginConfig = require('./webpack/getBaseHtmlPluginConfig')
 const webappPluginConfig = require('./webpack/webappPluginConfig')
 const createHtmlPlugins = require('./webpack/createHtmlPlugins')
@@ -39,7 +38,6 @@ const plugins = [
       LOGROCKET_APP_ID: JSON.stringify(logrocketAppId),
     },
   }),
-  new Stylish(),
 ]
 
 const entry = {
@@ -81,11 +79,13 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {
+      maxSize: 244000,
       cacheGroups: {
         vendor: {
           test: /node_modules/,
           name: 'vendor',
           chunks: 'initial',
+          enforce: true,
         },
       },
     },
