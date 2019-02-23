@@ -208,5 +208,8 @@
     "webpack-cli": "3.2.1",
     "webpack-dev-server": "3.1.14",
     "whatwg-fetch": "3.0.0"
+  },
+  "devDependencies": {
+    "express": "4.16.4"
   }
 }
