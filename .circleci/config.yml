@@ -97,7 +97,7 @@ jobs:
           name: Start HTTP Server
           command: PORT=3000 node e2e-test/server
           background: true
-      - run: curl --retry 10 --retry-delay 1 --retry-connrefused -fI http://localhost:3000
+      - run: curl --retry 30 --retry-delay 1 --retry-connrefused -fI http://localhost:3000
       - run: node e2e-test/test
       - store_artifacts:
           path: screenshot.png
