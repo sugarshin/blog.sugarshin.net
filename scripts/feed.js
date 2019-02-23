@@ -7,8 +7,9 @@ const {
   domain, protocol, siteName, copyright, description, authorName, authorEmail, authorURL, authorGitHubUserName,
   feedURL, rssURL,
 } = require('../config/settings')
+const argv = require('minimist')(process.argv.slice(2))
 
-const OUT_DIR = 'build'
+const OUT_DIR = argv.o || argv.out || 'build'
 const articlesJSON = fs.readFileSync(`./${OUT_DIR}/index.json`, { encoding: 'utf8' })
 const articles = JSON.parse(articlesJSON)
 
