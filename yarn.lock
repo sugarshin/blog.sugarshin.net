@@ -10615,10 +10615,10 @@ redux-observable@0.18.0:
   dependencies:
     gitbook-plugin-github "^2.0.0"
 
-redux-slider-monitor@2.0.0-1:
-  version "2.0.0-1"
-  resolved "https://registry.yarnpkg.com/redux-slider-monitor/-/redux-slider-monitor-2.0.0-1.tgz#56270dcb32f5f87ba32f3718c443f36ed26f8258"
-  integrity sha1-VicNyzL1+HujLzcYxEPzbtJvglg=
+redux-slider-monitor@2.0.0-2:
+  version "2.0.0-2"
+  resolved "https://registry.yarnpkg.com/redux-slider-monitor/-/redux-slider-monitor-2.0.0-2.tgz#99fbf8cea54ec2252b52a0e92829b15902b94027"
+  integrity sha512-G1d3I+KuINKSVPUVK9pmlsEEUsQsepBNHcvVMi5N8IhyFzFwwmjV7vqWFOx+/MDsjq5f9pt9k1ONkMZhUkJ5dg==
   dependencies:
     devui "^1.0.0-3"
     prop-types "^15.5.8"
