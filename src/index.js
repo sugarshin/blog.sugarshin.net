@@ -34,7 +34,7 @@ const main = () => {
   }
 
   APIBase.baseURI = process.env.API_BASE
-  APIBase.ref = process.env.NODE_ENV === 'production' ? 'master' : null
+  APIBase.ref = process.env.NODE_ENV !== 'production' ? null : (process.env.E2E_TEST ? null : 'master')
 
   const store = configureStore()
   const root = document.querySelector('#app-root')

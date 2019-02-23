@@ -64,3 +64,4 @@ build
 build-dev
 .deploy
 .wwp-cache
+build-e2e-test

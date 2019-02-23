@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 
 const fs = require('fs')
-const argv = require('minimist')(process.argv.slice(2))
 const Sitemap = require('sitemap')
 const uniq = require('lodash/uniq')
 const { protocol, domain } = require('../config/settings')
+const argv = require('minimist')(process.argv.slice(2))
 
 const outDir = argv.o || argv.out || 'build' // TODO
 const articlesJSON = fs.readFileSync(`./${outDir}/index.json`, { encoding: 'utf8' })
