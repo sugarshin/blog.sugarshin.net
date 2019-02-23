@@ -99,8 +99,8 @@ jobs:
           background: true
       - run: wget --tries 30 --waitretry 1 --retry-connrefused --spider --timeout 300 localhost:3000
       - run: node e2e-test/test
-      - store_artifacts:
-          path: screenshot.png
+      # - store_artifacts:
+      #     path: screenshot.png
   deploy:
     executor:
       name: buildpack_deps

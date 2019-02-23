@@ -3,12 +3,12 @@ const puppeteer = require('puppeteer')
 const main = async () => {
   const browser = await puppeteer.launch({
     ignoreHTTPSErrors: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--headless', '--disable-gpu'],
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   })
   const page = await browser.newPage()
   await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' })
-  await page.screenshot({ path: 'screenshot.png' })
-
+  const title = await page.title()
+  console.log('title:', title)
   await browser.close()
 }
 
