@@ -1,16 +1,3 @@
 {
-  "extends": ["config:base"],
-  "rangeStrategy": "pin",
-  "dependencies": {
-    "labels": ["Renovate", "dependencies"],
-    "vulnerabilityAlerts": {
-      "labels": ["Renovate", "dependencies", "Security"]
-    }
-  },
-  "devDependencies": {
-    "labels": ["Renovate", "devDependencies"],
-    "vulnerabilityAlerts": {
-      "labels": ["Renovate", "devDependencies", "Security"]
-    }
-  }
+  "extends": ["@sugarshin:js-app"]
 }
