@@ -7,6 +7,6 @@ import connectStore from 'modules/connectStore'
 @connectStore()
 export default class Top extends Component {
   render() {
-    return <Articles articles={this.props.articles.items} />
+    return <Articles articles={this.props.articles.items} id='top-article-list' />
   }
 }

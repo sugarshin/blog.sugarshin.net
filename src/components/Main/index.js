@@ -86,7 +86,7 @@ export default class Main extends Component {
             </div>
           ) : null}
         </header>
-        <main className={styles.main}>
+        <main className={styles.main} id='main'>
           {children}
         </main>
         <footer className={styles.footer}>
