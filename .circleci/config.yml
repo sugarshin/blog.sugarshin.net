@@ -18,6 +18,10 @@ executors:
     working_directory: *workspace_root
     docker:
       - image: circleci/buildpack-deps
+  nodejs_puppeteer:
+    working_directory: *workspace_root
+    docker:
+      - image: sugarshin/nodejs-puppeteer:latest
 
 commands:
   restore_yarn_cache:
@@ -78,6 +82,24 @@ jobs:
       - store_artifacts:
           path: build
           destination: build
+  e2e_test:
+    executor:
+      name: nodejs_puppeteer
+    steps:
+      - checkout
+      - restore_yarn_cache
+      - run: yarn install --frozen-lockfile
+      - save_yarn_cache
+      - run:
+          name: Build Assets for E2E Test
+          command: NODE_ENV=production npm run build:e2e-test
+      - run:
+          background: true
+          command: PORT=3000 node e2e-test/server
+      - run: curl --retry 10 --retry-delay 1 --retry-connrefused -fI localhost:3000
+      - run: node e2e-test/test
+      - store_artifacts:
+          path: screenshot.png
   deploy:
     executor:
       name: buildpack_deps
@@ -108,10 +130,15 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
+      - e2e_test:
+          filters:
+            branches:
+              ignore: gh-pages
       - deploy:
           requires:
             - test
             - build
+            - e2e_test
           filters:
             branches:
               only: master
