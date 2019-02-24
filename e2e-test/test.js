@@ -7,7 +7,9 @@ let browser
 const main = async () => {
   browser = await puppeteer.launch({
     ignoreHTTPSErrors: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    dumpio: true,
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-dev-shm-usage'],
   })
   const page = await browser.newPage()
   await page.goto('http://localhost:3000', { waitUntil: 'networkidle0' })
