@@ -18,10 +18,10 @@ executors:
     working_directory: *workspace_root
     docker:
       - image: circleci/buildpack-deps
-  nodejs_puppeteer:
+  nodejs_browsers:
     working_directory: *workspace_root
     docker:
-      - image: sugarshin/nodejs-puppeteer:latest
+      - image: circleci/node:10.15.1-browsers
 
 commands:
   restore_yarn_cache:
@@ -84,23 +84,19 @@ jobs:
           destination: build
   e2e_test:
     executor:
-      name: nodejs_puppeteer
+      name: nodejs_browsers
     steps:
       - checkout
+      - run:
+          name: Setup libxcb
+          command: /bin/sh .circleci/setup-libxcb.sh
       - restore_yarn_cache
       - run: yarn install --frozen-lockfile
       - save_yarn_cache
       - run:
           name: Build Assets for E2E Test
           command: NODE_ENV=production npm run build:e2e-test
-      - run:
-          name: Start HTTP Server
-          command: PORT=3000 node e2e-test/server
-          background: true
-      - run: wget --tries 30 --waitretry 1 --retry-connrefused --spider --timeout 300 localhost:3000
-      - run: node e2e-test/test
-      # - store_artifacts:
-      #     path: screenshot.png
+      - run: npm run test:e2e
   deploy:
     executor:
       name: buildpack_deps
@@ -132,6 +128,9 @@ workflows:
             branches:
               ignore: gh-pages
       - e2e_test:
+          requires:
+            - test
+            - build
           filters:
             branches:
               ignore: gh-pages

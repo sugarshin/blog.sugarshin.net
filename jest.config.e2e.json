@@ -1,0 +1,4 @@
+{
+  "preset": "jest-puppeteer",
+  "testRegex": "/e2e-test/.+\\.test\\.js$"
+}
