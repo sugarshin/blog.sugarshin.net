@@ -30,7 +30,8 @@
     "lint": "run-p lint:*",
     "test": "NODE_PATH=src:node_modules jest --verbose",
     "test:coverage": "npm test -- --coverage",
-    "test:e2e": "jest -c jest.config.e2e.json --verbose --maxWorkers=2",
+    "cypress:run": "cypress run",
+    "e2e-test:ci": "npm run cypress:run",
     "clean:build": "if [ -d build ]; then rm -rf build; fi",
     "preclean:build": "npm run clean:wwp-cache",
     "clean:wwp-cache": "if [ -d .wwp-cache ]; then rm -rf .wwp-cache; fi",
@@ -211,9 +212,7 @@
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
-    "express": "4.16.4",
-    "jest-puppeteer": "3.9.0",
-    "ps-list": "6.1.0",
-    "puppeteer": "1.12.2"
+    "cypress": "3.2.0",
+    "express": "4.16.4"
   }
 }

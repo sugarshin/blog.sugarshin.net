@@ -2,10 +2,11 @@ version: 2.1
 
 references:
   workspace_root: &workspace_root
-      ~/blog.sugarshin.net
+    ~/blog.sugarshin.net
 
 orbs:
   slack: circleci/slack@1.1.0
+  cypress: cypress-io/cypress@1.7.0
 
 executors:
   nodejs:
@@ -18,10 +19,9 @@ executors:
     working_directory: *workspace_root
     docker:
       - image: circleci/buildpack-deps
-  nodejs_browsers:
-    working_directory: *workspace_root
+  cypress_browsers_chrome:
     docker:
-      - image: circleci/node:10.15.1-browsers
+      - image: cypress/browsers:node10.2.1-chrome74
 
 commands:
   restore_yarn_cache:
@@ -29,15 +29,15 @@ commands:
       - restore_cache:
           name: Restoring Yarn Cache
           keys:
-            - v1-dependencies-{{ checksum "yarn.lock" }}
-            - v1-dependencies-
+            - v2-dependencies-{{ checksum "yarn.lock" }}
+            - v2-dependencies-
   save_yarn_cache:
     steps:
       - save_cache:
           name: Saving Yarn Cache
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
+          key: v2-dependencies-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
+            - ~/.cache
   configure_git:
     steps:
       - run:
@@ -82,21 +82,6 @@ jobs:
       - store_artifacts:
           path: build
           destination: build
-  e2e_test:
-    executor:
-      name: nodejs_browsers
-    steps:
-      - checkout
-      - run:
-          name: Setup libxcb
-          command: /bin/sh .circleci/setup-libxcb.sh
-      - restore_yarn_cache
-      - run: yarn install --frozen-lockfile
-      - save_yarn_cache
-      - run:
-          name: Build Assets for E2E Test
-          command: NODE_ENV=production npm run build:e2e-test
-      - run: npm run test:e2e
   deploy:
     executor:
       name: buildpack_deps
@@ -127,18 +112,22 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
-      - e2e_test:
-          requires:
-            - test
-            - build
+      - cypress/run:
           filters:
             branches:
               ignore: gh-pages
+          executor: cypress_browsers_chrome
+          yarn: true
+          cache-key: 'v1-dependencies-cypress-{{ checksum "yarn.lock" }}'
+          build: NODE_ENV=production npm run build:e2e-test
+          start: PORT=3000 node e2e-test/server
+          wait-on: 'http-get://localhost:3000'
+          no-workspace: true
       - deploy:
           requires:
             - test
             - build
-            - e2e_test
+            - cypress/run
           filters:
             branches:
               only: master
