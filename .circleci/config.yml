@@ -122,6 +122,7 @@ workflows:
           build: NODE_ENV=production npm run build:e2e-test
           start: PORT=3000 node e2e-test/server
           wait-on: 'http-get://localhost:3000'
+          browser: chrome
           no-workspace: true
       - deploy:
           requires:
