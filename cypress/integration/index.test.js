@@ -1,5 +1,6 @@
 /// <reference types="Cypress" />
 
+const url = require('url')
 const { siteName } = require('../../config/settings')
 
 context('Actions', () => {
@@ -15,18 +16,20 @@ context('Actions', () => {
 
   it(subjects.join('\n'), async () => {
     cy.title().should('eq', siteName)
-    // const rootTitle = await page.title()
-    // expect(rootTitle).toBe(siteName)
 
-    // const topArticleListItems = await page.$$('#top-article-list > div')
-    // expect(topArticleListItems.length > 0).toBe(true)
+    cy.get('#top-article-list > div').its('length').should('be.gt', 0)
 
-    // const firstArticleAnchor = await topArticleListItems[0].$('a')
-    // await firstArticleAnchor.click()
-    // await page.waitForSelector('#article-detail')
-    // const currentTitle = await page.title()
-    // const articleMarkdownBodyChildren = await page.$$('#article-detail .markdown-body > *')
-    // expect(currentTitle).not.toBe(rootTitle)
-    // expect(articleMarkdownBodyChildren.length > 0).toBe(true)
+    // TODO: test to behavior of clicking main title
+    // click the more link of first article
+    cy.get('#top-article-list > div').eq(0).find('a').eq(1).click()
+
+    cy.url().should(pageUrl => {
+      const parsedUrl = url.parse(pageUrl)
+      expect(/^\/\d{4}\/\d{2}\/\d{2}\/[a-z0-9_-]+$/.test(parsedUrl.pathname)).to.ok
+    })
+
+    cy.title().should('not.eq', siteName)
+
+    cy.get('#article-detail .markdown-body > *').its('length').should('be.gt', 0)
   })
 })
