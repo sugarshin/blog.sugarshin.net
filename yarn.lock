@@ -9177,10 +9177,10 @@ obuf@^1.1.2:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
-octicons@7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/octicons/-/octicons-7.3.0.tgz#ad2612b483cd4da4f655384294787cb2967beb17"
-  integrity sha512-UVjlkmUL15Ef/7Rd72Io634Bdl61QgSMasAZpvXPoR2XNFj1RelAyhl4QJuR1hBGlPWFDR7KFj2jEzsFax2IUg==
+octicons@7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/octicons/-/octicons-7.4.0.tgz#0be0082ed75b81e680800ef978bf47078b670091"
+  integrity sha512-j53BDX+FpJ4DQwENARbk9hHkwG/Oaq5NPUMNzYdGxRA/R5M6BbPVQEakUVMNKLzvzPue/gEEUTtSj6utFse5QQ==
   dependencies:
     object-assign "^4.1.1"
 
