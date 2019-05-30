@@ -11085,10 +11085,10 @@ redux-logger@3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
-redux-observable@0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.18.0.tgz#48de1f35554b7ba23a88b18379ca1c93f5124197"
-  integrity sha512-tu02n6jr6/bq/vyI9E/AHxIyIl0YsWloqvWqSBG0KqN6aQBujMBP6hlDAlQLj8hP+XQpqL293MLX6V612c0jSg==
+redux-observable@0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.19.0.tgz#6c1b8b58bc6ef7284c47aaad26963e02b1b425fb"
+  integrity sha512-OdYdKKQ+sgnoAE2SA3KW4Qolb5iVlTUch53qc61+WAiN2c3uPfBxFNGkxAl5fXpEAh75d1RlAfJNa+CPBkMZQA==
   dependencies:
     gitbook-plugin-github "^2.0.0"
 
