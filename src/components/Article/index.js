@@ -11,7 +11,7 @@ import styles from './index.styl'
 export default function Article({ article, currentPathname, baseShareMessage }) {
   const url = `${window.location.origin}${currentPathname}`
   return (
-    <div>
+    <div id='article-detail'>
       <div className={styles.meta}>
         <Tags values={article.tags} />
         <ArticleMeta article={article} />

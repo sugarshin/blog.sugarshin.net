@@ -8,15 +8,21 @@
     "mr": "node scripts/create-monthly-report",
     "dev": "npm run start:dev",
     "start:dev": "npm-run-all clean:dev mkdir:dev articles-index:dev --parallel cp:dev watch:dev:articles dev-server",
+    "build:e2e-test": "/bin/bash scripts/build-e2e-test.bash",
     "clean:dev": "if [ -d build-dev ]; then rm -rf build-dev; fi",
+    "clean:e2e-test": "if [ -d build-e2e-test ]; then rm -rf build-e2e-test; fi",
     "mkdir:dev": "mkdirp build-dev",
+    "mkdir:e2e-test": "mkdirp build-e2e-test",
     "cp:build": "npm-run-all --parallel cp:build:image",
     "cp:build:image": "cpx 'articles/assets/**/*.{jpg,jpeg,png,gif,svg}' build/assets",
     "cp:dev": "npm-run-all --parallel cp:dev:article-images",
     "cp:dev:article-images": "cpx 'articles/assets/**/*.{jpg,jpeg,png,gif,svg}' build-dev/assets -w",
+    "cp:e2e-test": "npm-run-all --parallel cp:e2e-test:article-images",
+    "cp:e2e-test:article-images": "cpx 'articles/assets/**/*.{jpg,jpeg,png,gif,svg}' build-e2e-test/assets",
     "watch:dev:articles": "watch 'npm run dev-articles' articles",
     "dev-articles": "node scripts/dev-articles",
     "articles-index:dev": "node scripts/articles-index --out=build-dev",
+    "articles-index:e2e-test": "node scripts/articles-index --out=build-e2e-test",
     "dev-server": "DEV_SERVER=1 webpack-dev-server --config config/webpack.config.js --progress --open",
     "lint:js": "eslint src test scripts config universal",
     "lint:styl": "stylint src",
@@ -24,6 +30,8 @@
     "lint": "run-p lint:*",
     "test": "NODE_PATH=src:node_modules jest --verbose",
     "test:coverage": "npm test -- --coverage",
+    "cypress:run": "cypress run",
+    "e2e-test:ci": "npm run cypress:run",
     "clean:build": "if [ -d build ]; then rm -rf build; fi",
     "preclean:build": "npm run clean:wwp-cache",
     "clean:wwp-cache": "if [ -d .wwp-cache ]; then rm -rf .wwp-cache; fi",
@@ -106,6 +114,7 @@
     "eslint": "5.13.0",
     "eslint-loader": "2.1.1",
     "eslint-plugin-babel": "5.3.0",
+    "eslint-plugin-cypress": "2.2.1",
     "eslint-plugin-react": "7.12.4",
     "feed": "1.1.1",
     "file-loader": "1.1.11",
@@ -202,5 +211,9 @@
     "webpack-cli": "3.2.1",
     "webpack-dev-server": "3.1.14",
     "whatwg-fetch": "3.0.0"
+  },
+  "devDependencies": {
+    "cypress": "3.2.0",
+    "express": "4.16.4"
   }
 }
