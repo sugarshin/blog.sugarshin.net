@@ -1630,13 +1630,6 @@ acorn@^6.0.5:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.0.6.tgz#cd75181670d5b99bdb1b1c993941d3a239ab1f56"
   integrity sha512-5M3G/A4uBSMIlfJ+h9W125vJvPFH/zirISsW5qfxF5YzEvXJCtolLoQvM5yZft0DvMcUrPGKPOlgEu55I6iUtA==
 
-agent-base@^4.1.0:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-4.1.2.tgz#80fa6cde440f4dcf9af2617cf246099b5d99f0c8"
-  integrity sha512-VE6QoEdaugY86BohRtfGmTDabxdU5sCKOkbcPA6PXKJsRzEi/7A3RCTxJal1ft/4qSfPht5/iQLhMh/wzSkkNw==
-  dependencies:
-    es6-promisify "^5.0.0"
-
 airbnb-prop-types@^2.13.2:
   version "2.13.2"
   resolved "https://registry.yarnpkg.com/airbnb-prop-types/-/airbnb-prop-types-2.13.2.tgz#43147a5062dd2a4a5600e748a47b64004cc5f7fc"
@@ -4327,11 +4320,6 @@ dotenv@5.0.1:
   resolved "http://registry.npmjs.org/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
   integrity sha512-4As8uPrjfwb7VXC+WnLCbXK7y+Ueb2B3zgNCePYfhxS1PYeaO1YTeplffTEcbfLhvFNGLAz90VvJs9yomG7bow==
 
-dotenv@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
-  integrity sha1-hk7xN5rO1Vzm+V3r7NzhefegzR0=
-
 doublearray@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/doublearray/-/doublearray-0.0.2.tgz#63186fe8d34413276d3621f6aa0ec5f79e227ef9"
@@ -4595,13 +4583,6 @@ es6-promise@^4.0.3:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.2.tgz#f722d7769af88bd33bc13ec6605e1f92966b82d9"
   integrity sha512-LSas5vsuA6Q4nEdf9wokY5/AJYXry98i0IzXsv49rYsgDGDNDPbqAYR1Pe23iFxygfbGZNR/5VrHXBCh2BhvUQ==
-
-es6-promisify@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/es6-promisify/-/es6-promisify-5.0.0.tgz#5109d62f3e56ea967c4b63505aef08291c8a5203"
-  integrity sha1-UQnWLz5W6pZ8S2NQWu8IKRyKUgM=
-  dependencies:
-    es6-promise "^4.0.3"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -5672,18 +5653,10 @@ github-slugger@^1.0.0, github-slugger@^1.1.1:
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
-github@13.1.1:
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/github/-/github-13.1.1.tgz#e4775be32c3a72e44d5cbec965dbeb8c0aac7c1f"
-  integrity sha512-BpItPaOCuvotnNUGXSSEDkB86eqQ7+k7j8/+lu5gbRmNnFPW/uQyFezH1fjy7XojieVNzD/+MgPhBngaw+Ocfw==
-  dependencies:
-    debug "^3.1.0"
-    dotenv "^4.0.0"
-    https-proxy-agent "^2.1.0"
-    is-stream "^1.1.0"
-    lodash "^4.17.4"
-    proxy-from-env "^1.0.0"
-    url-template "^2.0.8"
+github@14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/github/-/github-14.0.0.tgz#b707ed88c33cd05e155c785d289aa6229c59a850"
+  integrity sha512-34/VqwhYGeYN0VHBSH49TmRWMF7emy32qjK6POiW47T/QI2u/cpuKsmrWt7a218ew/73dF4dQSJE68/HXdNfPw==
 
 glob-base@^0.3.0:
   version "0.3.0"
@@ -6329,14 +6302,6 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
-
-https-proxy-agent@^2.1.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-2.1.1.tgz#a7ce4382a1ba8266ee848578778122d491260fd9"
-  integrity sha512-LK6tQUR/VOkTI6ygAfWUKKP95I+e6M1h7N3PncGu1CATHCnex+CAv9ttR0lbHu1Uk2PXm/WoAHFo6JCGwMjVMw==
-  dependencies:
-    agent-base "^4.1.0"
-    debug "^3.1.0"
 
 iconv-lite@0.4.19, iconv-lite@~0.4.13:
   version "0.4.19"
@@ -10317,11 +10282,6 @@ proxy-addr@~2.0.4:
     forwarded "~0.1.2"
     ipaddr.js "1.8.0"
 
-proxy-from-env@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.0.0.tgz#33c50398f70ea7eb96d21f7b817630a55791c7ee"
-  integrity sha1-M8UDmPcOp+uW0h97gXYwpVeRx+4=
-
 prr@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
@@ -13746,11 +13706,6 @@ url-regex@^3.0.0:
   integrity sha1-260eDJ4p4QXdCx8J9oYvf9tIJyQ=
   dependencies:
     ip-regex "^1.0.1"
-
-url-template@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/url-template/-/url-template-2.0.8.tgz#fc565a3cccbff7730c775f5641f9555791439f21"
-  integrity sha1-/FZaPMy/93MMd19WQflVV5FDnyE=
 
 url@0.11.0, url@^0.11.0:
   version "0.11.0"
