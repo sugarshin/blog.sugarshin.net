@@ -99,7 +99,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "23.6.0",
-    "babel-loader": "8.0.5",
+    "babel-loader": "8.0.6",
     "babel-plugin-add-react-displayname": "0.0.5",
     "bootswatch": "3.3.7",
     "classnames": "2.2.6",
