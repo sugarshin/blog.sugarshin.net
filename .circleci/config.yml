@@ -3,6 +3,10 @@ version: 2.1
 references:
   workspace_root: &workspace_root
     ~/blog.sugarshin.net
+  filter_gh_pages: &filter_gh_pages
+    filters:
+      branches:
+        ignore: gh-pages
 
 orbs:
   slack: circleci/slack@1.1.0
@@ -15,10 +19,6 @@ executors:
       - image: circleci/node:10.15.1
         environment:
           TZ: "Asia/Tokyo"
-  buildpack_deps:
-    working_directory: *workspace_root
-    docker:
-      - image: circleci/buildpack-deps
   cypress_browsers_chrome:
     docker:
       - image: cypress/browsers:node10.2.1-chrome74
@@ -64,7 +64,7 @@ jobs:
       - run:
           name: Coverage Report
           command: npm run codecov
-  build:
+  build_test:
     executor:
       name: nodejs
     steps:
@@ -75,20 +75,20 @@ jobs:
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - build
+  deploy:
+    executor:
+      name: nodejs
+    steps:
+      - checkout
+      - restore_yarn_cache
+      - run: yarn install --frozen-lockfile
+      - save_yarn_cache
+      - run:
+          name: Build Assets
+          command: NODE_ENV=production npm run build
       - store_artifacts:
           path: build
           destination: build
-  deploy:
-    executor:
-      name: buildpack_deps
-    steps:
-      - checkout
-      - attach_workspace:
-          at: *workspace_root
       - configure_git
       - run:
           name: Deploy
@@ -105,17 +105,11 @@ workflows:
   test_build_deploy:
     jobs:
       - test:
-          filters:
-            branches:
-              ignore: gh-pages
-      - build:
-          filters:
-            branches:
-              ignore: gh-pages
+          <<: *filter_gh_pages
+      - build_test:
+          <<: *filter_gh_pages
       - cypress/run:
-          filters:
-            branches:
-              ignore: gh-pages
+          <<: *filter_gh_pages
           executor: cypress_browsers_chrome
           yarn: true
           cache-key: 'v1-dependencies-cypress-{{ checksum "yarn.lock" }}'
@@ -128,7 +122,7 @@ workflows:
       - deploy:
           requires:
             - test
-            - build
+            - build_test
             - cypress/run
           filters:
             branches:
