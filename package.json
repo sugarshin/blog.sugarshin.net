@@ -104,7 +104,7 @@
     "babel-plugin-add-react-displayname": "0.0.5",
     "bootswatch": "3.4.1",
     "classnames": "2.2.6",
-    "codecov": "3.1.0",
+    "codecov": "3.5.0",
     "cpx": "1.5.0",
     "css-loader": "0.28.11",
     "css-mqpacker": "7.0.0",
