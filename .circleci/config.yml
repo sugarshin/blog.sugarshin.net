@@ -110,6 +110,7 @@ workflows:
           <<: *filter_gh_pages
       - cypress/run:
           <<: *filter_gh_pages
+          name: e2e_test
           executor: cypress_browsers_chrome
           yarn: true
           cache-key: 'v1-dependencies-cypress-{{ checksum "yarn.lock" }}'
@@ -123,7 +124,7 @@ workflows:
           requires:
             - test
             - build_test
-            - cypress/run
+            - e2e_test
           filters:
             branches:
               only: master

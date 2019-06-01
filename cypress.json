@@ -1,4 +1,8 @@
 {
+  "baseUrl": "http://localhost:3000",
   "pluginsFile": false,
-  "supportFile": false
+  "supportFile": false,
+  "blacklistHosts": [
+    "*lr-ingest.io"
+  ]
 }
