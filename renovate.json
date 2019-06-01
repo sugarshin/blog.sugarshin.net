@@ -6,12 +6,6 @@
   "packageRules": [
     {
       "packageNames": [
-        "github"
-      ],
-      "allowedVersions": "^13"
-    },
-    {
-      "packageNames": [
         "octicons"
       ],
       "allowedVersions": "^7"
