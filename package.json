@@ -161,7 +161,7 @@
     "react-social": "1.10.0",
     "react-test-renderer": "16.8.6",
     "redux": "4.0.1",
-    "redux-actions": "2.6.4",
+    "redux-actions": "2.6.5",
     "redux-beacon": "2.0.5",
     "redux-devtools": "3.5.0",
     "redux-devtools-dock-monitor": "1.1.3",
