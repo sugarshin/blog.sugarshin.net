@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const { flatten, padStart } = require('lodash')
-const GitHub = require('github')
+const Octokit = require('@octokit/rest')
 const pMap = require('p-map')
 const moment = require('moment')
 const template = require('./template')
@@ -18,9 +18,9 @@ if (typeof per !== 'number' || typeof unit !== 'string') {
   throw new TypeError('`per` must be `number`, `unit` must be `string`')
 }
 
-const github = new GitHub()
+const octokit = new Octokit()
 
-const getEvents = page => github.activity.getEventsForUser({
+const getEvents = page => octokit.activity.listEventsForUser({
   per_page: 100,
   username,
   page,
@@ -49,6 +49,6 @@ pMap([1, 2, 3], page => getEvents(page).then(res => res.data))
   console.log('Successfully write monthly report!')
 })
 .catch(error => {
-  console.log('Error `getEvents()`:\n', error)
-  throw error
+  console.error(error.message)
+  process.exit(1)
 })
