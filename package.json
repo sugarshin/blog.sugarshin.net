@@ -102,7 +102,7 @@
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.6",
     "babel-plugin-add-react-displayname": "0.0.5",
-    "bootswatch": "3.3.7",
+    "bootswatch": "3.4.1",
     "classnames": "2.2.6",
     "codecov": "3.1.0",
     "cpx": "1.5.0",
