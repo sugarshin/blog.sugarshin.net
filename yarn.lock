@@ -10936,10 +10936,10 @@ redux-actions@2.6.5:
     reduce-reducers "^0.4.3"
     to-camel-case "^1.0.0"
 
-redux-beacon@2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/redux-beacon/-/redux-beacon-2.0.5.tgz#1aa1db7c4544a31e8df91676adca2e7277b08cc6"
-  integrity sha512-h2XCqu72+TWz2HHUDKSgp3y4OlnnmMsp9EOfdI5+BWNcch/kxaJbm+rt3SSqjOPdP9CL3aqSISZ4VD4Ev85xcw==
+redux-beacon@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/redux-beacon/-/redux-beacon-2.1.0.tgz#a88ab3c2861f10ebafa0e5e94b78ca3209b537b9"
+  integrity sha512-KMbopAM7YLnQdospn5ClG3o8c4uhYkLBDEWSmxNbvQb4MGAJJh3sbbPKoEB00qU5rTXbwKuaaqZlWdgrY1Twxw==
   dependencies:
     array-flatten "2.1.1"
 
