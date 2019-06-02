@@ -75,6 +75,9 @@ jobs:
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
+      - store_artifacts:
+          path: build
+          destination: build
   deploy:
     executor:
       name: nodejs

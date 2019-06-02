@@ -10,14 +10,14 @@ import Routes from 'routes'
 const Root = ({ store, history }) => {
   return (
     <Provider store={store}>
-      <div>
+      <>
         <Ribbon color='black'>
           {process.env.NODE_ENV || 'development'}
         </Ribbon>
         <ConnectedRouter history={history}>
           <Routes />
         </ConnectedRouter>
-      </div>
+      </>
     </Provider>
   )
 }
