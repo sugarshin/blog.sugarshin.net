@@ -12733,10 +12733,10 @@ textlint-rule-no-double-negative-ja@1.0.5:
   dependencies:
     kuromojin "^1.1.0"
 
-textlint-rule-no-doubled-conjunctive-particle-ga@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/textlint-rule-no-doubled-conjunctive-particle-ga/-/textlint-rule-no-doubled-conjunctive-particle-ga-1.0.2.tgz#b9cb679555aea2ab0d4ffcfa4dd2ffab71bf0057"
-  integrity sha1-uctnlVWuoqsNT/z6TdL/q3G/AFc=
+textlint-rule-no-doubled-conjunctive-particle-ga@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-no-doubled-conjunctive-particle-ga/-/textlint-rule-no-doubled-conjunctive-particle-ga-1.1.0.tgz#f43717a670ca94d5a7de94efb85b862075436f23"
+  integrity sha512-5uTZEw0S1j27DJ2vxdSqmqekZGuzOz2c8axtjJR1XiLc/miB8f7Rz3S16Mq+M2W06wcJTdoM87ix5XWa+4oe8A==
   dependencies:
     kuromojin "^1.1.0"
     sentence-splitter "^1.2.0"
