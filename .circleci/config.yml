@@ -25,17 +25,25 @@ executors:
 
 commands:
   restore_yarn_cache:
+    parameters:
+      prod:
+        type: boolean
+        default: false
     steps:
       - restore_cache:
           name: Restoring Yarn Cache
           keys:
-            - v2-dependencies-{{ checksum "yarn.lock" }}
-            - v2-dependencies-
+            - v2-dependencies-<<# parameters.prod >>prod-<</ parameters.prod >>{{ checksum "yarn.lock" }}
+            - v2-dependencies-<<# parameters.prod >>prod-<</ parameters.prod >>
   save_yarn_cache:
+    parameters:
+      prod:
+        type: boolean
+        default: false
     steps:
       - save_cache:
           name: Saving Yarn Cache
-          key: v2-dependencies-{{ checksum "yarn.lock" }}
+          key: v2-dependencies-<<# parameters.prod >>prod-<</ parameters.prod >>{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache
   configure_git:
@@ -69,9 +77,11 @@ jobs:
       name: nodejs
     steps:
       - checkout
-      - restore_yarn_cache
-      - run: yarn install --frozen-lockfile
-      - save_yarn_cache
+      - restore_yarn_cache:
+          prod: true
+      - run: yarn install --frozen-lockfile --prod
+      - save_yarn_cache:
+          prod: true
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
@@ -83,9 +93,11 @@ jobs:
       name: nodejs
     steps:
       - checkout
-      - restore_yarn_cache
-      - run: yarn install --frozen-lockfile
-      - save_yarn_cache
+      - restore_yarn_cache:
+          prod: true
+      - run: yarn install --frozen-lockfile --prod
+      - save_yarn_cache:
+          prod: true
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
