@@ -98,14 +98,14 @@ module.exports = {
   },
   module: {
     rules: [
-      {
+      ...(prod ? [] : [{
         test: /\.js$/,
         use: [
           { loader: 'eslint-loader', options: { configFile: '.eslintrc.js' } },
         ],
         exclude: /node_modules/,
         enforce: 'pre',
-      },
+      }]),
       {
         test: /\.js$/,
         exclude: /node_modules/,
