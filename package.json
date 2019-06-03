@@ -125,7 +125,7 @@
     "octicons": "7.4.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "postcss-flexbugs-fixes": "4.1.0",
-    "postcss-loader": "2.1.6",
+    "postcss-loader": "3.0.0",
     "postcss-partial-import": "4.1.0",
     "prop-types": "15.7.2",
     "query-string": "5.1.1",
