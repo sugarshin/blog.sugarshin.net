@@ -129,7 +129,7 @@
     "postcss-partial-import": "4.1.0",
     "prop-types": "15.7.2",
     "query-string": "6.5.0",
-    "raven-js": "3.27.1",
+    "raven-js": "3.27.2",
     "react": "16.8.6",
     "react-bootstrap": "0.32.4",
     "react-dom": "16.8.6",
