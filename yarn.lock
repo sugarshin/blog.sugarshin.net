@@ -2862,26 +2862,7 @@ bytes@3.1.0:
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
   integrity sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==
 
-cacache@^10.0.4:
-  version "10.0.4"
-  resolved "https://registry.yarnpkg.com/cacache/-/cacache-10.0.4.tgz#6452367999eff9d4188aefd9a14e9d7c6a263460"
-  integrity sha512-Dph0MzuH+rTQzGPNT9fAnrPmMmjKfST6trxJeK7NQuHRaVw24VzPRWTmg9MpcwOVQZO0E1FBICUlFeNaKPIfHA==
-  dependencies:
-    bluebird "^3.5.1"
-    chownr "^1.0.1"
-    glob "^7.1.2"
-    graceful-fs "^4.1.11"
-    lru-cache "^4.1.1"
-    mississippi "^2.0.0"
-    mkdirp "^0.5.1"
-    move-concurrently "^1.0.1"
-    promise-inflight "^1.0.1"
-    rimraf "^2.6.2"
-    ssri "^5.2.4"
-    unique-filename "^1.1.0"
-    y18n "^4.0.0"
-
-cacache@^11.0.2:
+cacache@^11.0.2, cacache@^11.3.2:
   version "11.3.2"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-11.3.2.tgz#2d81e308e3d258ca38125b676b98b2ac9ce69bfa"
   integrity sha512-E0zP4EPGDOaT2chM08Als91eYnf8Z+eH1awwwVsngUmgppfM5jjJ8l3z5vO5p5w/I3LsiXawb1sW0VY65pQABg==
@@ -3520,11 +3501,6 @@ commander@^2.19.0, commander@~2.20.0:
   version "2.20.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
   integrity sha512-7j2y+40w61zy6YC2iRNpUe/NwhNyoXrYpHMrSunaMG64nRnaf96zO/KMQR4OyN/UnE5KLyEBnKHd4aG3rskjpQ==
-
-commander@~2.13.0:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
-  integrity sha512-MVuS359B+YzaWqjCL/c+22gfryv+mCBPHAv3zyVI2GN8EY6IRP8VwtasXn8jyyhvvq84R4ImN1OKRtcbIasjYA==
 
 commander@~2.17.1:
   version "2.17.1"
@@ -5530,15 +5506,6 @@ find-cache-dir@^0.1.1:
     mkdirp "^0.5.1"
     pkg-dir "^1.0.0"
 
-find-cache-dir@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-1.0.0.tgz#9288e3e9e3cc3748717d39eade17cf71fc30ee6f"
-  integrity sha1-kojj6ePMN0hxfTnq3hfPcfww7m8=
-  dependencies:
-    commondir "^1.0.1"
-    make-dir "^1.0.0"
-    pkg-dir "^2.0.0"
-
 find-cache-dir@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-2.0.0.tgz#4c1faed59f45184530fb9d7fa123a4d04a98472d"
@@ -5546,6 +5513,15 @@ find-cache-dir@^2.0.0:
   dependencies:
     commondir "^1.0.1"
     make-dir "^1.0.0"
+    pkg-dir "^3.0.0"
+
+find-cache-dir@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-2.1.0.tgz#8d0f94cd13fe43c6c7c261a0d86115ca918c05f7"
+  integrity sha512-Tq6PixE0w/VMFfCgbONnkiQIVol/JJL7nRMi20fqzA4NRs9AfeqMGeRdPi3wIhYkxjeBaWh2rxwapn5Tu3IqOQ==
+  dependencies:
+    commondir "^1.0.1"
+    make-dir "^2.0.0"
     pkg-dir "^3.0.0"
 
 find-index@^0.1.1:
@@ -8434,14 +8410,6 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-lru-cache@^4.1.1:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.2.tgz#45234b2e6e2f2b33da125624c4664929a0224c3f"
-  integrity sha512-wgeVXhrDwAWnIF/yZARsFnMBtdFXOg1b8RIrhilp+0iDYN4mdQcNZElDZ0e4B64BhaxeQ5zN7PMyvu7we1kPeQ==
-  dependencies:
-    pseudomap "^1.0.2"
-    yallist "^2.1.2"
-
 lru-cache@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-5.1.1.tgz#1da27e6710271947695daf6848e847f01d84b920"
@@ -8465,6 +8433,14 @@ make-dir@^1.0.0:
   integrity sha512-0Pkui4wLJ7rxvmfUvs87skoEaxmu0hCUApF8nonzpl7q//FWp9zu8W61Scz4sd/kUiqDxvUhtoam2efDyiBzcA==
   dependencies:
     pify "^3.0.0"
+
+make-dir@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
+  integrity sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==
+  dependencies:
+    pify "^4.0.1"
+    semver "^5.6.0"
 
 makeerror@1.0.x:
   version "1.0.11"
@@ -8854,22 +8830,6 @@ mirror-key-value@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/mirror-key-value/-/mirror-key-value-1.0.5.tgz#2c2097fdba192c2c7367f9009157eeaff5e56bea"
   integrity sha1-LCCX/boZLCxzZ/kAkVfur/Xla+o=
-
-mississippi@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/mississippi/-/mississippi-2.0.0.tgz#3442a508fafc28500486feea99409676e4ee5a6f"
-  integrity sha512-zHo8v+otD1J10j/tC+VNoGK9keCuByhKovAvdn74dmxJl9+mWHnx6EMsDN4lgRoMI/eYo2nchAxniIbUPb5onw==
-  dependencies:
-    concat-stream "^1.5.0"
-    duplexify "^3.4.2"
-    end-of-stream "^1.1.0"
-    flush-write-stream "^1.0.0"
-    from2 "^2.1.0"
-    parallel-transform "^1.1.0"
-    pump "^2.0.1"
-    pumpify "^1.3.3"
-    stream-each "^1.1.0"
-    through2 "^2.0.0"
 
 mississippi@^3.0.0:
   version "3.0.0"
@@ -10896,7 +10856,7 @@ public-encrypt@^4.0.0:
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
 
-pump@^2.0.0, pump@^2.0.1:
+pump@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pump/-/pump-2.0.1.tgz#12399add6e4cf7526d973cbc8b5ce2e2908b3909"
   integrity sha512-ruPMNRkN3MHP1cWJc9OWr+T/xDP0jhXYCLfJcBuX54hhfIBnaQmAUMfDcG4DM5UMWByBbJY69QSphm3jtDKIkA==
@@ -12225,14 +12185,6 @@ scheduler@^0.13.6:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-schema-utils@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.5.tgz#21836f0608aac17b78f9e3e24daff14a5ca13a3e"
-  integrity sha512-yYrjb9TX2k/J1Y5UNy3KYdZq10xhYcF8nMpAW6o3hy6Q8WSIEf9lJHG/ePnOBfziPM3fvQwfOwa13U/Fh8qTfA==
-  dependencies:
-    ajv "^6.1.0"
-    ajv-keywords "^3.1.0"
-
 schema-utils@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-1.0.0.tgz#0b79a93204d7b600d4b2850d1f66c2a34951c770"
@@ -12322,6 +12274,11 @@ serialize-javascript@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.4.0.tgz#7c958514db6ac2443a8abc062dc9f7886a7f6005"
   integrity sha1-fJWFFNtqwkQ6irwGLcn3iGp/YAU=
+
+serialize-javascript@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.7.0.tgz#d6e0dfb2a3832a8c94468e6eb1db97e55a192a65"
+  integrity sha512-ke8UG8ulpFOxO8f8gRYabHQe/ZntKlcig2Mp+8+URDP1D8vJZ0KUt7LYo07q25Z/+JVSgpr/cui9PIp5H6/+nA==
 
 serve-index@^1.9.1:
   version "1.9.1"
@@ -12729,13 +12686,6 @@ sshpk@^1.7.0:
     ecc-jsbn "~0.1.1"
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
-
-ssri@^5.2.4:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/ssri/-/ssri-5.3.0.tgz#ba3872c9c6d33a0704a7d71ff045e5ec48999d06"
-  integrity sha512-XRSIPqLij52MtgoQavH/x/dU1qVKtWUAAZeOHsR9c2Ddi4XerFy3mc1alf+dLJKl9EUIm/Ht+EowFkTUOA6GAQ==
-  dependencies:
-    safe-buffer "^5.1.1"
 
 ssri@^6.0.1:
   version "6.0.1"
@@ -13814,14 +13764,6 @@ ua-parser-js@^0.7.9:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
   integrity sha512-uRdSdu1oA1rncCQL7sCj8vSyZkgtL7faaw9Tc9rZ3mGgraQ7+Pdx7w5mnOSF3gw9ZNG6oc+KXfkon3bKuROm0g==
 
-uglify-es@^3.3.4:
-  version "3.3.9"
-  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
-  integrity sha512-r+MU0rfv4L/0eeW3xZrd16t4NZfK8Ld4SWVglYBb7ez5uXFWHuVRs6xCTrf1yirs9a4j4Y27nn7SRfO6v67XsQ==
-  dependencies:
-    commander "~2.13.0"
-    source-map "~0.6.1"
-
 uglify-js@3.3.x:
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.5.tgz#4c4143dfe08e8825746675cc49a6874a933b543e"
@@ -13830,7 +13772,7 @@ uglify-js@3.3.x:
     commander "~2.12.1"
     source-map "~0.6.1"
 
-uglify-js@^3.1.4:
+uglify-js@^3.1.4, uglify-js@^3.5.12:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.6.0.tgz#704681345c53a8b2079fb6cec294b05ead242ff5"
   integrity sha512-W+jrUHJr3DXKhrsS7NUVxn3zqMOFn0hL/Ei6v0anCIMoKC93TjcflTagwIHLW7SfMFfiQuktQyFVCFHGUE0+yg==
@@ -13838,19 +13780,20 @@ uglify-js@^3.1.4:
     commander "~2.20.0"
     source-map "~0.6.1"
 
-uglifyjs-webpack-plugin@1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.2.5.tgz#2ef8387c8f1a903ec5e44fa36f9f3cbdcea67641"
-  integrity sha512-hIQJ1yxAPhEA2yW/i7Fr+SXZVMp+VEI3d42RTHBgQd2yhp/1UdBcR3QEWPV5ahBxlqQDMEMTuTEvDHSFINfwSw==
+uglifyjs-webpack-plugin@2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-2.1.3.tgz#b00a18d1acda271deb755c99ba0d93568156eb76"
+  integrity sha512-/lRkCaFbI6pT3CxsQHDhBcqB6tocOnqba0vJqJ2DzSWFLRgOIiip8q0nVFydyXk+n8UtF7ZuS6hvWopcYH5FuA==
   dependencies:
-    cacache "^10.0.4"
-    find-cache-dir "^1.0.0"
-    schema-utils "^0.4.5"
-    serialize-javascript "^1.4.0"
+    cacache "^11.3.2"
+    find-cache-dir "^2.1.0"
+    is-wsl "^1.1.0"
+    schema-utils "^1.0.0"
+    serialize-javascript "^1.7.0"
     source-map "^0.6.1"
-    uglify-es "^3.3.4"
-    webpack-sources "^1.1.0"
-    worker-farm "^1.5.2"
+    uglify-js "^3.5.12"
+    webpack-sources "^1.3.0"
+    worker-farm "^1.7.0"
 
 uid-number@^0.0.6:
   version "0.0.6"
@@ -13952,13 +13895,6 @@ unique-concat@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/unique-concat/-/unique-concat-0.2.2.tgz#9210f9bdcaacc5e1e3929490d7c019df96f18712"
   integrity sha1-khD5vcqsxeHjkpSQ18AZ35bxhxI=
-
-unique-filename@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/unique-filename/-/unique-filename-1.1.0.tgz#d05f2fe4032560871f30e93cbe735eea201514f3"
-  integrity sha1-0F8v5AMlYIcfMOk8vnNe6iAVFPM=
-  dependencies:
-    unique-slug "^2.0.0"
 
 unique-filename@^1.1.1:
   version "1.1.1"
@@ -14641,6 +14577,13 @@ worker-farm@^1.5.2:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/worker-farm/-/worker-farm-1.6.0.tgz#aecc405976fab5a95526180846f0dba288f3a4a0"
   integrity sha512-6w+3tHbM87WnSWnENBUvA2pxJPLhQUg5LKwUQHq3r+XPhIM+Gh2R5ycbwPCyuGbNg+lPgdcnQUhuC02kJCvffQ==
+  dependencies:
+    errno "~0.1.7"
+
+worker-farm@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/worker-farm/-/worker-farm-1.7.0.tgz#26a94c5391bbca926152002f69b84a4bf772e5a8"
+  integrity sha512-rvw3QTZc8lAxyVrqcSGVm5yP/IJ2UcB3U0graE3LCFoZ0Yn2x4EoVSqJKdB/T5M+FLcRPjz4TDacRf3OCfNUzw==
   dependencies:
     errno "~0.1.7"
 
