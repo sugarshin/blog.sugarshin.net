@@ -192,7 +192,7 @@
     "p-map": "1.2.0",
     "raf": "3.4.1",
     "stylint": "1.5.9",
-    "stylint-stylish": "1.4.1",
+    "stylint-stylish": "2.0.0",
     "textlint": "11.2.5",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-rule-eslint": "3.1.0",
