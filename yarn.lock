@@ -13020,10 +13020,10 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylint-stylish@1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/stylint-stylish/-/stylint-stylish-1.4.1.tgz#ce221a0a398cf41e9e1990b48cd34fa55d8a47e3"
-  integrity sha512-oFBXidpauxT0XNaJS8aBfMRwgcqgaPTzqMaZzvi6D8YEBTBo26iXZOsrbHTLJHx3Q/XzyF2hoVjpf0ndeCDKng==
+stylint-stylish@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/stylint-stylish/-/stylint-stylish-2.0.0.tgz#cecd90dd3c3991cc7fd06421159dd52185361543"
+  integrity sha512-o940rcLoHlAfCoMHDNgl7QCYp44TBnHh0fv/H/InVLnbh/W25/lHbFUJpGLy7iwWchMN3ZIxR8wC28CuxnjzIg==
   dependencies:
     chalk "^2.0.1"
     lodash.isnumber "^3.0.3"
