@@ -174,7 +174,7 @@
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
-    "@octokit/rest": "16.27.3",
+    "@octokit/rest": "16.28.1",
     "babel-eslint": "10.0.1",
     "babel-jest": "23.6.0",
     "codecov": "3.5.0",
