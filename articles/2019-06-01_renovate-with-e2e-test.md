@@ -15,11 +15,9 @@ ogp:
 
 ![Main](/assets/images/2019/06/01/renovate-with-e2e-test/main.png)
 
-当ブログの [Renovate](https://renovatebot.com/) でのライブラリのアップデート自動化を E2E テストを用いて安全に実行できる環境を整えました。
+当ブログプロジェクトの依存モジュールのアップデートを、 [Renovate](https://renovatebot.com/) と E2E テストを用いて安全に自動化する環境を整えました。
 
 *[React と Redux なブログ運用をソフトウェア開発する話し](https://blog.sugarshin.net/2016/07/14/blog-like-software-development)*
-
-開設当初は [Greenkeeper](https://greenkeeper.io/) を利用していましたが、カスタマイズ性の高さで 2018 末から Renovate に移行しています。 [Configure Renovate by renovate · Pull Request #314 · sugarshin/blog.sugarshin.net](https://github.com/sugarshin/blog.sugarshin.net/pull/314)
 
 ## Table of Contents
 
@@ -33,7 +31,7 @@ CI のステータスチェック次第で安全にマージできるので、�
 
 ## Cypress
 
-E2E テストについては、 [Cypress](https://www.cypress.io/) を利用しています。オールインワンなフレームワークで、E2E テストに特化したフレームワークです。また、 Selenium を利用していなく独自のアーキテクチャで実行されている模様。インストールも npm からインストールするだけなので楽です。
+E2E テストについては、 [Cypress](https://www.cypress.io/) を利用しています。オールインワンなフレームワークで、E2E テストに特化したフレームワークです。また、 Selenium を利用していなく独自のアーキテクチャで実行されている模様で、インストールも npm からインストールするだけなので楽です。
 
 ```js
 const url = require('url')
@@ -83,11 +81,11 @@ ref: https://github.com/sugarshin/blog.sugarshin.net/blob/598cfb1abe3d11c7ccc895
 
 デフォルトプリセットに `:automergeAll` があるのでこれを設定します。これですべてのパッケージに対してオートマージが効きます。 https://github.com/sugarshin/blog.sugarshin.net/blob/84a66d2d3c1eb951c4fd7d72a5f3ad22270414cd/renovate.json
 
-ベースとなるコンフィグは自分用に汎用化してあって、ほかのプロジェクトやライブラリでも利用しています。
+ベースとなるコンフィグは自分用に汎用化してあり、ほかのプロジェクトやライブラリでも利用しています。
 
 [sugarshin/renovate-config: My shareable config for Renovate](https://github.com/sugarshin/renovate-config)
 
-npm にパブリッシュしておくだけで設定を利用可能です。 [@sugarshin/renovate-config  -  npm](https://www.npmjs.com/package/@sugarshin/renovate-config)
+npm にパブリッシュしておくだけで、インストールせずに設定を利用可能です。 [@sugarshin/renovate-config  -  npm](https://www.npmjs.com/package/@sugarshin/renovate-config)
 
 ```json
 {
@@ -101,6 +99,8 @@ npm にパブリッシュしておくだけで設定を利用可能です。 [@s
 
 - https://github.com/sugarshin/renovate-config/blob/903985ad15418268b9ccd1a098378d8487adc375/package.json#L52
 - https://github.com/sugarshin/renovate-config/blob/903985ad15418268b9ccd1a098378d8487adc375/package.json#L59
+
+モジュールマネージメントツールに関して、開設当初は [Greenkeeper](https://greenkeeper.io/) を利用していましたが、カスタマイズ性の高さで 2018 年末から Renovate に移行しています。 [Configure Renovate by renovate · Pull Request #314 · sugarshin/blog.sugarshin.net](https://github.com/sugarshin/blog.sugarshin.net/pull/314)
 
 ## CI
 
@@ -128,13 +128,15 @@ workflows:
 
 ref: https://github.com/sugarshin/blog.sugarshin.net/blob/598cfb1abe3d11c7ccc8951687bc3f95d6982a87/.circleci/config.yml
 
-Renovate が出した各プルリクエストに対してテストする必要があるので、プルリクエストごとの依存関係のモジュールらでビルドしたアセットで静的サーバを立ててそれに対して実行しています。
+Renovate が出した各プルリクエストに対してテストする必要があるので、プルリクエストごとの依存関係のモジュールらでビルドしたアセットを、サーバを立てて配信しそれに対して Cypress でテストしています。
 
 `cypress/run` ジョブがとれるオプションで、テスト前にビルドしたりサーバを立てたりできます。
 
 > `wait-on: 'http-get://localhost:3000'`
 
-サーバが起動するまで待機させることができるのですが、 `wait-on` はデフォルトでは `OPTIONS` メソッドでリクエストをポーリングしてくるので、それ用のルーティングを用意する必要があります。もしくは指定オリジンのプロトコルを `http-get:` とすることで `GET` メソッドでリクエストしてくれます。今回 Express で静的リソースをホストしてるだけなのでこちらにしています。
+サーバが起動するまで待機させることができるのですが、 `wait-on` はデフォルトでは `OPTIONS` メソッドでリクエストをポーリングしてくるので、それ用のルーティングを用意する必要があります。もしくは指定オリジンのプロトコルを `http-get:` とすることで `GET` メソッドでリクエストしてくれます。
+
+ref: https://github.com/jeffbski/wait-on#readme
 
 ---
 
