@@ -175,7 +175,7 @@
   },
   "devDependencies": {
     "@octokit/rest": "16.28.2",
-    "babel-eslint": "10.0.1",
+    "babel-eslint": "10.0.2",
     "babel-jest": "24.8.0",
     "codecov": "3.5.0",
     "cypress": "3.3.1",
