@@ -3634,7 +3634,7 @@ commander@~2.17.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
   integrity sha512-wPMUt6FnH2yzG95SA6mzjQOEKUU3aLaDEmzs1ti+1E9h+CsrZghRlqEM/EJ4KscsQVG8uNN4uVreUeT8+drlgg==
 
-commandpost@^1.0.1, commandpost@^1.2.1:
+commandpost@^1.2.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/commandpost/-/commandpost-1.4.0.tgz#89218012089dfc9b67a337ba162f15c88e0f1048"
   integrity sha512-aE2Y4MTFJ870NuB/+2z1cXBhSBBzRydVVjzhFC4gtenEhpnj15yu0qptWGJsO9YGrcPZ3ezX8AWb1VA391MKpQ==
@@ -7844,7 +7844,7 @@ js-tokens@^3.0.0, js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@3.13.1, js-yaml@^3.12.0, js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@^3.2.4, js-yaml@^3.6.1, js-yaml@^3.9.1:
+js-yaml@3.13.1, js-yaml@^3.12.0, js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@^3.2.4, js-yaml@^3.9.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -8979,10 +8979,24 @@ moo@^0.4.3:
   resolved "https://registry.yarnpkg.com/moo/-/moo-0.4.3.tgz#3f847a26f31cf625a956a87f2b10fbc013bfd10e"
   integrity sha512-gFD2xGCl8YFgGHsqJ9NKRVdwlioeW3mI1iqfLNYQOv0+6JRwG58Zk9DIGQgyIaffSYaO1xsKnMaYzzNr1KyIAw==
 
-morpheme-match@^1.0.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/morpheme-match/-/morpheme-match-1.2.1.tgz#783cdcf9feb0e8e7da7e794a8a38f6d711796aa0"
-  integrity sha512-SSIcFPas4Dctx5PbrfKbW5XNADlkcn38LI+fqgB9QtminQ7FXeOR3//rnAmooZ1/5zTGeFoi8H9kFBAH9y1nfQ==
+morpheme-match-all@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/morpheme-match-all/-/morpheme-match-all-2.0.0.tgz#fcf518ea2a1462bc99e7cfacee1ca47942b0fcd5"
+  integrity sha512-eiONyhZLP0bZuXFTaoqfxigXdg5XKd+vZLwaSKFRLAhvSHY5Zrbu8iJl74HqQj+gCm1OV18OocWCAfr3FXiFXg==
+  dependencies:
+    morpheme-match "^2.0.0"
+
+morpheme-match-textlint@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/morpheme-match-textlint/-/morpheme-match-textlint-2.0.0.tgz#034f05dcfe7838286c675b4446f086698adb3188"
+  integrity sha512-6bMD5nDKPcxJ/Qd4Y1R9MwI8GQWnpFVFif8nwdRtzfibEo6FNkBRj98PzjEwXOefLMlnbjJ+DOpnPBE9yTWLqw==
+  dependencies:
+    morpheme-match-all "^2.0.0"
+
+morpheme-match@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/morpheme-match/-/morpheme-match-2.0.0.tgz#d95916683e119d916335ffe54e79dfb0b2ceee6a"
+  integrity sha512-6k8vkOliZVX4p3Ufknnlv+QshCRdkxc72b7MVq3Zo8l5dBVLuvM7L7VPnaQJwsWntI3xLLDzDLy84YMHrl35Qw==
 
 mout@~0.5.0:
   version "0.5.0"
@@ -10807,14 +10821,6 @@ pretty-format@^24.8.0:
     ansi-regex "^4.0.0"
     ansi-styles "^3.2.0"
     react-is "^16.8.4"
-
-prh@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/prh/-/prh-1.1.0.tgz#1c22b2a1998daaa7445865e5c86fb30e5b8ebb33"
-  integrity sha1-HCKyoZmNqqdEWGXlyG+zDluOuzM=
-  dependencies:
-    commandpost "^1.0.1"
-    js-yaml "^3.6.1"
 
 prh@^5.4.3:
   version "5.4.3"
@@ -13423,7 +13429,7 @@ textlint-rule-helper@^1.1.4, textlint-rule-helper@^1.1.5:
   dependencies:
     unist-util-visit "^1.1.0"
 
-textlint-rule-helper@^2.0.0:
+textlint-rule-helper@^2.0.0, textlint-rule-helper@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/textlint-rule-helper/-/textlint-rule-helper-2.1.1.tgz#d572588685359134bc779939b217e61f087dab0f"
   integrity sha512-6fxgHzoJVkjl3LaC1b2Egi+5wbhG4i0pU0knJmQujVhxIJ3D3AcQQZPs457xKAi5xKz1WayYeTeJ5jrD/hnO7g==
@@ -13433,14 +13439,14 @@ textlint-rule-helper@^2.0.0:
     structured-source "^3.0.2"
     unist-util-visit "^1.1.0"
 
-textlint-rule-ja-no-abusage@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-abusage/-/textlint-rule-ja-no-abusage-1.2.2.tgz#6478a150d4dcea4e95bb88a2af92a2fcace1c5f0"
-  integrity sha512-lDRvfOCh41h0DnenGgfjstBNBh7EZP37r/q/24DP1PKWvVytOtiIxN048KEfm4sXjJZ/eSZOrZrfHqFm1uaiCw==
+textlint-rule-ja-no-abusage@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-abusage/-/textlint-rule-ja-no-abusage-2.0.0.tgz#b3f978258be128abf3d42ed4f694ea7fccc8cfed"
+  integrity sha512-CIqD6+0MZnQtv3VEHwFcSveBVowzIiqNxWFAVLYlwDiOx3NkOornOnYUPwerxF8NK2wiqdgrhdAfjTtjdtRQGQ==
   dependencies:
     kuromojin "^1.3.1"
-    morpheme-match "^1.0.1"
-    textlint-rule-prh "^3.1.1"
+    morpheme-match-textlint "^2.0.0"
+    textlint-rule-prh "^5.2.1"
 
 textlint-rule-ja-no-mixed-period@2.1.1:
   version "2.1.1"
@@ -13540,15 +13546,6 @@ textlint-rule-preset-jtf-style@2.3.3:
     textlint-rule-helper "^2.0.0"
     textlint-rule-prh "^5.0.0"
 
-textlint-rule-prh@^3.1.1:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/textlint-rule-prh/-/textlint-rule-prh-3.1.3.tgz#0bd87537dd15c884dcffdeef0afcf9147cb30fc6"
-  integrity sha1-C9h1N90VyITc/97vCvz5FHyzD8Y=
-  dependencies:
-    prh "^1.0.1"
-    textlint-rule-helper "^2.0.0"
-    untildify "^3.0.2"
-
 textlint-rule-prh@^5.0.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/textlint-rule-prh/-/textlint-rule-prh-5.2.0.tgz#046453acf03b8e0e007f9c9ab9576ba56008ef99"
@@ -13557,6 +13554,15 @@ textlint-rule-prh@^5.0.0:
     prh "^5.4.3"
     textlint-rule-helper "^2.0.0"
     untildify "^3.0.2"
+
+textlint-rule-prh@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/textlint-rule-prh/-/textlint-rule-prh-5.2.1.tgz#dcbb3ee674a9c63e7ba71f73b31d675571b874fc"
+  integrity sha512-RlVQRok7GnmuuCrNRSYbFqcpzJkH1g6OrVVrGE+S9drT1TzgsSSM8NkAQlP6kFnQ7fN4V7g4j6JBg0N3ArBpCg==
+  dependencies:
+    prh "^5.4.3"
+    textlint-rule-helper "^2.1.1"
+    untildify "^3.0.3"
 
 textlint-rule-sentence-length@2.1.1:
   version "2.1.1"
@@ -14164,7 +14170,7 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
-untildify@^3.0.2:
+untildify@^3.0.2, untildify@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/untildify/-/untildify-3.0.3.tgz#1e7b42b140bcfd922b22e70ca1265bfe3634c7c9"
   integrity sha512-iSk/J8efr8uPT/Z4eSUywnqyrQU7DSdMfdqK4iWEaUVVmcP5JcnpRqmVMwcwcnmI1ATFNgC5V90u09tBynNFKA==
