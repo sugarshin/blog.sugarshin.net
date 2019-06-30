@@ -11,6 +11,7 @@ references:
 orbs:
   slack: circleci/slack@1.1.0
   cypress: cypress-io/cypress@1.7.0
+  gh-pages: sugarshin/gh-pages@0.0.4
 
 executors:
   nodejs:
@@ -46,13 +47,6 @@ commands:
           key: v2-dependencies-<<# parameters.prod >>prod-<</ parameters.prod >>{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache
-  configure_git:
-    steps:
-      - run:
-          name: Configure Git
-          command: |
-            git config --global user.name 'CircleCI'
-            git config --global user.email 's+circleci@sugarshin.net'
 
 jobs:
   test:
@@ -104,10 +98,12 @@ jobs:
       - store_artifacts:
           path: build
           destination: build
-      - configure_git
-      - run:
-          name: Deploy
-          command: /bin/bash scripts/deploy.bash
+      - gh-pages/deploy:
+          workspace-root: *workspace_root
+          build-dir: build
+          git-user: CircleCI
+          git-email: s+circleci@sugarshin.net
+          ssh-fingerprints: 4f:c7:c2:20:07:b5:11:84:75:b4:e5:94:73:48:9b:4b
   notify_slack:
     machine: true
     steps:
