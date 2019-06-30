@@ -109,57 +109,51 @@ jobs:
           command: npm test
 ```
 
-## Orbs
+## CI
 
-Orbs 自体の CI に関しては公式の Orbs 用ツール群の Orbs があってまるっと任せられて楽でした。
+Orbs のリポジトリは Monorepo で構成してあるので、 CI で変更が加えられた Orb のみ処理対象としたいです。 CircleCI では `CIRCLE_COMPARE_URL` という環境変数が用意されていて、前コミットとの差分を VCS 側で確認できる URL をとれます。
 
-[CircleCI Orb Registry - circleci/orb-tools](https://circleci.com/orbs/registry/orb/circleci/orb-tools)
+上記を利用すれば変更された Orb のみビルドやパブリッシュの対象とできるのですが、 CircleCI 2.1 ではこれが無効となります。
 
-https://github.com/CircleCI-Public/orb-tools-orb
+これを利用できるようにする Orb が公開されているので利用します。
+
+[CircleCI Orb Registry - iynere/compare-url](https://circleci.com/orbs/registry/orb/iynere/compare-url)
+
+source: https://github.com/iynere/compare-url
+
+`reconstruct` を実行したあとに、 `use` の `custom-logic` パラメータに渡す Shell script 内の環境変数で `COMMIT_RANGE` が利用できるようになります。
+
+例えば、変更があった Orb のみ `circleci config pack <path>` コマンドで、 Command や Job ごとに分割して記述した Orb を 1 つのファイルにまとめ上げる場合、下記のようにします。
 
 ```yaml
-version: 2.1
+jobs:
+  pack:
+    executor: circleci_cli
+    parameters:
+      dist-dir:
+        type: env_var_name
+        default: DIST_DIR
+    steps:
+      - circle-compare-url/reconstruct:
+          project-path: *workspace-root
+      - circle-compare-url/use:
+          step-name: Packup modified orbs
+          custom-logic: |
+            mkdir -pv $<< parameters.dist-dir >>
 
-orbs:
-  orb-tools: circleci/orb-tools@8.27.1
+            for ORB in ${SRC_DIR}/*/; do
+              orbname=$(basename $ORB)
+              if [[ $(git diff $COMMIT_RANGE --name-status | grep "$orbname") ]]; then
+                orbpath=${DIST_DIR}/${orbname}/orb.yml
+                mkdir -pv $(dirname $orbpath)
+                circleci config pack ${SRC_DIR}/${orbname} > ${orbpath}
+                circleci orb validate ${orbpath}
+              else
+                echo "${orbname} not modified; no need to packing"
+              fi
 
-workflows:
-  lint_pack_publish-dev:
-    jobs:
-      - orb-tools/lint
-      - orb-tools/pack:
-          name: pack-npm
-          source-dir: src/npm
-          destination-orb-path: packed/npm/orb.yml
-          workspace-path: packed/npm/orb.yml
-          artifact-path: packed/npm/orb.yml
-          requires:
-            - orb-tools/lint
-      - orb-tools/publish-dev:
-          name: publish-dev-npm
-          orb-name: sugarshin/npm
-          orb-path: workspace/packed/npm/orb.yml
-          requires:
-            - pack-npm
-      - orb-tools/trigger-integration-workflow:
-          name: trigger-integration-workflow-npm
-          ssh-fingerprints: 84:ce:ef:5a:1a:c2:65:df:54:80:ad:80:d7:7f:50:47
-          requires:
-            - publish-dev-npm
-      - orb-tools/dev-promote-prod:
-          name: dev-promote-prod-npm-patch
-          orb-name: sugarshin/npm
-          release: patch
-          ssh-fingerprints: 84:ce:ef:5a:1a:c2:65:df:54:80:ad:80:d7:7f:50:47
-          requires:
-            - trigger-integration-workflow-npm
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /master-patch.*/
+              echo "------------------------------------------------------"
+            done
 ```
 
 ref: https://github.com/sugarshin/circleci-orbs/blob/master/.circleci/config.yml
-
-Lint, Pack（ビルド）, 開発用デプロイ、統合テスト、本番プロモートまで揃ってます。
