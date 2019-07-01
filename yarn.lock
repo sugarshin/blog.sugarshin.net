@@ -12665,14 +12665,14 @@ sisteransi@^1.0.0:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.0.tgz#77d9622ff909080f1c19e5f4a1df0c1b0a27b88c"
   integrity sha512-N+z4pHB4AmUv0SjveWRd6q1Nj5w62m5jodv+GD8lvmbY/83T/rpbJGZOnK5T149OldDj4Db07BSv9xY4K6NTPQ==
 
-sitemap@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-2.2.0.tgz#98b8502762c5d7e8c77c9be5061dce85b326f1b0"
-  integrity sha512-9Zoi3UBhSIt5jWENDRUbzsqLMJ+Fha3P2aQ2PRghmh0FOivtHsC4FAJdkAEKHvATajd74BWp/57Yh7kz/UA53Q==
+sitemap@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-3.0.0.tgz#8533913a282b0da341a1cef86db1b3402ba6fb92"
+  integrity sha512-sI8X+/9OYNcmTqBxt/i8/fICFuiLAGzxQPdiu5CBCLfLwy2utRlqPpEvVsN9PM618DkX0amiX2vZ8IErhTMlSA==
   dependencies:
-    lodash "^4.17.10"
-    url-join "^4.0.0"
-    xmlbuilder "^10.0.0"
+    lodash "^4.17.11"
+    whatwg-url "^7.0.0"
+    xmlbuilder "^13.0.0"
 
 slash@^2.0.0:
   version "2.0.0"
@@ -14323,11 +14323,6 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
-url-join@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.0.tgz#4d3340e807d3773bda9991f8305acdcc2a665d2a"
-  integrity sha1-TTNA6AfTdzvamZH4MFrNzCpmXSo=
-
 url-loader@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-2.0.1.tgz#6c47fc7090e3d48939e01fe3c6efcba5938dcec5"
@@ -14967,10 +14962,10 @@ xml@^1.0.1:
   resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
   integrity sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
 
-xmlbuilder@^10.0.0:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-10.1.1.tgz#8cae6688cc9b38d850b7c8d3c0a4161dcaf475b0"
-  integrity sha512-OyzrcFLL/nb6fMGHbiRDuPup9ljBycsdCypwuyg5AAHvyWzGfChJpCXMG88AGTIMFhGZ9RccFN1e6lhg3hkwKg==
+xmlbuilder@^13.0.0:
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-13.0.2.tgz#02ae33614b6a047d1c32b5389c1fdacb2bce47a7"
+  integrity sha512-Eux0i2QdDYKbdbA6AM6xE4m6ZTZr4G4xF9kahI2ukSEMCzwce2eX9WlTI5J3s+NU7hpasFsr8hWIONae7LluAQ==
 
 xmlbuilder@~9.0.1:
   version "9.0.4"
