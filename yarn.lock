@@ -12665,10 +12665,10 @@ sisteransi@^1.0.0:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.0.tgz#77d9622ff909080f1c19e5f4a1df0c1b0a27b88c"
   integrity sha512-N+z4pHB4AmUv0SjveWRd6q1Nj5w62m5jodv+GD8lvmbY/83T/rpbJGZOnK5T149OldDj4Db07BSv9xY4K6NTPQ==
 
-sitemap@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-3.0.0.tgz#8533913a282b0da341a1cef86db1b3402ba6fb92"
-  integrity sha512-sI8X+/9OYNcmTqBxt/i8/fICFuiLAGzxQPdiu5CBCLfLwy2utRlqPpEvVsN9PM618DkX0amiX2vZ8IErhTMlSA==
+sitemap@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-3.1.0.tgz#506b170d38783b3de97bc334d6c339147a48dbd7"
+  integrity sha512-brca+K8C3g3OtEet1RFoDsPSpaEBRq+cYAEk4z3G1yXpvsRvEyNHrfnl6OctwLpTTuyjoH/KfliotKsjyALDyQ==
   dependencies:
     lodash "^4.17.11"
     whatwg-url "^7.0.0"
