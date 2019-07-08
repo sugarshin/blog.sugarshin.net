@@ -12783,10 +12783,10 @@ sisteransi@^1.0.0:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.0.tgz#77d9622ff909080f1c19e5f4a1df0c1b0a27b88c"
   integrity sha512-N+z4pHB4AmUv0SjveWRd6q1Nj5w62m5jodv+GD8lvmbY/83T/rpbJGZOnK5T149OldDj4Db07BSv9xY4K6NTPQ==
 
-sitemap@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-3.2.0.tgz#0d2f91bd5910c6ecfff494694522a4225704f96b"
-  integrity sha512-tP4B5l8PjMt5e/v4kxn3jQjjHpxYe/VXZUSIMIkOmbKCvbPwNU9PEsguaJl4Q09ZJqrOQlt691Si4VuevVtw9Q==
+sitemap@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-3.2.1.tgz#422ec208f5c0c70cb3a45c307ba5ec2782419636"
+  integrity sha512-n033QgXR8iBQu66hnpFXMHHRZhr7BTeTmRXhzqSsb1e5AMIkUxDcPpj+Nr9gtT1QpmeZIMR+mq2JHOEOgyZmaA==
   dependencies:
     lodash.chunk "^4.2.0"
     lodash.padstart "^4.6.1"
