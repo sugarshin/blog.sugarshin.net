@@ -10,7 +10,7 @@ references:
 
 orbs:
   slack: circleci/slack@1.1.0
-  cypress: cypress-io/cypress@1.7.0
+  cypress: cypress-io/cypress@1.8.0
   gh-pages: sugarshin/gh-pages@0.0.4
 
 executors:
