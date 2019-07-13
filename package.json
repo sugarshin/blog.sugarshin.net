@@ -191,7 +191,7 @@
     "mkdirp": "0.5.1",
     "p-map": "1.2.0",
     "raf": "3.4.1",
-    "stylint": "1.5.9",
+    "stylint": "2.0.0",
     "stylint-stylish": "2.0.0",
     "textlint": "11.3.0",
     "textlint-filter-rule-comments": "1.2.2",
