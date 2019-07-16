@@ -6512,10 +6512,10 @@ hast-util-is-element@^1.0.0:
   resolved "https://registry.yarnpkg.com/hast-util-is-element/-/hast-util-is-element-1.0.0.tgz#3f7216978b2ae14d98749878782675f33be3ce00"
   integrity sha1-P3IWl4sq4U2YdJh4eCZ18zvjzgA=
 
-hast-util-sanitize@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/hast-util-sanitize/-/hast-util-sanitize-2.0.0.tgz#d173fb63e1f700e22108fc5f4c98058339eb7405"
-  integrity sha512-x7kDZ3GyxXl5aZ/fw/ccVxnQjyqoaOVcbyw+3qGuggmk+IhM50wMzMBWtbK3uJGDJ/oyoobNmBRjoueXC+sCNQ==
+hast-util-sanitize@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/hast-util-sanitize/-/hast-util-sanitize-2.0.1.tgz#de2f32c5aa9e93b61903e4381be6c49887d3829e"
+  integrity sha512-Hk9YC6+HURcdNuBFaPP5nX6xK6zPnm0Dr6QnU4hvvXoStzH5nLI1u71wux6u3fbEQk3/+kTEIcyxRtCA0jt9RA==
   dependencies:
     xtend "^4.0.1"
 
