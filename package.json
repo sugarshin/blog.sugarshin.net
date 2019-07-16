@@ -117,7 +117,7 @@
     "lodash": "4.17.14",
     "logrocket": "1.0.2",
     "logrocket-react": "3.0.0",
-    "mini-css-extract-plugin": "0.7.0",
+    "mini-css-extract-plugin": "0.8.0",
     "minimist": "1.2.0",
     "mirror-key-value": "1.0.5",
     "moment": "2.24.0",
