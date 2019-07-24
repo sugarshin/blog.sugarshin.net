@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { Component } from 'react'
-import Button from 'react-bootstrap/lib/Button'
-import Alert from 'react-bootstrap/lib/Alert'
+import { Alert, Button } from 'react-bootstrap'
 import Sidebar from 'react-sidebar'
 import { Link, withRouter } from 'react-router-dom'
 import Icon from 'react-fa'
@@ -80,7 +79,7 @@ export default class Main extends Component {
           <Link to='/'>{settings.siteName}</Link>
           {!sidebar.docked ? (
             <div className={styles.toggleButton}>
-              <Button onClick={actions.toggleSidebar}>
+              <Button onClick={actions.toggleSidebar} variant='secondary'>
                 <Octicon name='three-bars' />
               </Button>
             </div>

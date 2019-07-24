@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from 'react-bootstrap/lib/Button'
+import { Button } from 'react-bootstrap'
 import {
   FacebookButton,
   TwitterButton,
@@ -17,19 +17,19 @@ export default function ShareToolbar({ message, url }) {
   return (
     <div className={styles.wrapper}>
       <FacebookButton element='span' message={message} url={url} appId={facebookAppID}>
-        <Button><Icon name='facebook' /></Button>
+        <Button variant='secondary'><Icon name='facebook' /></Button>
       </FacebookButton>
       <TwitterButton element='span' message={message} url={url}>
-        <Button><Icon name='twitter' /></Button>
+        <Button variant='secondary'><Icon name='twitter' /></Button>
       </TwitterButton>
       <GooglePlusButton element='span' message={message} url={url}>
-        <Button><Icon name='google-plus' /></Button>
+        <Button variant='secondary'><Icon name='google-plus' /></Button>
       </GooglePlusButton>
       <TumblrButton element='span' message={message} url={url}>
-        <Button><Icon name='tumblr' /></Button>
+        <Button variant='secondary'><Icon name='tumblr' /></Button>
       </TumblrButton>
       <PocketButton element='span' message={message} url={url}>
-        <Button><Icon name='get-pocket' /></Button>
+        <Button variant='secondary'><Icon name='get-pocket' /></Button>
       </PocketButton>
     </div>
   )
