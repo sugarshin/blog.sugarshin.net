@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { ListGroup, FormControl } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { NavLink } from 'react-router-dom'
 import keydown, { Keys } from 'react-keydown'
 import moment from 'moment'
 import queryString from 'query-string'
@@ -91,9 +91,15 @@ export default class SidebarMenu extends Component {
     return this.props.articles.items.filter((a, i) => i < 5).map(item => {
       const [year, month, day] = item.date.split(' ')[0].split('-')
       return (
-        <LinkContainer key={item.url} to={`/${year}/${month}/${day}/${item.url}`}>
-          <ListGroup.Item>{item.title}</ListGroup.Item>
-        </LinkContainer>
+        <ListGroup.Item
+          key={item.url}
+          to={`/${year}/${month}/${day}/${item.url}`}
+          as={NavLink}
+          className={styles.link}
+          action
+        >
+          {item.title}
+        </ListGroup.Item>
       )
     })
   }
@@ -102,9 +108,15 @@ export default class SidebarMenu extends Component {
       const [year, month] = date.split('-')
       const url = `/archives/${year}-${month}/`
       return (
-        <LinkContainer key={url} to={url}>
-          <ListGroup.Item>{moment(date).format('MMMM YYYY')}</ListGroup.Item>
-        </LinkContainer>
+        <ListGroup.Item
+          key={url}
+          to={url}
+          as={NavLink}
+          className={styles.link}
+          action
+        >
+          {moment(date).format('MMMM YYYY')}
+        </ListGroup.Item>
       )
     })
   }
@@ -112,20 +124,26 @@ export default class SidebarMenu extends Component {
     return this.props.articles.tags.map(tag => {
       const url = `/tags/${tag.replace(/\s/g, '_')}/`
       return (
-        <LinkContainer key={url} to={url}>
-          <ListGroup.Item>{tag}</ListGroup.Item>
-        </LinkContainer>
+        <ListGroup.Item
+          key={url}
+          to={url}
+          as={NavLink}
+          className={styles.link}
+          action
+        >
+          {tag}
+        </ListGroup.Item>
       )
     })
   }
   renderLinks() {
     return [
-      <ListGroup.Item key='sugarshin.net' href='//sugarshin.net/'>About</ListGroup.Item>,
-      <ListGroup.Item key='github' href='//github.com/sugarshin/'>GitHub</ListGroup.Item>,
-      <ListGroup.Item key='npm' href='//www.npmjs.com/~sugarshin/'>npm</ListGroup.Item>,
-      <ListGroup.Item key='keybase' href='//keybase.io/sugarshin/'>Keybase</ListGroup.Item>,
-      <ListGroup.Item key='twitter' href='//twitter.com/sugarshin/'>Twitter</ListGroup.Item>,
-      <ListGroup.Item key='instagram' href='//www.instagram.com/sugarshin/'>Instagram</ListGroup.Item>,
+      <ListGroup.Item key='sugarshin.net' href='//sugarshin.net/' action>About</ListGroup.Item>,
+      <ListGroup.Item key='github' href='//github.com/sugarshin/' action>GitHub</ListGroup.Item>,
+      <ListGroup.Item key='npm' href='//www.npmjs.com/~sugarshin/' action>npm</ListGroup.Item>,
+      <ListGroup.Item key='keybase' href='//keybase.io/sugarshin/' action>Keybase</ListGroup.Item>,
+      <ListGroup.Item key='twitter' href='//twitter.com/sugarshin/' action>Twitter</ListGroup.Item>,
+      <ListGroup.Item key='instagram' href='//www.instagram.com/sugarshin/' action>Instagram</ListGroup.Item>,
     ]
   }
 
