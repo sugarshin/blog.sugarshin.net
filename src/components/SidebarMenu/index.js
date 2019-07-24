@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { Component } from 'react'
-import ListGroupItem from 'react-bootstrap/lib/ListGroupItem'
-import FormControl from 'react-bootstrap/lib/FormControl'
+import { ListGroup, FormControl } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import keydown, { Keys } from 'react-keydown'
 import moment from 'moment'
@@ -93,7 +92,7 @@ export default class SidebarMenu extends Component {
       const [year, month, day] = item.date.split(' ')[0].split('-')
       return (
         <LinkContainer key={item.url} to={`/${year}/${month}/${day}/${item.url}`}>
-          <ListGroupItem>{item.title}</ListGroupItem>
+          <ListGroup.Item>{item.title}</ListGroup.Item>
         </LinkContainer>
       )
     })
@@ -104,7 +103,7 @@ export default class SidebarMenu extends Component {
       const url = `/archives/${year}-${month}/`
       return (
         <LinkContainer key={url} to={url}>
-          <ListGroupItem>{moment(date).format('MMMM YYYY')}</ListGroupItem>
+          <ListGroup.Item>{moment(date).format('MMMM YYYY')}</ListGroup.Item>
         </LinkContainer>
       )
     })
@@ -114,19 +113,19 @@ export default class SidebarMenu extends Component {
       const url = `/tags/${tag.replace(/\s/g, '_')}/`
       return (
         <LinkContainer key={url} to={url}>
-          <ListGroupItem>{tag}</ListGroupItem>
+          <ListGroup.Item>{tag}</ListGroup.Item>
         </LinkContainer>
       )
     })
   }
   renderLinks() {
     return [
-      <ListGroupItem key='sugarshin.net' href='//sugarshin.net/'>About</ListGroupItem>,
-      <ListGroupItem key='github' href='//github.com/sugarshin/'>GitHub</ListGroupItem>,
-      <ListGroupItem key='npm' href='//www.npmjs.com/~sugarshin/'>npm</ListGroupItem>,
-      <ListGroupItem key='keybase' href='//keybase.io/sugarshin/'>Keybase</ListGroupItem>,
-      <ListGroupItem key='twitter' href='//twitter.com/sugarshin/'>Twitter</ListGroupItem>,
-      <ListGroupItem key='instagram' href='//www.instagram.com/sugarshin/'>Instagram</ListGroupItem>,
+      <ListGroup.Item key='sugarshin.net' href='//sugarshin.net/'>About</ListGroup.Item>,
+      <ListGroup.Item key='github' href='//github.com/sugarshin/'>GitHub</ListGroup.Item>,
+      <ListGroup.Item key='npm' href='//www.npmjs.com/~sugarshin/'>npm</ListGroup.Item>,
+      <ListGroup.Item key='keybase' href='//keybase.io/sugarshin/'>Keybase</ListGroup.Item>,
+      <ListGroup.Item key='twitter' href='//twitter.com/sugarshin/'>Twitter</ListGroup.Item>,
+      <ListGroup.Item key='instagram' href='//www.instagram.com/sugarshin/'>Instagram</ListGroup.Item>,
     ]
   }
 
