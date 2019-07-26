@@ -12,12 +12,6 @@
     },
     {
       "packageNames": [
-        "bootswatch"
-      ],
-      "allowedVersions": "^3"
-    },
-    {
-      "packageNames": [
         "p-map"
       ],
       "allowedVersions": "^1"
