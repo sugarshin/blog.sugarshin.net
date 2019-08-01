@@ -8369,6 +8369,13 @@ kuromojin@^1.0.2, kuromojin@^1.1.0, kuromojin@^1.2.1, kuromojin@^1.3.1, kuromoji
   dependencies:
     kuromoji "0.1.1"
 
+kuromojin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/kuromojin/-/kuromojin-2.0.0.tgz#23e74a5ed2578432c9703ae75a69ba0a09ccb12d"
+  integrity sha512-60j/yLkFSc4t4roj8tI8ZNNSiAFnrkgXw8SqXz/9nakfs6mkCvPbrd7S8LDr4YNwEt1IyLys5JQTR9EnYyGHhA==
+  dependencies:
+    kuromoji "0.1.1"
+
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/last-call-webpack-plugin/-/last-call-webpack-plugin-3.0.0.tgz#9742df0e10e3cf46e5c0381c2de90d3a7a2d7555"
@@ -9265,19 +9272,20 @@ moo@^0.4.3:
   resolved "https://registry.yarnpkg.com/moo/-/moo-0.4.3.tgz#3f847a26f31cf625a956a87f2b10fbc013bfd10e"
   integrity sha512-gFD2xGCl8YFgGHsqJ9NKRVdwlioeW3mI1iqfLNYQOv0+6JRwG58Zk9DIGQgyIaffSYaO1xsKnMaYzzNr1KyIAw==
 
-morpheme-match-all@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/morpheme-match-all/-/morpheme-match-all-2.0.0.tgz#fcf518ea2a1462bc99e7cfacee1ca47942b0fcd5"
-  integrity sha512-eiONyhZLP0bZuXFTaoqfxigXdg5XKd+vZLwaSKFRLAhvSHY5Zrbu8iJl74HqQj+gCm1OV18OocWCAfr3FXiFXg==
+morpheme-match-all@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/morpheme-match-all/-/morpheme-match-all-2.0.1.tgz#b520262f9026a51ec102687bb36bcf07284e54c4"
+  integrity sha512-KrVokpD3Fj5g8UfU8uqFERNaJJFwEikRRZY1BAUjGtbNe7RYMxc+MzwcWxL9kcJKigU0Qan9m1jAbRUhXVPhqw==
   dependencies:
     morpheme-match "^2.0.0"
 
-morpheme-match-textlint@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/morpheme-match-textlint/-/morpheme-match-textlint-2.0.0.tgz#034f05dcfe7838286c675b4446f086698adb3188"
-  integrity sha512-6bMD5nDKPcxJ/Qd4Y1R9MwI8GQWnpFVFif8nwdRtzfibEo6FNkBRj98PzjEwXOefLMlnbjJ+DOpnPBE9yTWLqw==
+morpheme-match-textlint@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/morpheme-match-textlint/-/morpheme-match-textlint-2.0.3.tgz#8740848bc6b0b04695dc985a61ece346bd1ac7b4"
+  integrity sha512-OCz4/PsQzOrZO5JDLF/IIynvArhnSfCr4jHiTXhy0Gsz3yGtYHUbaZZFFoqCBD66+EbCUeMYK4E8CkMhgJ3+Dw==
   dependencies:
-    morpheme-match-all "^2.0.0"
+    morpheme-match "^2.0.0"
+    morpheme-match-all "^2.0.1"
 
 morpheme-match@^2.0.0:
   version "2.0.0"
@@ -13832,13 +13840,13 @@ textlint-rule-helper@^2.0.0, textlint-rule-helper@^2.1.1:
     structured-source "^3.0.2"
     unist-util-visit "^1.1.0"
 
-textlint-rule-ja-no-abusage@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-abusage/-/textlint-rule-ja-no-abusage-2.0.0.tgz#b3f978258be128abf3d42ed4f694ea7fccc8cfed"
-  integrity sha512-CIqD6+0MZnQtv3VEHwFcSveBVowzIiqNxWFAVLYlwDiOx3NkOornOnYUPwerxF8NK2wiqdgrhdAfjTtjdtRQGQ==
+textlint-rule-ja-no-abusage@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-abusage/-/textlint-rule-ja-no-abusage-2.0.1.tgz#cd07bea78a2dec65b4128f8d49e104d44f9084d9"
+  integrity sha512-HUAi0vpjoE+8Jl0OzuhgqYlPzGbHjNr7sQuEFQWmrKUF7LdKTdP0dDcmcJ5rbKKLXZ4eV+6Tf2VfWfQrlIRkGg==
   dependencies:
-    kuromojin "^1.3.1"
-    morpheme-match-textlint "^2.0.0"
+    kuromojin "^2.0.0"
+    morpheme-match-textlint "^2.0.3"
     textlint-rule-prh "^5.2.1"
 
 textlint-rule-ja-no-mixed-period@2.1.1:
