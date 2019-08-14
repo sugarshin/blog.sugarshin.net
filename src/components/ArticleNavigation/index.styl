@@ -1,10 +1,12 @@
 @import '../../stylus/media-query'
 @import '../../stylus/variables'
 
-.root.pager
-  padding 16px
-  @media $mq-large
-    max-width $main-max-width
-    margin 0 auto
+.root
+  justify-content space-between
+  &.pager
+    padding 16px
+    @media $mq-large
+      max-width $main-max-width
+      margin 0 auto
 .icon
   vertical-align middle
