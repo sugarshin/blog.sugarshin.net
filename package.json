@@ -24,7 +24,7 @@
     "articles-index:dev": "node scripts/articles-index --out=build-dev",
     "articles-index:e2e-test": "node scripts/articles-index --out=build-e2e-test",
     "dev-server": "DEV_SERVER=1 webpack-dev-server --config config/webpack.config.js --progress --open",
-    "lint:js": "eslint --max-warnings=0 src test scripts config universal",
+    "lint:js": "eslint --max-warnings=0 src test scripts config helpers",
     "lint:styl": "stylint src",
     "lint:md": "textlint articles/*.md",
     "lint": "run-p lint:*",

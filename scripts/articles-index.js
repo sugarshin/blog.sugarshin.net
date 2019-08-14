@@ -10,7 +10,7 @@ const yaml = require('js-yaml')
 const removeMarkdown = require('remove-markdown')
 const argv = require('minimist')(process.argv.slice(2))
 const writeFilePromisify = require('./helpers/writeFilePromisify')
-const sliceYAMLConfig = require('../universal/sliceYAMLConfig')
+const sliceYAMLConfig = require('../helpers/sliceYAMLConfig')
 
 const readdirPromisify = dirPath => {
   return new Promise((resolve, reject) => {

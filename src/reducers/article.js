@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions'
 import yaml from 'js-yaml'
 import * as actions from 'actions/article'
 import { article as initialState } from './initialState'
-import sliceYAMLConfig from '../../universal/sliceYAMLConfig'
+import sliceYAMLConfig from '../../helpers/sliceYAMLConfig'
 
 // TODO: commonize
 const getYamlConfig = markdown => yaml.load(sliceYAMLConfig(markdown))
