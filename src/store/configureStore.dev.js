@@ -1,18 +1,17 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import logger from 'redux-logger'
 import LogRocket from 'logrocket'
-import rootReducer from 'reducers'
-import routerMiddleware from './middlewares/router'
+import { createRootReducer } from 'reducers'
+import { createRouterMiddleware } from './middlewares/router'
 import epicMiddleware from './middlewares/epic'
 // import DevTools from 'store/debugger/DevTools'
 
-export default function configureStore(initialState) {
+export default function configureStore({ history }) {
   const store = createStore(
-    rootReducer,
-    initialState,
+    createRootReducer({ history }),
     compose(
       applyMiddleware(
-        routerMiddleware(),
+        createRouterMiddleware(history),
         epicMiddleware(),
         logger,
         LogRocket.reduxMiddleware()

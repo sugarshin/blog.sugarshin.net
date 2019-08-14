@@ -3,7 +3,7 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
 import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
+import { ConnectedRouter } from 'connected-react-router'
 import Ribbon from 'react-github-fork-ribbon'
 import Routes from 'routes'
 

@@ -1,8 +1,5 @@
-import { routerMiddleware as createRouterMiddleware } from 'react-router-redux'
-import history from 'modules/history'
+import { routerMiddleware } from 'connected-react-router'
 
-const routerMiddleware = () => {
-  return createRouterMiddleware(history)
+export function createRouterMiddleware(history) {
+  return routerMiddleware(history)
 }
-
-export default routerMiddleware
