@@ -1,18 +1,12 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = prod => {
-  const options = { minimize: prod }
-  const rule = { test: /\.css$/ }
-  if (prod) {
-    rule.use = [
-      MiniCssExtractPlugin.loader,
-      { loader: 'css-loader', options },
-    ]
-  } else {
-    rule.use = [
-      'style-loader',
-      { loader: 'css-loader', options },
-    ]
+  const rule = {
+    test: /\.css$/,
+    use: [
+      prod ? MiniCssExtractPlugin.loader : 'style-loader',
+      'css-loader',
+    ],
   }
   return rule
 }
