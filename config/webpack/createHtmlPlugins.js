@@ -7,9 +7,9 @@ const removeMarkdown = require('remove-markdown')
 const getBaseHtmlPluginConfig = require('./getBaseHtmlPluginConfig')
 const { buildDir } = require('../dir')
 const { googleSiteVerificationKey } = require('../settings')
-const markdownRenderer = require('../../universal/markdownRenderer')
-const removeYAMLConfig = require('../../universal/removeYAMLConfig')
-const sliceYAMLConfig = require('../../universal/sliceYAMLConfig')
+const markdownRenderer = require('../../helpers/markdownRenderer')
+const removeYAMLConfig = require('../../helpers/removeYAMLConfig')
+const sliceYAMLConfig = require('../../helpers/sliceYAMLConfig')
 
 const { assign } = Object
 

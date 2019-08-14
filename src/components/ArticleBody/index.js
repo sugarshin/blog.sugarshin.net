@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import markdownRenderer from '../../../universal/markdownRenderer'
+import markdownRenderer from '../../../helpers/markdownRenderer'
 import styles from './index.styl'
 
 export default function ArticleBody({ markdown }) {
