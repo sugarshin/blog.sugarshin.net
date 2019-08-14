@@ -21,7 +21,7 @@ const ArticleNavigation = ({ next, prev }) => {
       ) : null}
       {next ? (
         <LinkContainer to={next.url} title={`Next Article: ${next.title}`}>
-          <Pagination.Next>
+          <Pagination.Next className='text-right'>
             {truncate(next.title, { length: 30 })}
             {' '}
             <Octicon name='chevron-right' className={styles.icon} />
