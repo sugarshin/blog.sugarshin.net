@@ -5,13 +5,13 @@ import 'octicons/build/build.css'
 import 'stylus/index.styl'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { createBrowserHistory } from 'history'
 import Raven from 'raven-js'
 import LogRocket from 'logrocket'
 import setupLogRocketReact from 'logrocket-react'
 import Root from 'containers/Root'
 import configureStore from 'store/configureStore'
 import APIBase from 'apis/Base'
-import history from 'modules/history'
 
 const main = () => {
   if (process.env.SENTRY_DSN) {
@@ -36,7 +36,8 @@ const main = () => {
   APIBase.baseURI = process.env.API_BASE
   APIBase.ref = process.env.NODE_ENV !== 'production' ? null : (process.env.E2E_TEST ? null : 'master')
 
-  const store = configureStore()
+  const history = createBrowserHistory()
+  const store = configureStore({ history })
   const root = document.querySelector('#app-root')
   ReactDOM.render(<Root store={store} history={history} />, root)
 }
