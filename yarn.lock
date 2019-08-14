@@ -11699,6 +11699,11 @@ react-router-redux@5.0.0-alpha.9:
     prop-types "^15.6.0"
     react-router "^4.2.0"
 
+react-router-scroll-memory@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-router-scroll-memory/-/react-router-scroll-memory-2.0.3.tgz#b3ad3e2d147688e05242abb68002378e674396da"
+  integrity sha512-JSInrXVbFcRJ4jb2Q8nWApSvE/zf+H3pB73Th7uYQsypPDka9RGoobGWxuSVQDLURrPvQ8DOED+5r68He22qoQ==
+
 react-router@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.2.0.tgz#61f7b3e3770daeb24062dae3eedef1b054155986"

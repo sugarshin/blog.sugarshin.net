@@ -15,7 +15,7 @@ import styles from './index.styl'
 @withRouter
 @connectStore()
 export default class Main extends Component {
-  get mainContentId() {
+  static get mainContentId() {
     return 'main-content'
   }
 
@@ -34,12 +34,6 @@ export default class Main extends Component {
       this._matchMedia.addListener(this.handleChangeMediaQuery)
       this.props.actions.toggleSidebarDocked(this._matchMedia.matches)
     }
-    this.restoreScroll()
-  }
-  componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
-      this.restoreScroll()
-    }
   }
   componentWillUnmount() {
     if (this._matchMedia) {
@@ -55,12 +49,6 @@ export default class Main extends Component {
     }
     return <LoadingSpinner />
   }
-  restoreScroll() {
-    const main = document.getElementById(this.mainContentId)
-    if (main) {
-      main.scrollTop = 0
-    }
-  }
   renderContent() {
     const { children, sidebar, actions } = this.props
     return (
@@ -73,7 +61,7 @@ export default class Main extends Component {
         open={sidebar.open}
         docked={sidebar.docked}
         onSetOpen={actions.toggleSidebar}
-        contentId={this.mainContentId}
+        contentId={Main.mainContentId}
       >
         <header className={styles.header}>
           <Link to='/'>{settings.siteName}</Link>
