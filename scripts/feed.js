@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 
 const fs = require('fs')
-const Feed = require('feed')
+const { Feed } = require('feed')
 const removeMarkdown = require('remove-markdown')
 const {
   domain, protocol, siteName, copyright, description, authorName, authorEmail, authorURL, authorGitHubUserName,
-  feedURL, rssURL,
+  authorImageURL, feedURL, rssURL,
 } = require('../config/settings')
 const argv = require('minimist')(process.argv.slice(2))
 
@@ -29,6 +29,7 @@ const feed = new Feed({
   copyright,
   author,
   updated: new Date(),
+  image: authorImageURL,
 })
 
 articles.forEach(article => {
