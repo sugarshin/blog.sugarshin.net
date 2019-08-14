@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import ScrollMemory from 'react-router-scroll-memory'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -14,6 +15,7 @@ const App = ({ children, onChangeClientState }) => {
         defaultTitle='blog.sugarshin.net'
         onChangeClientState={onChangeClientState}
       />
+      <ScrollMemory elementID={Main.mainContentId} />
       {children}
     </Main>
   )
