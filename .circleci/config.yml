@@ -11,7 +11,7 @@ references:
 orbs:
   slack: circleci/slack@1.1.0
   cypress: cypress-io/cypress@1.8.0
-  gh-pages: sugarshin/gh-pages@0.0.5
+  gh-pages: sugarshin/gh-pages@0.0.6
 
 executors:
   nodejs:
