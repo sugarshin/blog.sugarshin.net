@@ -1,9 +1,8 @@
 # blog.sugarshin.net
 
 [![Build Status][circleci-image]][circleci-url]
-[![Dependency Status][david-image]][david-url]
-[![codecov](https://codecov.io/gh/sugarshin/blog.sugarshin.net/branch/master/graph/badge.svg)](https://codecov.io/gh/sugarshin/blog.sugarshin.net)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1196aa03a6e44784b5eeebfea14d3243)](https://www.codacy.com/app/sugarshin/blog.sugarshin.net?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sugarshin/blog.sugarshin.net&amp;utm_campaign=Badge_Grade)
+[![Codecov Status][codecov-image]][codecov-url]
+[![Codacy Badge][codacy-image]][codacy-url]
 
 https://blog.sugarshin.net
 
@@ -48,9 +47,15 @@ Merge to master branch will trigger CircleCI that deploys assets to GitHub Pages
 
 ## License
 
-MIT © sugarshin
+Copyright (C) 2016 [Shingo Sato](https://sugarshin.net/).
+
+All rights reserved with all articles and pictures.
+
+Everything else in the repository is [MIT](https://sugarshin.mit-license.org/) licensed.
 
 [circleci-image]: https://circleci.com/gh/sugarshin/blog.sugarshin.net/tree/master.svg?style=svg&circle-token=812f62f2aeba2a3bb9bfe6adf2abd24d7754a7be
 [circleci-url]: https://circleci.com/gh/sugarshin/blog.sugarshin.net/tree/master
-[david-image]: https://david-dm.org/sugarshin/blog.sugarshin.net.svg?style=flat-square
-[david-url]: https://david-dm.org/sugarshin/blog.sugarshin.net
+[codecov-image]: https://codecov.io/gh/sugarshin/blog.sugarshin.net/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/sugarshin/blog.sugarshin.net
+[codacy-image]: https://api.codacy.com/project/badge/Grade/1196aa03a6e44784b5eeebfea14d3243
+[codacy-url]: https://www.codacy.com/app/sugarshin/blog.sugarshin.net?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sugarshin/blog.sugarshin.net&amp;utm_campaign=Badge_Grade
