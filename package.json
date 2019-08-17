@@ -191,7 +191,7 @@
     "express": "4.17.1",
     "jest": "24.9.0",
     "mkdirp": "0.5.1",
-    "p-map": "1.2.0",
+    "p-map": "3.0.0",
     "raf": "3.4.1",
     "stylint": "2.0.0",
     "stylint-stylish": "2.0.0",
