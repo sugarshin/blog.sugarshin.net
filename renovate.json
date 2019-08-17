@@ -12,9 +12,39 @@
     },
     {
       "packageNames": [
+        "lodash"
+      ],
+      "allowedVersions": "^4"
+    },
+    {
+      "packageNames": [
+        "@octokit/rest"
+      ],
+      "allowedVersions": "^16"
+    },
+    {
+      "packageNames": [
         "p-map"
       ],
+      "allowedVersions": "^3"
+    },
+    {
+      "packageNames": [
+        "moment"
+      ],
+      "allowedVersions": "^2"
+    },
+    {
+      "packageNames": [
+        "minimist"
+      ],
       "allowedVersions": "^1"
+    },
+    {
+      "packageNames": [
+        "js-yaml"
+      ],
+      "allowedVersions": "^3"
     }
   ]
 }
