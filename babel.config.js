@@ -1,3 +1,5 @@
+const { browserslist } = require('./package.json')
+
 const basePlugins = [
   'add-react-displayname',
   '@babel/plugin-syntax-dynamic-import',
@@ -12,7 +14,10 @@ const basePlugins = [
 module.exports = {
   presets: [
     ['@babel/preset-env', {
-      modules: false,
+      modules: "commonjs", // https://github.com/webpack/webpack/issues/4039#issuecomment-514454200
+      "useBuiltIns": "usage",
+      "corejs": 3,
+      "targets": browserslist,
     }],
     '@babel/preset-react',
   ],
