@@ -98,7 +98,7 @@ workflows:
           yarn: true
           cache-key: 'v1-dependencies-cypress-{{ checksum "yarn.lock" }}'
           build: NODE_ENV=production npm run build:e2e-test
-          start: PORT=3000 node e2e-test/server
+          start: PORT=3000 DIR=build-e2e-test node static-serve
           wait-on: 'http-get://localhost:3000'
           browser: chrome
           no-workspace: true

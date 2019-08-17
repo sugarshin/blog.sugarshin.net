@@ -1,0 +1,14 @@
+{
+  "name": "review-app",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "start": "DIR=build-review-app node static-serve"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "4.17.1"
+  }
+}

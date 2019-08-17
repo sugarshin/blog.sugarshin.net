@@ -1,10 +1,9 @@
 #!/bin/bash
 set -eu
 
-CNAME=blog.sugarshin.net
 BUILD=build
 
-npm run clean:build
+npm run clean -- $BUILD
 mkdir -p $BUILD
 node scripts/articles-index -o $BUILD
 npm run webpack
@@ -16,5 +15,5 @@ cp src/images/p.jpg $BUILD/assets/images/common/open-graph.jpg
 
 node scripts/sitemap
 node scripts/feed
-echo $CNAME > $BUILD/CNAME
+echo 'blog.sugarshin.net' > $BUILD/CNAME
 touch $BUILD/.nojekyll

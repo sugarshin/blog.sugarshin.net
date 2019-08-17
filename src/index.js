@@ -33,7 +33,7 @@ const main = () => {
   }
 
   APIBase.baseURI = process.env.API_BASE
-  APIBase.ref = process.env.NODE_ENV !== 'production' ? null : (process.env.E2E_TEST ? null : 'master')
+  APIBase.ref = process.env.API_BASE ? 'master' : null
 
   const history = createBrowserHistory()
   const store = configureStore({ history })
