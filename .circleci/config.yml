@@ -12,6 +12,7 @@ orbs:
   slack: circleci/slack@1.1.0
   cypress: cypress-io/cypress@1.8.0
   gh-pages: sugarshin/gh-pages@0.0.6
+  npm: sugarshin/npm@0.1.5
 
 executors:
   nodejs:
@@ -24,39 +25,14 @@ executors:
     docker:
       - image: cypress/browsers:node10.2.1-chrome74
 
-commands:
-  restore_yarn_cache:
-    parameters:
-      prod:
-        type: boolean
-        default: false
-    steps:
-      - restore_cache:
-          name: Restoring Yarn Cache
-          keys:
-            - v2-dependencies-<<# parameters.prod >>prod-<</ parameters.prod >>{{ checksum "yarn.lock" }}
-            - v2-dependencies-<<# parameters.prod >>prod-<</ parameters.prod >>
-  save_yarn_cache:
-    parameters:
-      prod:
-        type: boolean
-        default: false
-    steps:
-      - save_cache:
-          name: Saving Yarn Cache
-          key: v2-dependencies-<<# parameters.prod >>prod-<</ parameters.prod >>{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache
-
 jobs:
   test:
-    executor:
-      name: nodejs
+    executor: nodejs
     steps:
       - checkout
-      - restore_yarn_cache
-      - run: yarn install --frozen-lockfile
-      - save_yarn_cache
+      - npm/install:
+          yarn: true
+          cache-key: 'cache-{{ checksum "yarn.lock" }}'
       - run:
           name: Lint
           command: npm run lint
@@ -67,15 +43,13 @@ jobs:
           name: Coverage Report
           command: npm run codecov
   build_test:
-    executor:
-      name: nodejs
+    executor: nodejs
     steps:
       - checkout
-      - restore_yarn_cache:
-          prod: true
-      - run: yarn install --frozen-lockfile --prod
-      - save_yarn_cache:
-          prod: true
+      - npm/install:
+          yarn: true
+          cache-key: 'cache-{{ checksum "yarn.lock" }}'
+          production: true
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
@@ -83,15 +57,13 @@ jobs:
           path: build
           destination: build
   deploy:
-    executor:
-      name: nodejs
+    executor: nodejs
     steps:
       - checkout
-      - restore_yarn_cache:
-          prod: true
-      - run: yarn install --frozen-lockfile --prod
-      - save_yarn_cache:
-          prod: true
+      - npm/install:
+          yarn: true
+          cache-key: 'cache-{{ checksum "yarn.lock" }}'
+          production: true
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
@@ -113,7 +85,7 @@ jobs:
           webhook: ${SLACK_WEBHOOK_URL}
 
 workflows:
-  test_build_deploy:
+  test_build_deploy_notify:
     jobs:
       - test:
           <<: *filter_gh_pages
