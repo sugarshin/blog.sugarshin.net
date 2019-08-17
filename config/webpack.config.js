@@ -43,7 +43,7 @@ const plugins = [
 ]
 
 const entry = {
-  app: ['@babel/polyfill', 'whatwg-fetch', './src/index.js'],
+  app: ['whatwg-fetch', './src/index.js'],
 }
 
 if (prod) {
@@ -66,6 +66,7 @@ if (prod) {
 }
 
 module.exports = {
+  context: process.cwd(),
   mode: prod ? PRODUCTION : DEVELOPMENT,
   cache: !prod,
   entry,
