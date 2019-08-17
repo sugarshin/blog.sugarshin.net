@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import octicons from 'octicons'
+import OcticonsReact, { getIconByName } from '@primer/octicons-react'
 import classnames from 'classnames'
 import styles from './index.styl'
 
 const Octicon = ({ name, spin, className, ...props }) => (
   <span
-    {...props}
-    className={classnames('octicon-container', className, { [styles.spin]: spin })}
-    dangerouslySetInnerHTML={{ __html: octicons[name].toSVG() }}
-  />
+    className={classnames(styles.root, className, { [styles.spin]: spin })}
+  >
+    <OcticonsReact {...props} icon={getIconByName(name)} />
+  </span>
 )
 
 Octicon.propTypes = {

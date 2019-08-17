@@ -6,12 +6,6 @@
   "packageRules": [
     {
       "packageNames": [
-        "octicons"
-      ],
-      "allowedVersions": "^7"
-    },
-    {
-      "packageNames": [
         "lodash"
       ],
       "allowedVersions": "^4"
