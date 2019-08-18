@@ -18,7 +18,7 @@ executors:
   nodejs:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:12.8.1
+      - image: circleci/node:12.4.0
         environment:
           TZ: "Asia/Tokyo"
   cypress_browsers_chrome:
