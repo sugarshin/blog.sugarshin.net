@@ -7,14 +7,13 @@ import analyticsMiddleware from './middlewares/analytics'
 import handleLocationAndDocumentChange from './middlewares/handleLocationAndDocumentChange'
 
 export default function configureStore({ history }) {
-  const { E2E_TEST } = process.env
-  const isE2E = E2E_TEST !== '0'
+  const { SEGMENT_WRITE_KEY, LOGROCKET_APP_ID } = process.env
   const middlewares = [
     createRouterMiddleware(history),
     epicMiddleware(),
-    ...(isE2E ? [] : [analyticsMiddleware()]),
+    ...(SEGMENT_WRITE_KEY ? [analyticsMiddleware()] : []),
     handleLocationAndDocumentChange,
-    ...(isE2E ? [] : [LogRocket.reduxMiddleware()]),
+    ...(LOGROCKET_APP_ID ? [LogRocket.reduxMiddleware()] : []),
   ]
   const store = createStore(
     createRootReducer({ history }),

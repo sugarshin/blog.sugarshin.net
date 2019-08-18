@@ -65,6 +65,7 @@ build-dev
 .deploy
 .wwp-cache
 build-e2e-test
+build-review-app
 
 cypress/videos
 cypress/screenshots

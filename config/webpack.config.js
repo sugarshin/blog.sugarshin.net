@@ -17,7 +17,7 @@ const { PRODUCTION, DEVELOPMENT } = require('./env')
 
 require('dotenv').config()
 
-const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM, LOGROCKET_APP_ID, E2E_TEST } = process.env
+const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM, LOGROCKET_APP_ID } = process.env
 const prod = NODE_ENV === PRODUCTION
 const apiBase = API_BASE || ''
 const segmentWriteKey = SEGMENT_WRITE_KEY || null
@@ -25,7 +25,6 @@ const githubAccessTokens = GITHUB_ACCESS_TOKENS || null
 const circleBuildNum = CIRCLE_BUILD_NUM || 0
 const sentryDSN = SENTRY_DSN || null
 const logrocketAppId = LOGROCKET_APP_ID || ''
-const e2eTest = E2E_TEST || '0'
 
 const plugins = [
   new webpack.DefinePlugin({
@@ -37,7 +36,6 @@ const plugins = [
       GITHUB_ACCESS_TOKENS: JSON.stringify(githubAccessTokens),
       SENTRY_DSN: JSON.stringify(sentryDSN),
       LOGROCKET_APP_ID: JSON.stringify(logrocketAppId),
-      E2E_TEST: JSON.stringify(e2eTest),
     },
   }),
 ]
