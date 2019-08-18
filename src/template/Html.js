@@ -16,6 +16,7 @@ const Html = props => {
     content,
     segmentWriteKey,
     children,
+    noindex,
     /* eslint-emable react/prop-types */
   } = props
   return (
@@ -23,6 +24,7 @@ const Html = props => {
       <head>
         {googleSiteVerificationKey ? <meta name='google-site-verification' content={googleSiteVerificationKey} /> : null}
         <meta charSet='utf-8' />
+        {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
         <title>{title}</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='title' content={title} />

@@ -8,7 +8,7 @@ const {
   domain,
 } = require('../settings')
 
-module.exports = ({ segmentWriteKey }) => ({
+module.exports = ({ segmentWriteKey, noindex }) => ({
   template: 'src/template',
   title: siteName,
   lang,
@@ -18,4 +18,5 @@ module.exports = ({ segmentWriteKey }) => ({
   type: 'website',
   siteName,
   segmentWriteKey,
+  noindex,
 })

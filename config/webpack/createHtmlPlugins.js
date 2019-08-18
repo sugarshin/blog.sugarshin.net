@@ -28,8 +28,8 @@ const getArticlePublicPath = article => {
   return `/${year}/${month}/${day}/${article.url}/`
 }
 
-module.exports = ({ segmentWriteKey }) => {
-  const baseHtmlPluginConfig = getBaseHtmlPluginConfig({ segmentWriteKey })
+module.exports = ({ segmentWriteKey, noindex }) => {
+  const baseHtmlPluginConfig = getBaseHtmlPluginConfig({ segmentWriteKey, noindex })
   const baseConfig = assign(
     baseHtmlPluginConfig,
     {

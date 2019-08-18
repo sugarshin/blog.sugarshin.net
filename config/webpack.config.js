@@ -51,7 +51,7 @@ if (prod) {
       chunkFilename: `${assetsDir}/[name]-[contenthash].css`,
     }),
     new WebappPlugin(webappPluginConfig),
-    ...createHtmlPlugins({ segmentWriteKey })
+    ...createHtmlPlugins({ segmentWriteKey, noindex: Boolean(process.env.NOINDEX) })
   )
 } else {
   plugins.push(
