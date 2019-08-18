@@ -6,7 +6,7 @@ BUILD=build-review-app
 npm run clean -- $BUILD
 npm run mkdirp -- $BUILD
 node scripts/articles-index --out=$BUILD
-unset API_BASE SEGMENT_WRITE_KEY LOGROCKET_APP_ID SENTRY_DSN; BUILD_DIR=$BUILD npm run webpack
+unset API_BASE SEGMENT_WRITE_KEY LOGROCKET_APP_ID SENTRY_DSN; BUILD_DIR=$BUILD NOINDEX=1 npm run webpack
 node scripts/copy-articles -o $BUILD
 npm run cp:review-app
 
