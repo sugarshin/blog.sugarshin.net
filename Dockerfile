@@ -31,5 +31,6 @@ COPY --from=build /usr/src/app/build-review-app build-review-app
 RUN npm install --production
 
 ENV NODE_ENV production
+ENV DIR build-review-app
 
-CMD npm start
+CMD node static-serve
