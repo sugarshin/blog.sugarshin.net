@@ -12,7 +12,7 @@ COPY package.json .
 COPY postcss.config.js .
 COPY yarn.lock .
 
-RUN yarn install --prod
+RUN yarn install --production --frozen-lockfile
 
 ENV NODE_ENV production
 RUN npm run build:review-app
