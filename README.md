@@ -2,7 +2,6 @@
 
 [![Build Status][circleci-image]][circleci-url]
 [![Codecov Status][codecov-image]][codecov-url]
-[![Codacy Badge][codacy-image]][codacy-url]
 
 https://blog.sugarshin.net
 
@@ -57,5 +56,3 @@ Everything else in the repository is [MIT](https://sugarshin.mit-license.org/) l
 [circleci-url]: https://circleci.com/gh/sugarshin/blog.sugarshin.net/tree/master
 [codecov-image]: https://codecov.io/gh/sugarshin/blog.sugarshin.net/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/sugarshin/blog.sugarshin.net
-[codacy-image]: https://api.codacy.com/project/badge/Grade/1196aa03a6e44784b5eeebfea14d3243
-[codacy-url]: https://www.codacy.com/app/sugarshin/blog.sugarshin.net?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sugarshin/blog.sugarshin.net&amp;utm_campaign=Badge_Grade
