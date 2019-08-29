@@ -1,5 +1,7 @@
 const { authorGitHubUserName } = require('../../config/settings')
 
+const extractOwnerNameFromEvent = event => event.repo.name.split('/')[0]
+
 /**
  * @param {Array} data
  * @param {string} type
@@ -12,25 +14,23 @@ const pickEventsBy = (data, type) => {
  * @param {Array} data
  * @returns {Array}
  */
-const pickCreateEvents = data => pickEventsBy(data, 'CreateEvent')
+const pickCreateEvents = data => {
+  return pickEventsBy(data, 'CreateEvent').filter(event => {
+    return ['oneteam-dev'].includes(extractOwnerNameFromEvent(event)) === false
+  })
+}
 const pickIssuesEvents = data => pickEventsBy(data, 'IssuesEvent')
 const pickPullRequestEvents = data => pickEventsBy(data, 'PullRequestEvent')
 const pickWatchEvents = data => pickEventsBy(data, 'WatchEvent')
-const pickCreateRepoOrTagEvents = data => {
-  return pickCreateEvents(data).reduce((ret, event) => {
-    return ['tag', 'repository'].includes(event.payload.ref_type) ? [...ret, event] : ret
-  }, [])
-}
 
-module.exports.pickForkEvents = data => pickEventsBy(data, 'ForkEvent') // unused
 module.exports.pickPublicEvents = data => pickEventsBy(data, 'PublicEvent')
 module.exports.pickCreateRepoEvents = data => {
-  return pickCreateRepoOrTagEvents(data).reduce((ret, event) => {
+  return pickCreateEvents(data).reduce((ret, event) => {
     return 'repository' === event.payload.ref_type ? [...ret, event] : ret
   }, [])
 }
 module.exports.pickCreateTagEvents = data => {
-  return pickCreateRepoOrTagEvents(data).reduce((ret, event) => {
+  return pickCreateEvents(data).reduce((ret, event) => {
     return 'tag' === event.payload.ref_type ? [...ret, event] : ret
   }, [])
 }
@@ -42,7 +42,7 @@ module.exports.pickTargetIssuesEvents = data => {
 module.exports.pickTargetPullRequestEvents = data => {
   return pickPullRequestEvents(data)
     // ignore repository of myself
-    .filter(d => d.repo.name.split('/')[0] !== authorGitHubUserName)
+    .filter(event => extractOwnerNameFromEvent(event) !== authorGitHubUserName)
     .reduce((ret, event) => {
       return event.payload.action === 'opened' || (
         event.payload.action === 'closed' && event.payload.pull_request.merged
