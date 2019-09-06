@@ -10,7 +10,7 @@ references:
 
 orbs:
   slack: circleci/slack@1.1.0
-  cypress: cypress-io/cypress@1.9.0
+  cypress: cypress-io/cypress@1.10.0
   gh-pages: sugarshin/gh-pages@0.0.6
   npm: sugarshin/npm@0.1.5
 
