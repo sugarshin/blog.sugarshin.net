@@ -184,7 +184,7 @@
     "stylus": "0.54.7",
     "stylus-loader": "3.0.2",
     "uglifyjs-webpack-plugin": "1.2.5",
-    "unified": "8.4.0",
+    "unified": "8.4.1",
     "url-loader": "2.1.0",
     "webapp-webpack-plugin": "2.7.1",
     "webpack": "4.41.0",
