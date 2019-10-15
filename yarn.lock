@@ -1491,10 +1491,10 @@
     once "^1.4.0"
     universal-user-agent "^4.0.0"
 
-"@primer/octicons-react@9.1.1":
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-9.1.1.tgz#bee3d091c6ecc179c5e46d4716929b987b07baf7"
-  integrity sha512-+ZgALoxUOYUeEnqqN6ZqSfRP6LDRgfmErhY4ZIuGlw5Ocjj7AI87J68dD/wYqWl4IW7xE6rmLvpC3kU3iGmAfQ==
+"@primer/octicons-react@9.2.0":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-9.2.0.tgz#76446c36346fef67cbf91c78bd329c8f860c35d5"
+  integrity sha512-IWY8tJ6j40R5ks6KYORxVxBsmKax/ttXcH7SyHfku0IrYYc/3TSwaPhUDh9hGKDoyE9TUmrku101XJgCbfKhmg==
   dependencies:
     prop-types "^15.6.1"
 
