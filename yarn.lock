@@ -7985,7 +7985,7 @@ markdown-escapes@^1.0.0:
   resolved "https://registry.yarnpkg.com/markdown-escapes/-/markdown-escapes-1.0.3.tgz#6155e10416efaafab665d466ce598216375195f5"
   integrity sha512-XUi5HJhhV5R74k8/0H2oCbCiYf/u4cO/rX8tnGkRvrqhsr5BRNU6Mg0yt/8UIx1iIS8220BNJsDb7XnILhLepw==
 
-match-index@^1.0.1:
+match-index@^1.0.1, match-index@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/match-index/-/match-index-1.0.3.tgz#752ec60c6586ea5dd440d5e62cfbff25838c071a"
   integrity sha512-1XjyBWqCvEFFUDW/MPv0RwbITRD4xQXOvKoPYtLDq8IdZTfdF/cQSo5Yn4qvhfSSZgjgkTFsqJD2wOUG4ovV8Q==
@@ -12286,22 +12286,22 @@ textlint-rule-no-mix-dearu-desumasu@4.0.0:
     textlint-rule-helper "^2.0.0"
     unist-util-visit "^1.1.0"
 
-textlint-rule-preset-jtf-style@2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/textlint-rule-preset-jtf-style/-/textlint-rule-preset-jtf-style-2.3.3.tgz#5128d96f4edb566c8940e09ddcf3ce4803d133c4"
-  integrity sha512-wSBz4yqCcbKSAhlW7rhCCCPpCULTq2tT3lhyY3Q43cL+qsNx6U1UjngmQqLWkVBXVw2awQxkdeqORW7r+n4Qdg==
+textlint-rule-preset-jtf-style@2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/textlint-rule-preset-jtf-style/-/textlint-rule-preset-jtf-style-2.3.4.tgz#68cc4d5a814e0ea4dd257ee981be2e0a56d961f0"
+  integrity sha512-9z1b4/Y3Q0q+a1JrFj5fheO1DNyBaFysJg4YLwBPJ8YB3gtwwxpHhx141zyJXfnzzTZDVCaIqnM6cPHijcyRuw==
   dependencies:
     analyze-desumasu-dearu "^2.1.2"
     japanese-numerals-to-number "^1.0.2"
-    match-index "^1.0.1"
+    match-index "^1.0.3"
     moji "^0.5.1"
     regexp.prototype.flags "^1.1.1"
     regx "^1.0.4"
     sorted-joyo-kanji "^0.2.0"
     textlint-rule-helper "^2.0.0"
-    textlint-rule-prh "^5.0.0"
+    textlint-rule-prh "^5.2.1"
 
-textlint-rule-prh@^5.0.0, textlint-rule-prh@^5.2.1:
+textlint-rule-prh@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/textlint-rule-prh/-/textlint-rule-prh-5.2.1.tgz#dcbb3ee674a9c63e7ba71f73b31d675571b874fc"
   integrity sha512-RlVQRok7GnmuuCrNRSYbFqcpzJkH1g6OrVVrGE+S9drT1TzgsSSM8NkAQlP6kFnQ7fN4V7g4j6JBg0N3ArBpCg==
