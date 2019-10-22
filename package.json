@@ -228,6 +228,6 @@
     "textlint-rule-preset-jtf-style": "2.3.4",
     "textlint-rule-sentence-length": "2.1.2",
     "watch": "1.0.2",
-    "webpack-dev-server": "3.8.2"
+    "webpack-dev-server": "3.9.0"
   }
 }
