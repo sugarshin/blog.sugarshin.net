@@ -39,6 +39,7 @@ Article.propTypes = {
     title: PropTypes.string,
     next: PropTypes.shape({ title: PropTypes.string, url: PropTypes.string }),
     prev: PropTypes.shape({ title: PropTypes.string, url: PropTypes.string }),
+    tags: PropTypes.arrayOf(PropTypes.string),
   }),
   currentPathname: PropTypes.string.isRequired,
   baseShareMessage: PropTypes.string.isRequired,
