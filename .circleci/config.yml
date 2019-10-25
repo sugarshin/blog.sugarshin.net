@@ -18,12 +18,12 @@ executors:
   nodejs:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:12.4.0
+      - image: circleci/node:12.6.0
         environment:
           TZ: "Asia/Tokyo"
   cypress_browsers_chrome:
     docker:
-      - image: cypress/browsers:node12.4.0-chrome76
+      - image: cypress/browsers:node12.6.0-chrome77
 
 jobs:
   test:
