@@ -24,5 +24,11 @@ export default function ArticleItem({ article }) {
 }
 
 ArticleItem.propTypes = {
-  article: PropTypes.shape({}), // TODO:
+  article: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    preview: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }),
 }
