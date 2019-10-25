@@ -1,4 +1,4 @@
-FROM node:12.4.0 AS build
+FROM node:12.6.0 AS build
 
 WORKDIR /usr/src/app
 
@@ -17,7 +17,7 @@ RUN yarn install --production --frozen-lockfile
 ENV NODE_ENV production
 RUN npm run build:review-app
 
-FROM node:12.4.0-alpine AS release
+FROM node:12.6.0-alpine AS release
 
 WORKDIR /usr/src/app
 
