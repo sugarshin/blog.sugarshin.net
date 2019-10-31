@@ -188,7 +188,7 @@
     "url-loader": "2.2.0",
     "webapp-webpack-plugin": "2.7.1",
     "webpack": "4.41.2",
-    "webpack-cli": "3.3.9",
+    "webpack-cli": "3.3.10",
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
