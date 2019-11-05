@@ -105,7 +105,7 @@
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/plugin-syntax-import-meta": "7.2.0",
     "@babel/plugin-transform-flow-strip-types": "7.6.3",
-    "@babel/preset-env": "7.7.0",
+    "@babel/preset-env": "7.7.1",
     "@babel/preset-react": "7.7.0",
     "@primer/octicons-react": "9.2.0",
     "@redux-beacon/logger": "1.0.0",
