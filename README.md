@@ -5,6 +5,16 @@
 
 https://blog.sugarshin.net
 
+## Prerequirements
+
+Node.js 12.6.0
+
+⚠️ The version must be the same as [build.blog.sugarshin.net](https://github.com/sugarshin/build.blog.sugarshin.net)
+
+```sh
+$ cat .node-version
+```
+
 ## Setup
 
 ### Environments
