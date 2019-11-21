@@ -125,7 +125,7 @@
     "disqus-react": "1.0.7",
     "dotenv": "8.2.0",
     "feed": "4.0.0",
-    "file-loader": "4.2.0",
+    "file-loader": "4.3.0",
     "github-markdown-css": "3.0.1",
     "hast-util-sanitize": "2.0.1",
     "highlight.js": "9.16.2",
