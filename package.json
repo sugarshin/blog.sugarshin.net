@@ -196,7 +196,7 @@
     "babel-eslint": "10.0.3",
     "babel-jest": "24.9.0",
     "codecov": "3.6.1",
-    "cypress": "3.6.1",
+    "cypress": "3.7.0",
     "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.15.1",
     "eslint": "5.16.0",
