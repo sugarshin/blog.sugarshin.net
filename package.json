@@ -180,7 +180,7 @@
     "remove-markdown": "0.3.0",
     "rxjs": "5.5.8",
     "sitemap": "5.1.0",
-    "style-loader": "1.0.0",
+    "style-loader": "1.0.1",
     "stylus": "0.54.7",
     "stylus-loader": "3.0.2",
     "uglifyjs-webpack-plugin": "1.2.5",
