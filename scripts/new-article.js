@@ -30,6 +30,7 @@ const content = articleTemplate({
   title: 'Article title here',
   date: d.format('YYYY-MM-DD HH:mm'),
   ogImageURL: ogImageContent,
+  tags: ['tag name'],
   body: [
     `![Main](${ogImageContent.replace(origin, '')})`,
     '',
