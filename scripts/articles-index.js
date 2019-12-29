@@ -67,7 +67,7 @@ Promise.resolve(srcDir)
   .then(dataWithFilePathListAndPreivew => {
     return dataWithFilePathListAndPreivew
       .map(([data, filePath, preview]) => Object.assign({}, data, {
-        tags: data.tags.split(',').map(tag => tag.trim()),
+        tags: data.tags ? data.tags.split(',').map(tag => tag.trim()) : [],
         url: filePath.split('_')[1].replace('.md', ''),
         preview,
       }))
