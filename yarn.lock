@@ -1646,10 +1646,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@primer/octicons-react@9.3.1":
-  version "9.3.1"
-  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-9.3.1.tgz#f38812d387373383d40bb490b56d04eaddfbd5fe"
-  integrity sha512-UOxcHuGAJ4YvmWodrgBnx44z/bPiD2C/TD7HlOB3BvvT9ozAOwoEm7lKKQqPo9SeDLu73ZsfbFl1AvnBuspzmQ==
+"@primer/octicons-react@9.4.0":
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-9.4.0.tgz#19f6ed2eab82e78c2762315d19c7ce1677fcf4ed"
+  integrity sha512-TAPjzQaIrPqI5TpxNKkBTxS7b8Y1v7iMuiN5ZshhSp9GHbdymWKtCXRDk13lo6woDeSn/8tIdZTSerTR3c0bQA==
   dependencies:
     prop-types "^15.6.1"
 
