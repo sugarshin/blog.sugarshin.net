@@ -16,7 +16,7 @@ export default class Search extends Base {
   }
   static querystring(params = {}) {
     return `${
-      querystring.stringify({ ref: this.ref, access_token: this.accessToken })
+      querystring.stringify({ ref: this.ref })
     }&${
       querystring.stringify(params, { encode: false })
     }`
