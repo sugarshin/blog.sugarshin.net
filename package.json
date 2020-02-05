@@ -90,7 +90,6 @@
     "last 2 Edge versions",
     "last 2 Firefox versions",
     "last 2 iOS versions",
-    "last 2 Opera versions",
     "last 2 Safari versions"
   ],
   "dependencies": {
@@ -139,6 +138,7 @@
     "mini-css-extract-plugin": "0.9.0",
     "minimist": "1.2.0",
     "mirror-key-value": "1.0.5",
+    "mkdirp": "1.0.3",
     "moment": "2.24.0",
     "npm-run-all": "4.1.5",
     "optimize-css-assets-webpack-plugin": "5.0.3",
@@ -208,7 +208,6 @@
     "eslint-plugin-react": "7.18.3",
     "express": "4.17.1",
     "jest": "25.1.0",
-    "mkdirp": "1.0.3",
     "p-map": "3.0.0",
     "raf": "3.4.1",
     "stylint": "2.0.0",
