@@ -212,7 +212,7 @@
     "raf": "3.4.1",
     "stylint": "2.0.0",
     "stylint-stylish": "2.0.0",
-    "textlint": "11.6.2",
+    "textlint": "11.6.3",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-rule-eslint": "3.2.1",
     "textlint-rule-ja-no-abusage": "2.0.1",
