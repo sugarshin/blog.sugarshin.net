@@ -125,7 +125,7 @@
     "dotenv": "8.2.0",
     "feed": "4.1.0",
     "file-loader": "5.1.0",
-    "github-markdown-css": "3.0.1",
+    "github-markdown-css": "4.0.0",
     "hast-util-sanitize": "2.0.1",
     "highlight.js": "9.18.1",
     "history": "4.10.1",
