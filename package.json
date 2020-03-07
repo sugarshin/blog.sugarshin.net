@@ -41,7 +41,6 @@
     "build": "/bin/bash scripts/build.bash",
     "build:e2e-test": "/bin/bash scripts/build-e2e-test.bash",
     "build:review-app": "/bin/bash scripts/build-review-app.bash",
-    "postbuild:e2e-test": "bin/react-snap --source=build-e2e-test --cns",
     "deploy": "/bin/bash scripts/deploy.bash",
     "codecov": "codecov"
   },
@@ -163,7 +162,6 @@
     "react-router-dom": "5.1.2",
     "react-router-scroll-memory": "2.0.5",
     "react-sidebar": "3.0.2",
-    "react-snap": "1.23.0",
     "react-social": "1.10.0",
     "react-test-renderer": "16.13.0",
     "redux": "4.0.5",

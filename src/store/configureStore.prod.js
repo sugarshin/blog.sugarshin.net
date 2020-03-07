@@ -6,7 +6,7 @@ import epicMiddleware from './middlewares/epic'
 import analyticsMiddleware from './middlewares/analytics'
 import handleLocationAndDocumentChange from './middlewares/handleLocationAndDocumentChange'
 
-export default function configureStore({ history, initialState }) {
+export default function configureStore({ history }) {
   const { SEGMENT_WRITE_KEY, LOGROCKET_APP_ID } = process.env
   const middlewares = [
     createRouterMiddleware(history),
@@ -17,7 +17,6 @@ export default function configureStore({ history, initialState }) {
   ]
   const store = createStore(
     createRootReducer({ history }),
-    initialState,
     applyMiddleware(...middlewares)
   )
   return store

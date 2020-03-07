@@ -24,12 +24,6 @@ executors:
   cypress_browsers_chrome:
     docker:
       - image: cypress/browsers:node12.6.0-chrome77
-  nodejs_browsers:
-    working_directory: *workspace_root
-    docker:
-      - image: circleci/node:12.6.0-browsers
-        environment:
-          TZ: "Asia/Tokyo"
 
 jobs:
   test:
@@ -49,7 +43,7 @@ jobs:
           name: Coverage Report
           command: npm run codecov
   build_test:
-    executor: nodejs_browsers
+    executor: nodejs
     steps:
       - checkout
       - npm/install:
@@ -59,14 +53,11 @@ jobs:
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
-      - run:
-          name: Prerender
-          command: bin/react-snap --cns
       - store_artifacts:
           path: build
           destination: build
   deploy:
-    executor: nodejs_browsers
+    executor: nodejs
     steps:
       - checkout
       - npm/install:
@@ -76,9 +67,6 @@ jobs:
       - run:
           name: Build Assets
           command: NODE_ENV=production npm run build
-      - run:
-          name: Prerender
-          command: bin/react-snap --cns
       - store_artifacts:
           path: build
           destination: build
