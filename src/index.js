@@ -4,7 +4,6 @@ import 'github-markdown-css/github-markdown.css'
 import 'stylus/index.styl'
 import React from 'react'
 import { hydrate, render } from 'react-dom'
-// import ReactDOM from 'react-dom'
 import { createBrowserHistory } from 'history'
 import Raven from 'raven-js'
 import LogRocket from 'logrocket'
@@ -41,11 +40,12 @@ const main = () => {
 
   const history = createBrowserHistory()
   const store = configureStore({ history, initialState: preloadedState })
+  const root = document.querySelector('#app-root')
+
   window.snapSaveState = () => ({
     __PRELOADED_STATE__: store.getState(),
   })
-  const root = document.querySelector('#app-root')
-  // ReactDOM.render(<Root store={store} history={history} />, root)
+
   if (root.hasChildNodes()) {
     hydrate(<Root store={store} history={history} ua={navigator.userAgent} />, root)
   } else {
