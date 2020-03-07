@@ -12,6 +12,7 @@ const {
 
 module.exports = ({ segmentWriteKey, noindex }) => {
   return new HtmlPlugin({
+    template: 'src/template',
     title: siteName,
     lang,
     author: `${authorGitHubUserName} | ${authorName}`,
