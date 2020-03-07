@@ -17,7 +17,7 @@ RUN yarn install --production --frozen-lockfile
 
 ENV NODE_ENV production
 RUN npm run build:review-app
-RUN bin/react-snap --source=build-review-app --no-sandbox
+RUN bin/react-snap --source=build-review-app --ns
 
 FROM node:12.6.0-alpine AS release
 
