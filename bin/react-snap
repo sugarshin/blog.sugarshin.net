@@ -14,9 +14,11 @@ delete argv._
 delete argv.cns
 delete argv['chrome-no-sandbox']
 
-console.debug('argv', argv)
+const opts = { publicPath: '/', ...argv }
 
-run(argv).catch(error => {
+console.debug('opts: ', opts)
+
+run(opts).catch(error => {
   console.error(error)
   process.exit(1)
 })

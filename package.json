@@ -58,6 +58,7 @@
   "bugs": {
     "url": "https://github.com/sugarshin/blog.sugarshin.net/issues"
   },
+  "homepage": "https://github.com/sugarshin/blog.sugarshin.net#readme",
   "engines": {
     "node": "12.6.0"
   },
