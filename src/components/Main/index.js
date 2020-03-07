@@ -24,12 +24,12 @@ export default class Main extends Component {
   constructor(props) {
     super(props)
 
-    // TODO: move to this.props______________________________
-    //                                                       \
     this._matchMedia = window.matchMedia ? window.matchMedia('screen and (min-width: 769px)') : null
   }
   componentDidMount() {
-    this.props.actions.fetchArticleList()
+    if (this.props.articles.items.length === 0) {
+      this.props.actions.fetchArticleList()
+    }
     if (this._matchMedia) {
       this._matchMedia.addListener(this.handleChangeMediaQuery)
       this.props.actions.toggleSidebarDocked(this._matchMedia.matches)
