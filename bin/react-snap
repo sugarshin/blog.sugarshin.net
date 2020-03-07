@@ -2,16 +2,17 @@
 
 /* eslint-disable no-console */
 const { run } = require('react-snap')
-const argv = require('minimist')(process.argv.slice(2), { boolean: ['no-sandbox'], alias: { ns: 'no-sandbox' } })
+const argv = require('minimist')(process.argv.slice(2), { alias: { cns: 'chrome-no-sandbox' }})
 
-// tmp
-if (argv.ns) {
+console.debug('argv', argv)
+
+if (argv.cns) {
   argv.puppeteerArgs = ['--no-sandbox', '--disable-setuid-sandbox']
 }
 
 delete argv._
-delete argv.ns
-delete argv['no-sandbox']
+delete argv.cns
+delete argv['chrome-no-sandbox']
 
 console.debug('argv', argv)
 

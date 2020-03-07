@@ -61,7 +61,7 @@ jobs:
           command: NODE_ENV=production npm run build
       - run:
           name: Prerender
-          command: bin/react-snap --ns
+          command: bin/react-snap --cns
       - store_artifacts:
           path: build
           destination: build
@@ -78,7 +78,7 @@ jobs:
           command: NODE_ENV=production npm run build
       - run:
           name: Prerender
-          command: bin/react-snap --no-sandbox
+          command: bin/react-snap --cns
       - store_artifacts:
           path: build
           destination: build

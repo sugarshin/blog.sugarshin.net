@@ -41,7 +41,7 @@
     "build": "/bin/bash scripts/build.bash",
     "build:e2e-test": "/bin/bash scripts/build-e2e-test.bash",
     "build:review-app": "/bin/bash scripts/build-review-app.bash",
-    "postbuild:e2e-test": "bin/react-snap --source=build-e2e-test --ns",
+    "postbuild:e2e-test": "bin/react-snap --source=build-e2e-test --cns",
     "deploy": "/bin/bash scripts/deploy.bash",
     "codecov": "codecov"
   },
