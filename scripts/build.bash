@@ -6,6 +6,7 @@ BUILD=build
 npm run clean -- $BUILD
 mkdir -p $BUILD
 node scripts/articles-index -o $BUILD
+
 npm run webpack
 npm run cp:build
 

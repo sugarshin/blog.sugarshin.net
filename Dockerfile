@@ -1,8 +1,9 @@
-FROM node:12.6.0 AS build
+FROM circleci/node:12.6.0-browsers AS build
 
 WORKDIR /usr/src/app
 
 COPY articles articles
+COPY bin bin
 COPY config config
 COPY helpers helpers
 COPY scripts scripts
@@ -16,6 +17,7 @@ RUN yarn install --production --frozen-lockfile
 
 ENV NODE_ENV production
 RUN npm run build:review-app
+RUN bin/react-snap --source=build-review-app --no-sandbox
 
 FROM node:12.6.0-alpine AS release
 
