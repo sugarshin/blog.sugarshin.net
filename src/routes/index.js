@@ -6,7 +6,7 @@ import Article from 'routes/Article'
 import Archives from 'routes/Archives'
 import Tags from 'routes/Tags'
 import Search from 'routes/Search'
-import NotFound from 'routes/NotFound'
+import NotFound from 'components/NotFound' // TODO
 
 export default function Routes() {
   return (
