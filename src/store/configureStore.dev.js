@@ -6,9 +6,10 @@ import { createRouterMiddleware } from './middlewares/router'
 import epicMiddleware from './middlewares/epic'
 // import DevTools from 'store/debugger/DevTools'
 
-export default function configureStore({ history }) {
+export default function configureStore({ history, initialState }) {
   const store = createStore(
     createRootReducer({ history }),
+    initialState,
     compose(
       applyMiddleware(
         createRouterMiddleware(history),
