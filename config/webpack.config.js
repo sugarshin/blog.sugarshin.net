@@ -3,11 +3,9 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const HtmlPlugin = require('html-webpack-plugin')
 const WebappPlugin = require('webapp-webpack-plugin')
-const getBaseHtmlPluginConfig = require('./webpack/getBaseHtmlPluginConfig')
 const webappPluginConfig = require('./webpack/webappPluginConfig')
-const createHtmlPlugins = require('./webpack/createHtmlPlugins')
+const createHtmlPlugin = require('./webpack/createHtmlPlugin')
 const getStylRule = require('./webpack/rules/getStylRule')
 const getCssRule = require('./webpack/rules/getCssRule')
 const getImageRule = require('./webpack/rules/image/getImageRule')
@@ -51,13 +49,11 @@ if (prod) {
       chunkFilename: `${assetsDir}/[name]-[contenthash].css`,
     }),
     new WebappPlugin(webappPluginConfig),
-    ...createHtmlPlugins({ segmentWriteKey, noindex: Boolean(process.env.NOINDEX) })
+    createHtmlPlugin({ segmentWriteKey, noindex: Boolean(process.env.NOINDEX) })
   )
 } else {
   plugins.push(
-    new HtmlPlugin(
-      getBaseHtmlPluginConfig({ segmentWriteKey })
-    ),
+    createHtmlPlugin({ segmentWriteKey }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   )
