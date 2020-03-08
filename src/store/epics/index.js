@@ -24,7 +24,6 @@ export const fetchArticleList = action$ => action$
   ))
   .catch(e => of$(actions.receiveArticleList(e)))
 
-// TODO: I think this is a not Rx way...
 export const fetchArticle = (action$, store) => action$
   .ofType(types.FETCH_ARTICLE)
   .mergeMap(({ payload: url }) => {
@@ -34,7 +33,7 @@ export const fetchArticle = (action$, store) => action$
     return concat$(
       of$(actions.requestArticle()),
       fromPromise$(
-        Promise.all([Articles.getList(), Articles.get(url)])
+        Promise.all([getArticleList(store.getState()), Articles.get(url)])
       )
       .map(([items, markdown]) => {
         const [next, prev] = createNextAndPrev(items, url)
@@ -48,6 +47,9 @@ export const fetchArticle = (action$, store) => action$
   .catch(error => of$(actions.receiveArticle(error)))
 
 const shouldUseCachedArticle = (state, url) => has(state.article.cache, url)
+const getArticleList = state => {
+  return state.articles.items.length > 0 ? Promise.resolve(state.articles.items) : Articles.getList()
+}
 
 export const searchArticle = action$ => action$
   .ofType(types.SEARCH_ARTICLE)

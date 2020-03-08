@@ -22,10 +22,18 @@ export default class Article extends Component {
   }
   render() {
     const { location, article } = this.props
+
     return (
       <div>
         <Helmet>
           <title>{article.title}</title>
+          <meta name='title' content={`${article.title} | ${siteName}`} />
+          <meta name='description' content={article.description} />
+          <meta property='og:title' content={article.title} />
+          <meta property='og:description' content={article.description} />
+          <meta property='og:type' content={article.pageType} />
+          <meta property='og:image' content={article.ogImageURL} />
+          <meta property='og:url' content={article.publicURL} />
         </Helmet>
         <PageTitle title={article.title} />
         {article.markdown ? (

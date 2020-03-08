@@ -6,15 +6,24 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Main from 'components/Main'
 import { documentHeadStateChanged } from 'actions/app'
+import { protocol, domain, siteName, description } from '../../config/settings'
 
 const App = ({ children, onChangeClientState }) => {
   return (
     <Main>
       <Helmet
-        titleTemplate='%s | blog.sugarshin.net'
-        defaultTitle='blog.sugarshin.net'
+        titleTemplate={`%s | ${siteName}`}
+        defaultTitle={siteName}
         onChangeClientState={onChangeClientState}
-      />
+      >
+        <meta name='title' content={siteName} />
+        <meta name='description' content={description} />
+        <meta property='og:title' content={siteName} />
+        <meta property='og:description' content={description} />
+        <meta property='og:type' content='website' />
+        <meta property='og:image' content={`${protocol}//${domain}/assets/images/common/open-graph.jpg`} />
+        <meta property='og:url' content={`${protocol}//${domain}/`} />
+      </Helmet>
       <ScrollMemory elementID={Main.mainContentId} />
       {children}
     </Main>

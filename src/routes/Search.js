@@ -8,6 +8,7 @@ import SearchResults from 'components/SearchResults'
 import LoadingSpinner from 'components/utils/LoadingSpinner'
 import NoResults from 'components/NoResults'
 import connectStore from 'modules/connectStore'
+import { siteName, description, protocol, domain } from '../../config/settings'
 
 @connectStore()
 export default class Search extends Component {
@@ -34,6 +35,11 @@ export default class Search extends Component {
       <div>
         <Helmet>
           <title>{`${this.q} | Search`}</title>
+          <meta name='title' content={`${this.q} | Search | ${siteName}`} />
+          <meta name='description' content={`Search | ${this.q} | ${description}`} />
+          <meta property='og:title' content={`${this.q} | Search | ${siteName}`} />
+          <meta property='og:description' content={`Search | ${this.q} | ${description}`} />
+          <meta property='og:url' content={`${protocol}//${domain}/search/?q=${this.q}`} />
         </Helmet>
         <PageTitle title={`Search result "${this.q}"`} />
         {searchResults.isFetching ? <LoadingSpinner /> : (
