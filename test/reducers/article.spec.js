@@ -34,12 +34,16 @@ author:
   name: Shingo Sato
   url: https://sugarshin.net/
 tags: nitto, sugino, fixed gear
+ogp:
+  og:
+    image:
+      src: https://blog.sugarshin.net/assets/images/2016/06/05/foo/main.png
 ---
 
 - bar
 - buz
 `
-    const url = '/foo'
+    const url = '2016-06-05_foo.md'
     const next = { title: 'Next articel title', url: '/hoge' }
     const prev = { title: 'Previous articel title', url: '/fuga' }
     const actual = reducer(state, actions.receiveArticle({ markdown, url, next, prev }))
