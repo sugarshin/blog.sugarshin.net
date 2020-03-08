@@ -1,3 +1,5 @@
+import { protocol, domain } from '../../../config/settings'
+
 // Item
 // {
 //   date: '2016-04-30 15:00',
@@ -24,6 +26,10 @@ export const article = {
   date: '',
   tags: [],
   url: '',
+  description: '',
+  pageType: 'article',
+  publicURL: '',
+  ogImageURL: `${protocol}//${domain}/assets/images/common/open-graph.jpg`,
   next: null,
   prev: null,
   isFetching: false,

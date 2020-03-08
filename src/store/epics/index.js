@@ -24,7 +24,6 @@ export const fetchArticleList = action$ => action$
   ))
   .catch(e => of$(actions.receiveArticleList(e)))
 
-// TODO: I think this is a not Rx way...
 export const fetchArticle = (action$, store) => action$
   .ofType(types.FETCH_ARTICLE)
   .mergeMap(({ payload: url }) => {
