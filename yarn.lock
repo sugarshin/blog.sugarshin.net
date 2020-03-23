@@ -11941,10 +11941,10 @@ remark-toc@7.0.0:
     "@types/unist" "^2.0.3"
     mdast-util-toc "^5.0.0"
 
-remark-yaml-config@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/remark-yaml-config/-/remark-yaml-config-4.1.0.tgz#2306a7225c2bd06d642e691d467b570aa23d7739"
-  integrity sha512-FqTDJ2sIl1j0ZpT+wCtFNe0KcZ9GMhfhuOuT9RhPEpK2mehbNm4kTmWlSZm1qvULVt2O01CK9kVkc/dfbRix0w==
+remark-yaml-config@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/remark-yaml-config/-/remark-yaml-config-4.1.1.tgz#d9c29fcd49fb356d5490dd49ca1142c8707c88a5"
+  integrity sha512-aderCxpWBBpyZ6d6P6aSzG6Teh6nAh6EiYvXbYRvxIRMxdEnVeNL2qyMvDhZN2rT/OesapBKHr+HGi4rqn2PMQ==
   dependencies:
     js-yaml "^3.5.2"
 
