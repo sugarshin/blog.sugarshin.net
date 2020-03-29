@@ -198,7 +198,7 @@
   "devDependencies": {
     "@octokit/rest": "16.43.1",
     "babel-eslint": "10.1.0",
-    "babel-jest": "25.2.3",
+    "babel-jest": "25.2.4",
     "codecov": "3.6.5",
     "cypress": "4.2.0",
     "enzyme": "3.11.0",
@@ -209,7 +209,7 @@
     "eslint-plugin-cypress": "2.10.3",
     "eslint-plugin-react": "7.19.0",
     "express": "4.17.1",
-    "jest": "25.2.3",
+    "jest": "25.2.4",
     "p-map": "3.0.0",
     "raf": "3.4.1",
     "stylint": "2.0.0",
