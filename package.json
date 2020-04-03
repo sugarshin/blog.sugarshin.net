@@ -209,7 +209,7 @@
     "eslint-plugin-cypress": "2.10.3",
     "eslint-plugin-react": "7.19.0",
     "express": "4.17.1",
-    "jest": "25.2.6",
+    "jest": "25.2.7",
     "p-map": "3.0.0",
     "raf": "3.4.1",
     "stylint": "2.0.0",
