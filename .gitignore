@@ -67,5 +67,4 @@ build-dev
 build-e2e-test
 build-review-app
 
-cypress/videos
-cypress/screenshots
+e2e-test-artifacts

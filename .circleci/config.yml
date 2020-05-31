@@ -10,7 +10,6 @@ references:
 
 orbs:
   slack: circleci/slack@1.1.0
-  cypress: cypress-io/cypress@1.19.1
   gh-pages: sugarshin/gh-pages@0.0.6
   npm: sugarshin/npm@0.1.5
 
@@ -21,15 +20,28 @@ executors:
       - image: circleci/node:12.6.0
         environment:
           TZ: "Asia/Tokyo"
-  cypress_browsers_chrome:
-    docker:
-      - image: cypress/browsers:node12.6.0-chrome77
   nodejs_browsers:
     working_directory: *workspace_root
     docker:
       - image: circleci/node:12.6.0-browsers
         environment:
           TZ: "Asia/Tokyo"
+  playwright_base:
+    working_directory: *workspace_root
+    docker:
+      - image: sugarshin/playwright-base:2.1.0-node12
+        environment:
+          TZ: "Asia/Tokyo"
+
+commands:
+  build_assets:
+    steps:
+      - run:
+          name: Build Assets
+          command: NODE_ENV=production npm run build
+      - run:
+          name: Prerender
+          command: bin/react-snap --cns
 
 jobs:
   test:
@@ -56,12 +68,7 @@ jobs:
           yarn: true
           cache-key: 'cache-{{ checksum "yarn.lock" }}'
           production: true
-      - run:
-          name: Build Assets
-          command: NODE_ENV=production npm run build
-      - run:
-          name: Prerender
-          command: bin/react-snap --cns
+      - build_assets
       - store_artifacts:
           path: build
           destination: build
@@ -73,12 +80,7 @@ jobs:
           yarn: true
           cache-key: 'cache-{{ checksum "yarn.lock" }}'
           production: true
-      - run:
-          name: Build Assets
-          command: NODE_ENV=production npm run build
-      - run:
-          name: Prerender
-          command: bin/react-snap --cns
+      - build_assets
       - store_artifacts:
           path: build
           destination: build
@@ -95,6 +97,33 @@ jobs:
           message: "Blog has been updated! <https://blog.sugarshin.net>"
           mentions: "${SLACK_UUID}"
           webhook: ${SLACK_WEBHOOK_URL}
+  e2e_test:
+    executor: playwright_base
+    steps:
+      - checkout
+      - npm/install:
+          yarn: true
+          cache-key: 'cache-{{ checksum "yarn.lock" }}'
+      - run:
+          command: npm run build:e2e-test
+          environment:
+            NODE_ENV: production
+      - run:
+          command: node static-serve
+          background: true
+          environment:
+            PORT: '3000'
+            DIR: build-e2e-test
+      - run:
+          command: npx wait-on@5 http-get://localhost:3000
+      - run:
+          command: npm run e2e-test:ci
+          environment:
+            BASE_URL: http://localhost:3000
+            ARTIFACTS_DIR: e2e-test-artifacts
+      - store_artifacts:
+          path: e2e-test-artifacts
+          destination: e2e-test-artifacts
 
 workflows:
   test_build_deploy_notify:
@@ -103,18 +132,8 @@ workflows:
           <<: *filter_gh_pages
       - build_test:
           <<: *filter_gh_pages
-      - cypress/run:
+      - e2e_test:
           <<: *filter_gh_pages
-          name: e2e_test
-          executor: cypress_browsers_chrome
-          yarn: true
-          cache-key: 'v1-dependencies-cypress-{{ checksum "yarn.lock" }}'
-          build: NODE_ENV=production npm run build:e2e-test
-          start: PORT=3000 DIR=build-e2e-test node static-serve
-          wait-on: 'http-get://localhost:3000'
-          browser: chrome
-          no-workspace: true
-          store_artifacts: true
       - deploy:
           requires:
             - test
