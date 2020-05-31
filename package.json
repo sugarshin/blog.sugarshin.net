@@ -132,7 +132,7 @@
     "history": "4.10.1",
     "html-webpack-plugin": "4.3.0",
     "is-absolute-url": "3.0.3",
-    "js-yaml": "3.13.1",
+    "js-yaml": "3.14.0",
     "lodash": "4.17.15",
     "logrocket": "1.0.7",
     "logrocket-react": "4.0.1",
