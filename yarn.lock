@@ -1994,10 +1994,10 @@
     lodash "^4.17.15"
     lodash-es "^4.17.15"
 
-"@segment/snippet@4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.4.0.tgz#153f17b8048a2764bbb1343a61f3c3c24da038e2"
-  integrity sha1-FT8XuASKJ2S7sTQ6YfPDwk2gOOI=
+"@segment/snippet@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.12.0.tgz#a31d1e31e9f7b78f805327a85474ce2a5973a922"
+  integrity sha512-9H+wgJAlbuTEKpDg1HUWeNEcSIQg+07M4PgI2FXe8qEiZ9KBDjd0ierm1EcBwmy7b9d8zvnRAvfEWBbQvAzimg==
   dependencies:
     "@ndhoule/map" "^2.0.1"
 
