@@ -8,10 +8,9 @@
 .textlintrc
 README.md
 app.json
-cypress
-cypress.json
 heroku.yml
 node_modules
 renovate.json
 resources
 test
+e2e-test-artifacts

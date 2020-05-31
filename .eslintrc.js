@@ -5,7 +5,7 @@ const reactSettings = () => ({ version: pkg.dependencies.react.replace(/[^0-9.]/
 module.exports = {
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   parser: 'babel-eslint',
-  plugins: ['babel', 'react', 'cypress'],
+  plugins: ['babel', 'react'],
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {
@@ -17,7 +17,6 @@ module.exports = {
     browser: true,
     node: true,
     jest: true,
-    'cypress/globals': true,
   },
   rules: {
     'no-console': 1,
