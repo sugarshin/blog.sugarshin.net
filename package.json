@@ -124,7 +124,7 @@
     "css-mqpacker": "7.0.0",
     "disqus-react": "1.0.8",
     "dotenv": "8.2.0",
-    "feed": "4.1.0",
+    "feed": "4.2.0",
     "file-loader": "6.0.0",
     "github-markdown-css": "4.0.0",
     "hast-util-sanitize": "2.0.2",
