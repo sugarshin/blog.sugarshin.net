@@ -9,7 +9,7 @@ references:
         ignore: gh-pages
 
 orbs:
-  slack: circleci/slack@1.1.0
+  slack: circleci/slack@3.4.2
   gh-pages: sugarshin/gh-pages@0.0.6
   npm: sugarshin/npm@0.1.5
 
