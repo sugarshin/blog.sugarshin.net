@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { Component } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import PageTitle from 'components/PageTitle'
 import Articles from 'components/Articles'
 import connectStore from 'modules/connectStore'

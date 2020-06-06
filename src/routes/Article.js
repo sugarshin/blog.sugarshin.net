@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { Component } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import isEqual from 'lodash/isEqual'
 import PageTitle from 'components/PageTitle'
 import ArticleComponent from 'components/Article'
