@@ -6614,10 +6614,10 @@ global@~4.3.0:
     min-document "^2.19.0"
     process "~0.5.1"
 
-globals@13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-13.0.0.tgz#34694ea5ce49ba46fde3f110e162586ba58ff6ca"
-  integrity sha512-TdLO3ykvHpNsJZiMr+RfkwoMI+XdDaFbH87w/UZGrSzNvZ5cUU6W50oPKSDZgb6eoMWZ6Pltf5Y3oQBpKLUSkA==
+globals@13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-13.1.0.tgz#ad4f301f0e55e4f72767faa01a69de8fdaf50ea1"
+  integrity sha512-4N8AdK8YMcr4nLOUsCP62jhMVAaJVdrEevrmuqHQ/TTXCXVL8ywhd/whKrufcp1zGtKBqw4DHcvsokQ60khOJA==
   dependencies:
     type-fest "^0.8.1"
 

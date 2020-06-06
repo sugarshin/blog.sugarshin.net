@@ -207,7 +207,7 @@
     "eslint-plugin-babel": "5.3.0",
     "eslint-plugin-react": "7.20.0",
     "express": "4.17.1",
-    "globals": "13.0.0",
+    "globals": "13.1.0",
     "jest": "26.0.1",
     "make-dir": "3.1.0",
     "p-map": "3.0.0",
