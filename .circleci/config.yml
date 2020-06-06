@@ -34,11 +34,13 @@ executors:
           TZ: "Asia/Tokyo"
 
 commands:
-  build_assets:
+  build_prod_assets:
     steps:
       - run:
           name: Build Assets
-          command: NODE_ENV=production npm run build
+          command: npm run build
+          environment:
+            NODE_ENV: production
       - run:
           name: Prerender
           command: bin/react-snap --cns
@@ -68,7 +70,7 @@ jobs:
           yarn: true
           cache-key: 'cache-{{ checksum "yarn.lock" }}'
           production: true
-      - build_assets
+      - build_prod_assets
       - store_artifacts:
           path: build
           destination: build
@@ -80,7 +82,7 @@ jobs:
           yarn: true
           cache-key: 'cache-{{ checksum "yarn.lock" }}'
           production: true
-      - build_assets
+      - build_prod_assets
       - store_artifacts:
           path: build
           destination: build
