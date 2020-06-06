@@ -32,6 +32,10 @@ executors:
       - image: sugarshin/playwright-base:2.1.0-node12
         environment:
           TZ: "Asia/Tokyo"
+  buildpack_deps:
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/buildpack-deps:stable
 
 commands:
   build_prod_assets:
@@ -46,7 +50,7 @@ commands:
           command: bin/react-snap --cns
 
 jobs:
-  test:
+  lint_unittest:
     executor: nodejs
     steps:
       - checkout
@@ -62,50 +66,17 @@ jobs:
       - run:
           name: Coverage Report
           command: npm run codecov
-  build_test:
-    executor: nodejs_browsers
-    steps:
-      - checkout
-      - npm/install:
-          yarn: true
-          cache-key: 'cache-{{ checksum "yarn.lock" }}'
-          production: true
-      - build_prod_assets
-      - store_artifacts:
-          path: build
-          destination: build
-  deploy:
-    executor: nodejs_browsers
-    steps:
-      - checkout
-      - npm/install:
-          yarn: true
-          cache-key: 'cache-{{ checksum "yarn.lock" }}'
-          production: true
-      - build_prod_assets
-      - store_artifacts:
-          path: build
-          destination: build
-      - gh-pages/deploy:
-          workspace-root: *workspace_root
-          build-dir: build
-          git-user: CircleCI
-          git-email: s+circleci@sugarshin.net
-          ssh-fingerprints: 4f:c7:c2:20:07:b5:11:84:75:b4:e5:94:73:48:9b:4b
-  notify_slack:
-    machine: true
-    steps:
-      - slack/notify:
-          message: "Blog has been updated! <https://blog.sugarshin.net>"
-          mentions: "${SLACK_UUID}"
-          webhook: ${SLACK_WEBHOOK_URL}
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - node_modules
+
   e2e_test:
     executor: playwright_base
     steps:
       - checkout
-      - npm/install:
-          yarn: true
-          cache-key: 'cache-{{ checksum "yarn.lock" }}'
+      - attach_workspace:
+          at: *workspace_root
       - run:
           command: npm run build:e2e-test
           environment:
@@ -116,8 +87,7 @@ jobs:
           environment:
             PORT: '3000'
             DIR: build-e2e-test
-      - run:
-          command: npx wait-on@5 http-get://localhost:3000
+      - run: npx wait-on@5 http-get://localhost:3000
       - run:
           command: npm run e2e-test:ci
           environment:
@@ -127,20 +97,53 @@ jobs:
           path: e2e-test-artifacts
           destination: e2e-test-artifacts
 
+  build:
+    executor: nodejs_browsers
+    steps:
+      - checkout
+      - attach_workspace:
+          at: *workspace_root
+      - build_prod_assets
+      - store_artifacts:
+          path: build
+          destination: build
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - build
+
+  notify_slack:
+    machine: true
+    steps:
+      - slack/notify:
+          message: "Blog has been updated! <https://blog.sugarshin.net>"
+          mentions: "${SLACK_UUID}"
+          webhook: ${SLACK_WEBHOOK_URL}
+
 workflows:
   test_build_deploy_notify:
     jobs:
-      - test:
-          <<: *filter_gh_pages
-      - build_test:
+      - lint_unittest:
           <<: *filter_gh_pages
       - e2e_test:
           <<: *filter_gh_pages
-      - deploy:
           requires:
-            - test
-            - build_test
+            - lint_unittest
+      - build:
+          <<: *filter_gh_pages
+          requires:
             - e2e_test
+      - gh-pages/deploy:
+          name: deploy
+          executor: buildpack_deps
+          build-dir: build
+          attach-workspace: true
+          workspace-root: *workspace_root
+          git-user: CircleCI
+          git-email: s+circleci@sugarshin.net
+          ssh-fingerprints: 4f:c7:c2:20:07:b5:11:84:75:b4:e5:94:73:48:9b:4b
+          requires:
+            - build
           filters:
             branches:
               only: master
