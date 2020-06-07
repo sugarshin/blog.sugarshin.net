@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import LogRocket from 'logrocket'
 import { createRootReducer } from 'reducers'
 import { createRouterMiddleware } from './middlewares/router'
+import { createThunkMiddleware } from './middlewares/thunk'
 import epicMiddleware from './middlewares/epic'
 import analyticsMiddleware from './middlewares/analytics'
 import handleLocationAndDocumentChange from './middlewares/handleLocationAndDocumentChange'
@@ -9,6 +10,7 @@ import handleLocationAndDocumentChange from './middlewares/handleLocationAndDocu
 export default function configureStore({ history, initialState }) {
   const { SEGMENT_WRITE_KEY, LOGROCKET_APP_ID } = process.env
   const middlewares = [
+    createThunkMiddleware(),
     createRouterMiddleware(history),
     epicMiddleware(),
     ...(SEGMENT_WRITE_KEY ? [analyticsMiddleware()] : []),

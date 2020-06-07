@@ -12,18 +12,6 @@ import types from 'constants/ActionTypes'
 import * as actions from 'actions'
 import createNextAndPrev from './helpers/createNextAndPrev'
 
-export const fetchArticleList = action$ => action$
-  .ofType(types.FETCH_ARTICLE_LIST)
-  .mergeMap(() => concat$(
-    of$(actions.requestArticleList()),
-    fromPromise$(Articles.getList())
-    .map(actions.receiveArticleList)
-    .catch(e =>
-      of$(actions.receiveArticleList(e))
-    )
-  ))
-  .catch(e => of$(actions.receiveArticleList(e)))
-
 export const fetchArticle = (action$, store) => action$
   .ofType(types.FETCH_ARTICLE)
   .mergeMap(({ payload: url }) => {
@@ -58,7 +46,6 @@ export const searchArticle = action$ => action$
   .catch(e => of$(actions.receiveSearchArticle(e)))
 
 export default combineEpics(
-  fetchArticleList,
   fetchArticle,
   searchArticle
 )
