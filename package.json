@@ -34,6 +34,7 @@
     "lint": "run-p lint:*",
     "test": "NODE_PATH=src:node_modules jest --verbose",
     "test:coverage": "npm test -- --coverage",
+    "test:ci": "npm run test:coverage -- --maxWorkers=2",
     "e2e-test": "jest -c e2e-test/jest.config.js",
     "e2e-test:ci": "npm run e2e-test -- --maxWorkers=2",
     "templates:build": "node scripts/templates",

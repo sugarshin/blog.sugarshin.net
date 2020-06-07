@@ -56,7 +56,7 @@ jobs:
           command: npm run lint
       - run:
           name: Test
-          command: npm run test:coverage
+          command: npm run test:ci
       - run:
           name: Coverage Report
           command: npm run codecov

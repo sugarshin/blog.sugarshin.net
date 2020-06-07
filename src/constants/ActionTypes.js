@@ -3,7 +3,6 @@ import mirrorKeyValue from 'mirror-key-value'
 export default mirrorKeyValue([
   'CLOSE_SIDEBAR',
   'DOCUMENT_HEAD_STATE_CHANGED',
-  'FETCH_ARTICLE',
   'LOCATION_CHANGED',
   'OPEN_SIDEBAR',
   'RECEIVE_ARTICLE',
