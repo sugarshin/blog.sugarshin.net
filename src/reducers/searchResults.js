@@ -4,7 +4,7 @@ import { searchResults as initialState } from './initialState'
 
 export default handleActions(
   {
-    [actions.searchArticle]: state => ({
+    [actions.requestSearchArticle]: state => ({
       ...state,
       isFetching: true,
       error: null,

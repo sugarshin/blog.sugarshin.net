@@ -1,7 +1,12 @@
 import { createAction } from 'redux-actions'
 import types from 'constants/ActionTypes'
 
-export const searchArticle = createAction(types.SEARCH_ARTICLE)
+export const searchArticle = query => async (dispatch, _, { api }) => {
+  dispatch(requestSearchArticle())
+  const res = await api.Search.execute(query).catch(e => e)
+  dispatch(receiveSearchArticle(res))
+}
+export const requestSearchArticle = createAction(types.REQUEST_SEARCH_ARTICLE)
 export const receiveSearchArticle = createAction(
   types.RECEIVE_SEARCH_ARTICLE,
   res => ({
