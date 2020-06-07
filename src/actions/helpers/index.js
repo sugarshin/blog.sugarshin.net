@@ -3,7 +3,7 @@
  * @param {string} url
  * @returns {[{ title: string, url: string } | null]}
  */
-const createNextAndPrev = (items, url) => {
+export function createNextAndPrev(items, url) {
   const ascendingSortedItems = [...items].reverse()
   const targetIndex = ascendingSortedItems.findIndex(item => `${item.date.split(' ')[0]}_${item.url}.md` === url)
   if (targetIndex === -1) {
@@ -18,5 +18,3 @@ const createNextAndPrev = (items, url) => {
     url: `/${item.date.split(' ')[0].replace(/-/g, '/')}/${item.url}`,
   }))
 }
-
-export default createNextAndPrev
