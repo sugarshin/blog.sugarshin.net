@@ -2,11 +2,6 @@ import * as actions from 'actions/article'
 import types from 'constants/ActionTypes'
 
 describe('article actions suite', () => {
-  it('fetchArticle', () => {
-    expect(actions.fetchArticle()).toMatchObject({
-      type: types.FETCH_ARTICLE,
-    })
-  })
   it('useCachedArticle', () => {
     expect(actions.useCachedArticle('https://example.com/foo/bar/buz')).toMatchObject({
       type: types.USE_CACHED_ARTICLE,
