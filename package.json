@@ -171,7 +171,7 @@
     "redux-beacon": "2.1.0",
     "redux-logger": "3.0.6",
     "redux-thunk": "2.3.0",
-    "rehype-stringify": "6.0.1",
+    "rehype-stringify": "8.0.0",
     "remark-external-links": "6.1.0",
     "remark-frontmatter": "2.0.0",
     "remark-parse": "8.0.2",
