@@ -43,8 +43,7 @@
     "build:e2e-test": "/bin/bash scripts/build-e2e-test.bash",
     "build:review-app": "/bin/bash scripts/build-review-app.bash",
     "postbuild:e2e-test": "bin/react-snap --source=build-e2e-test --cns",
-    "deploy": "/bin/bash scripts/deploy.bash",
-    "codecov": "codecov"
+    "deploy": "/bin/bash scripts/deploy.bash"
   },
   "repository": {
     "type": "git",
@@ -199,7 +198,6 @@
     "@octokit/rest": "16.43.2",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.0.1",
-    "codecov": "3.7.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",
     "eslint": "7.2.0",
