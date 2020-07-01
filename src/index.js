@@ -33,7 +33,7 @@ const main = () => {
   }
 
   APIBase.baseURI = process.env.API_BASE
-  APIBase.ref = process.env.API_BASE ? 'master' : null
+  APIBase.ref = process.env.BRANCH ? process.env.BRANCH : process.env.API_BASE ? 'master' : null
 
   const preloadedState = window.__PRELOADED_STATE__
   delete window.__PRELOADED_STATE__
