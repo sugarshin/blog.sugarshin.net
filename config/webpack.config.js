@@ -15,25 +15,20 @@ const { PRODUCTION, DEVELOPMENT } = require('./env')
 
 require('dotenv').config()
 
-const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM, LOGROCKET_APP_ID } = process.env
+const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM, LOGROCKET_APP_ID, CIRCLE_BRANCH } = process.env
 const prod = NODE_ENV === PRODUCTION
-const apiBase = API_BASE || ''
-const segmentWriteKey = SEGMENT_WRITE_KEY || null
-const githubAccessTokens = GITHUB_ACCESS_TOKENS || null
-const circleBuildNum = CIRCLE_BUILD_NUM || 0
-const sentryDSN = SENTRY_DSN || null
-const logrocketAppId = LOGROCKET_APP_ID || ''
 
 const plugins = [
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(NODE_ENV),
-      API_BASE: JSON.stringify(apiBase),
-      BUILD_NUMBER: JSON.stringify(circleBuildNum),
-      SEGMENT_WRITE_KEY: JSON.stringify(segmentWriteKey),
-      GITHUB_ACCESS_TOKENS: JSON.stringify(githubAccessTokens),
-      SENTRY_DSN: JSON.stringify(sentryDSN),
-      LOGROCKET_APP_ID: JSON.stringify(logrocketAppId),
+      API_BASE: JSON.stringify(API_BASE),
+      BUILD_NUMBER: JSON.stringify(CIRCLE_BUILD_NUM || 0),
+      SEGMENT_WRITE_KEY: JSON.stringify(SEGMENT_WRITE_KEY),
+      GITHUB_ACCESS_TOKENS: JSON.stringify(GITHUB_ACCESS_TOKENS),
+      SENTRY_DSN: JSON.stringify(SENTRY_DSN),
+      LOGROCKET_APP_ID: JSON.stringify(LOGROCKET_APP_ID),
+      BRANCH: JSON.stringify(CIRCLE_BRANCH),
     },
   }),
 ]
@@ -49,11 +44,11 @@ if (prod) {
       chunkFilename: `${assetsDir}/[name]-[contenthash].css`,
     }),
     new WebappPlugin(webappPluginConfig),
-    createHtmlPlugin({ segmentWriteKey, noindex: Boolean(process.env.NOINDEX) })
+    createHtmlPlugin({ segmentWriteKey: SEGMENT_WRITE_KEY, noindex: Boolean(process.env.NOINDEX) })
   )
 } else {
   plugins.push(
-    createHtmlPlugin({ segmentWriteKey }),
+    createHtmlPlugin({ segmentWriteKey: SEGMENT_WRITE_KEY }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   )
@@ -127,6 +122,9 @@ module.exports = {
         secure: false,
         changeOrigin: true,
       },
+    },
+    before: app => {
+      app.get('/favicon.ico', (_, res) => res.status(200).send())
     },
   },
 }
