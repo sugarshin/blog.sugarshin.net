@@ -1,7 +1,6 @@
 # blog.sugarshin.net
 
 [![Build Status][circleci-image]][circleci-url]
-[![Codecov Status][codecov-image]][codecov-url]
 
 https://blog.sugarshin.net
 
@@ -64,5 +63,3 @@ Everything else in the repository is [MIT](https://sugarshin.mit-license.org/) l
 
 [circleci-image]: https://circleci.com/gh/sugarshin/blog.sugarshin.net/tree/master.svg?style=svg&circle-token=812f62f2aeba2a3bb9bfe6adf2abd24d7754a7be
 [circleci-url]: https://circleci.com/gh/sugarshin/blog.sugarshin.net/tree/master
-[codecov-image]: https://codecov.io/gh/sugarshin/blog.sugarshin.net/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/sugarshin/blog.sugarshin.net
