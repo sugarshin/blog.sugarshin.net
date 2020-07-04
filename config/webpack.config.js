@@ -18,6 +18,8 @@ require('dotenv').config()
 const { NODE_ENV, API_BASE, SEGMENT_WRITE_KEY, GITHUB_ACCESS_TOKENS, PORT, SENTRY_DSN, CIRCLE_BUILD_NUM, LOGROCKET_APP_ID, CIRCLE_BRANCH } = process.env
 const prod = NODE_ENV === PRODUCTION
 
+const BRANCH = require('child_process').execSync('git symbolic-ref --short HEAD').toString().replace(/\n/, '')
+
 const plugins = [
   new webpack.DefinePlugin({
     'process.env': {
@@ -28,7 +30,7 @@ const plugins = [
       GITHUB_ACCESS_TOKENS: JSON.stringify(GITHUB_ACCESS_TOKENS),
       SENTRY_DSN: JSON.stringify(SENTRY_DSN),
       LOGROCKET_APP_ID: JSON.stringify(LOGROCKET_APP_ID),
-      BRANCH: JSON.stringify(CIRCLE_BRANCH),
+      BRANCH: JSON.stringify(CIRCLE_BRANCH || BRANCH),
     },
   }),
 ]
