@@ -3,11 +3,11 @@
 import React, { Component } from 'react'
 import { ListGroup, FormControl } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import { MegaphoneIcon, CalendarIcon, TagIcon, LinkIcon, SearchIcon, RssIcon } from '@primer/octicons-react'
 import keydown, { Keys } from 'react-keydown'
 import moment from 'moment'
 import queryString from 'query-string'
 import SidebarMenuGroup from 'components/SidebarMenuGroup'
-import Octicon from 'components/utils/Octicon'
 import { feedURL } from '../../../config/settings'
 import styles from './index.styl'
 
@@ -32,7 +32,7 @@ export default class SidebarMenu extends Component {
           {...this.props}
           id='recent-posts'
           title='Recent posts'
-          titleIcon={<Octicon name='megaphone' />}
+          titleIcon={<MegaphoneIcon />}
         >
           {this.renderRecentPosts()}
         </SidebarMenuGroup>
@@ -40,7 +40,7 @@ export default class SidebarMenu extends Component {
           {...this.props}
           id='archives'
           title='Archives'
-          titleIcon={<Octicon name='calendar' />}
+          titleIcon={<CalendarIcon />}
         >
           {this.renderArchives()}
         </SidebarMenuGroup>
@@ -48,7 +48,7 @@ export default class SidebarMenu extends Component {
           {...this.props}
           id='tags'
           title='Tags'
-          titleIcon={<Octicon name='tag' />}
+          titleIcon={<TagIcon />}
         >
           {this.renderTags()}
         </SidebarMenuGroup>
@@ -56,7 +56,7 @@ export default class SidebarMenu extends Component {
           {...this.props}
           id='links'
           title='Links'
-          titleIcon={<Octicon name='link' />}
+          titleIcon={<LinkIcon />}
         >
           {this.renderLinks()}
         </SidebarMenuGroup>
@@ -64,7 +64,7 @@ export default class SidebarMenu extends Component {
           {...this.props}
           id='search-article'
           title='Search'
-          titleIcon={<Octicon name='search' />}
+          titleIcon={<SearchIcon />}
         >
           <FormControl
             onKeyDown={this.submitSearchQuery}
@@ -76,7 +76,7 @@ export default class SidebarMenu extends Component {
         </SidebarMenuGroup>
         <div className={styles.feed}>
           <a href={`/${feedURL}`}>
-            <Octicon name='rss' className={styles['feed-octicon']} /><span>Subscribe Feed</span>
+            <RssIcon className={styles['feed-octicon']} /><span>Subscribe Feed</span>
           </a>
         </div>
         <div>

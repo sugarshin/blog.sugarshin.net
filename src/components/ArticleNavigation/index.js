@@ -1,10 +1,10 @@
 import React from 'react'
 import { Pagination } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { ChevronLeftIcon, ChevronRightIcon } from '@primer/octicons-react'
 import PropTypes from 'prop-types'
 import truncate from 'lodash/truncate'
 import classnames from 'classnames'
-import Octicon from 'components/utils/Octicon'
 import styles from './index.styl'
 
 const ArticleNavigation = ({ next, prev }) => {
@@ -13,7 +13,7 @@ const ArticleNavigation = ({ next, prev }) => {
       {prev ? (
         <LinkContainer to={prev.url} title={`Previous Article: ${prev.title}`}>
           <Pagination.Prev>
-            <Octicon name='chevron-left' className={styles.icon} />
+            <ChevronLeftIcon className={styles.icon} />
             {' '}
             {truncate(prev.title, { length: 30 })}
           </Pagination.Prev>
@@ -24,7 +24,7 @@ const ArticleNavigation = ({ next, prev }) => {
           <Pagination.Next className='text-right'>
             {truncate(next.title, { length: 30 })}
             {' '}
-            <Octicon name='chevron-right' className={styles.icon} />
+            <ChevronRightIcon className={styles.icon} />
           </Pagination.Next>
         </LinkContainer>
       ) : null}
