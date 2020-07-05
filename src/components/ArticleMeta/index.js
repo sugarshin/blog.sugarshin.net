@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Octicon from 'components/utils/Octicon'
+import { PencilIcon, ClockIcon } from '@primer/octicons-react'
 import styles from './index.styl'
 
 const ArticleMeta = ({ article }) => {
   return (
     <div className={styles.meta}>
       <span className={styles.metaContent}>
-        <Octicon name='pencil' className={styles.metaIcon} />
+        <PencilIcon className={styles.metaIcon} />
         <a href={article.author.url} target='_blank' rel='noopener noreferrer'>{article.author.name}</a>
       </span>
       <span className={styles.metaContent}>
-        <Octicon name='clock' className={styles.metaIcon} />
+        <ClockIcon className={styles.metaIcon} />
         <time>{article.date}</time>
       </span>
     </div>

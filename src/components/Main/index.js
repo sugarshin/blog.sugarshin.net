@@ -5,9 +5,9 @@ import { Alert, Button } from 'react-bootstrap'
 import Sidebar from 'react-sidebar'
 import { Link, withRouter } from 'react-router-dom'
 import Icon from 'react-fa'
+import { ThreeBarsIcon } from '@primer/octicons-react'
 import SidebarMenu from 'components/SidebarMenu'
 import LoadingSpinner from 'components/utils/LoadingSpinner'
-import Octicon from 'components/utils/Octicon'
 import connectStore from 'modules/connectStore'
 import settings from '../../../config/settings'
 import styles from './index.styl'
@@ -68,7 +68,7 @@ export default class Main extends Component {
           {!sidebar.docked ? (
             <div className={styles.toggleButton}>
               <Button onClick={actions.toggleSidebar} variant='secondary'>
-                <Octicon name='three-bars' />
+                <ThreeBarsIcon />
               </Button>
             </div>
           ) : null}

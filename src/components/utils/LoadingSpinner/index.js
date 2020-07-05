@@ -1,9 +1,9 @@
 import React from 'react'
-import Octicon from 'components/utils/Octicon'
+import { SyncIcon } from '@primer/octicons-react'
 import styles from './index.styl'
 
 export default function LoadingSpinner() {
   return (
-    <div className={styles.loading}><Octicon className={styles.spinner} spin name='sync' /></div>
+    <div className={styles.loading}><SyncIcon className={styles.spinner} /></div>
   )
 }
