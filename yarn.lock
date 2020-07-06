@@ -2343,10 +2343,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.5.0.tgz#4e498dbf355795a611a87ae5ef811a8660d42662"
   integrity sha512-Onhn+z72D2O2Pb2ql2xukJ55rglumsVo1H6Fmyi8mlU9SvKdBk/pUSUAiBY/d9bAOF7VVWajX3sths/+g6ZiAQ==
 
-"@types/node@^14.0.14":
-  version "14.0.14"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.14.tgz#24a0b5959f16ac141aeb0c5b3cd7a15b7c64cbce"
-  integrity sha512-syUgf67ZQpaJj01/tRTknkMNoBBLWJOBODF0Zm4NrXmiSuxjymFrxnTu1QVYRubhVkRcZLYZG8STTwJRdVm/WQ==
+"@types/node@^14.0.18":
+  version "14.0.18"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.18.tgz#5111b2285659442f9f95697386a2b42b875bd7e9"
+  integrity sha512-0Z3nS5acM0cIV4JPzrj9g/GH0Et5vmADWtip3YOXOp1NpOLU8V3KoZDc8ny9c1pe/YSYYzQkAWob6dyV/EWg4g==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -12677,12 +12677,12 @@ sisteransi@^1.0.3:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.3.tgz#98168d62b79e3a5e758e27ae63c4a053d748f4eb"
   integrity sha512-SbEG75TzH8G7eVXFSN5f9EExILKfly7SUvVY5DhhYLvfhKqhDFY0OzevWa/zwak0RLRfWS5AvfMWpd9gJvr5Yg==
 
-sitemap@6.1.7:
-  version "6.1.7"
-  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-6.1.7.tgz#136141415dbaaf89e114322bb63510ff0e0d6b6a"
-  integrity sha512-cbomwRGX4AY2zJsa7RKAMANGMtGIrmL4NWXJGIR951v23fQtQD8Rh38xFHmjI/hEiVzUoEPrgmHXdUgOBy4tBQ==
+sitemap@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-6.2.0.tgz#06c8b4f39025389a167e0b6d04347919bf62197f"
+  integrity sha512-ta9BLo/ZLUNgfGVhknA2IHWuIXfcFPxMvMCY3Xhf141rEZoW8G5nIVCDR0/zeXJCAvWk+UzqxyLBtRBH1OOq6w==
   dependencies:
-    "@types/node" "^14.0.14"
+    "@types/node" "^14.0.18"
     "@types/sax" "^1.2.1"
     arg "^4.1.3"
     sax "^1.2.4"
