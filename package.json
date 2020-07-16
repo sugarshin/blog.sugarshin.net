@@ -184,7 +184,7 @@
     "remove-markdown": "0.3.0",
     "sitemap": "6.2.0",
     "style-loader": "1.2.1",
-    "stylus": "0.54.7",
+    "stylus": "0.54.8",
     "stylus-loader": "3.0.2",
     "uglifyjs-webpack-plugin": "1.2.5",
     "unified": "8.4.2",
