@@ -174,7 +174,7 @@
     "rehype-stringify": "8.0.0",
     "remark-external-links": "6.1.0",
     "remark-frontmatter": "2.0.0",
-    "remark-parse": "8.0.2",
+    "remark-parse": "8.0.3",
     "remark-react": "7.0.1",
     "remark-react-lowlight": "0.7.0",
     "remark-rehype": "7.0.0",
