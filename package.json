@@ -203,7 +203,7 @@
     "eslint": "7.4.0",
     "eslint-loader": "4.0.2",
     "eslint-plugin-babel": "5.3.1",
-    "eslint-plugin-react": "7.20.4",
+    "eslint-plugin-react": "7.20.5",
     "express": "4.17.1",
     "globals": "13.1.0",
     "jest": "26.1.0",
