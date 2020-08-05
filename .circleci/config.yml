@@ -29,7 +29,7 @@ executors:
   playwright_base:
     working_directory: *workspace_root
     docker:
-      - image: sugarshin/playwright-base:2.1.0-node12
+      - image: sugarshin/playwright-base:2.2.1-node12
         environment:
           TZ: "Asia/Tokyo"
 
