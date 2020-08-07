@@ -7,11 +7,13 @@ references:
     filters:
       branches:
         ignore: gh-pages
+  packages-cache-key: &packages-cache-key
+    'cache-v2-{{ checksum "yarn.lock" }}'
 
 orbs:
   slack: circleci/slack@3.4.2
   gh-pages: sugarshin/gh-pages@0.0.6
-  npm: sugarshin/npm@0.1.5
+  npm: sugarshin/npm@0.1.6
 
 executors:
   nodejs:
@@ -50,7 +52,7 @@ jobs:
       - checkout
       - npm/install:
           yarn: true
-          cache-key: 'cache-{{ checksum "yarn.lock" }}'
+          cache-key: *packages-cache-key
       - run:
           name: Lint
           command: npm run lint
@@ -65,7 +67,7 @@ jobs:
       - checkout
       - npm/install:
           yarn: true
-          cache-key: 'cache-{{ checksum "yarn.lock" }}'
+          cache-key: *packages-cache-key
           production: true
       - build_assets
       - store_artifacts:
@@ -77,7 +79,7 @@ jobs:
       - checkout
       - npm/install:
           yarn: true
-          cache-key: 'cache-{{ checksum "yarn.lock" }}'
+          cache-key: *packages-cache-key
           production: true
       - build_assets
       - store_artifacts:
@@ -102,7 +104,7 @@ jobs:
       - checkout
       - npm/install:
           yarn: true
-          cache-key: 'cache-{{ checksum "yarn.lock" }}'
+          cache-key: *packages-cache-key
       - run:
           command: npm run build:e2e-test
           environment:
