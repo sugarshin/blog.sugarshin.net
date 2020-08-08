@@ -199,7 +199,7 @@
     "babel-eslint": "10.1.0",
     "babel-jest": "26.2.2",
     "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.15.2",
+    "enzyme-adapter-react-16": "1.15.3",
     "eslint": "7.6.0",
     "eslint-loader": "4.0.2",
     "eslint-plugin-babel": "5.3.1",
