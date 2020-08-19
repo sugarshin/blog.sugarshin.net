@@ -19,13 +19,13 @@ executors:
   nodejs:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:12.6.0
+      - image: circleci/node:12.18.3
         environment:
           TZ: "Asia/Tokyo"
   nodejs_browsers:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:12.6.0-browsers
+      - image: circleci/node:12.18.3-browsers
         environment:
           TZ: "Asia/Tokyo"
   playwright_base:
