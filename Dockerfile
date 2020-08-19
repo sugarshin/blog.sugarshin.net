@@ -1,5 +1,5 @@
 # ref: https://github.com/buildkite/docker-puppeteer/blob/9daecd5ee72b8a915a5ff921e5cdf584742081ab/Dockerfile
-FROM node:12.6.0-slim AS build
+FROM node:12.18.3-slim AS build
 
 RUN apt-get update \
   # Install latest chrome dev package, which installs the necessary libs to
@@ -32,7 +32,7 @@ ENV NODE_ENV production
 RUN npm run build:review-app
 RUN bin/react-snap --source=build-review-app --cns
 
-FROM node:12.6.0-alpine AS release
+FROM node:12.18.3-alpine AS release
 
 WORKDIR /usr/src/app
 
