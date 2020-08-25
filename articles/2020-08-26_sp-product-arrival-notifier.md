@@ -42,7 +42,7 @@ ref: https://github.com/sugarshin/sp-product-arrival-notifier
 
 ## Artifact
 
-GitHub Actions の Artifact としてスクレイピングした結果を保持するのですが、謹製の [download-artifact](https://github.com/actions/download-artifact) アクションだと別々の Workflow 間では Artifact を参照できないのですが、ちょうどそれをうまくやってくれるアクションが公開されていたので利用しました。
+GitHub Actions の Artifact としてスクレイピングした結果を保持するのですが、謹製の [download-artifact](https://github.com/actions/download-artifact) アクションだと別々の Workflow 間では Artifact を参照できないです。ちょうどそれをうまくやってくれるアクションが公開されていたので利用しました。
 
 ref: https://github.com/dawidd6/action-download-artifact
 
