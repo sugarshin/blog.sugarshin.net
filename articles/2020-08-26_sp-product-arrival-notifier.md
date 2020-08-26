@@ -21,7 +21,7 @@ ogp:
 
 ## モチベーション
 
-Snow Peak は最近お気に入りのアウトドア製品メーカーで、流行りもあるのか入荷待ちの商品ばかりで欲しいときに買えないのが悔しいのでつくりました。
+Snow Peak は最近お気に入りのアウトドア製品メーカーで、流行りもあるのか入荷待ちの商品ばかりで欲しいときに買えないのが悔しいのでつくりました。とりあえずキャンプカテゴリの製品のみ対象としています。 ref: [キャンプの通販 | アウトドア・キャンプ用品はスノーピーク(Snow Peak)](https://ec.snowpeak.co.jp/snowpeak/ja/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97/c/2010000)
 
 近所に直営店はありますが、直営店もすべての商品があるわけではないし、正直入荷待ちのものも多いです。
 
@@ -32,9 +32,9 @@ Snow Peak は最近お気に入りのアウトドア製品メーカーで、流�
 - 突貫工事
 - 料金コストは極力かけたくない
 
-という前提で、 GitHub Actions の `schedule` トリガーを利用して実装しました。
+という前提で、 [GitHub Actions](https://github.co.jp/features/actions) の VM 上でスクリプトを `schedule` トリガーを利用して定期実行するという実装にしました。
 
-スクレイピングで製品一覧の情報をとって結果を保持しておき、次回の実行時にその状態と比較して入荷していたら Slack に通知する、というシンプルなスクリプトを定期実行しています。
+スクレイピングで製品一覧の情報をとって結果を保持しておき、次回の実行時にその状態と比較して入荷していたら Slack に通知する、というシンプルなスクリプトです。
 
 スクリプト本体は Python で雑に書いてあります。
 
@@ -42,7 +42,7 @@ ref: https://github.com/sugarshin/sp-product-arrival-notifier
 
 ## Artifact
 
-GitHub Actions の Artifact としてスクレイピングした結果を保持するのですが、謹製の [download-artifact](https://github.com/actions/download-artifact) アクションだと別々の Workflow 間では Artifact を参照できないです。ちょうどそれをうまくやってくれるアクションが公開されていたので利用しました。
+GitHub Actions の Artifacts としてスクレイピングした結果を保持するのですが、謹製の [download-artifact](https://github.com/actions/download-artifact) アクションだと別々の Workflow 間では Artifacts を参照できないです。なのでちょうどそれをうまくやってくれるアクションが公開されていたので利用しました。
 
 ref: https://github.com/dawidd6/action-download-artifact
 
