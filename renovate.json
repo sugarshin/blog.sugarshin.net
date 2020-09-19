@@ -6,6 +6,12 @@
   "packageRules": [
     {
       "packageNames": [
+        "highlight.js"
+      ],
+      "allowedVersions": "^9"
+    },
+    {
+      "packageNames": [
         "lodash"
       ],
       "allowedVersions": "^4"
