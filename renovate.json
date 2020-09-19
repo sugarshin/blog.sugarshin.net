@@ -20,7 +20,7 @@
       "packageNames": [
         "@octokit/rest"
       ],
-      "allowedVersions": "^16"
+      "allowedVersions": "^18"
     },
     {
       "packageNames": [

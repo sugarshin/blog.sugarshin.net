@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const { flatten, padStart } = require('lodash')
-const Octokit = require('@octokit/rest')
+const { Octokit } = require('@octokit/rest')
 const pMap = require('p-map')
 const moment = require('moment')
 const template = require('./template')
@@ -20,7 +20,7 @@ if (typeof per !== 'number' || typeof unit !== 'string') {
 
 const octokit = new Octokit()
 
-const getEvents = page => octokit.activity.listEventsForUser({
+const getEvents = page => octokit.activity.listEventsForAuthenticatedUser({
   per_page: 100,
   username,
   page,
