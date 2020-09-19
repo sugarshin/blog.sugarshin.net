@@ -6,6 +6,12 @@
   "packageRules": [
     {
       "packageNames": [
+        "highlight.js"
+      ],
+      "allowedVersions": "^9"
+    },
+    {
+      "packageNames": [
         "lodash"
       ],
       "allowedVersions": "^4"
@@ -14,13 +20,13 @@
       "packageNames": [
         "@octokit/rest"
       ],
-      "allowedVersions": "^16"
+      "allowedVersions": "^18"
     },
     {
       "packageNames": [
         "p-map"
       ],
-      "allowedVersions": "^3"
+      "allowedVersions": "^4"
     },
     {
       "packageNames": [
