@@ -26,7 +26,7 @@
       "packageNames": [
         "p-map"
       ],
-      "allowedVersions": "^3"
+      "allowedVersions": "^4"
     },
     {
       "packageNames": [
