@@ -1,14 +1,12 @@
 import { handleActions } from 'redux-actions'
 import yaml from 'js-yaml'
-import removeMarkdown from 'remove-markdown'
 import * as actions from 'actions/article'
 import { article as initialState } from './initialState'
-import sliceYAMLConfig from '../../helpers/sliceYAMLConfig'
-import removeYAMLConfig from '../../helpers/removeYAMLConfig'
+import stripMarkdown from '../../markdown/stripMarkdown'
+import extractYamlConfig from '../../markdown/extractYamlConfig'
 import { protocol, domain } from '../../config/settings'
-
 // TODO: commonize
-const getYamlConfig = markdown => yaml.load(sliceYAMLConfig(markdown))
+const getYamlConfig = markdown => yaml.load(extractYamlConfig(markdown))
 const getTitle = markdown => getYamlConfig(markdown).title
 const getAuthor = markdown => getYamlConfig(markdown).author
 const getDate = markdown => getYamlConfig(markdown).date
@@ -17,7 +15,7 @@ const getTags = markdown => {
   if (!tags) return []
   return tags.split(',').map(tag => tag.trim())
 }
-const getDescription = markdown => removeMarkdown(removeYAMLConfig(markdown)).replace(/\n/g, '').slice(0, 140)
+const getDescription = markdown => stripMarkdown(markdown).replace(/\n/g, '').slice(0, 140)
 
 // @params markdownPathname <year>-<month>-<day>_<title>.md
 const getPathname = markdownPathname => markdownPathname.split('_')[1].replace('.md', '')
