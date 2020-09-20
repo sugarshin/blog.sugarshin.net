@@ -7,10 +7,10 @@ const path = require('path')
 const truncate = require('lodash/truncate')
 const yaml = require('js-yaml')
 // const recursive  = require('recursive-readdir')
-const removeMarkdown = require('remove-markdown')
 const argv = require('minimist')(process.argv.slice(2))
 const writeFilePromisify = require('./helpers/writeFilePromisify')
-const sliceYAMLConfig = require('../helpers/sliceYAMLConfig')
+const extractYamlConfig = require('../markdown/extractYamlConfig')
+const stripMarkdown = require('../markdown/stripMarkdown')
 
 const readdirPromisify = dirPath => {
   return new Promise((resolve, reject) => {
@@ -39,13 +39,10 @@ const readFilePromisify = filePath => {
   })
 }
 
-const HR = '---'
 const parseMarkdownYamlDataWithFilePathAndPreview = ([markdown, filePath]) => {
-  const yamlData = sliceYAMLConfig(markdown)
-  const rows = markdown.split('\n')
-  const HRIndexs = rows.reduce((result, row, i) => row === HR ? [...result, i] : result, [])
-  const preview = rows.slice(HRIndexs[1] + 1, HRIndexs[1] + 5).join('')
-  return [yaml.safeLoad(yamlData), filePath, truncate(removeMarkdown(preview), { length: 140 })]
+  const yamlData = extractYamlConfig(markdown)
+  const preview = truncate(stripMarkdown(markdown), { length: 64 })
+  return [yaml.safeLoad(yamlData), filePath, preview]
 }
 
 const readFileWithFilePath = filePath => {

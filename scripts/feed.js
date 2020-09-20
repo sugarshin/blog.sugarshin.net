@@ -2,11 +2,11 @@
 
 const fs = require('fs')
 const { Feed } = require('feed')
-const removeMarkdown = require('remove-markdown')
 const {
   domain, protocol, siteName, copyright, description, authorName, authorEmail, authorURL, authorGitHubUserName,
   authorImageURL, feedURL, rssURL,
 } = require('../config/settings')
+const toOneLine = require('../markdown/toOneLine')
 const argv = require('minimist')(process.argv.slice(2))
 
 const OUT_DIR = argv.o || argv.out || 'build'
@@ -18,7 +18,6 @@ const author = {
   email: authorEmail,
   link: authorURL,
 }
-const HR = '---'
 
 const link = `${protocol}//${domain}`
 const feed = new Feed({
@@ -34,12 +33,9 @@ const feed = new Feed({
 
 articles.forEach(article => {
   const md = fs.readFileSync(`./articles/${article.date.split(' ')[0]}_${article.url}.md`, { encoding: 'utf8' })
-  const rows = md.split('\n')
-  const lineIndexes = rows.reduce((result, row, i) => row === HR ? [...result, i] : result, [])
-
   const title = article.title
   const link = `${protocol}//${domain}/${article.date.split(' ')[0].replace(/-/g, '/')}/${article.url}/`
-  const description = removeMarkdown(rows.slice(lineIndexes[1] + 2, lineIndexes[1] + 10).join('\n')).replace(/\n/g, '')
+  const description = toOneLine(md)
   const date = new Date(article.date)
 
   feed.addItem({ title, link, description, author: [author], date })
