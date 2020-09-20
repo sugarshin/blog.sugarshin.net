@@ -10,4 +10,6 @@ const renderer = unified()
 
 module.exports = function stripMarkdown(value) {
   return renderer.processSync(value).contents
+    // https://github.com/remarkjs/strip-markdown/issues/13
+    .replace(/&#x3A;/g, ':')
 }

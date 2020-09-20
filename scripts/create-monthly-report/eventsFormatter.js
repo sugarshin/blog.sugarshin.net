@@ -1,8 +1,7 @@
-const { truncate } = require('lodash')
-const removeMarkdown = require('remove-markdown')
+const toOneLine = require('../../markdown/toOneLine')
 
 const baseURL = 'https://github.com'
-const toPlain = text => `${truncate(removeMarkdown(text).replace(/\n|\r/g, ' '), { length: 140 })}...`
+const toPlain = text => `${toOneLine(text)}...`
 
 const formatCreateRepoEvent = event => {
   return [
