@@ -47,6 +47,6 @@ const renderer = unified()
   .use(stringify)
 
 module.exports = {
-  toReact: value => reactComponentRenderer.processSync(value).contents,
+  toReact: value => reactComponentRenderer.processSync(value).result,
   toString: value => renderer.processSync(value).toString(),
 }
