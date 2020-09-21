@@ -130,7 +130,7 @@
     "hast-util-sanitize": "3.0.0",
     "highlight.js": "9.18.3",
     "history": "4.10.1",
-    "html-webpack-plugin": "4.4.1",
+    "html-webpack-plugin": "4.5.0",
     "is-absolute-url": "3.0.3",
     "js-yaml": "3.14.0",
     "lodash": "4.17.20",
