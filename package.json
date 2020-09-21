@@ -218,7 +218,7 @@
     "textlint-rule-eslint": "3.2.1",
     "textlint-rule-ja-no-abusage": "2.0.1",
     "textlint-rule-ja-no-mixed-period": "2.1.1",
-    "textlint-rule-ja-no-successive-word": "1.1.1",
+    "textlint-rule-ja-no-successive-word": "1.2.0",
     "textlint-rule-max-comma": "1.0.4",
     "textlint-rule-max-kanji-continuous-len": "1.1.1",
     "textlint-rule-max-ten": "2.0.4",
