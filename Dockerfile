@@ -18,7 +18,7 @@ WORKDIR /usr/src/app
 COPY articles articles
 COPY bin bin
 COPY config config
-COPY helpers helpers
+COPY markdown markdown
 COPY scripts scripts
 COPY src src
 COPY babel.config.js .
