@@ -24,7 +24,7 @@ const App = ({ children, onChangeClientState }) => {
         <meta property='og:image' content={`${protocol}//${domain}/assets/images/common/open-graph.jpg`} />
         <meta property='og:url' content={`${protocol}//${domain}/`} />
       </Helmet>
-      <ScrollMemory elementID={Main.mainContentId} />
+      <ScrollMemory />
       {children}
     </Main>
   )

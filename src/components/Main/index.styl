@@ -5,16 +5,17 @@
 $main-min-height-buffer = $header-height + $footer-height + $footer-margin-top + 13px
 $main-min-height = 'calc(100% - %s)' % ($main-min-height-buffer)
 
-.content
-  -webkit-overflow-scrolling touch
+.mainContainer
+  display flex
+  flex-direction row-reverse
+  justify-content center
 .sidebar
-  min-width 240px
-  max-width 320px
-  width 36%
-  background-color #fcfcfc
-  border-left 1px solid #f3f3f3
-  padding 16px
+  max-width $sidebar-max-width
+  flex-shrink 0
   -webkit-overflow-scrolling touch
+  @media $mq-large
+    width $sidebar-width
+    min-width $sidebar-min-width
 .header
   height $header-height
   line-height 1
@@ -41,11 +42,14 @@ $main-min-height = 'calc(100% - %s)' % ($main-min-height-buffer)
     padding 0
 .main
   min-height $main-min-height
+  flex-grow 1
 .footer
   border-top 1px solid #f3f3f3
   height $footer-height
   line-height $footer-height
   text-align center
   margin-top $footer-margin-top
+  p
+    margin-bottom 0
   small
     vertical-align middle
