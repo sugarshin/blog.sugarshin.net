@@ -8603,7 +8603,7 @@ js-yaml@3.14.0:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-js-yaml@^3.12.0, js-yaml@^3.13.1, js-yaml@^3.2.4, js-yaml@^3.5.2, js-yaml@^3.9.1:
+js-yaml@^3.12.0, js-yaml@^3.13.1, js-yaml@^3.2.4, js-yaml@^3.9.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -12175,6 +12175,13 @@ remark-external-links@7.0.0:
     space-separated-tokens "^1.0.0"
     unist-util-visit "^2.0.0"
 
+remark-extract-frontmatter@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/remark-extract-frontmatter/-/remark-extract-frontmatter-2.0.3.tgz#5f86764f1cc29ad9a17885aff3c267c159841724"
+  integrity sha512-k7lfDaIbwf135twpPLIFcKX2bRBqmsf07tV5gIWjLwil35aa6kYc6XL2TWrZfU2U8AabnQhoH7RU0P9EQfaItQ==
+  dependencies:
+    xtend "^4.0.1"
+
 remark-frontmatter@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/remark-frontmatter/-/remark-frontmatter-2.0.0.tgz#c9b8539c27cd23b1672c7e0fcbd5795eeedb4dc1"
@@ -12286,13 +12293,6 @@ remark-toc@7.0.0:
   dependencies:
     "@types/unist" "^2.0.3"
     mdast-util-toc "^5.0.0"
-
-remark-yaml-config@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/remark-yaml-config/-/remark-yaml-config-4.1.1.tgz#d9c29fcd49fb356d5490dd49ca1142c8707c88a5"
-  integrity sha512-aderCxpWBBpyZ6d6P6aSzG6Teh6nAh6EiYvXbYRvxIRMxdEnVeNL2qyMvDhZN2rT/OesapBKHr+HGi4rqn2PMQ==
-  dependencies:
-    js-yaml "^3.5.2"
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
