@@ -2,7 +2,8 @@
 
 import React, { Component } from 'react'
 import { Alert, Button } from 'react-bootstrap'
-import Sidebar from 'react-sidebar'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+import withStyles from '@material-ui/core/styles/withStyles'
 import { Link, withRouter } from 'react-router-dom'
 import Icon from 'react-fa'
 import { ThreeBarsIcon } from '@primer/octicons-react'
@@ -12,13 +13,22 @@ import connectStore from 'modules/connectStore'
 import settings from '../../../config/settings'
 import styles from './index.styl'
 
+const Drawer = withStyles({
+  paper: {
+    // see './index.styl'
+    minWidth: 240,
+    maxWidth: 320,
+    width: '36%',
+    backgroundColor: '#fcfcfc',
+    borderLeft: '1px solid #f3f3f3',
+    padding: 16,
+    '-webkit-overflow-scrolling': 'touch',
+  },
+})(SwipeableDrawer)
+
 @withRouter
 @connectStore()
 export default class Main extends Component {
-  static get mainContentId() {
-    return 'main-content'
-  }
-
   handleChangeMediaQuery = e => this.props.actions.toggleSidebarDocked(e.matches)
 
   constructor(props) {
@@ -51,18 +61,10 @@ export default class Main extends Component {
   }
   renderContent() {
     const { children, sidebar, actions } = this.props
+    const isOpenSiderbar = sidebar.docked || sidebar.open
+    const variant = sidebar.docked ? 'permanent' : 'temporary'
     return (
-      <Sidebar
-        sidebarClassName={styles.sidebar}
-        contentClassName={styles.content}
-        sidebar={<SidebarMenu {...this.props} />}
-        shadow={false}
-        pullRight
-        open={sidebar.open}
-        docked={sidebar.docked}
-        onSetOpen={actions.toggleSidebar}
-        contentId={Main.mainContentId}
-      >
+      <>
         <header className={styles.header}>
           <Link to='/'>{settings.siteName}</Link>
           {!sidebar.docked ? (
@@ -73,19 +75,32 @@ export default class Main extends Component {
             </div>
           ) : null}
         </header>
-        <main className={styles.main} id='main'>
-          {children}
-        </main>
-        <footer className={styles.footer}>
-          <p>
-            <small>
-              <Icon name='copyright' />
-              {' '}
-              {`${new Date().getFullYear()} ${settings.copyright}`}
-            </small>
-          </p>
-        </footer>
-      </Sidebar>
+        <div className={styles.mainContainer}>
+          <nav className={styles.sidebar}>
+            <Drawer
+              anchor="right"
+              open={isOpenSiderbar}
+              onOpen={actions.openSidebar}
+              onClose={actions.closeSidebar}
+              variant={variant}
+            >
+              <SidebarMenu {...this.props} />
+            </Drawer>
+          </nav>
+          <main className={styles.main} id='main'>
+            {children}
+            <footer className={styles.footer}>
+              <p>
+                <small>
+                  <Icon name='copyright' />
+                  {' '}
+                  {`${new Date().getFullYear()} ${settings.copyright}`}
+                </small>
+              </p>
+            </footer>
+          </main>
+        </div>
+      </>
     )
   }
 }
