@@ -4,14 +4,11 @@
 // I want using GitHub API
 const fs = require('fs')
 const path = require('path')
-const truncate = require('lodash/truncate')
-const yaml = require('js-yaml')
 // const recursive  = require('recursive-readdir')
 const argv = require('minimist')(process.argv.slice(2))
 const writeFilePromisify = require('./helpers/writeFilePromisify')
-const extractYamlConfig = require('../markdown/extractYamlConfig')
-const stripMarkdown = require('../markdown/stripMarkdown')
-
+const toOneLine = require('../markdown/toOneLine')
+const parseYamlFrontmatter = require('../markdown/parseYamlFrontmatter')
 const readdirPromisify = dirPath => {
   return new Promise((resolve, reject) => {
     fs.readdir(dirPath, (err, files) => {
@@ -40,9 +37,9 @@ const readFilePromisify = filePath => {
 }
 
 const parseMarkdownYamlDataWithFilePathAndPreview = ([markdown, filePath]) => {
-  const yamlData = extractYamlConfig(markdown)
-  const preview = truncate(stripMarkdown(markdown), { length: 64 })
-  return [yaml.safeLoad(yamlData), filePath, preview]
+  const yamlData = parseYamlFrontmatter(markdown)
+  const preview = toOneLine(markdown, 64)
+  return [yamlData, filePath, preview]
 }
 
 const readFileWithFilePath = filePath => {

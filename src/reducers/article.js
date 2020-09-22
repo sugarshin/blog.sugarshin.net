@@ -1,21 +1,19 @@
 import { handleActions } from 'redux-actions'
-import yaml from 'js-yaml'
 import * as actions from 'actions/article'
 import { article as initialState } from './initialState'
-import stripMarkdown from '../../markdown/stripMarkdown'
-import extractYamlConfig from '../../markdown/extractYamlConfig'
+import toOneLine from '../../markdown/toOneLine'
+import parseYamlFrontmatter from '../../markdown/parseYamlFrontmatter'
 import { protocol, domain } from '../../config/settings'
-// TODO: commonize
-const getYamlConfig = markdown => yaml.load(extractYamlConfig(markdown))
-const getTitle = markdown => getYamlConfig(markdown).title
-const getAuthor = markdown => getYamlConfig(markdown).author
-const getDate = markdown => getYamlConfig(markdown).date
+
+const getTitle = markdown => parseYamlFrontmatter(markdown).title
+const getAuthor = markdown => parseYamlFrontmatter(markdown).author
+const getDate = markdown => parseYamlFrontmatter(markdown).date
 const getTags = markdown => {
-  const { tags } = getYamlConfig(markdown)
+  const { tags } = parseYamlFrontmatter(markdown)
   if (!tags) return []
   return tags.split(',').map(tag => tag.trim())
 }
-const getDescription = markdown => stripMarkdown(markdown).replace(/\n/g, '').slice(0, 140)
+const getDescription = markdown => toOneLine(markdown)
 
 // @params markdownPathname <year>-<month>-<day>_<title>.md
 const getPathname = markdownPathname => markdownPathname.split('_')[1].replace('.md', '')
@@ -26,7 +24,7 @@ const getPublicURL = (date, url) => {
   const [year, month, day] = date.split(' ')[0].split('-')
   return `${protocol}//${domain}/${year}/${month}/${day}/${getPathname(url)}/`
 }
-const getOgImageURL = markdown => getYamlConfig(markdown).ogp.og.image.src
+const getOgImageURL = markdown => parseYamlFrontmatter(markdown).ogp.og.image.src
 
 export default handleActions(
   {

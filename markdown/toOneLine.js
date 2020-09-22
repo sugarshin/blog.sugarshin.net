@@ -2,6 +2,7 @@ const truncate = require('lodash/truncate')
 const stripMarkdown = require('./stripMarkdown')
 
 module.exports = function toOneLine(markdown, length = 140) {
-  const stripped = truncate(stripMarkdown(markdown), { length })
-  return stripped.replace(/\n|\r/g, ' ')
+  const mdStripped = stripMarkdown(markdown)
+  const lineBreakStrippedAndTrimmed = mdStripped.replace(/\n|\r/g, ' ').trim()
+  return truncate(lineBreakStrippedAndTrimmed, { length })
 }
