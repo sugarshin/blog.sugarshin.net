@@ -12,6 +12,15 @@ export default class Articles extends Base {
     return this.fetchJSON('/index.json')
   }
   static get(url, options = {}) {
-    return fetch(`${this.baseURI}/${this.path}/${url}`, options).then(res => res.text())
+    return fetch(`${this.baseURI}/${this.path}/${url}`, options).then(res => {
+      if (res.ok) {
+        return res.text()
+      }
+      const err = new Error(res.statusText)
+      err.statusText = res.statusText
+      err.status = res.status
+      err.url = res.url
+      throw err
+    })
   }
 }
