@@ -1,14 +1,15 @@
 @import '../../stylus/media-query'
 @import '../../stylus/variables'
 
-// TODO
-$main-min-height-buffer = $header-height + $footer-height + $footer-margin-top + 13px
+$main-min-height-buffer = $header-height + $footer-height + $footer-margin-top
 $main-min-height = 'calc(100% - %s)' % ($main-min-height-buffer)
 
-.mainContainer
+.root
   display flex
-  flex-direction row-reverse
   justify-content center
+.mainContainer
+  min-height 100vh
+  flex-grow 1
 .sidebar
   max-width $sidebar-max-width
   flex-shrink 0

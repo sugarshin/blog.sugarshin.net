@@ -62,45 +62,45 @@ export default class Main extends Component {
   renderContent() {
     const { children, sidebar, actions } = this.props
     const isOpenSiderbar = sidebar.docked || sidebar.open
-    const variant = sidebar.docked ? 'permanent' : 'temporary'
+    const variant = sidebar.docked ? 'persistent' : 'temporary'
     return (
-      <>
-        <header className={styles.header}>
-          <Link to='/'>{settings.siteName}</Link>
-          {!sidebar.docked ? (
-            <div className={styles.toggleButton}>
-              <Button onClick={actions.toggleSidebar} variant='secondary'>
-                <ThreeBarsIcon />
-              </Button>
-            </div>
-          ) : null}
-        </header>
+      <div className={styles.root}>
         <div className={styles.mainContainer}>
-          <nav className={styles.sidebar}>
-            <Drawer
-              anchor="right"
-              open={isOpenSiderbar}
-              onOpen={actions.openSidebar}
-              onClose={actions.closeSidebar}
-              variant={variant}
-            >
-              <SidebarMenu {...this.props} />
-            </Drawer>
-          </nav>
+          <header className={styles.header}>
+            <Link to='/'>{settings.siteName}</Link>
+            {!sidebar.docked ? (
+              <div className={styles.toggleButton}>
+                <Button onClick={actions.toggleSidebar} variant='secondary'>
+                  <ThreeBarsIcon />
+                </Button>
+              </div>
+            ) : null}
+          </header>
           <main className={styles.main} id='main'>
             {children}
-            <footer className={styles.footer}>
-              <p>
-                <small>
-                  <Icon name='copyright' />
-                  {' '}
-                  {`${new Date().getFullYear()} ${settings.copyright}`}
-                </small>
-              </p>
-            </footer>
           </main>
+          <footer className={styles.footer}>
+            <p>
+              <small>
+                <Icon name='copyright' />
+                {' '}
+                {`${new Date().getFullYear()} ${settings.copyright}`}
+              </small>
+            </p>
+          </footer>
         </div>
-      </>
+        <nav className={styles.sidebar}>
+          <Drawer
+            anchor="right"
+            open={isOpenSiderbar}
+            onOpen={actions.openSidebar}
+            onClose={actions.closeSidebar}
+            variant={variant}
+          >
+            <SidebarMenu {...this.props} />
+          </Drawer>
+        </nav>
+      </div>
     )
   }
 }
