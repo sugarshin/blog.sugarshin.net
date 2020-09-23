@@ -9,6 +9,8 @@ references:
         ignore: gh-pages
   packages-cache-key: &packages-cache-key
     'cache-v2-{{ checksum "yarn.lock" }}'
+  packages-cache-dir: &packages-cache-dir
+    '/home/circleci/.node-packages-cache'
 
 orbs:
   slack: circleci/slack@3.4.2
@@ -53,6 +55,7 @@ jobs:
       - npm/install:
           yarn: true
           cache-key: *packages-cache-key
+          cache-dir: *packages-cache-dir
       - run:
           name: Lint
           command: npm run lint
@@ -68,6 +71,7 @@ jobs:
       - npm/install:
           yarn: true
           cache-key: *packages-cache-key
+          cache-dir: *packages-cache-dir
           production: true
       - build_assets
       - store_artifacts:
@@ -80,6 +84,7 @@ jobs:
       - npm/install:
           yarn: true
           cache-key: *packages-cache-key
+          cache-dir: *packages-cache-dir
           production: true
       - build_assets
       - store_artifacts:
@@ -105,6 +110,7 @@ jobs:
       - npm/install:
           yarn: true
           cache-key: *packages-cache-key
+          cache-dir: *packages-cache-dir
       - run:
           command: npm run build:e2e-test
           environment:
