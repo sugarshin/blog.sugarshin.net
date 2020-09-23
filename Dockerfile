@@ -13,6 +13,8 @@ RUN apt-get update \
   && wget --quiet https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O /usr/sbin/wait-for-it.sh \
   && chmod +x /usr/sbin/wait-for-it.sh
 
+RUN apt-get update && apt-get install -y git
+
 WORKDIR /usr/src/app
 
 COPY articles articles
