@@ -90,10 +90,11 @@ export default class SidebarMenu extends Component {
   renderRecentPosts() {
     return this.props.articles.items.filter((a, i) => i < 5).map(item => {
       const [year, month, day] = item.date.split(' ')[0].split('-')
+      const url = `/${year}/${month}/${day}/${item.url}`
       return (
         <ListGroup.Item
-          key={item.url}
-          to={`/${year}/${month}/${day}/${item.url}`}
+          key={url}
+          to={url}
           as={NavLink}
           className={styles.link}
           action
