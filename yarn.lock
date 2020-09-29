@@ -5656,10 +5656,10 @@ entities@^2.0.0:
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
   integrity sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
 
-enzyme-adapter-react-16@1.15.4:
-  version "1.15.4"
-  resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.15.4.tgz#328a782365a363ecb424f99283c4833dd92c0f21"
-  integrity sha512-wPzxs+JaGDK2TPYzl5a9YWGce6i2SQ3Cg51ScLeyj2WotUZ8Obcq1ke/U1Y2VGpYlb9rrX2yCjzSMgtKCeAt5w==
+enzyme-adapter-react-16@1.15.5:
+  version "1.15.5"
+  resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.15.5.tgz#7a6f0093d3edd2f7025b36e7fbf290695473ee04"
+  integrity sha512-33yUJGT1nHFQlbVI5qdo5Pfqvu/h4qPwi1o0a6ZZsjpiqq92a3HjynDhwd1IeED+Su60HDWV8mxJqkTnLYdGkw==
   dependencies:
     enzyme-adapter-utils "^1.13.1"
     enzyme-shallow-equal "^1.0.4"
@@ -5889,10 +5889,10 @@ eslint-plugin-babel@5.3.1:
   dependencies:
     eslint-rule-composer "^0.3.0"
 
-eslint-plugin-react@7.21.0:
-  version "7.21.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.21.0.tgz#aa0699086f586d54a5005c99a703175bc5d21161"
-  integrity sha512-WaieZZ4cayAfPBmy5KkEqFfLQf/VkzoUsvM5DfD9G1lrz+3LtZ8X6nToEUQiFe1X5ApNIzkMd+7NUy+2OmSTQQ==
+eslint-plugin-react@7.21.2:
+  version "7.21.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.21.2.tgz#3bd5d2c4c36d5a0428d0d6dda301ac9a84d681b2"
+  integrity sha512-j3XKvrK3rpBzveKFbgAeGsWb9uz6iUOrR0jixRfjwdFeGSRsXvVTFtHDQYCjsd1/6Z/xvb8Vy3LiI5Reo7fDrg==
   dependencies:
     array-includes "^3.1.1"
     array.prototype.flatmap "^1.2.3"
@@ -10951,10 +10951,10 @@ pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-playwright@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.4.0.tgz#216e153ce8935290cdf08ff73d075cfaac31b1fc"
-  integrity sha512-x8aK5zZXNW+73QiEtyK4fK1rY0MMUpEsieTExlkNrBNF7DD6Qc+85oyp6sCg0iPoYkr4IZctFJdkMcECOTZ28w==
+playwright@1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.4.2.tgz#84dac641ff7af9f465e367e01fde8a8f1cc274bf"
+  integrity sha512-qiQHrhU4JBxup9JoGZff6hdFL2VrD+ae5QLELGHwRq/vYNQFeJF10Z3ENnQ6hWJmG+YnpfzgoBvX+cUg4WHwTw==
   dependencies:
     debug "^4.1.1"
     extract-zip "^2.0.1"
@@ -14144,10 +14144,10 @@ textlint-rule-no-mix-dearu-desumasu@4.0.1:
     textlint-rule-helper "^2.0.0"
     unist-util-visit "^2.0.2"
 
-textlint-rule-preset-jtf-style@2.3.4:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/textlint-rule-preset-jtf-style/-/textlint-rule-preset-jtf-style-2.3.4.tgz#68cc4d5a814e0ea4dd257ee981be2e0a56d961f0"
-  integrity sha512-9z1b4/Y3Q0q+a1JrFj5fheO1DNyBaFysJg4YLwBPJ8YB3gtwwxpHhx141zyJXfnzzTZDVCaIqnM6cPHijcyRuw==
+textlint-rule-preset-jtf-style@2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/textlint-rule-preset-jtf-style/-/textlint-rule-preset-jtf-style-2.3.6.tgz#57f54100388d64f878e1dd4dca9515c9359ff219"
+  integrity sha512-hun0dMmGM7WWQxu0XlndswNnXS6WqW5TEHeu7NLadZEwZQHYoaClFx0IPgpsmF64rnSLgJ7aq/5L56RkWYp2Ug==
   dependencies:
     analyze-desumasu-dearu "^2.1.2"
     japanese-numerals-to-number "^1.0.2"
