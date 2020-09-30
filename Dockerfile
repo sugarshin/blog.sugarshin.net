@@ -17,7 +17,6 @@ RUN apt-get update && apt-get install -y git
 
 WORKDIR /usr/src/app
 
-COPY .git .git
 COPY articles articles
 COPY bin bin
 COPY config config
@@ -30,6 +29,9 @@ COPY postcss.config.js .
 COPY yarn.lock .
 
 RUN yarn install --production --frozen-lockfile
+
+# workaround for https://github.com/sugarshin/blog.sugarshin.net/blob/cdb3413c189eb653a6875889cb67a32f9e8c7210/config/webpack.config.js#L21
+RUN git init
 
 ENV NODE_ENV production
 RUN npm run build:review-app
