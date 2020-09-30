@@ -1,7 +1,6 @@
 .circleci
 .env.example
 .eslintrc.js
-.git
 .gitignore
 .node-version
 .stylintrc
