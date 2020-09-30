@@ -9,11 +9,17 @@ references:
         ignore: gh-pages
   packages-cache-key: &packages-cache-key
     'cache-v2-{{ checksum "yarn.lock" }}'
+  node_install_packages_base: &node_install_packages_base
+    app-dir: *workspace_root
+    include-branch-in-cache-key: false
+    pkg-manager: yarn
+  yarn_install_prod: &yarn_install_prod
+    yarn install --frozen-lockfile --prod
 
 orbs:
   slack: circleci/slack@3.4.2
+  node: circleci/node@4.0.0
   gh-pages: sugarshin/gh-pages@0.0.6
-  npm: sugarshin/npm@0.1.6
 
 executors:
   nodejs:
@@ -50,9 +56,8 @@ jobs:
     executor: nodejs
     steps:
       - checkout
-      - npm/install:
-          yarn: true
-          cache-key: *packages-cache-key
+      - node/install-packages:
+          <<: *node_install_packages_base
       - run:
           name: Lint
           command: npm run lint
@@ -65,10 +70,9 @@ jobs:
     executor: nodejs_browsers
     steps:
       - checkout
-      - npm/install:
-          yarn: true
-          cache-key: *packages-cache-key
-          production: true
+      - node/install-packages:
+          <<: *node_install_packages_base
+          override-ci-command: *yarn_install_prod
       - build_assets
       - store_artifacts:
           path: build
@@ -77,10 +81,9 @@ jobs:
     executor: nodejs_browsers
     steps:
       - checkout
-      - npm/install:
-          yarn: true
-          cache-key: *packages-cache-key
-          production: true
+      - node/install-packages:
+          <<: *node_install_packages_base
+          override-ci-command: *yarn_install_prod
       - build_assets
       - store_artifacts:
           path: build
@@ -102,9 +105,8 @@ jobs:
     executor: playwright_base
     steps:
       - checkout
-      - npm/install:
-          yarn: true
-          cache-key: *packages-cache-key
+      - node/install-packages:
+          <<: *node_install_packages_base
       - run:
           command: npm run build:e2e-test
           environment:
