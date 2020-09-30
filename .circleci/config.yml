@@ -18,7 +18,7 @@ references:
 
 orbs:
   slack: circleci/slack@3.4.2
-  node: circleci/node@4.0.0
+  node: circleci/node@4.0.1
   gh-pages: sugarshin/gh-pages@0.0.6
 
 executors:
