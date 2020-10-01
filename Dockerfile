@@ -1,17 +1,10 @@
-# ref: https://github.com/buildkite/docker-puppeteer/blob/9daecd5ee72b8a915a5ff921e5cdf584742081ab/Dockerfile
-FROM node:12.6.0-slim AS build
+FROM mcr.microsoft.com/playwright:bionic AS builder
 
-RUN apt-get update \
-  # Install latest chrome dev package, which installs the necessary libs to
-  # make the bundled version of Chromium that Puppeteer installs work.
-  && apt-get install -y wget --no-install-recommends \
-  && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-  && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-  && apt-get update \
-  && apt-get install -y google-chrome-unstable --no-install-recommends \
-  && rm -rf /var/lib/apt/lists/* \
-  && wget --quiet https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O /usr/sbin/wait-for-it.sh \
-  && chmod +x /usr/sbin/wait-for-it.sh
+RUN apt-get update && apt-get install -y git
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt update && apt install yarn
 
 WORKDIR /usr/src/app
 
@@ -28,11 +21,14 @@ COPY yarn.lock .
 
 RUN yarn install --production --frozen-lockfile
 
+# workaround for https://github.com/sugarshin/blog.sugarshin.net/blob/cdb3413c189eb653a6875889cb67a32f9e8c7210/config/webpack.config.js#L21
+RUN git init
+
 ENV NODE_ENV production
 RUN npm run build:review-app
 RUN bin/react-snap --source=build-review-app --cns
 
-FROM node:12.6.0-alpine AS release
+FROM node:12.6.0-alpine AS production
 
 WORKDIR /usr/src/app
 
@@ -41,7 +37,7 @@ RUN apk add --no-cache ca-certificates
 COPY static-serve static-serve
 COPY review-app/package.json package.json
 COPY review-app/package-lock.json package-lock.json
-COPY --from=build /usr/src/app/build-review-app build-review-app
+COPY --from=builder /usr/src/app/build-review-app build-review-app
 
 RUN npm install --production
 
