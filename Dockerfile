@@ -1,7 +1,5 @@
 FROM mcr.microsoft.com/playwright:bionic AS builder
 
-RUN apt-get update && apt-get install -y git
-
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt update && apt install yarn
@@ -20,9 +18,6 @@ COPY postcss.config.js .
 COPY yarn.lock .
 
 RUN yarn install --production --frozen-lockfile
-
-# workaround for https://github.com/sugarshin/blog.sugarshin.net/blob/cdb3413c189eb653a6875889cb67a32f9e8c7210/config/webpack.config.js#L21
-RUN git init
 
 ENV NODE_ENV production
 RUN npm run build:review-app
