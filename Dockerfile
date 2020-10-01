@@ -16,6 +16,8 @@ RUN  apt-get update \
   && wget --quiet https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O /usr/sbin/wait-for-it.sh \
   && chmod +x /usr/sbin/wait-for-it.sh
 
+RUN apt-get update && apt-get install -y git
+
 WORKDIR /usr/src/app
 
 COPY articles articles
@@ -30,6 +32,9 @@ COPY postcss.config.js .
 COPY yarn.lock .
 
 RUN yarn install --production --frozen-lockfile
+
+# workaround for https://github.com/sugarshin/blog.sugarshin.net/blob/cdb3413c189eb653a6875889cb67a32f9e8c7210/config/webpack.config.js#L21
+RUN git init
 
 ENV NODE_ENV production
 RUN npm run build:review-app
