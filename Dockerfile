@@ -20,6 +20,7 @@ COPY yarn.lock .
 RUN yarn install --production --frozen-lockfile
 
 ARG HEROKU_BRANCH
+ENV HEROKU_BRANCH ${HEROKU_BRANCH}
 ENV NODE_ENV production
 RUN npm run build:review-app
 RUN bin/react-snap --source=build-review-app --cns
