@@ -1,6 +1,10 @@
-FROM mcr.microsoft.com/playwright:focal AS builder
+FROM mcr.microsoft.com/playwright:bionic AS builder
 
 RUN apt-get update && apt-get install -y git
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+RUN sudo apt update && sudo apt install yarn
 
 WORKDIR /usr/src/app
 
