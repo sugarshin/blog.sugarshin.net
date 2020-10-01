@@ -32,7 +32,7 @@ const prod = NODE_ENV === PRODUCTION
 
 const plugins = [
   new webpack.DefinePlugin({
-    "process.env": {
+    'process.env': {
       NODE_ENV: JSON.stringify(NODE_ENV),
       API_BASE: JSON.stringify(API_BASE),
       BUILD_NUMBER: JSON.stringify(CIRCLE_BUILD_NUM || 0),
