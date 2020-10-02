@@ -13859,10 +13859,10 @@ stylint@2.0.0:
     user-home "2.0.0"
     yargs "4.7.1"
 
-stylus-loader@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/stylus-loader/-/stylus-loader-4.0.0.tgz#bde0fd6805341996472fbcba1d120e74ffaa62b3"
-  integrity sha512-gIgQSWxFYpzcsHnwIZcjdXvRor5RNGSklQVU54H/snTOpiLc4ISj2HRYohxKf4vZZ1wIbEYpwjkhVTi2Sxxgqg==
+stylus-loader@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/stylus-loader/-/stylus-loader-4.1.0.tgz#7b3ced4d153ba8bc73479e775e430ce5c628c687"
+  integrity sha512-phWZyKuuIgzCU0Zbp5se6cOW9MMUogQ4NoBnNe78kytT2gg+25incSv3HHNFkgLvjyLyBxH1q44xx2AN1CeQpw==
   dependencies:
     fast-glob "^3.2.4"
     klona "^2.0.4"
