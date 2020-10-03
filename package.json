@@ -176,7 +176,7 @@
     "remark-extract-frontmatter": "2.0.3",
     "remark-frontmatter": "2.0.0",
     "remark-parse": "8.0.3",
-    "remark-react": "7.0.1",
+    "remark-react": "8.0.0",
     "remark-react-lowlight": "0.7.0",
     "remark-slug": "6.0.0",
     "remark-stringify": "8.1.1",
