@@ -121,7 +121,7 @@
     "connected-react-router": "6.8.0",
     "core-js": "3.6.5",
     "cpx": "1.5.0",
-    "css-loader": "4.3.0",
+    "css-loader": "5.0.0",
     "css-mqpacker": "7.0.0",
     "disqus-react": "1.0.10",
     "dotenv": "8.2.0",
