@@ -182,7 +182,7 @@
     "remark-stringify": "8.1.1",
     "remark-toc": "7.0.0",
     "sitemap": "6.3.2",
-    "strip-markdown": "3.1.2",
+    "strip-markdown": "4.0.0",
     "style-loader": "2.0.0",
     "stylus": "0.54.8",
     "stylus-loader": "4.1.1",
