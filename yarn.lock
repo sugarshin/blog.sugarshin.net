@@ -12411,12 +12411,10 @@ remark-external-links@7.0.1:
     space-separated-tokens "^1.0.0"
     unist-util-visit "^2.0.0"
 
-remark-extract-frontmatter@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/remark-extract-frontmatter/-/remark-extract-frontmatter-2.0.3.tgz#5f86764f1cc29ad9a17885aff3c267c159841724"
-  integrity sha512-k7lfDaIbwf135twpPLIFcKX2bRBqmsf07tV5gIWjLwil35aa6kYc6XL2TWrZfU2U8AabnQhoH7RU0P9EQfaItQ==
-  dependencies:
-    xtend "^4.0.1"
+remark-extract-frontmatter@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/remark-extract-frontmatter/-/remark-extract-frontmatter-3.0.0.tgz#87a6298791d1b4ad2c1354d5a5f17eed1df24cf8"
+  integrity sha512-NsJgBrACffsGIUmeSAmPd+3Hkj2fjlsbJyYADBjKNm8tlXqpVYuV9Iukf+RRL/YMWiXPEaMrs0V46N2HBvT9oQ==
 
 remark-frontmatter@2.0.0:
   version "2.0.0"
