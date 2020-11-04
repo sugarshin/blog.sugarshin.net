@@ -197,7 +197,7 @@
   "devDependencies": {
     "@octokit/rest": "18.0.9",
     "babel-eslint": "10.1.0",
-    "babel-jest": "26.6.2",
+    "babel-jest": "26.6.3",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.5",
     "eslint": "7.12.1",
@@ -206,7 +206,7 @@
     "eslint-plugin-react": "7.21.5",
     "express": "4.17.1",
     "globals": "13.3.0",
-    "jest": "26.6.2",
+    "jest": "26.6.3",
     "make-dir": "3.1.0",
     "p-map": "4.0.0",
     "playwright": "1.5.2",
