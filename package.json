@@ -192,7 +192,7 @@
     "webapp-webpack-plugin": "2.7.1",
     "webpack": "4.44.2",
     "webpack-cli": "4.2.0",
-    "whatwg-fetch": "3.4.1"
+    "whatwg-fetch": "3.5.0"
   },
   "devDependencies": {
     "@octokit/rest": "18.0.9",
