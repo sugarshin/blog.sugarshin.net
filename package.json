@@ -146,7 +146,7 @@
     "optimize-css-assets-webpack-plugin": "5.0.4",
     "postcss": "8.1.7",
     "postcss-flexbugs-fixes": "5.0.1",
-    "postcss-loader": "4.0.4",
+    "postcss-loader": "4.1.0",
     "postcss-partial-import": "4.1.0",
     "prop-types": "15.7.2",
     "query-string": "6.13.7",
