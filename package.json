@@ -128,7 +128,7 @@
     "feed": "4.2.1",
     "file-loader": "6.2.0",
     "github-markdown-css": "4.0.0",
-    "hast-util-sanitize": "3.0.1",
+    "hast-util-sanitize": "3.0.2",
     "highlight.js": "9.18.5",
     "history": "4.10.1",
     "html-webpack-plugin": "4.5.0",
