@@ -2337,10 +2337,10 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.1.1.tgz#12c572ab88ef7345b43f21883fca26631c223085"
   integrity sha512-sLqWxCzC5/QHLhziXSCAksBxHfOnQlhPRVgPK0egEw+ktWvG75T2k+aYWVjVh9+WKeT3tlG3ZNbZQvZLmfuOIw==
 
-"@primer/octicons-react@11.1.0":
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-11.1.0.tgz#1f03bfdc598ea24006cf03a0adcab2812d0fc958"
-  integrity sha512-1d/0HM4eR6+meZh3OR1HaVCg6DLBwrBEwQBN6SblOlA/98HRGaphRHGwUV7YMbSfFUc1029Ggx54ceKYHYwdXA==
+"@primer/octicons-react@11.2.0":
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-11.2.0.tgz#af60301257cdbc1561c2647678282d3bce5a6c54"
+  integrity sha512-pi3DT5fUtATw2atMRQ7xCUUbdauA/hYTKfM2ijf3rtipeyQ7Ou3ij/JLhnc9Ke110ljHJh69j/PiINbbKAYegQ==
 
 "@redux-beacon/logger@1.0.0":
   version "1.0.0"
