@@ -9606,14 +9606,14 @@ mdast-util-to-hast@^10.0.0:
     unist-util-position "^3.0.0"
     unist-util-visit "^2.0.0"
 
-mdast-util-to-markdown@^0.5.0:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/mdast-util-to-markdown/-/mdast-util-to-markdown-0.5.3.tgz#e05c54a3ccd239bab63c48a1e5b5747f0dcd5aca"
-  integrity sha512-sr8q7fQJ1xoCqZSXW6dO/MYu2Md+a4Hfk9uO+XHCfiBhVM0EgWtfAV7BuN+ff6otUeu2xDyt1o7vhZGwOG3+BA==
+mdast-util-to-markdown@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/mdast-util-to-markdown/-/mdast-util-to-markdown-0.6.0.tgz#aa7773f7b4018cf09053c89d4852c0ed3701162e"
+  integrity sha512-t8gNC/SrCoZWOlmfC95gctPzvJuU7PTosm6kEfUTOOprRedYE6VHHIiy50bcLRhKyFTeEBUjOQHhxByTFEs9pw==
   dependencies:
     "@types/unist" "^2.0.0"
     longest-streak "^2.0.0"
-    mdast-util-to-string "^1.0.0"
+    mdast-util-to-string "^2.0.0"
     parse-entities "^2.0.0"
     repeat-string "^1.0.0"
     zwitch "^1.0.0"
@@ -9622,6 +9622,11 @@ mdast-util-to-string@^1.0.0, mdast-util-to-string@^1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-1.0.6.tgz#7d85421021343b33de1552fc71cb8e5b4ae7536d"
   integrity sha512-868pp48gUPmZIhfKrLbaDneuzGiw3OTDjHc5M1kAepR2CWBJ+HpEsm252K4aXdiP5coVZaJPOqGtVU6Po8xnXg==
+
+mdast-util-to-string@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-2.0.0.tgz#b8cfe6a713e1091cb5b728fc48885a4767f8b97b"
+  integrity sha512-AW4DRS3QbBayY/jJmD8437V1Gombjf8RSOUCMFBuo5iHi58AGEgVCKQ+ezHkZZDpAQS75hcBMpLqjpJTjtUL7w==
 
 mdast-util-toc@^5.0.0:
   version "5.0.1"
@@ -12638,12 +12643,12 @@ remark-slug@6.0.0:
     mdast-util-to-string "^1.0.0"
     unist-util-visit "^2.0.0"
 
-remark-stringify@9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/remark-stringify/-/remark-stringify-9.0.0.tgz#8ba0c9e4167c42733832215a81550489759e3793"
-  integrity sha512-8x29DpTbVzEc6Dwb90qhxCtbZ6hmj3BxWWDpMhA+1WM4dOEGH5U5/GFe3Be5Hns5MvPSFAr1e2KSVtKZkK5nUw==
+remark-stringify@9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/remark-stringify/-/remark-stringify-9.0.1.tgz#576d06e910548b0a7191a71f27b33f1218862894"
+  integrity sha512-mWmNg3ZtESvZS8fv5PTvaPckdL4iNlCHTt8/e/8oN08nArHRHjNZMKzA/YW3+p7/lYqIw4nx1XsjCBo/AxNChg==
   dependencies:
-    mdast-util-to-markdown "^0.5.0"
+    mdast-util-to-markdown "^0.6.0"
 
 remark-toc@7.0.0:
   version "7.0.0"
