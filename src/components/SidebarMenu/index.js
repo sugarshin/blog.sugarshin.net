@@ -141,10 +141,10 @@ export default class SidebarMenu extends Component {
     return [
       <ListGroup.Item key='sugarshin.net' href='//sugarshin.net/' action>About</ListGroup.Item>,
       <ListGroup.Item key='github' href='//github.com/sugarshin/' action>GitHub</ListGroup.Item>,
-      <ListGroup.Item key='npm' href='//www.npmjs.com/~sugarshin/' action>npm</ListGroup.Item>,
       <ListGroup.Item key='keybase' href='//keybase.io/sugarshin/' action>Keybase</ListGroup.Item>,
       <ListGroup.Item key='twitter' href='//twitter.com/sugarshin/' action>Twitter</ListGroup.Item>,
       <ListGroup.Item key='instagram' href='//www.instagram.com/sugarshin/' action>Instagram</ListGroup.Item>,
+      <ListGroup.Item key='facebook' href='//www.facebook.com/sngsato/' action>Facebook</ListGroup.Item>,
     ]
   }
 
