@@ -13370,10 +13370,10 @@ sisteransi@^1.0.3:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.3.tgz#98168d62b79e3a5e758e27ae63c4a053d748f4eb"
   integrity sha512-SbEG75TzH8G7eVXFSN5f9EExILKfly7SUvVY5DhhYLvfhKqhDFY0OzevWa/zwak0RLRfWS5AvfMWpd9gJvr5Yg==
 
-sitemap@6.3.4:
-  version "6.3.4"
-  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-6.3.4.tgz#f8e7196667a7a8a8a8858741cf86fa2622b9075b"
-  integrity sha512-xvNByKt4raMQuuKWveiYxBOeLOq6t5DQlPF5UTDDDGR2Xk/F35w70NWSGufxJDPwNP9bmZIyfRsvnJGpWCeVcw==
+sitemap@6.3.5:
+  version "6.3.5"
+  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-6.3.5.tgz#3d39618fa149f95303c151b8f884046695219c3f"
+  integrity sha512-uLz8c5nI31bd4/+nccVWhJx18JxLF+1bAKhhxMv0IYKClSK8wWtANKsl9FOluqmz37ObeBLGVVgNOpg3r+yz/g==
   dependencies:
     "@types/node" "^14.14.14"
     "@types/sax" "^1.2.1"
