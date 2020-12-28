@@ -27,7 +27,7 @@
     "copy-articles": "node scripts/copy-articles",
     "articles-index:dev": "node scripts/articles-index --out=build-dev",
     "articles-index:e2e-test": "node scripts/articles-index --out=build-e2e-test",
-    "dev-server": "DEV_SERVER=1 webpack-dev-server --config config/webpack.config.js --progress --open",
+    "dev-server": "DEV_SERVER=1 webpack serve --config config/webpack.config.js --progress",
     "lint:js": "eslint --max-warnings=0 src test scripts config markdown",
     "lint:styl": "stylint src",
     "lint:md": "textlint articles/*.md",
