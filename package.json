@@ -190,7 +190,7 @@
     "unified": "9.2.0",
     "url-loader": "4.1.1",
     "webapp-webpack-plugin": "2.7.1",
-    "webpack": "4.44.2",
+    "webpack": "5.11.1",
     "webpack-cli": "4.3.0",
     "whatwg-fetch": "3.5.0"
   },
