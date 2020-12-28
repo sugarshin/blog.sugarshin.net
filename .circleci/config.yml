@@ -24,6 +24,8 @@ references:
     v2-node-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_WORKFLOW_ID }}-{{ checksum "yarn.lock" }}-prod-node-modules
   ms-playwright_cache_key: &ms-playwright_cache_key
     v1-ms-playwright-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_WORKFLOW_ID }}-{{ checksum "yarn.lock" }}-ms-playwright
+  PLAYWRIGHT_BROWSERS_PATH: &PLAYWRIGHT_BROWSERS_PATH
+    /home/circleci/.cache/ms-playwright
 
 orbs:
   slack: circleci/slack@3.4.2
@@ -49,7 +51,7 @@ executors:
       - image: sugarshin/playwright-base:2.2.1-node12
         environment:
           TZ: "Asia/Tokyo"
-          PLAYWRIGHT_BROWSERS_PATH: /usr/local/ms-playwright
+          PLAYWRIGHT_BROWSERS_PATH: *PLAYWRIGHT_BROWSERS_PATH
 
 commands:
   build_assets:
@@ -77,7 +79,7 @@ jobs:
           name: Save ms-playwright cache
           key: *ms-playwright_cache_key
           paths:
-            - /home/circleci/.cache/ms-playwright
+            - *PLAYWRIGHT_BROWSERS_PATH
       - run:
           name: Lint
           command: npm run lint
@@ -132,9 +134,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          name: Restore node_modules and ms-playwright cache
+          name: Restore node_modules cache
           keys:
             - *node_modules_cache_key
+            - *ms-playwright_cache_key
+      - restore_cache:
+          name: Restore ms-playwright cache
+          keys:
             - *ms-playwright_cache_key
       - run:
           command: npm run build:e2e-test
