@@ -2,20 +2,20 @@ version: 2.1
 
 references:
   workspace_root: &workspace_root
-    ~/blog.sugarshin.net
+    /home/circleci/blog.sugarshin.net
   filter_gh_pages: &filter_gh_pages
     filters:
       branches:
         ignore: gh-pages
   yarn_install_prod: &yarn_install_prod
-    yarn install --frozen-lockfile --cache-folder ~/.cache/yarn --prod
+    yarn install --frozen-lockfile --cache-folder /home/circleci/.cache/yarn --prod
   yarn_install: &yarn_install
-    yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+    yarn install --frozen-lockfile --cache-folder /home/circleci/.cache/yarn
   node_install_packages_base: &node_install_packages_base
     app-dir: *workspace_root
     include-branch-in-cache-key: false
     pkg-manager: yarn
-    cache-path: ~/.cache/yarn
+    cache-path: /home/circleci/.cache/yarn
     cache-version: v2
     override-ci-command: *yarn_install
   node_modules_cache_key: &node_modules_cache_key
