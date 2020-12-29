@@ -38,6 +38,7 @@ executors:
         environment:
           TZ: "Asia/Tokyo"
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 1
   nodejs_browsers:
     working_directory: *workspace_root
     docker:
