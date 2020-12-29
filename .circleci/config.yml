@@ -2,19 +2,28 @@ version: 2.1
 
 references:
   workspace_root: &workspace_root
-    ~/blog.sugarshin.net
+    /home/circleci/blog.sugarshin.net
   filter_gh_pages: &filter_gh_pages
     filters:
       branches:
         ignore: gh-pages
-  packages-cache-key: &packages-cache-key
-    'cache-v2-{{ checksum "yarn.lock" }}'
+  yarn_install_prod: &yarn_install_prod
+    yarn install --frozen-lockfile --cache-folder /home/circleci/.cache/yarn --prod
+  yarn_install: &yarn_install
+    yarn install --frozen-lockfile --cache-folder /home/circleci/.cache/yarn
   node_install_packages_base: &node_install_packages_base
     app-dir: *workspace_root
     include-branch-in-cache-key: false
     pkg-manager: yarn
-  yarn_install_prod: &yarn_install_prod
-    yarn install --frozen-lockfile --prod
+    cache-path: /home/circleci/.cache/yarn
+    cache-version: v2
+    override-ci-command: *yarn_install
+  node_modules_cache_key: &node_modules_cache_key
+    v2-node-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_WORKFLOW_ID }}-{{ checksum "yarn.lock" }}-node-modules
+  node_modules_cache_key_prod: &node_modules_cache_key_prod
+    v2-node-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_WORKFLOW_ID }}-{{ checksum "yarn.lock" }}-prod-node-modules
+  ms-playwright_cache_key: &ms-playwright_cache_key
+    v1-ms-playwright-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_WORKFLOW_ID }}-{{ checksum "yarn.lock" }}-ms-playwright
 
 orbs:
   slack: circleci/slack@3.4.2
@@ -28,6 +37,7 @@ executors:
       - image: circleci/node:12.6.0
         environment:
           TZ: "Asia/Tokyo"
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
   nodejs_browsers:
     working_directory: *workspace_root
     docker:
@@ -37,9 +47,10 @@ executors:
   playwright_base:
     working_directory: *workspace_root
     docker:
-      - image: sugarshin/playwright-base:2.2.1-node12
+      - image: sugarshin/playwright-base-browsers:1.0.0
         environment:
           TZ: "Asia/Tokyo"
+          PLAYWRIGHT_BROWSERS_PATH: /usr/local/ms-playwright
 
 commands:
   build_assets:
@@ -58,6 +69,11 @@ jobs:
       - checkout
       - node/install-packages:
           <<: *node_install_packages_base
+      - save_cache:
+          name: Save node_modules cache
+          key: *node_modules_cache_key
+          paths:
+            - node_modules
       - run:
           name: Lint
           command: npm run lint
@@ -73,6 +89,11 @@ jobs:
       - node/install-packages:
           <<: *node_install_packages_base
           override-ci-command: *yarn_install_prod
+      - save_cache:
+          name: Save node_modules cache Prod
+          key: *node_modules_cache_key_prod
+          paths:
+            - node_modules
       - build_assets
       - store_artifacts:
           path: build
@@ -81,9 +102,10 @@ jobs:
     executor: nodejs_browsers
     steps:
       - checkout
-      - node/install-packages:
-          <<: *node_install_packages_base
-          override-ci-command: *yarn_install_prod
+      - restore_cache:
+          name: Restore node_modules cache Prod
+          keys:
+            - *node_modules_cache_key_prod
       - build_assets
       - store_artifacts:
           path: build
@@ -105,8 +127,10 @@ jobs:
     executor: playwright_base
     steps:
       - checkout
-      - node/install-packages:
-          <<: *node_install_packages_base
+      - restore_cache:
+          name: Restore node_modules cache
+          keys:
+            - *node_modules_cache_key
       - run:
           command: npm run build:e2e-test
           environment:
@@ -135,8 +159,12 @@ workflows:
           <<: *filter_gh_pages
       - build_test:
           <<: *filter_gh_pages
+          requires:
+            - test
       - e2e_test:
           <<: *filter_gh_pages
+          requires:
+            - build_test
       - deploy:
           requires:
             - test
