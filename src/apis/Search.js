@@ -12,7 +12,7 @@ export default class Search extends Base {
   static q(query) {
     return `${
       encodeURIComponent(query)
-    }+in:file+in:path+extension:md+repo:${authorGitHubUserName}/${repositoryName}+path:/articles/&per_page=100`
+    }+in:file+extension:md+repo:${authorGitHubUserName}/${repositoryName}+path:/articles/&per_page=100`
   }
   static querystring(params = {}) {
     return `${
