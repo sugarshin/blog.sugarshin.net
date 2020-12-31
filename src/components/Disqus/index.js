@@ -1,5 +1,5 @@
 import React from 'react'
-import DisqusReact from 'disqus-react'
+import { DiscussionEmbed } from 'disqus-react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { context as uaContext } from 'context/ua'
@@ -11,7 +11,7 @@ const Disqus = ({ className, shortname, identifier, title, url }) => {
   return (
     <div className={classnames(styles.root, className)}>
       {/ReactSnap/.test(ua) ? null : (
-        <DisqusReact.DiscussionEmbed shortname={shortname} config={{ identifier, title, url }} />
+        <DiscussionEmbed shortname={shortname} config={{ identifier, title, url }} />
       )}
     </div>
   )
