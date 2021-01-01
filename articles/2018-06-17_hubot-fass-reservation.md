@@ -39,7 +39,7 @@ npm install hubot-fass-reservation
 
 ***
 
-## Table of Contents
+## 目次
 
 ## モチベーション
 

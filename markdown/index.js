@@ -9,7 +9,7 @@ const basePlugins = [
   externalLinks,
   frontmatter,
   slug,
-  toc,
+  [toc, { heading: '目次' }],
 ]
 
 module.exports.basePlugins = basePlugins

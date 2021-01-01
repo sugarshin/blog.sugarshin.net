@@ -21,7 +21,7 @@ Web ページの印刷は、気をつけていないとスタイルくずれを�
 
 ***
 
-## Table of Contents
+## 目次
 
 ## CircleCI
 

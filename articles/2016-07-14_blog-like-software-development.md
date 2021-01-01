@@ -27,7 +27,7 @@ https://github.com/sugarshin/blog.sugarshin.net
 
 Redux 周りを最近触っていなかったので久しぶりに触りたかったというのも理由付けの1つです。
 
-## Table of Contents
+## 目次
 
 ## 利用ツール
 

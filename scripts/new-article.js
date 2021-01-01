@@ -34,7 +34,7 @@ const content = articleTemplate({
   body: [
     `![Main](${ogImageContent.replace(origin, '')})`,
     '',
-    '## Table of Contents',
+    '## 目次',
     '',
     '## ${First content heading}',
     '',

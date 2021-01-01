@@ -37,7 +37,7 @@ https://github.com/sugarshin/qiiu
 
 ***
 
-## Table of Contents
+## 目次
 
 ## モチベーション
 

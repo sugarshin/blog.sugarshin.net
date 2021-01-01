@@ -27,7 +27,7 @@ npm: https://www.npmjs.com/package/oneteam-rte
 
 2016年2月に OSS として公開された Facebook 製のフレームワーク、 [Draft.js](https://facebook.github.io/draft-js/) のラッパーです。
 
-## Table of Contents
+## 目次
 
 ## 使用例
 
