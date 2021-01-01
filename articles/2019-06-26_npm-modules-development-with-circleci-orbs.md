@@ -21,7 +21,7 @@ ogp:
 
 sources: https://github.com/sugarshin/circleci-orbs
 
-## Table of Contents
+## 目次
 
 ## モチベーション
 

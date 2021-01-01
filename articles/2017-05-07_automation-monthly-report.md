@@ -23,7 +23,7 @@ ogp:
 
 [[Monthly report] 2017-04 my activity this month on GitHub](/2017/04/30/monthly-report-1704)
 
-## Table of Contents
+## 目次
 
 ## 流れ
 

@@ -19,7 +19,7 @@ ogp:
 
 *[React と Redux なブログ運用をソフトウェア開発する話し](/2016/07/14/blog-like-software-development)*
 
-## Table of Contents
+## 目次
 
 ## モチベーション
 

@@ -17,7 +17,7 @@ ogp:
 
 [Snow Peak](https://www.snowpeak.co.jp/) 公式オンラインストアの製品入荷情報を Slack に通知する仕組みを雑につくりました。
 
-## Table of Contents
+## 目次
 
 ## モチベーション
 
