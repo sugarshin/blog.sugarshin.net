@@ -119,7 +119,7 @@
     "bootswatch": "4.5.3",
     "classnames": "2.2.6",
     "connected-react-router": "6.8.0",
-    "core-js": "3.8.1",
+    "core-js": "3.8.2",
     "cpx": "1.5.0",
     "css-loader": "5.0.1",
     "css-mqpacker": "7.0.0",
