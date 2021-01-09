@@ -2,6 +2,7 @@ const { browserslist } = require('./package.json')
 
 const basePlugins = [
   'add-react-displayname',
+  '@babel/plugin-proposal-object-rest-spread',
   '@babel/plugin-syntax-dynamic-import',
   '@babel/plugin-syntax-import-meta',
   ['@babel/plugin-proposal-decorators', {
