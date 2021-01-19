@@ -113,7 +113,7 @@
     "@redux-beacon/logger": "1.0.0",
     "@redux-beacon/segment": "1.1.0",
     "@segment/snippet": "4.13.1",
-    "autoprefixer": "10.2.1",
+    "autoprefixer": "10.2.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-loader": "8.2.2",
     "babel-plugin-add-react-displayname": "0.0.5",
