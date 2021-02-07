@@ -1,4 +1,5 @@
 import querystring from 'querystring'
+import { HTTPError } from './HTTPError'
 
 export default class Base {
   static baseOptions(option = {}) {
@@ -10,9 +11,13 @@ export default class Base {
       },
     }
   }
-  static fetchJSON(url, option = {}) {
+  static async fetchJSON(url, option = {}) {
     const opt = this.baseOptions(option)
-    return fetch(url, opt).then(res => res.json())
+    const res = await fetch(url, opt)
+    if (res.ok) {
+      return res.json()
+    }
+    throw new HTTPError(res)
   }
   static get(url, params) {
     return this.fetchJSON(
