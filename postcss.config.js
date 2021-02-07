@@ -1,8 +1,8 @@
 module.exports = {
   plugins: [
-    require('autoprefixer'),
-    require('css-mqpacker'),
-    require('postcss-flexbugs-fixes'),
-    require('postcss-partial-import')(),
+    'autoprefixer',
+    'css-mqpacker',
+    'postcss-flexbugs-fixes',
+    'postcss-partial-import',
   ],
 }
