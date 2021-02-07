@@ -14,16 +14,6 @@ export default class Base {
     const opt = this.baseOptions(option)
     return fetch(url, opt).then(res => res.json())
   }
-  static fetchRaw(url, option = {}) {
-    const opt = this.baseOptions({
-      ...option,
-      headers: {
-        ...option.headers,
-        Accept: 'application/vnd.github.v3.raw',
-      },
-    })
-    return fetch(url, opt).then(res => res.text())
-  }
   static get(url, params) {
     return this.fetchJSON(
       this.requestURL(url, params)
