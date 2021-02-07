@@ -1,4 +1,3 @@
-import querystring from 'query-string'
 import Base from 'apis/Base'
 import { authorGitHubUserName, repositoryName } from '../../config/settings'
 
@@ -7,18 +6,9 @@ export default class Search extends Base {
     return 'search/code'
   }
   static execute(query) {
-    return this.get(null, { q: this.q(query) })
+    return this.get(null, { q: this.q(query), per_page: 100 })
   }
   static q(query) {
-    return `${
-      encodeURIComponent(query)
-    }+in:file+extension:md+repo:${authorGitHubUserName}/${repositoryName}+path:/articles/&per_page=100`
-  }
-  static querystring(params = {}) {
-    return `${
-      querystring.stringify({ ref: this.ref })
-    }&${
-      querystring.stringify(params, { encode: false })
-    }`
+    return `${query} in:file extension:md repo:${authorGitHubUserName}/${repositoryName} path:/articles/`
   }
 }

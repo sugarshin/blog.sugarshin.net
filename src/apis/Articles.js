@@ -1,4 +1,5 @@
 import Base from 'apis/Base'
+import { HTTPError } from './HTTPError'
 import { authorGitHubUserName, repositoryName } from '../../config/settings'
 
 export default class Articles extends Base {
@@ -16,11 +17,7 @@ export default class Articles extends Base {
       if (res.ok) {
         return res.text()
       }
-      const err = new Error(res.statusText)
-      err.statusText = res.statusText
-      err.status = res.status
-      err.url = res.url
-      throw err
+      throw new HTTPError(res)
     })
   }
 }

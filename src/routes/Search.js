@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import queryString from 'query-string'
 import PageTitle from 'components/PageTitle'
 import SearchResults from 'components/SearchResults'
 import LoadingSpinner from 'components/utils/LoadingSpinner'
@@ -12,19 +11,16 @@ import { siteName, description, protocol, domain } from '../../config/settings'
 
 @connectStore()
 export default class Search extends Component {
-  parseQuery(search) {
-    return queryString.parse(search).q || ''
-  }
   get q() {
-    return this.parseQuery(this.props.location.search)
+    return this.props.router.location.query.q || ''
   }
   componentDidMount() {
     if (this.q) {
       this.props.actions.searchArticle(this.q)
     }
   }
-  componentDidUpdate({ location: { search: prevSearch } }) {
-    const prevQ = this.parseQuery(prevSearch)
+  componentDidUpdate(prevProps) {
+    const prevQ = prevProps.router.location.query.q || ''
     if (this.q !== prevQ) {
       this.props.actions.searchArticle(this.q)
     }

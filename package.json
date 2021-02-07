@@ -151,7 +151,6 @@
     "postcss-loader": "4.2.0",
     "postcss-partial-import": "4.1.0",
     "prop-types": "15.7.2",
-    "query-string": "6.13.8",
     "raven-js": "3.27.2",
     "react": "17.0.1",
     "react-bootstrap": "1.4.3",
