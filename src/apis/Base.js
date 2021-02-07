@@ -1,4 +1,4 @@
-import querystring from 'query-string'
+import querystring from 'querystring'
 
 export default class Base {
   static baseOptions(option = {}) {

@@ -1,4 +1,4 @@
-import querystring from 'query-string'
+import querystring from 'querystring'
 import Base from 'apis/Base'
 import { authorGitHubUserName, repositoryName } from '../../config/settings'
 

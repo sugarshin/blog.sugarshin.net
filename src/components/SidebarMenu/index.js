@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { MegaphoneIcon, CalendarIcon, TagIcon, LinkIcon, SearchIcon, RssIcon } from '@primer/octicons-react'
 import keydown, { Keys } from 'react-keydown'
 import moment from 'moment'
-import queryString from 'query-string'
+import querystring from 'querystring'
 import SidebarMenuGroup from 'components/SidebarMenuGroup'
 import { feedURL } from '../../../config/settings'
 import styles from './index.styl'
@@ -149,7 +149,7 @@ export default class SidebarMenu extends Component {
   }
 
   parseSearchQuery(search) {
-    return queryString.parse(search).q || ''
+    return querystring.parse(search).q || ''
   }
   @keydown(Keys.ENTER)
   submitSearchQuery({ target: { value } }) {
