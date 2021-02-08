@@ -7,7 +7,6 @@ export default class Base {
       ...option,
       headers: {
         ...option.headers,
-        Authorization: `token ${this.accessToken}`,
       },
     }
   }
@@ -47,9 +46,5 @@ export default class Base {
   }
   static get path() {
     throw new Error('path accessor is not yet implmented.')
-  }
-  static get accessToken() {
-    const { GITHUB_TOKEN_NO_SCOPE } = process.env
-    return GITHUB_TOKEN_NO_SCOPE || ''
   }
 }
