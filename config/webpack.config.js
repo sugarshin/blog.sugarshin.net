@@ -19,7 +19,6 @@ const {
   NODE_ENV,
   API_BASE,
   SEGMENT_WRITE_KEY,
-  GITHUB_TOKEN_NO_SCOPE,
   PORT,
   SENTRY_DSN,
   CIRCLE_BUILD_NUM,
@@ -37,7 +36,6 @@ const plugins = [
       API_BASE: JSON.stringify(API_BASE),
       BUILD_NUMBER: JSON.stringify(CIRCLE_BUILD_NUM || 0),
       SEGMENT_WRITE_KEY: JSON.stringify(SEGMENT_WRITE_KEY),
-      GITHUB_TOKEN_NO_SCOPE: JSON.stringify(GITHUB_TOKEN_NO_SCOPE),
       SENTRY_DSN: JSON.stringify(SENTRY_DSN),
       LOGROCKET_APP_ID: JSON.stringify(LOGROCKET_APP_ID),
       BRANCH: JSON.stringify(
