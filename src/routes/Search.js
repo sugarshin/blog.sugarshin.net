@@ -14,6 +14,9 @@ export default class Search extends Component {
   get q() {
     return this.props.router.location.query.q || ''
   }
+  get decodedQ() {
+    return decodeURIComponent(this.q)
+  }
   componentDidMount() {
     if (this.q) {
       this.props.actions.searchArticle(this.q)
@@ -30,14 +33,14 @@ export default class Search extends Component {
     return (
       <div>
         <Helmet>
-          <title>{`${this.q} | Search`}</title>
-          <meta name='title' content={`${this.q} | Search | ${siteName}`} />
-          <meta name='description' content={`Search | ${this.q} | ${description}`} />
-          <meta property='og:title' content={`${this.q} | Search | ${siteName}`} />
-          <meta property='og:description' content={`Search | ${this.q} | ${description}`} />
+          <title>{`${this.decodedQ} | Search`}</title>
+          <meta name='title' content={`${this.decodedQ} | Search | ${siteName}`} />
+          <meta name='description' content={`Search | ${this.decodedQ} | ${description}`} />
+          <meta property='og:title' content={`${this.decodedQ} | Search | ${siteName}`} />
+          <meta property='og:description' content={`Search | ${this.decodedQ} | ${description}`} />
           <meta property='og:url' content={`${protocol}//${domain}/search/?q=${this.q}`} />
         </Helmet>
-        <PageTitle title={`Search result "${this.q}"`} />
+        <PageTitle title={`Search result "${this.decodedQ}"`} />
         {searchResults.isFetching ? <LoadingSpinner /> : (
           searchResults.items.length > 0 ? (
             <SearchResults items={searchResults.items} />
