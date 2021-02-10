@@ -9,6 +9,7 @@ export default class Search extends Base {
     return this.get(null, { q: this.q(query), per_page: 100 })
   }
   static q(query) {
-    return `${query} in:file extension:md repo:${authorGitHubUserName}/${repositoryName} path:/articles/`
+    const decoded = decodeURIComponent(query)
+    return `${decoded} in:file extension:md repo:${authorGitHubUserName}/${repositoryName} path:/articles/`
   }
 }
