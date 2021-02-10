@@ -90,7 +90,7 @@ export default class SidebarMenu extends Component {
   renderRecentPosts() {
     return this.props.articles.items.filter((a, i) => i < 5).map(item => {
       const [year, month, day] = item.date.split(' ')[0].split('-')
-      const url = `/${year}/${month}/${day}/${item.url}`
+      const url = `/${year}/${month}/${day}/${item.url}/`
       return (
         <ListGroup.Item
           key={url}
@@ -154,7 +154,7 @@ export default class SidebarMenu extends Component {
   @keydown(Keys.ENTER)
   submitSearchQuery({ target: { value } }) {
     if (value) {
-      this.props.actions.goTo('/search', { search: `q=${value}` })
+      this.props.actions.goTo('/search/', { search: `q=${value}` })
     }
   }
 }

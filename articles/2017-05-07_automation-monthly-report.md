@@ -21,7 +21,7 @@ ogp:
 
 なかなかブログも書けないので、これから GitHub の月報を投稿していくことにしました。
 
-[[Monthly report] 2017-04 my activity this month on GitHub](/2017/04/30/monthly-report-1704)
+[[Monthly report] 2017-04 my activity this month on GitHub](/2017/04/30/monthly-report-1704/)
 
 ## 目次
 
@@ -37,7 +37,7 @@ ogp:
 
 前提として、 GitHub 上で投稿までのサイクルが回るようになっています。
 
-[React と Redux なブログ運用をソフトウェア開発する話し](/2016/07/14/blog-like-software-development)
+[React と Redux なブログ運用をソフトウェア開発する話し](/2016/07/14/blog-like-software-development/)
 
 ## List events performed by a user
 
