@@ -17,7 +17,7 @@ ogp:
 
 当ブログプロジェクトの依存モジュールのアップデートを、 [Renovate](https://renovatebot.com/) と E2E テストを用いて安全に自動化する環境を整えました。
 
-*[React と Redux なブログ運用をソフトウェア開発する話し](/2016/07/14/blog-like-software-development)*
+*[React と Redux なブログ運用をソフトウェア開発する話し](/2016/07/14/blog-like-software-development/)*
 
 ## 目次
 

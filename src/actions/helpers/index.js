@@ -15,6 +15,6 @@ export function createNextAndPrev(items, url) {
   const prev = prevIndex !== null ? ascendingSortedItems[prevIndex] : null
   return [next, prev].map(item => item && ({
     title: item.title,
-    url: `/${item.date.split(' ')[0].replace(/-/g, '/')}/${item.url}`,
+    url: `/${item.date.split(' ')[0].replace(/-/g, '/')}/${item.url}/`,
   }))
 }
