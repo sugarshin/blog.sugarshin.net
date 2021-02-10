@@ -1,0 +1,15 @@
+{
+  "name": "blog.sugarshin.net-e2e-test",
+  "version": "0.0.0",
+  "private": true,
+  "description": "blog.sugarshin.net/e2e-test",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sugarshin/blog.sugarshin.net.git"
+  },
+  "author": "sugarshin",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "playwright": "1.7.1"
+  }
+}
