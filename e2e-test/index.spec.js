@@ -54,7 +54,7 @@ for (const browserType of ['chromium', 'firefox', 'webkit']) {
 
       const parsedUrl = url.parse(page.url())
       expect(parsedUrl.pathname).toEqual(
-        expect.stringMatching(/^\/\d{4}\/\d{2}\/\d{2}\/[a-z0-9_-]+$/)
+        expect.stringMatching(/^\/\d{4}\/\d{2}\/\d{2}\/[a-z0-9_-]+\/$/)
       )
 
       const mdBody = await page.$$('#article-detail .markdown-body > *')
