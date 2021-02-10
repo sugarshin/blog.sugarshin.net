@@ -132,6 +132,13 @@ jobs:
           keys:
             - *node_modules_cache_key
       - run:
+          name: Install Playwright
+          command: |
+            cd e2e-test
+            yarn install --frozen-lockfile --cache-folder /home/circleci/.cache/yarn --prod
+          environment:
+            PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+      - run:
           command: npm run build:e2e-test
           environment:
             NODE_ENV: production
