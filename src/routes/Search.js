@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import PageTitle from 'components/PageTitle'
 import SearchResults from 'components/SearchResults'
+import SearchError from 'components/SearchError'
 import LoadingSpinner from 'components/utils/LoadingSpinner'
 import NoResults from 'components/NoResults'
 import connectStore from 'modules/connectStore'
@@ -28,8 +29,20 @@ export default class Search extends Component {
       this.props.actions.searchArticle(this.q)
     }
   }
-  render() {
+  renderMain() {
     const { searchResults } = this.props
+    if (searchResults.isFetching) {
+      return <LoadingSpinner />
+    }
+    if (searchResults.error) {
+      return <SearchError error={searchResults.error} />
+    }
+    if (searchResults.items.length > 0) {
+      return <SearchResults items={searchResults.items} />
+    }
+    return <NoResults />
+  }
+  render() {
     return (
       <div>
         <Helmet>
@@ -41,11 +54,7 @@ export default class Search extends Component {
           <meta property='og:url' content={`${protocol}//${domain}/search/?q=${this.q}`} />
         </Helmet>
         <PageTitle title={`Search result "${this.decodedQ}"`} />
-        {searchResults.isFetching ? <LoadingSpinner /> : (
-          searchResults.items.length > 0 ? (
-            <SearchResults items={searchResults.items} />
-          ) : <NoResults />
-        )}
+        {this.renderMain()}
       </div>
     )
   }
