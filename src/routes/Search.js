@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import querystring from 'querystring'
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import PageTitle from 'components/PageTitle'
@@ -12,8 +13,16 @@ import { siteName, description, protocol, domain } from '../../config/settings'
 
 @connectStore()
 export default class Search extends Component {
+  getSearchQuery(search) {
+    return querystring.parse(
+      search.slice(1),
+      null,
+      null,
+      { decodeURIComponent: a => a }
+    ).q || ''
+  }
   get q() {
-    return this.props.router.location.query.q || ''
+    return this.getSearchQuery(this.props.location.search)
   }
   get decodedQ() {
     return decodeURIComponent(this.q)
@@ -24,7 +33,7 @@ export default class Search extends Component {
     }
   }
   componentDidUpdate(prevProps) {
-    const prevQ = prevProps.router.location.query.q || ''
+    const prevQ = this.getSearchQuery(prevProps.location.search)
     if (this.q !== prevQ) {
       this.props.actions.searchArticle(this.q)
     }
