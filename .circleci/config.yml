@@ -102,6 +102,7 @@ jobs:
   deploy:
     executor: cimg_base
     steps:
+      - checkout
       - gh-pages/deploy:
           attach-workspace: true
           workspace-root: *workspace_root
