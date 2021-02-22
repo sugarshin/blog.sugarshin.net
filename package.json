@@ -118,7 +118,7 @@
     "babel-plugin-add-react-displayname": "0.0.5",
     "bootswatch": "4.6.0",
     "classnames": "2.2.6",
-    "connected-react-router": "6.9.0",
+    "connected-react-router": "6.9.1",
     "core-js": "3.9.0",
     "cpx": "1.5.0",
     "css-loader": "5.0.2",

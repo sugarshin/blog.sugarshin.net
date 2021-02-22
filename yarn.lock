@@ -4677,11 +4677,12 @@ connect-history-api-fallback@^1.6.0:
   resolved "https://registry.yarnpkg.com/connect-history-api-fallback/-/connect-history-api-fallback-1.6.0.tgz#8b32089359308d111115d81cad3fceab888f97bc"
   integrity sha512-e54B99q/OUoH64zYYRf3HBP5z24G38h5D3qXu23JGRoigpX5Ss4r9ZnDk3g0Z8uQC2x2lPaJ+UlWBc1ZWBWdLg==
 
-connected-react-router@6.9.0:
-  version "6.9.0"
-  resolved "https://registry.yarnpkg.com/connected-react-router/-/connected-react-router-6.9.0.tgz#59c87d559fa3f03c1cc73bff130e9bf6dbb4e040"
-  integrity sha512-F9CcB5fNyaPQ6zsJvQG0GQigVp6SnTCJMOdQDJylYmi1jnkgRnzL3D0b7PkV1KTWrXLKLFYSeTrbSboI6TDznQ==
+connected-react-router@6.9.1:
+  version "6.9.1"
+  resolved "https://registry.yarnpkg.com/connected-react-router/-/connected-react-router-6.9.1.tgz#d842eebaa15b9920e2e45fc03d74e41110e94e4c"
+  integrity sha512-BbtB6t0iqAwGwygDenJl9zmlk7vpKWIRSycULmkAOn2RUaF6+bqETprl0qcIqQmY5CTqSwKanaxkLXYWiffAfQ==
   dependencies:
+    lodash.isequalwith "^4.4.0"
     prop-types "^15.7.2"
   optionalDependencies:
     immutable "^3.8.1 || ^4.0.0-rc.1"
@@ -9384,7 +9385,7 @@ lodash.isequal@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
   integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
 
-lodash.isequalwith@4.4.0:
+lodash.isequalwith@4.4.0, lodash.isequalwith@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.isequalwith/-/lodash.isequalwith-4.4.0.tgz#266726ddd528f854f21f4ea98a065606e0fbc6b0"
   integrity sha1-Jmcm3dUo+FTyH06pigZWBuD7xrA=
