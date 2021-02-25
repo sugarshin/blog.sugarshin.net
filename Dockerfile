@@ -28,7 +28,7 @@ ENV NODE_ENV production
 RUN npm run build:review-app
 RUN bin/react-snap --source=build-review-app --cns
 
-FROM node:12.20.2-alpine AS production
+FROM node:12.21.0-alpine AS production
 
 WORKDIR /usr/src/app
 
