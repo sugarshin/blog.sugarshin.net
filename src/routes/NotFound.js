@@ -9,9 +9,9 @@ export default class NotFound extends Component {
     return (
       <>
         <Helmet>
-          <title>404 Not Found</title>
+          <title>{`${this.props.location.pathname}`} 404 Not Found</title>
         </Helmet>
-        <NotFoundComponent />
+        <NotFoundComponent pathname={this.props.location.pathname} />
       </>
     )
   }
