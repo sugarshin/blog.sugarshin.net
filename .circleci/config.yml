@@ -123,7 +123,7 @@ jobs:
               echo "Didn't found a Pull request number from the `CIRCLE_PULL_REQUESTS` environment variable."
             else
               yarn add -E firebase-tools@9
-              node_modules/.bin/firebase hosting:channel:deploy "pr-${pr_number}" --token "${FIREBASE_TOKEN}"
+              node_modules/.bin/firebase hosting:channel:deploy "pr-${pr_number}" --expires 3d --token "${FIREBASE_TOKEN}"
             fi
 
   deploy:
