@@ -123,8 +123,13 @@ jobs:
               echo "Didn't found a Pull request number from the `CIRCLE_PULL_REQUESTS` environment variable."
             else
               yarn add -E firebase-tools@9
-              node_modules/.bin/firebase hosting:channel:deploy "pr-${pr_number}" --expires 3d --token "${FIREBASE_TOKEN}"
+              chennel_id="pr-${pr_number}"
+              node_modules/.bin/firebase hosting:channel:deploy "${chennel_id}" --expires 3d --token "${FIREBASE_TOKEN}"
+              # TODO:
+              # review_url=$(node_modules/.bin/firebase hosting:channel:open "${chennel_id}")
             fi
+      # TODO:
+      # - slack/notify:
 
   deploy:
     executor: cimg_base
