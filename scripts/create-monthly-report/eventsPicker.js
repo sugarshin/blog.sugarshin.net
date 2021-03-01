@@ -1,6 +1,19 @@
-const { authorGitHubUserName } = require('../../config/settings')
+const { authorGitHubUserName, repositoryName } = require('../../config/settings')
 
-const extractOwnerNameFromEvent = event => event.repo.name.split('/')[0]
+const extractRepoNameFromEvent = event => event.repo.name
+const extractOwnerNameFromEvent = event => extractRepoNameFromEvent(event).split('/')[0]
+
+const filteringRepoNames = [
+  `${authorGitHubUserName}/${repositoryName}`,
+  `${authorGitHubUserName}/sugarshin-bolt`,
+  `${authorGitHubUserName}/dotfiles`,
+  `${authorGitHubUserName}/sugarshin.net`,
+  `${authorGitHubUserName}/build.blog.sugarshin.net`,
+]
+
+const filterPrivateRepos = event => {
+  return !filteringRepoNames.includes(extractRepoNameFromEvent(event))
+}
 
 /**
  * @param {Array} data
@@ -35,9 +48,11 @@ module.exports.pickCreateTagEvents = data => {
   }, [])
 }
 module.exports.pickTargetIssuesEvents = data => {
-  return pickIssuesEvents(data).reduce((ret, event) => {
-    return ['opened', 'closed'].includes(event.payload.action) ? [...ret, event] : ret
-  }, [])
+  return pickIssuesEvents(data)
+    .filter(filterPrivateRepos)
+    .reduce((ret, event) => {
+      return ['opened', 'closed'].includes(event.payload.action) ? [...ret, event] : ret
+    }, [])
 }
 module.exports.pickTargetPullRequestEvents = data => {
   return pickPullRequestEvents(data)
