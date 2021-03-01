@@ -42,6 +42,7 @@
     "build": "/bin/bash scripts/build.bash",
     "build:e2e-test": "/bin/bash scripts/build-e2e-test.bash",
     "build:review-app": "/bin/bash scripts/build-review-app.bash",
+    "postbuild:review-app": "bin/react-snap --source=build-review-app --cns",
     "deploy": "/bin/bash scripts/deploy.bash"
   },
   "repository": {

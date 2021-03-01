@@ -99,6 +99,38 @@ jobs:
           root: *workspace_root
           paths:
             - build
+
+  deploy_review_app:
+    executor: nodejs_browsers
+    steps:
+      - checkout
+      - node/install-packages:
+          <<: *node_install_packages_base
+          override-ci-command: *yarn_install_prod
+      - run:
+          name: Build Assets for Review App
+          command: npm run build:review-app
+          environment:
+            NODE_ENV: production
+      - store_artifacts:
+          path: build-review-app
+          destination: build-review-app
+      - run:
+          name: Deploy Review App
+          command: |
+            pr_number="${CIRCLE_PULL_REQUESTS##*/}"
+            if [[ -z "${pr_number}" ]]; then
+              echo "Didn't found a Pull request number from the `CIRCLE_PULL_REQUESTS` environment variable."
+            else
+              yarn add -E firebase-tools@9
+              chennel_id="pr-${pr_number}"
+              node_modules/.bin/firebase hosting:channel:deploy "${chennel_id}" --expires 3d --token "${FIREBASE_TOKEN}"
+              # TODO:
+              # review_url=$(node_modules/.bin/firebase hosting:channel:open "${chennel_id}")
+            fi
+      # TODO:
+      # - slack/notify:
+
   deploy:
     executor: cimg_base
     steps:
@@ -166,6 +198,14 @@ workflows:
           <<: *filter_gh_pages
           requires:
             - build_test
+      - deploy_review_app:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+                - master
+          requires:
+            - e2e_test
       - deploy:
           requires:
             - test

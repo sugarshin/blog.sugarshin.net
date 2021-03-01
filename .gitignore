@@ -68,3 +68,5 @@ build-e2e-test
 build-review-app
 
 e2e-test-artifacts
+
+.firebase/
