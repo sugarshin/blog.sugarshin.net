@@ -5,7 +5,7 @@ import ArticleMeta from 'components/ArticleMeta'
 import ArticleBody from 'components/ArticleBody'
 import ShareToolbar from 'components/ShareToolbar'
 import ArticleNavigation from 'components/ArticleNavigation'
-import Disqus from 'components/Disqus'
+// import Disqus from 'components/Disqus'
 import styles from './index.styl'
 
 export default function Article({ article, currentPathname, baseShareMessage }) {
@@ -23,12 +23,12 @@ export default function Article({ article, currentPathname, baseShareMessage }) 
         url={url}
       />
       <ArticleNavigation next={article.next} prev={article.prev} />
-      <Disqus
+      {/* <Disqus
         shortname='logsugarshinnet'
         identifier={currentPathname}
         title={article.title}
         url={url}
-      />
+      /> */}
     </div>
   )
 }
