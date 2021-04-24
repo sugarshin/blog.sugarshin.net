@@ -13117,13 +13117,13 @@ textlint-rule-ja-no-mixed-period@2.1.1:
     check-ends-with-period "^1.0.1"
     textlint-rule-helper "^2.0.0"
 
-textlint-rule-ja-no-successive-word@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-successive-word/-/textlint-rule-ja-no-successive-word-1.2.0.tgz#ba7597b54978388a5f8e53b9003bd9066f2111ad"
-  integrity sha512-5ki006mIOeElHtPk0WECR8xvW66I+o3lpzbRpvDSlEwjZwNeR4QHwByfBsl7KdScy945Vab1t5I0lCXXS7u3ow==
+textlint-rule-ja-no-successive-word@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-successive-word/-/textlint-rule-ja-no-successive-word-2.0.0.tgz#32ab674f45483243d62e375b2636a81cf41b2925"
+  integrity sha512-4BCz5G7JbmuSwGTXlgTil70SS8x6firJ67ZQR9w3cmwNn6JC9UoBEjweia/M4Mviyadaw4fDLhFSfEC0v5OX+Q==
   dependencies:
     "@textlint/regexp-string-matcher" "^1.1.0"
-    kuromojin "^2.0.0"
+    kuromojin "^3.0.0"
 
 textlint-rule-max-comma@1.0.4:
   version "1.0.4"
