@@ -12087,13 +12087,6 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
-sentence-splitter@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/sentence-splitter/-/sentence-splitter-1.2.0.tgz#c1c38414cf145ec717fd437cac20c988e0fd0d46"
-  integrity sha1-wcOEFM8UXscX/UN8rCDJiOD9DUY=
-  dependencies:
-    structured-source "^3.0.2"
-
 sentence-splitter@^2.0.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/sentence-splitter/-/sentence-splitter-2.3.2.tgz#5ad33cd0e6ae171d58c88f6bfef16a9ed04f3a79"
@@ -12112,7 +12105,7 @@ sentence-splitter@^3.0.11:
     object.values "^1.1.0"
     structured-source "^3.0.2"
 
-sentence-splitter@^3.2.0:
+sentence-splitter@^3.2.0, sentence-splitter@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/sentence-splitter/-/sentence-splitter-3.2.1.tgz#d6f5b66f4ab130f511d50e41e6f42070e2936ffb"
   integrity sha512-aG+Tf8M1wVUd2uPSUtdMXdJlKZLcdh+oVE8iEn8KwfxYZ87qDpe7+o0nGZdr+96g2H76Qz/8TrG9dIxyp7c70w==
@@ -13173,15 +13166,15 @@ textlint-rule-no-double-negative-ja@2.0.0:
   dependencies:
     kuromojin "^3.0.0"
 
-textlint-rule-no-doubled-conjunctive-particle-ga@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/textlint-rule-no-doubled-conjunctive-particle-ga/-/textlint-rule-no-doubled-conjunctive-particle-ga-1.1.1.tgz#c9ec57637b7a4908d4e7a2d2077c5e94233803cd"
-  integrity sha512-UvjKadrYOvA5F9rkCk5YafmEyxgdwJEZoz/MHCWhNFnTSDBryhIL986qxeZAjI/4FB9mZUDxQsDph2W7Sn8acA==
+textlint-rule-no-doubled-conjunctive-particle-ga@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/textlint-rule-no-doubled-conjunctive-particle-ga/-/textlint-rule-no-doubled-conjunctive-particle-ga-2.0.1.tgz#d71733d2e7cf70c60ac0d39745f8d72dba0a6344"
+  integrity sha512-Zg/TD0/ZBiZIjUtUniioTv5lCMqS7cmYIQk/KJ6Qyjcb+DQ2WN1Km1AT+P7GH1iDdsUUwHiSr8C6j91IV3sqZA==
   dependencies:
-    kuromojin "^2.0.0"
-    sentence-splitter "^1.2.0"
-    textlint-rule-helper "^1.1.5"
-    textlint-util-to-string "^1.2.0"
+    kuromojin "^3.0.0"
+    sentence-splitter "^3.2.1"
+    textlint-rule-helper "^2.1.1"
+    textlint-util-to-string "^3.1.1"
 
 textlint-rule-no-dropping-the-ra@2.0.0:
   version "2.0.0"
@@ -13242,14 +13235,6 @@ textlint-rule-sentence-length@2.2.0:
     sentence-splitter "^3.0.11"
     textlint-rule-helper "^2.1.1"
     textlint-util-to-string "^3.0.0"
-
-textlint-util-to-string@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/textlint-util-to-string/-/textlint-util-to-string-1.2.1.tgz#1cf89956d27555a55e9588c06b35a50f0d1d46f9"
-  integrity sha1-HPiZVtJ1VaVelYjAazWlDw0dRvk=
-  dependencies:
-    object-assign "^4.0.1"
-    structured-source "^3.0.2"
 
 textlint-util-to-string@^3.0.0, textlint-util-to-string@^3.1.1:
   version "3.1.1"
