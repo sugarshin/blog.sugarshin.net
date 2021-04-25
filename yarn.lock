@@ -13155,10 +13155,10 @@ textlint-rule-max-kanji-continuous-len@1.1.1:
     match-index "^1.0.1"
     textlint-rule-helper "^2.0.0"
 
-textlint-rule-max-ten@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/textlint-rule-max-ten/-/textlint-rule-max-ten-4.0.0.tgz#55847b19b2de3a40bc62779b9f3581926e8b3b98"
-  integrity sha512-/bd2IeSNq6hyNJdofUNjef51joUK8eoRKtkAqkbLkDuTt6q30BZuLfZLXQ2/X0gjCwfStzoqar48dK34htys/w==
+textlint-rule-max-ten@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/textlint-rule-max-ten/-/textlint-rule-max-ten-4.0.2.tgz#42c3662dde5291d4b1a09aea9aad5a3eeb545ed9"
+  integrity sha512-19DAGjbxJTmC8eyBmw7crSh+3YhoJdNRfTofubgi7Vhw0MsH4pueqCGRUdh88LA/BEwiHNqTIDVkyUx46Ew65w==
   dependencies:
     kuromojin "^3.0.0"
     sentence-splitter "^3.2.0"
