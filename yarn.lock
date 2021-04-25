@@ -13176,12 +13176,12 @@ textlint-rule-no-doubled-conjunctive-particle-ga@2.0.1:
     textlint-rule-helper "^2.1.1"
     textlint-util-to-string "^3.1.1"
 
-textlint-rule-no-dropping-the-ra@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/textlint-rule-no-dropping-the-ra/-/textlint-rule-no-dropping-the-ra-2.0.0.tgz#d19cf55ff77ae546a5843bc51e4bd032dcdc0d77"
-  integrity sha512-2WvJ49KoEOxnVh+EU2MMeuRZtSzwZ5aIRbu51MASUvmOvEjfbeJHiLgO5Dz0YrFvAWmtOxtWbO6OO5y+SMHQRg==
+textlint-rule-no-dropping-the-ra@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-no-dropping-the-ra/-/textlint-rule-no-dropping-the-ra-3.0.0.tgz#cc408b719302818e52917f5dee537e1007c206e2"
+  integrity sha512-KbSIlcxj1kLs4sGSMSLGA8OmgRoaPAWtodJaGEyEUiy7uiZM/VPqYALpuD8vf16N1OR5SM/bXXeZFME65r8ZgQ==
   dependencies:
-    kuromojin "^2.0.0"
+    kuromojin "^3.0.0"
     textlint-rule-helper "^2.1.1"
 
 textlint-rule-no-hankaku-kana@1.0.2:
