@@ -4328,10 +4328,10 @@ core-js-compat@^3.9.1:
     browserslist "^4.16.3"
     semver "7.0.0"
 
-core-js@3.11.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.11.0.tgz#05dac6aa70c0a4ad842261f8957b961d36eb8926"
-  integrity sha512-bd79DPpx+1Ilh9+30aT5O1sgpQd4Ttg8oqkqi51ZzhedMM1omD2e6IOF48Z/DzDCZ2svp49tN/3vneTK6ZBkXw==
+core-js@3.11.1:
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.11.1.tgz#f920392bf8ed63a0ec8e4e729857bfa3d121c525"
+  integrity sha512-k93Isqg7e4txZWMGNYwevZL9MiogLk8pd1PtwrmFmi8IBq4GXqUaVW/a33Llt6amSI36uSjd0GWwc9pTT9ALlQ==
 
 core-js@^2.4.0, core-js@^2.5.7, core-js@^2.6.5:
   version "2.6.12"
@@ -9053,10 +9053,10 @@ mini-create-react-context@^0.4.0:
     "@babel/runtime" "^7.12.1"
     tiny-warning "^1.0.3"
 
-mini-css-extract-plugin@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-1.5.0.tgz#69bee3b273d2d4ee8649a2eb409514b7df744a27"
-  integrity sha512-SIbuLMv6jsk1FnLIU5OUG/+VMGUprEjM1+o2trOAx8i5KOKMrhyezb1dJ4Ugsykb8Jgq8/w5NEopy6escV9G7g==
+mini-css-extract-plugin@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-1.5.1.tgz#c0ac557c48a7de47de3df0768fe037c9cf961f69"
+  integrity sha512-wEpr0XooH6rw/Mlf+9KTJoMBLT3HujzdTrmohPjAzF47N4Q6yAeczQLpRD/WxvAtXvskcXbily7TAdCfi2M4Dg==
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
