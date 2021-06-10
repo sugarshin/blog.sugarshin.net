@@ -176,6 +176,7 @@
     "remark-external-links": "8.0.0",
     "remark-extract-frontmatter": "3.1.0",
     "remark-frontmatter": "3.0.0",
+    "remark-gfm": "1.0.0",
     "remark-parse": "9.0.0",
     "remark-react": "8.0.0",
     "remark-react-lowlight": "0.7.0",
