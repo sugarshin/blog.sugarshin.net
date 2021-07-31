@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2021-06-30T15:20:22.424Z</updated>
+    <updated>2021-07-31T15:20:28.332Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -13,6 +13,18 @@
     <subtitle>sugarshin's blog</subtitle>
     <logo>https://sugarshin.net/images/s.png</logo>
     <rights>sugarshin | Shingo Sato All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[[Monthly report] 2021-07 my activity this month on GitHub]]></title>
+        <id>https://blog.sugarshin.net/2021/07/31/monthly-report-2107/</id>
+        <link href="https://blog.sugarshin.net/2021/07/31/monthly-report-2107/"/>
+        <updated>2021-07-31T14:31:00.000Z</updated>
+        <summary type="html"><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Create new repositories  sugarshin/rollup-plugin-assets-replace  description: null  created_...]]></summary>
+        <author>
+            <name>sugarshin | Shingo Sato</name>
+            <email>shinsugar@gmail.com</email>
+            <uri>https://sugarshin.net/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[Monthly report] 2021-06 my activity this month on GitHub]]></title>
         <id>https://blog.sugarshin.net/2021/06/30/monthly-report-2106/</id>

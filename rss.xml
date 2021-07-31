@@ -4,7 +4,7 @@
         <title>blog.sugarshin.net</title>
         <link>https://blog.sugarshin.net</link>
         <description>sugarshin's blog</description>
-        <lastBuildDate>Wed, 30 Jun 2021 15:20:22 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 31 Jul 2021 15:20:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://blog.sugarshin.net</link>
         </image>
         <copyright>sugarshin | Shingo Sato All rights reserved.</copyright>
+        <item>
+            <title><![CDATA[[Monthly report] 2021-07 my activity this month on GitHub]]></title>
+            <link>https://blog.sugarshin.net/2021/07/31/monthly-report-2107/</link>
+            <guid>https://blog.sugarshin.net/2021/07/31/monthly-report-2107/</guid>
+            <pubDate>Sat, 31 Jul 2021 14:31:00 GMT</pubDate>
+            <description><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Create new repositories  sugarshin/rollup-plugin-assets-replace  description: null  created_...]]></description>
+            <author>shinsugar@gmail.com (sugarshin | Shingo Sato)</author>
+        </item>
         <item>
             <title><![CDATA[[Monthly report] 2021-06 my activity this month on GitHub]]></title>
             <link>https://blog.sugarshin.net/2021/06/30/monthly-report-2106/</link>
