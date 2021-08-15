@@ -2051,10 +2051,10 @@
     lodash "^4.17.20"
     lodash-es "^4.17.20"
 
-"@segment/snippet@4.13.2":
-  version "4.13.2"
-  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.13.2.tgz#5630272768b33cadb610d3ee86d938668eb9aee7"
-  integrity sha512-gxp+jZgUVaJIq/MBm1oxx67UzwU1p+SNGLTLR7KWSsdkaz9LM/3tEaedlAVYxAeROvswHtjHzjbA7iXSysYWqg==
+"@segment/snippet@4.14.2":
+  version "4.14.2"
+  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.14.2.tgz#d2a0a78714966c51b06ffffdb7685aa5d7f75eb9"
+  integrity sha512-14C0hoau8TZgWC87Zynk9fWuuxE8f2BvquRVSg4dF63ySvdy6cubbmBkpDhNfWteI04+BDA2OLL+4irGnL6YGA==
   dependencies:
     "@ndhoule/map" "^2.0.1"
 
