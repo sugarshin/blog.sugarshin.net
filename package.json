@@ -124,7 +124,7 @@
     "cpx": "1.5.0",
     "css-loader": "5.2.7",
     "css-mqpacker": "7.0.0",
-    "disqus-react": "1.0.11",
+    "disqus-react": "1.1.1",
     "dotenv": "9.0.2",
     "feed": "4.2.2",
     "file-loader": "6.2.0",
