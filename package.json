@@ -148,7 +148,7 @@
     "optimize-css-assets-webpack-plugin": "5.0.8",
     "postcss": "8.3.6",
     "postcss-flexbugs-fixes": "5.0.2",
-    "postcss-loader": "4.2.0",
+    "postcss-loader": "4.3.0",
     "postcss-partial-import": "4.1.0",
     "prop-types": "15.7.2",
     "raven-js": "3.27.2",
