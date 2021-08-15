@@ -3446,10 +3446,10 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootswatch@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.0.2.tgz#b733a5b50384299d660ae4d3963252805bad1c03"
-  integrity sha512-mND4kaJ8/j9Iy1IRBrJfP6bi92wICTxuT9ZA2+b8RuVU9YYBH6du2yzgPt+yQ+kBjgRaIq3enhPpy8LU7J8Trg==
+bootswatch@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.1.0.tgz#a9c521226aef55bba96b2854ef6fe39737b24f1a"
+  integrity sha512-HwQjahQSq0u+ydqY0fFyl/GsJIHhBvzjBA8D2XvMvIrHdqYfL1LdD5bnnaEDoJugMCYGud9PQSgq/XkuyFFPMg==
 
 boundary@^1.0.1:
   version "1.0.1"
