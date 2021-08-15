@@ -30,14 +30,14 @@ executors:
   nodejs:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:12.22.1
+      - image: circleci/node:12.22.4
         environment:
           TZ: "Asia/Tokyo"
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
   nodejs_browsers:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:12.22.1-browsers
+      - image: circleci/node:12.22.4-browsers
         environment:
           TZ: "Asia/Tokyo"
   playwright_base:
