@@ -153,7 +153,7 @@
     "prop-types": "15.7.2",
     "raven-js": "3.27.2",
     "react": "17.0.2",
-    "react-bootstrap": "1.5.2",
+    "react-bootstrap": "1.6.1",
     "react-dom": "17.0.2",
     "react-fa": "5.0.0",
     "react-github-fork-ribbon": "0.6.0",
