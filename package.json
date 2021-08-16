@@ -60,7 +60,7 @@
   },
   "homepage": "https://github.com/sugarshin/blog.sugarshin.net#readme",
   "engines": {
-    "node": "12.x"
+    "node": "14.x"
   },
   "jest": {
     "testRegex": "/test/.+\\.spec\\.js$",
