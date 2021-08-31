@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2021-08-24T05:15:49.313Z</updated>
+    <updated>2021-08-31T15:14:41.426Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -13,6 +13,18 @@
     <subtitle>sugarshin's blog</subtitle>
     <logo>https://sugarshin.net/images/s.png</logo>
     <rights>sugarshin | Shingo Sato All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[[Monthly report] 2021-08 my activity this month on GitHub]]></title>
+        <id>https://blog.sugarshin.net/2021/08/31/monthly-report-2108/</id>
+        <link href="https://blog.sugarshin.net/2021/08/31/monthly-report-2108/"/>
+        <updated>2021-08-31T14:31:00.000Z</updated>
+        <summary type="html"><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Starred repositories  marko-js/marko  google/zx  najeira/jpholiday  storybookjs/telejson  tn...]]></summary>
+        <author>
+            <name>sugarshin | Shingo Sato</name>
+            <email>shinsugar@gmail.com</email>
+            <uri>https://sugarshin.net/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[Monthly report] 2021-07 my activity this month on GitHub]]></title>
         <id>https://blog.sugarshin.net/2021/07/31/monthly-report-2107/</id>
