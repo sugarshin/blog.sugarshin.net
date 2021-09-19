@@ -1,6 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import logger from 'redux-logger'
-import LogRocket from 'logrocket'
 import { createRootReducer } from 'reducers'
 import { createRouterMiddleware } from './middlewares/router'
 import { createThunkMiddleware } from './middlewares/thunk'
@@ -14,8 +13,7 @@ export default function configureStore({ history, initialState }) {
       applyMiddleware(
         createThunkMiddleware(),
         createRouterMiddleware(history),
-        logger,
-        LogRocket.reduxMiddleware()
+        logger
       )//,
       // @see https://github.com/reduxjs/redux-devtools/issues/399
       // DevTools.instrument()

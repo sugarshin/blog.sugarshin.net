@@ -22,7 +22,6 @@ const {
   PORT,
   SENTRY_DSN,
   CIRCLE_BUILD_NUM,
-  LOGROCKET_APP_ID,
   CIRCLE_BRANCH,
   HEROKU_BRANCH,
 } = process.env
@@ -37,7 +36,6 @@ const plugins = [
       BUILD_NUMBER: JSON.stringify(CIRCLE_BUILD_NUM || 0),
       SEGMENT_WRITE_KEY: JSON.stringify(SEGMENT_WRITE_KEY),
       SENTRY_DSN: JSON.stringify(SENTRY_DSN),
-      LOGROCKET_APP_ID: JSON.stringify(LOGROCKET_APP_ID),
       BRANCH: JSON.stringify(
         CIRCLE_BRANCH ||
         HEROKU_BRANCH ||
