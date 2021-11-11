@@ -36,6 +36,8 @@ Snow Peak は最近お気に入りのアウトドア製品メーカーで、流�
 
 スクレイピングで製品一覧の情報をとって結果を保持しておき、次回の実行時にその状態と比較して入荷していたら Slack に通知する、というシンプルなスクリプトです。
 
+[![](https://raw.githubusercontent.com/sugarshin/sp-product-arrival-notifier/master/architecture.png)](https://github.com/sugarshin/sp-product-arrival-notifier/blob/master/architecture.png)
+
 スクリプト本体は Python で雑に書いてあります。
 
 ref: https://github.com/sugarshin/sp-product-arrival-notifier
