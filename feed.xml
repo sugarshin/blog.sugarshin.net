@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2021-12-31T15:17:07.140Z</updated>
+    <updated>2022-01-01T02:11:10.055Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -19,6 +19,18 @@
         <link href="https://blog.sugarshin.net/2021/12/31/monthly-report-2112/"/>
         <updated>2021-12-31T14:30:00.000Z</updated>
         <summary type="html"><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Pull requests  feat: add cronjob.startingDeadlineSeconds optional value · Pull Request #172 ...]]></summary>
+        <author>
+            <name>sugarshin | Shingo Sato</name>
+            <email>shinsugar@gmail.com</email>
+            <uri>https://sugarshin.net/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2021 年まとめ]]></title>
+        <id>https://blog.sugarshin.net/2021/12/31/matome-2021/</id>
+        <link href="https://blog.sugarshin.net/2021/12/31/matome-2021/"/>
+        <updated>2021-12-31T07:06:00.000Z</updated>
+        <summary type="html"><![CDATA[2021 年のまとめを書きます。  目次  仕事  メディア掲載  キャンプ  富士河口湖温泉 湖南荘 - 7月  松本市美鈴湖もりの国オートキャンプ場 - 8月  ウェルキャンプ西丹沢 - 8月  富津金谷オートキャンプヒルズ - 11月  富津金谷オートキャンプヒルズ ...]]></summary>
         <author>
             <name>sugarshin | Shingo Sato</name>
             <email>shinsugar@gmail.com</email>
