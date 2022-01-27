@@ -2,7 +2,7 @@ import merge from 'lodash/merge'
 import unified from 'unified'
 import remarkReact from 'remark-react'
 import remarkReactLowlight from 'remark-react-lowlight'
-import sanitizeGitHubSchema from 'hast-util-sanitize/lib/github.json'
+import { defaultSchema } from 'hast-util-sanitize'
 import js from 'highlight.js/lib/languages/javascript'
 import bash from 'highlight.js/lib/languages/bash'
 import json from 'highlight.js/lib/languages/json'
@@ -12,7 +12,7 @@ import typescript from 'highlight.js/lib/languages/typescript'
 import { basePlugins } from '../../../markdown'
 import { Link } from './Link'
 
-const sanitize = merge(sanitizeGitHubSchema, { clobberPrefix: '', attributes: { code: ['className'] } })
+const sanitize = merge(defaultSchema, { clobberPrefix: '', attributes: { code: ['className'] } })
 const reactRenderer = unified()
   .use(basePlugins)
   .use(remarkReact, {
