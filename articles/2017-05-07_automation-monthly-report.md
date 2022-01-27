@@ -31,7 +31,7 @@ ogp:
 
 1. GitHub API から User event を取得して該当月のイベントから記事を作成する
 2. GitHub へ push
-3. API で Pull request 作成 => CI がパス次第 API で Merge
+3. API で Pull request を作成し、 CI がパス次第 API で Merge
 4. CircleCI などで上述の script を実行
 5. cron などで月末に定期ビルドさせる
 
