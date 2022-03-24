@@ -138,7 +138,7 @@
     "lodash": "4.17.21",
     "lodash.isequalwith": "4.4.0",
     "mini-css-extract-plugin": "1.6.2",
-    "minimist": "1.2.5",
+    "minimist": "1.2.6",
     "mirror-key-value": "1.0.5",
     "mkdirp": "1.0.4",
     "moment": "2.29.1",
