@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2022-03-24T19:32:28.341Z</updated>
+    <updated>2022-03-31T15:16:25.411Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -13,6 +13,18 @@
     <subtitle>sugarshin's blog</subtitle>
     <logo>https://sugarshin.net/images/s.png</logo>
     <rights>sugarshin | Shingo Sato All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[[Monthly report] 2022-03 my activity this month on GitHub]]></title>
+        <id>https://blog.sugarshin.net/2022/03/31/monthly-report-2203/</id>
+        <link href="https://blog.sugarshin.net/2022/03/31/monthly-report-2203/"/>
+        <updated>2022-03-31T14:30:00.000Z</updated>
+        <summary type="html"><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Pull requests  feat: add circleci_host param option \[semver:minor] · Pull Request #343 · Ci...]]></summary>
+        <author>
+            <name>sugarshin | Shingo Sato</name>
+            <email>shinsugar@gmail.com</email>
+            <uri>https://sugarshin.net/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[Monthly report] 2022-02 my activity this month on GitHub]]></title>
         <id>https://blog.sugarshin.net/2022/02/28/monthly-report-2202/</id>
