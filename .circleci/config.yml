@@ -19,7 +19,7 @@ references:
     cache-version: v2
     override-ci-command: *yarn_install
   node_modules_cache_key: &node_modules_cache_key
-    v3-node-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_WORKFLOW_ID }}-{{ checksum "yarn.lock" }}-node-modules
+    v4-node-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_WORKFLOW_ID }}-{{ checksum "yarn.lock" }}-node-modules
 
 orbs:
   slack: circleci/slack@3.4.2
