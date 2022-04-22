@@ -172,7 +172,7 @@
     "redux-logger": "3.0.6",
     "redux-thunk": "2.4.1",
     "remark-external-links": "8.0.0",
-    "remark-extract-frontmatter": "3.1.0",
+    "remark-extract-frontmatter": "3.2.0",
     "remark-frontmatter": "3.0.0",
     "remark-gfm": "1.0.0",
     "remark-parse": "9.0.0",

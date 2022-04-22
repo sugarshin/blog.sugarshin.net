@@ -12282,10 +12282,10 @@ remark-external-links@8.0.0:
     space-separated-tokens "^1.0.0"
     unist-util-visit "^2.0.0"
 
-remark-extract-frontmatter@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/remark-extract-frontmatter/-/remark-extract-frontmatter-3.1.0.tgz#8ac209bf5e7377578ebfd6dc3504e9fccabea112"
-  integrity sha512-16TIAq0QTGs2GrbFi9azDxfcjwacf25W33h8zXAwiUbdW9lJN5KPaY6TZ7u2iSPTOSbIYBYmj9E0Q+8e+eGGPQ==
+remark-extract-frontmatter@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/remark-extract-frontmatter/-/remark-extract-frontmatter-3.2.0.tgz#bab57f599114f233702dea819431eec28e708656"
+  integrity sha512-PmYwNCo0cMAUV3oAGg5Hn6YSZgiSDwVdxLJmPIZ804aYuvE5mAzozo5AkO0C8ELroWrtN/f9zzb0jqFPBkMnwg==
 
 remark-frontmatter@3.0.0:
   version "3.0.0"
