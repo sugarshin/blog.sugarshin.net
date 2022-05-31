@@ -4,7 +4,7 @@
         <title>blog.sugarshin.net</title>
         <link>https://blog.sugarshin.net</link>
         <description>sugarshin's blog</description>
-        <lastBuildDate>Thu, 19 May 2022 06:13:47 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 31 May 2022 15:18:19 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://blog.sugarshin.net</link>
         </image>
         <copyright>sugarshin | Shingo Sato All rights reserved.</copyright>
+        <item>
+            <title><![CDATA[[Monthly report] 2022-05 my activity this month on GitHub]]></title>
+            <link>https://blog.sugarshin.net/2022/05/31/monthly-report-2205/</link>
+            <guid>https://blog.sugarshin.net/2022/05/31/monthly-report-2205/</guid>
+            <pubDate>Tue, 31 May 2022 14:31:00 GMT</pubDate>
+            <description><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Starred repositories  GoogleChromeLabs/size-plugin  Y2Z/monolith  h2non/gock  tcnksm/ghr  do...]]></description>
+            <author>shinsugar@gmail.com (sugarshin | Shingo Sato)</author>
+        </item>
         <item>
             <title><![CDATA[[Monthly report] 2022-03 my activity this month on GitHub]]></title>
             <link>https://blog.sugarshin.net/2022/03/31/monthly-report-2203/</link>
