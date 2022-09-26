@@ -9,7 +9,7 @@ https://blog.sugarshin.net
 ⚠️ The version must be the same as [build.blog.sugarshin.net](https://github.com/sugarshin/build.blog.sugarshin.net)
 
 ```sh
-$ cat .node-version
+$ cat .nvmrc
 ```
 
 ## Setup
