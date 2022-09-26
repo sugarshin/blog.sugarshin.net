@@ -3,7 +3,7 @@
 .eslintrc.js
 .git
 .gitignore
-.node-version
+.nvmrc
 .stylintrc
 .textlintrc
 README.md
