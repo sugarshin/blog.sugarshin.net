@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2023-02-01T00:27:49.621Z</updated>
+    <updated>2023-03-01T00:25:13.124Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -13,6 +13,18 @@
     <subtitle>sugarshin's blog</subtitle>
     <logo>https://sugarshin.net/images/s.png</logo>
     <rights>sugarshin | Shingo Sato All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[[Monthly report] 2023-02 my activity this month on GitHub]]></title>
+        <id>https://blog.sugarshin.net/2023/02/28/monthly-report-2302/</id>
+        <link href="https://blog.sugarshin.net/2023/02/28/monthly-report-2302/"/>
+        <updated>2023-02-28T05:38:00.000Z</updated>
+        <summary type="html"><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Starred repositories  oslokommune/okctl  oslokommune/okr-tracker  BurningOKR/BurningOKR  git...]]></summary>
+        <author>
+            <name>sugarshin | Shingo Sato</name>
+            <email>shinsugar@gmail.com</email>
+            <uri>https://sugarshin.net/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[Monthly report] 2023-01 my activity this month on GitHub]]></title>
         <id>https://blog.sugarshin.net/2023/01/31/monthly-report-2301/</id>
