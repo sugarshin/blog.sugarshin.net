@@ -4,7 +4,7 @@
         <title>blog.sugarshin.net</title>
         <link>https://blog.sugarshin.net</link>
         <description>sugarshin's blog</description>
-        <lastBuildDate>Wed, 01 Mar 2023 00:25:13 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 01 Apr 2023 00:24:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://blog.sugarshin.net</link>
         </image>
         <copyright>sugarshin | Shingo Sato All rights reserved.</copyright>
+        <item>
+            <title><![CDATA[[Monthly report] 2023-03 my activity this month on GitHub]]></title>
+            <link>https://blog.sugarshin.net/2023/03/31/monthly-report-2303/</link>
+            <guid>https://blog.sugarshin.net/2023/03/31/monthly-report-2303/</guid>
+            <pubDate>Fri, 31 Mar 2023 05:38:00 GMT</pubDate>
+            <description><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Pull requests  feat: handling liff id for mini · Pull Request #21 · line/liff-playground  cr...]]></description>
+            <author>shinsugar@gmail.com (sugarshin | Shingo Sato)</author>
+        </item>
         <item>
             <title><![CDATA[[Monthly report] 2023-02 my activity this month on GitHub]]></title>
             <link>https://blog.sugarshin.net/2023/02/28/monthly-report-2302/</link>
