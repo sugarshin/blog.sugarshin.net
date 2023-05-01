@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2023-04-01T00:24:27.279Z</updated>
+    <updated>2023-05-01T00:25:24.200Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -13,6 +13,18 @@
     <subtitle>sugarshin's blog</subtitle>
     <logo>https://sugarshin.net/images/s.png</logo>
     <rights>sugarshin | Shingo Sato All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[[Monthly report] 2023-04 my activity this month on GitHub]]></title>
+        <id>https://blog.sugarshin.net/2023/04/30/monthly-report-2304/</id>
+        <link href="https://blog.sugarshin.net/2023/04/30/monthly-report-2304/"/>
+        <updated>2023-04-30T05:38:00.000Z</updated>
+        <summary type="html"><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Starred repositories  nektos/act-environments  catthehacker/virtual-environments-fork  aws-e...]]></summary>
+        <author>
+            <name>sugarshin | Shingo Sato</name>
+            <email>shinsugar@gmail.com</email>
+            <uri>https://sugarshin.net/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[Monthly report] 2023-03 my activity this month on GitHub]]></title>
         <id>https://blog.sugarshin.net/2023/03/31/monthly-report-2303/</id>
