@@ -14,7 +14,7 @@ npm run cp:build
 mkdir -p $BUILD/assets/images/common
 cp src/images/p.jpg $BUILD/assets/images/common/open-graph.jpg
 
-cp -Rn ./src/static/ "./${BUILD}/"
+cp -Rn ./src/static/. "./${BUILD}/"
 
 node scripts/sitemap
 node scripts/feed

@@ -14,7 +14,7 @@ npm run cp:review-app
 mkdir -p $BUILD/assets/images/common
 cp src/images/p.jpg $BUILD/assets/images/common/open-graph.jpg
 
-cp -Rn ./src/static/ "./${BUILD}/"
+cp -Rn ./src/static/. "./${BUILD}/"
 rm -rf "./${BUILD}/.well-known"
 
 node scripts/sitemap -o $BUILD
