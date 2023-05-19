@@ -39,11 +39,10 @@
     "e2e-test:ci": "npm run e2e-test -- --maxWorkers=2",
     "templates:build": "node scripts/templates",
     "webpack": "webpack --config config/webpack.config.js",
-    "build": "/bin/bash scripts/build.bash",
-    "build:e2e-test": "/bin/bash scripts/build-e2e-test.bash",
-    "build:review-app": "/bin/bash scripts/build-review-app.bash",
-    "postbuild:review-app": "bin/react-snap --source=build-review-app --cns",
-    "deploy": "/bin/bash scripts/deploy.bash"
+    "build": "./scripts/build.sh",
+    "build:e2e-test": "./scripts/build-e2e-test.sh",
+    "build:review-app": "./scripts/build-review-app.sh",
+    "postbuild:review-app": "bin/react-snap --source=build-review-app --cns"
   },
   "repository": {
     "type": "git",
