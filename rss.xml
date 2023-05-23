@@ -4,7 +4,7 @@
         <title>blog.sugarshin.net</title>
         <link>https://blog.sugarshin.net</link>
         <description>sugarshin's blog</description>
-        <lastBuildDate>Fri, 19 May 2023 06:36:22 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 23 May 2023 08:03:11 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://blog.sugarshin.net</link>
         </image>
         <copyright>sugarshin | Shingo Sato All rights reserved.</copyright>
+        <item>
+            <title><![CDATA[2022 年まとめ]]></title>
+            <link>https://blog.sugarshin.net/2023/05/22/matome-2022/</link>
+            <guid>https://blog.sugarshin.net/2023/05/22/matome-2022/</guid>
+            <pubDate>Mon, 22 May 2023 08:36:00 GMT</pubDate>
+            <description><![CDATA[Main  2023 年を迎えて半年ほど経ってしまいましたが、 2022 年のまとめを書きます。  目次  仕事  メディア掲載  読んだ本  旅行  2023年  仕事  昨年同様、 Web アプリケーション開発プラットフォームの SDK 開発を中心に、開発支援ツールやい...]]></description>
+            <author>shinsugar@gmail.com (sugarshin | Shingo Sato)</author>
+        </item>
         <item>
             <title><![CDATA[[Monthly report] 2023-04 my activity this month on GitHub]]></title>
             <link>https://blog.sugarshin.net/2023/04/30/monthly-report-2304/</link>
