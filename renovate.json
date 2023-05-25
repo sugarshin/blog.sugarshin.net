@@ -6,6 +6,12 @@
   "packageRules": [
     {
       "packageNames": [
+        "style-loader"
+      ],
+      "allowedVersions": "^2"
+    },
+    {
+      "packageNames": [
         "highlight.js"
       ],
       "allowedVersions": "^9"
