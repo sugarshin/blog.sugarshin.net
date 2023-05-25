@@ -32,7 +32,7 @@ const content = articleTemplate({
   ogImageURL: ogImageContent,
   tags: ['tag name'],
   body: [
-    `![Main](${ogImageContent.replace(origin, '')})`,
+    `![](${ogImageContent.replace(origin, '')})`,
     '',
     '## 目次',
     '',
