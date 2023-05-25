@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2023-05-23T22:21:00.652Z</updated>
+    <updated>2023-05-25T02:14:39.078Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -18,7 +18,7 @@
         <id>https://blog.sugarshin.net/2023/05/22/matome-2022/</id>
         <link href="https://blog.sugarshin.net/2023/05/22/matome-2022/"/>
         <updated>2023-05-22T08:36:00.000Z</updated>
-        <summary type="html"><![CDATA[Main  2023 年を迎えて半年ほど経ってしまいましたが、 2022 年のまとめを書きます。  目次  仕事  メディア掲載  読んだ本  旅行  2023年  仕事  昨年同様、 Web アプリケーション開発プラットフォームの SDK 開発を中心に、開発支援ツールやい...]]></summary>
+        <summary type="html"><![CDATA[2023 年を迎えて半年ほど経ってしまいましたが、 2022 年のまとめを書きます。  目次  仕事  メディア掲載  読んだ本  旅行  RECAMP館山  2023年  仕事  昨年同様、 Web アプリケーション開発プラットフォームの SDK 開発を中心に、開発支援ツ...]]></summary>
         <author>
             <name>sugarshin | Shingo Sato</name>
             <email>shinsugar@gmail.com</email>
