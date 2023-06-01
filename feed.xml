@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2023-05-26T22:09:46.042Z</updated>
+    <updated>2023-06-01T00:25:39.315Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -13,6 +13,18 @@
     <subtitle>sugarshin's blog</subtitle>
     <logo>https://sugarshin.net/images/s.png</logo>
     <rights>sugarshin | Shingo Sato All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[[Monthly report] 2023-05 my activity this month on GitHub]]></title>
+        <id>https://blog.sugarshin.net/2023/05/31/monthly-report-2305/</id>
+        <link href="https://blog.sugarshin.net/2023/05/31/monthly-report-2305/"/>
+        <updated>2023-05-31T05:38:00.000Z</updated>
+        <summary type="html"><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Starred repositories  activepieces/activepieces  google/styleguide  InnerSourceCommons/Inner...]]></summary>
+        <author>
+            <name>sugarshin | Shingo Sato</name>
+            <email>shinsugar@gmail.com</email>
+            <uri>https://sugarshin.net/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2022 年まとめ]]></title>
         <id>https://blog.sugarshin.net/2023/05/22/matome-2022/</id>
