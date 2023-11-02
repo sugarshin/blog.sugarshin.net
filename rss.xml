@@ -4,7 +4,7 @@
         <title>blog.sugarshin.net</title>
         <link>https://blog.sugarshin.net</link>
         <description>sugarshin's blog</description>
-        <lastBuildDate>Sun, 01 Oct 2023 02:53:15 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 02 Nov 2023 09:55:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://blog.sugarshin.net</link>
         </image>
         <copyright>sugarshin | Shingo Sato All rights reserved.</copyright>
+        <item>
+            <title><![CDATA[[Monthly report] 2023-10 my activity this month on GitHub]]></title>
+            <link>https://blog.sugarshin.net/2023/10/31/monthly-report-2310/</link>
+            <guid>https://blog.sugarshin.net/2023/10/31/monthly-report-2310/</guid>
+            <pubDate>Tue, 31 Oct 2023 05:38:00 GMT</pubDate>
+            <description><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Starred repositories  cncf/tag-observability  a8m/envsubst  snyk/driftctl]]></description>
+            <author>shinsugar@gmail.com (sugarshin | Shingo Sato)</author>
+        </item>
         <item>
             <title><![CDATA[[Monthly report] 2023-09 my activity this month on GitHub]]></title>
             <link>https://blog.sugarshin.net/2023/09/30/monthly-report-2309/</link>
