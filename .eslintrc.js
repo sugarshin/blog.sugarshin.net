@@ -4,7 +4,7 @@ const reactSettings = () => ({ version: pkg.dependencies.react.replace(/[^0-9.]/
 
 module.exports = {
   extends: ['eslint:recommended', 'plugin:react/recommended'],
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   plugins: ['babel', 'react'],
   parserOptions: {
     sourceType: 'module',
