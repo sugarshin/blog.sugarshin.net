@@ -3655,10 +3655,10 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootswatch@5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.1.3.tgz#aa6bd96acbaff9d5f7b1215a8ae00b68d918a26f"
-  integrity sha512-NmZFN6rOCoXWQ/PkzmD8FFWDe24kocX9OXWHNVaLxVVnpqpAzEbMFsf8bAfKwVtpNXibasZCzv09B5fLieAh2g==
+bootswatch@5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.3.3.tgz#fb8f671862165a06a70aee10f84ee2cc77b52120"
+  integrity sha512-cJLhobnZsVCelU7zdH/L7wpcXAyUoTX4/5l2dWQ0JXgaVK80BdTQNU/ImWwoyIGBeyms4iQDAdNtOfPQZf0Atg==
 
 boundary@^1.0.1:
   version "1.0.1"
