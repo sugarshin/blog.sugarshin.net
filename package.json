@@ -122,7 +122,7 @@
     "bootswatch": "5.3.3",
     "classnames": "2.5.1",
     "connected-react-router": "6.9.3",
-    "core-js": "3.22.8",
+    "core-js": "3.37.1",
     "cpx2": "2.0.0",
     "css-loader": "5.2.7",
     "css-mqpacker": "7.0.0",
