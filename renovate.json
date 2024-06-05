@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@sugarshin:js-app",
+    "config:js-app",
     ":automergeAll"
   ],
   "packageRules": [
