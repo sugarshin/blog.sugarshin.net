@@ -4,7 +4,7 @@
         <title>blog.sugarshin.net</title>
         <link>https://blog.sugarshin.net</link>
         <description>sugarshin's blog</description>
-        <lastBuildDate>Tue, 01 Oct 2024 00:20:22 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 01 Nov 2024 00:23:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://blog.sugarshin.net</link>
         </image>
         <copyright>sugarshin | Shingo Sato All rights reserved.</copyright>
+        <item>
+            <title><![CDATA[[Monthly report] 2024-10 my activity this month on GitHub]]></title>
+            <link>https://blog.sugarshin.net/2024/10/31/monthly-report-2410/</link>
+            <guid>https://blog.sugarshin.net/2024/10/31/monthly-report-2410/</guid>
+            <pubDate>Thu, 31 Oct 2024 05:38:00 GMT</pubDate>
+            <description><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Starred repositories  bitcrowd/mdast-util-from-adf]]></description>
+            <author>shinsugar@gmail.com (sugarshin | Shingo Sato)</author>
+        </item>
         <item>
             <title><![CDATA[[Monthly report] 2024-09 my activity this month on GitHub]]></title>
             <link>https://blog.sugarshin.net/2024/09/30/monthly-report-2409/</link>
