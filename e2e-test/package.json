@@ -10,6 +10,6 @@
   "author": "sugarshin",
   "license": "UNLICENSED",
   "dependencies": {
-    "playwright": "1.7.1"
+    "playwright": "1.49.1"
   }
 }
