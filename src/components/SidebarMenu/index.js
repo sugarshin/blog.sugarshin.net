@@ -79,11 +79,6 @@ export default class SidebarMenu extends Component {
             <RssIcon className={styles['feed-octicon']} /><span>Subscribe Feed</span>
           </a>
         </div>
-        <div>
-          <a href='https://circleci.com/gh/sugarshin/blog.sugarshin.net/tree/master'>
-            <img src='https://circleci.com/gh/sugarshin/blog.sugarshin.net/tree/master.svg?style=svg&circle-token=812f62f2aeba2a3bb9bfe6adf2abd24d7754a7be' />
-          </a>
-        </div>
       </div>
     )
   }
