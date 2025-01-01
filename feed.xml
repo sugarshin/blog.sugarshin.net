@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.sugarshin.net</id>
     <title>blog.sugarshin.net</title>
-    <updated>2024-12-09T23:33:29.959Z</updated>
+    <updated>2025-01-01T00:22:54.048Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>sugarshin | Shingo Sato</name>
@@ -13,6 +13,18 @@
     <subtitle>sugarshin's blog</subtitle>
     <logo>https://sugarshin.net/images/s.png</logo>
     <rights>sugarshin | Shingo Sato All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[[Monthly report] 2024-12 my activity this month on GitHub]]></title>
+        <id>https://blog.sugarshin.net/2024/12/31/monthly-report-2412/</id>
+        <link href="https://blog.sugarshin.net/2024/12/31/monthly-report-2412/"/>
+        <updated>2024-12-31T05:38:00.000Z</updated>
+        <summary type="html"><![CDATA[今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ    Pull requests  merged feat: handling liff id for mini · Pull Request #21 · line/liff-playgro...]]></summary>
+        <author>
+            <name>sugarshin | Shingo Sato</name>
+            <email>shinsugar@gmail.com</email>
+            <uri>https://sugarshin.net/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[Monthly report] 2024-11 my activity this month on GitHub]]></title>
         <id>https://blog.sugarshin.net/2024/11/30/monthly-report-2411/</id>
