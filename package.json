@@ -107,6 +107,10 @@
     "@babel/plugin-transform-flow-strip-types": "7.24.7",
     "@babel/preset-env": "7.24.7",
     "@babel/preset-react": "7.24.7",
+    "@fortawesome/fontawesome-svg-core": "6.7.2",
+    "@fortawesome/free-brands-svg-icons": "6.7.2",
+    "@fortawesome/free-solid-svg-icons": "6.7.2",
+    "@fortawesome/react-fontawesome": "0.2.2",
     "@material-ui/core": "4.12.4",
     "@primer/octicons-react": "19.9.0",
     "@redux-beacon/logger": "1.0.0",
@@ -152,7 +156,6 @@
     "react": "17.0.2",
     "react-bootstrap": "2.10.2",
     "react-dom": "17.0.2",
-    "react-fa": "5.0.0",
     "react-github-fork-ribbon": "0.7.1",
     "react-helmet": "6.1.0",
     "react-hot-loader": "4.13.1",
@@ -194,8 +197,8 @@
     "whatwg-fetch": "3.6.20"
   },
   "devDependencies": {
-    "@octokit/rest": "18.12.0",
     "@babel/eslint-parser": "7.24.7",
+    "@octokit/rest": "18.12.0",
     "babel-jest": "26.6.3",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.8",

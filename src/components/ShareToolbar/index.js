@@ -6,7 +6,8 @@ import {
   TumblrButton,
   PocketButton,
 } from 'react-social'
-import Icon from 'react-fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faXTwitter, faTumblr, faGetPocket } from '@fortawesome/free-brands-svg-icons'
 import PropTypes from 'prop-types'
 import { facebookAppID } from '../../../config/settings'
 
@@ -16,16 +17,16 @@ export default function ShareToolbar({ message, url }) {
   return (
     <div className={styles.wrapper}>
       <FacebookButton element='span' message={message} url={url} appId={facebookAppID}>
-        <Button variant='secondary'><Icon name='facebook' /></Button>
+        <Button variant='secondary'><FontAwesomeIcon icon={faFacebook} /></Button>
       </FacebookButton>
       <TwitterButton element='span' message={message} url={url}>
-        <Button variant='secondary'><Icon name='twitter' /></Button>
+        <Button variant='secondary'><FontAwesomeIcon icon={faXTwitter} /></Button>
       </TwitterButton>
       <TumblrButton element='span' message={message} url={url}>
-        <Button variant='secondary'><Icon name='tumblr' /></Button>
+        <Button variant='secondary'><FontAwesomeIcon icon={faTumblr} /></Button>
       </TumblrButton>
       <PocketButton element='span' message={message} url={url}>
-        <Button variant='secondary'><Icon name='get-pocket' /></Button>
+        <Button variant='secondary'><FontAwesomeIcon icon={faGetPocket} /></Button>
       </PocketButton>
     </div>
   )
