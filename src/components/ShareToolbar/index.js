@@ -22,9 +22,6 @@ export default function ShareToolbar({ message, url }) {
       <TwitterButton element='span' message={message} url={url}>
         <Button variant='secondary'><Icon name='twitter' /></Button>
       </TwitterButton>
-      <GooglePlusButton element='span' message={message} url={url}>
-        <Button variant='secondary'><Icon name='google-plus' /></Button>
-      </GooglePlusButton>
       <TumblrButton element='span' message={message} url={url}>
         <Button variant='secondary'><Icon name='tumblr' /></Button>
       </TumblrButton>
