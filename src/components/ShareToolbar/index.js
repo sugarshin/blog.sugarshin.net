@@ -3,7 +3,6 @@ import { Button } from 'react-bootstrap'
 import {
   FacebookButton,
   TwitterButton,
-  GooglePlusButton,
   TumblrButton,
   PocketButton,
 } from 'react-social'
