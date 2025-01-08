@@ -5,7 +5,8 @@ import { Alert, Button } from 'react-bootstrap'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Link, withRouter } from 'react-router-dom'
-import Icon from 'react-fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCopyright } from '@fortawesome/free-solid-svg-icons'
 import { ThreeBarsIcon } from '@primer/octicons-react'
 import SidebarMenu from 'components/SidebarMenu'
 import LoadingSpinner from 'components/utils/LoadingSpinner'
@@ -82,7 +83,7 @@ export default class Main extends Component {
           <footer className={styles.footer}>
             <p>
               <small>
-                <Icon name='copyright' />
+                <FontAwesomeIcon icon={faCopyright} />
                 {' '}
                 {`${new Date().getFullYear()} ${settings.copyright}`}
               </small>

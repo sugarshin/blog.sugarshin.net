@@ -1,5 +1,6 @@
 import React from 'react'
-import Icon from 'react-fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Tags from 'components/Tags'
@@ -15,7 +16,7 @@ export default function ArticleItem({ article }) {
       </Link>
       <p className={styles.preview}>
         {article.preview}
-        <span className={styles.more}><Link to={to}>more <Icon name='angle-double-right' /></Link></span>
+        <span className={styles.more}><Link to={to}>more <FontAwesomeIcon icon={faAngleDoubleRight} /></Link></span>
       </p>
       <div className={styles.tags}><Tags values={article.tags} /></div>
       <ArticleMeta article={article} />
