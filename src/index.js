@@ -1,6 +1,6 @@
 import 'bootswatch/dist/cosmo/bootstrap.css'
 import 'highlight.js/styles/github.css'
-import 'github-markdown-css/github-markdown.css'
+import 'github-markdown-css/github-markdown-light.css'
 import 'stylus/index.styl'
 import React from 'react'
 import { hydrate, render } from 'react-dom'
