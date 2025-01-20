@@ -5,49 +5,49 @@
   ],
   "packageRules": [
     {
-      "packageNames": [
+      "matchPackageNames": [
         "style-loader"
       ],
       "allowedVersions": "^2"
     },
     {
-      "packageNames": [
+      "matchPackageNames": [
         "highlight.js"
       ],
       "allowedVersions": "^9"
     },
     {
-      "packageNames": [
+      "matchPackageNames": [
         "lodash"
       ],
       "allowedVersions": "^4"
     },
     {
-      "packageNames": [
+      "matchPackageNames": [
         "@octokit/rest"
       ],
       "allowedVersions": "^18"
     },
     {
-      "packageNames": [
+      "matchPackageNames": [
         "p-map"
       ],
       "allowedVersions": "^4"
     },
     {
-      "packageNames": [
+      "matchPackageNames": [
         "moment"
       ],
       "allowedVersions": "^2"
     },
     {
-      "packageNames": [
+      "matchPackageNames": [
         "minimist"
       ],
       "allowedVersions": "^1"
     },
     {
-      "packageNames": [
+      "matchPackageNames": [
         "js-yaml"
       ],
       "allowedVersions": "^3"
