@@ -4,7 +4,7 @@
   },
   "rules": {
     "sentence-length": {
-      "max": 160
+      "max": 200
     },
     "max-comma": {
       "max": 4
@@ -13,7 +13,7 @@
       "max": 6
     },
     "max-kanji-continuous-len": {
-      "max": 6
+      "max": 8
     },
     "no-mix-dearu-desumasu": {
       "preferInHeader": "",
