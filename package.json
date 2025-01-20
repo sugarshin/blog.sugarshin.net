@@ -104,7 +104,7 @@
     "@babel/plugin-proposal-throw-expressions": "7.25.9",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-syntax-import-meta": "7.10.4",
-    "@babel/plugin-transform-flow-strip-types": "7.25.9",
+    "@babel/plugin-transform-flow-strip-types": "7.26.5",
     "@babel/preset-env": "7.26.0",
     "@babel/preset-react": "7.26.3",
     "@fortawesome/fontawesome-svg-core": "6.7.2",
@@ -197,7 +197,7 @@
     "whatwg-fetch": "3.6.20"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.25.9",
+    "@babel/eslint-parser": "7.26.5",
     "@octokit/rest": "18.12.0",
     "babel-jest": "26.6.3",
     "enzyme": "3.11.0",
