@@ -147,7 +147,7 @@
     "moment": "2.30.1",
     "npm-run-all2": "5.0.2",
     "optimize-css-assets-webpack-plugin": "6.0.1",
-    "postcss": "8.4.49",
+    "postcss": "8.5.1",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "4.3.0",
     "postcss-partial-import": "4.1.0",
