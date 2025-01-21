@@ -2441,6 +2441,11 @@
   resolved "https://registry.yarnpkg.com/@textlint/ast-node-types/-/ast-node-types-13.4.1.tgz#00424f7b9bc6fe15cf6a78468ffe1e5d1adce5b2"
   integrity sha512-qrZyhCh8Ekk6nwArx3BROybm9BnX6vF7VcZbijetV/OM3yfS4rTYhoMWISmhVEP2H2re0CtWEyMl/XF+WdvVLQ==
 
+"@textlint/ast-node-types@^14.4.2":
+  version "14.4.2"
+  resolved "https://registry.yarnpkg.com/@textlint/ast-node-types/-/ast-node-types-14.4.2.tgz#bc90a143f414cae83ec5b0666678b34c0384177b"
+  integrity sha512-e8/drNznaZHS/qGDC83k6Ht1wDWNHzGQ0RHcXD+72YMFercEFvp6WVfW5XbCbxGbSITEO5NBCOCTyeccS9lxEA==
+
 "@textlint/ast-node-types@^4.2.1", "@textlint/ast-node-types@^4.2.4", "@textlint/ast-node-types@^4.2.5", "@textlint/ast-node-types@^4.4.1":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@textlint/ast-node-types/-/ast-node-types-4.4.1.tgz#715dd42b3ec7ff02729fa81cdc9557fe2cdd4f10"
@@ -2605,6 +2610,13 @@
   integrity sha512-80P6fcqgsG9bP6JgR6W/E/oIx+71pplaicYCvvB4vMIeGk0OnWls4Q21kCpDYmq/C/ABtZ/Gy/Ov/8ExQPeQ7A==
   dependencies:
     "@textlint/ast-node-types" "^4.4.3"
+
+"@textlint/types@^14.4.0":
+  version "14.4.2"
+  resolved "https://registry.yarnpkg.com/@textlint/types/-/types-14.4.2.tgz#05726846d163acde65edf57b6555c203d955bdcf"
+  integrity sha512-s2UbCeYY8TQNdSusPs0n+g57g6fwx8Vz6nDZLD7vIXMEW10zIwkQnQf9IpxDwvKnstBWYTJ24Kx9nzddpBS9oQ==
+  dependencies:
+    "@textlint/ast-node-types" "^14.4.2"
 
 "@textlint/utils@^1.2.5":
   version "1.2.5"
@@ -14762,12 +14774,13 @@ textlint-filter-rule-comments@1.2.2:
   resolved "https://registry.yarnpkg.com/textlint-filter-rule-comments/-/textlint-filter-rule-comments-1.2.2.tgz#3a72c494994e068e0e4aaad0f24ea7cfe338503a"
   integrity sha1-OnLElJlOBo4OSqrQ8k6nz+M4UDo=
 
-textlint-rule-eslint@3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/textlint-rule-eslint/-/textlint-rule-eslint-3.2.1.tgz#7d91296664842de7f323ea36530142d847c583e8"
-  integrity sha512-HM6OpjC0cVNu1LLa7GsUnFZufVtMZ8eCA9FiBD/vaKo811l+2LDdt9ilxnDLRQiUOjF4NIUZ3c7yAuU4sMa0eA==
+textlint-rule-eslint@5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/textlint-rule-eslint/-/textlint-rule-eslint-5.0.1.tgz#a8fe5862e14b1b8ae6dafc439a2438d97f6f5e69"
+  integrity sha512-6Fh5S0BR4F381fjoWtFCHx0ZEu/o0H2f0Z63uQSwBj1+H/YBKJ3ZVCDIimw6PYtLCqeZmml7KqT8noSZHY5CtQ==
   dependencies:
-    structured-source "^3.0.2"
+    "@textlint/types" "^14.4.0"
+    structured-source "^4.0.0"
 
 textlint-rule-helper@^1.1.5:
   version "1.2.0"
