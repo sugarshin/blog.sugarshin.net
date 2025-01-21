@@ -134,12 +134,13 @@ export default class SidebarMenu extends Component {
   }
   renderLinks() {
     return [
-      <ListGroup.Item key='sugarshin.net' href='//sugarshin.net/' action>About</ListGroup.Item>,
-      <ListGroup.Item key='github' href='//github.com/sugarshin/' action>GitHub</ListGroup.Item>,
-      <ListGroup.Item key='keybase' href='//keybase.io/sugarshin/' action>Keybase</ListGroup.Item>,
-      <ListGroup.Item key='twitter' href='//twitter.com/sugarshin/' action>Twitter</ListGroup.Item>,
-      <ListGroup.Item key='instagram' href='//www.instagram.com/sugarshin/' action>Instagram</ListGroup.Item>,
-      <ListGroup.Item key='facebook' href='//www.facebook.com/sngsato/' action>Facebook</ListGroup.Item>,
+      <ListGroup.Item key='sugarshinnet' href='https://sugarshin.net/' action>About</ListGroup.Item>,
+      <ListGroup.Item key='github' href='https://github.com/sugarshin' action>GitHub</ListGroup.Item>,
+      <ListGroup.Item key='keybase' href='https://keybase.io/sugarshin' action>Keybase</ListGroup.Item>,
+      <ListGroup.Item key='x' href='https://x.com/sugarshin' action>X</ListGroup.Item>,
+      <ListGroup.Item key='instagram' href='https://www.instagram.com/sugarshin/' action>Instagram</ListGroup.Item>,
+      <ListGroup.Item key='facebook' href='https://www.facebook.com/sngsato' action>Facebook</ListGroup.Item>,
+      <ListGroup.Item key='saunaikitai' href='https://sauna-ikitai.com/saunners/66527' action>サウナイキタイ</ListGroup.Item>,
     ]
   }
 
