@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "description": "blog",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sugarshin/blog.sugarshin.net.git"
@@ -17,5 +22,21 @@
   "bugs": {
     "url": "https://github.com/sugarshin/blog.sugarshin.net/issues"
   },
-  "homepage": "https://github.com/sugarshin/blog.sugarshin.net#readme"
+  "homepage": "https://github.com/sugarshin/blog.sugarshin.net#readme",
+  "dependencies": {
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "3.2.0",
+    "@types/node": "22.13.0",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "eslint": "9.19.0",
+    "eslint-config-next": "15.1.6",
+    "postcss": "8.5.1",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.3"
+  }
 }
