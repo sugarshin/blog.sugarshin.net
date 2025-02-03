@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @plugin 'daisyui';
+@import 'github-markdown-css/github-markdown-light.css';
 
 @theme {
   --color-background: var(--background);
