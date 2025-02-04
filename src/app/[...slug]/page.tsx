@@ -68,7 +68,7 @@ export async function generateMetadata(
     frontmatter.description || (await parent).description || 'Blog';
 
   return {
-    metadataBase: new URL(process.env.APP_ORIGIN),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_ORIGIN),
     title: frontmatter.title,
     description,
     authors: frontmatter.author,
@@ -91,7 +91,7 @@ export async function generateMetadata(
     },
     appleWebApp: {
       capable: true,
-      title: process.env.SITE_TITLE,
+      title: process.env.NEXT_PUBLIC_SITE_TITLE,
     },
   };
 }

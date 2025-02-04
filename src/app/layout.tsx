@@ -14,8 +14,8 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    template: `%s | ${process.env.SITE_TITLE}`,
-    default: process.env.SITE_TITLE,
+    template: `%s | ${process.env.NEXT_PUBLIC_SITE_TITLE}`,
+    default: process.env.NEXT_PUBLIC_SITE_TITLE,
   },
   description: "Shingo Sato's blog",
 };
@@ -32,7 +32,7 @@ export default function RootLayout({
           <header className="navbar bg-base-100 shadow-xs">
             <div className="flex-1">
               <Link className="btn btn-ghost text-xl" href="/">
-                {process.env.SITE_TITLE}
+                {process.env.NEXT_PUBLIC_SITE_TITLE}
               </Link>
             </div>
             <div className="flex-none">
