@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@plugin 'daisyui' {
+@import "tailwindcss";
+@plugin "daisyui" {
   themes: lofi --default, black --prefersdark;
 }
 @plugin "daisyui/theme" {
@@ -7,7 +7,7 @@
   default: true;
   --color-base-200: oklch(98% 0 0);
 }
-@import 'github-markdown-css/github-markdown.css';
+@import "github-markdown-css/github-markdown.css";
 
 @theme {
   --color-background: var(--background);

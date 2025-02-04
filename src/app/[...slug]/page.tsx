@@ -1,10 +1,10 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata, ResolvingMetadata } from 'next';
 
 type Frontmatter = {
   title: string;
-  date: string
+  date: string;
 
   // TODO:
   description?: string;
@@ -12,25 +12,27 @@ type Frontmatter = {
   author: {
     name: string;
     url: string;
-  }
+  };
   tags: string; // joind with ', '
   ogp: {
     og: {
       image: {
         src: string;
-      }
-    }
-  }
-}
+      };
+    };
+  };
+};
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }) {
-  const slug = (await params).slug
+  const slug = (await params).slug;
   const [y, m, d, t] = slug;
-  const { default: Article } = await import(`~/articles/${y}-${m}-${d}_${t}.mdx`);
+  const { default: Article } = await import(
+    `~/articles/${y}-${m}-${d}_${t}.mdx`
+  );
 
   return (
     <div className="markdown-body">
@@ -40,27 +42,30 @@ export default async function Page({
 }
 
 export async function generateStaticParams() {
-  const articlesPath = path.join(process.cwd(), "src", "articles");
+  const articlesPath = path.join(process.cwd(), 'src', 'articles');
   const articleFileNames = await fs.readdir(articlesPath);
-  return articleFileNames.map(fileName => {
-    const [date, title] = fileName.split("_");
-    const [y, m, d] = date.split("-");
+  return articleFileNames.map((fileName) => {
+    const [date, title] = fileName.split('_');
+    const [y, m, d] = date.split('-');
     return {
-      slug: [y, m, d, title.replace(/\.mdx$/, "")],
+      slug: [y, m, d, title.replace(/\.mdx$/, '')],
     };
   });
 }
 
 export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }>},
-  parent: ResolvingMetadata
+  { params }: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const slug = (await params).slug
+  const slug = (await params).slug;
   const [y, m, d, t] = slug;
-  const { frontmatter }: { frontmatter: Frontmatter } = await import(`~/articles/${y}-${m}-${d}_${t}.mdx`);
+  const { frontmatter }: { frontmatter: Frontmatter } = await import(
+    `~/articles/${y}-${m}-${d}_${t}.mdx`
+  );
 
   // TODO:
-  const description = frontmatter.description || (await parent).description || 'Blog';
+  const description =
+    frontmatter.description || (await parent).description || 'Blog';
 
   return {
     metadataBase: new URL(process.env.APP_ORIGIN),
@@ -70,16 +75,16 @@ export async function generateMetadata(
     keywords: frontmatter.tags,
     publisher: frontmatter.author.name,
     openGraph: {
-      type: "article",
+      type: 'article',
       title: `${frontmatter.title} | ${process.env.SITE_TITLE}`,
       description,
       images: [{ url: frontmatter.ogp.og.image.src }],
       url: `/${y}/${m}/${d}/${t}`,
     },
     twitter: {
-      card: "summary_large_image",
-      site: "@sugarshin",
-      creator: "@sugarshin",
+      card: 'summary_large_image',
+      site: '@sugarshin',
+      creator: '@sugarshin',
       title: `${frontmatter.title} | ${process.env.SITE_TITLE}`,
       description,
       images: [{ url: frontmatter.ogp.og.image.src }],
@@ -87,8 +92,8 @@ export async function generateMetadata(
     appleWebApp: {
       capable: true,
       title: process.env.SITE_TITLE,
-    },   
-  }
+    },
+  };
 }
 
 export const dynamicParams = false;
