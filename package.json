@@ -112,7 +112,7 @@
     "@fortawesome/free-solid-svg-icons": "6.7.2",
     "@fortawesome/react-fontawesome": "0.2.2",
     "@material-ui/core": "4.12.4",
-    "@primer/octicons-react": "19.14.0",
+    "@primer/octicons-react": "19.15.0",
     "@redux-beacon/logger": "1.0.0",
     "@redux-beacon/segment": "1.1.0",
     "@segment/snippet": "5.2.1",
