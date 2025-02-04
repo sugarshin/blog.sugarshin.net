@@ -36,6 +36,7 @@
     "react-dom": "19.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@eslint/eslintrc": "3.2.0",
     "@mdx-js/loader": "3.1.0",
     "@mdx-js/react": "3.1.0",
@@ -47,6 +48,7 @@
     "@types/react-dom": "19.0.3",
     "eslint": "9.19.0",
     "eslint-config-next": "15.1.6",
+    "lefthook": "1.10.10",
     "postcss": "8.5.1",
     "rehype-starry-night": "2.2.0",
     "remark-frontmatter": "5.0.0",
