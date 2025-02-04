@@ -1,6 +1,13 @@
 @import 'tailwindcss';
-@plugin 'daisyui';
-@import 'github-markdown-css/github-markdown-light.css';
+@plugin 'daisyui' {
+  themes: lofi --default, black --prefersdark;
+}
+@plugin "daisyui/theme" {
+  name: "lofi";
+  default: true;
+  --color-base-200: oklch(98% 0 0);
+}
+@import 'github-markdown-css/github-markdown.css';
 
 @theme {
   --color-background: var(--background);
