@@ -1,27 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import type { Metadata, ResolvingMetadata } from 'next';
-
-type Frontmatter = {
-  title: string;
-  date: string;
-
-  // TODO:
-  description?: string;
-  public: boolean;
-  author: {
-    name: string;
-    url: string;
-  };
-  tags: string; // joind with ', '
-  ogp: {
-    og: {
-      image: {
-        src: string;
-      };
-    };
-  };
-};
+import ArticleMeta from '~/components/ArticleMeta';
+import type { Frontmatter } from '~/types';
 
 export default async function Page({
   params,
@@ -30,13 +11,19 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
   const [y, m, d, t] = slug;
-  const { default: Article } = await import(
+  const { default: Article, frontmatter } = await import(
     `~/articles/${y}-${m}-${d}_${t}.mdx`
   );
 
   return (
-    <div className="markdown-body">
-      <Article />
+    <div>
+      <h1 className="text-4xl border-b border-gray-200 py-4 text-base-content font-bold">
+        {frontmatter.title}
+      </h1>
+      <ArticleMeta frontmatter={frontmatter} />
+      <div className="markdown-body pt-4 border-t border-gray-200">
+        <Article />
+      </div>
     </div>
   );
 }
