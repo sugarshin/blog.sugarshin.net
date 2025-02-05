@@ -1,7 +1,6 @@
 {
   "extends": [
-    "config:js-app",
-    ":automergeAll"
+    "config:js-app"
   ],
   "packageRules": [
     {
