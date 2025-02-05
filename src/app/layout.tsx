@@ -2,11 +2,12 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import type { Metadata } from 'next';
 import ArchiveList from '~/components/ArchiveList';
-import RecentPostList from '~/components/RecentPostList';
-import { generateArchiveMonths, generateRecentPosts } from '~/libs/article';
-import './globals.css';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
+import RecentPostList from '~/components/RecentPostList';
+import { generateArchiveMonths, generateRecentPosts } from '~/libs/article';
+import { SideMenuArticleListItem } from '~/types';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: {
@@ -21,13 +22,8 @@ export const metadata: Metadata = {
 //   return content;
 // }
 
-type ArticleListItem = {
-  title: string;
-  path: string;
-};
-
 type TopData = {
-  recentPosts: ArticleListItem[];
+  recentPosts: SideMenuArticleListItem[];
   archives: string[];
   // tags: string[];
 };
@@ -68,7 +64,10 @@ export default async function RootLayout({
               ></label>
               <div className="menu bg-base-100 text-base-content min-h-full w-80 p-4">
                 <RecentPostList posts={data.recentPosts}></RecentPostList>
-                <ArchiveList archives={data.archives}></ArchiveList>
+                <ArchiveList
+                  archives={data.archives}
+                  className="mt-4"
+                ></ArchiveList>
               </div>
             </div>
           </div>

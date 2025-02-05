@@ -1,4 +1,7 @@
+import { remark } from 'remark';
+import stripMarkdown from 'strip-markdown';
 import { parse } from 'yaml';
+import { Frontmatter } from '~/types';
 
 function findFrontmatterLineIndex(
   markdown: string,
@@ -23,15 +26,25 @@ export function extractFrontmatter(markdown: string): string {
   return rows.slice(firstLineIndex, secondLineIndex).join('\n');
 }
 
-export function parseFrontmatter(markdown: string): Record<string, string> {
+export function parseFrontmatter(markdown: string): Frontmatter {
   const frontmatter = extractFrontmatter(markdown);
-  return parse(frontmatter);
+  return parse(frontmatter) as Frontmatter;
 }
 
-export function omitFrontmatter(markdown: string): string {
+export function stripeFrontmatter(markdown: string): string {
   const [, end] = findFrontmatterLineIndex(markdown);
   return markdown
     .split(/\n/)
     .slice(end + 2)
     .join('\n');
+}
+
+// 'a, b, c' => ['a', 'b', 'c']
+export function normalizeTags(tags: string): string[] {
+  return tags.split(',').map((tag) => tag.trim());
+}
+
+export async function stripeMarkdownSyntax(markdown: string): Promise<string> {
+  const vfile = await remark().use(stripMarkdown).process(markdown);
+  return vfile.toString();
 }

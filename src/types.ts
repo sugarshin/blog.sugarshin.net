@@ -18,3 +18,20 @@ export type Frontmatter = {
     };
   };
 };
+
+export type SideMenuArticleListItem = {
+  title: string;
+  path: string;
+};
+
+export type ArticleListItem = {
+  title: string;
+  date: string;
+  path: string;
+  tags: string[];
+  author: {
+    name: string;
+    url: string;
+  };
+  beginning: string;
+};

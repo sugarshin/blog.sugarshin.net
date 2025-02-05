@@ -35,7 +35,7 @@ export async function generateStaticParams() {
     const [date, title] = fileName.split('_');
     const [y, m, d] = date.split('-');
     return {
-      slug: [y, m, d, title.replace(/\.mdx$/, '')],
+      slug: [y, m, d, title.replace(/\.mdx?$/, '')],
     };
   });
 }

@@ -6,11 +6,14 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function ArchiveList({ archives }: { archives: string[] }) {
+export default function ArchiveList({
+  archives,
+  className,
+}: { archives: string[]; className?: string }) {
   const pathname = usePathname();
 
   return (
-    <ul className="list bg-base-100 rounded-box shadow-md">
+    <ul className={clsx('list', 'rounded-box', className)}>
       <li className="p-4 pb-2 text-xs opacity-60 tracking-wide menu-title block">
         <CalendarIcon className="inline-block mr-1" />
         <span>ARCHIVES</span>

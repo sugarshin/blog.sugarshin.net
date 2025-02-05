@@ -36,6 +36,8 @@
     "next": "15.1.6",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "remark": "15.0.1",
+    "strip-markdown": "6.0.0",
     "yaml": "2.7.0"
   },
   "devDependencies": {

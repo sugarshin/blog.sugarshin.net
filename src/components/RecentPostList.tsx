@@ -7,11 +7,15 @@ import { usePathname } from 'next/navigation';
 
 export default function RecentPostList({
   posts,
-}: { posts: { title: string; path: string }[] }) {
+  className,
+}: {
+  posts: { title: string; path: string }[];
+  className?: string;
+}) {
   const pathname = usePathname();
 
   return (
-    <ul className="list bg-base-100 rounded-box shadow-md">
+    <ul className={clsx('list', 'rounded-box', className)}>
       <li className="p-4 pb-2 text-xs opacity-60 tracking-wide menu-title block">
         <MegaphoneIcon className="inline-block mr-1" />
         <span>RECENT POSTS</span>

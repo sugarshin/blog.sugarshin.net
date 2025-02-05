@@ -1,5 +1,6 @@
 import { ClockIcon, PencilIcon, TagIcon } from '@primer/octicons-react';
 import Link from 'next/link';
+import { normalizeTags } from '~/libs/markdown';
 import type { Frontmatter } from '~/types';
 
 export default function ArticleMeta({
@@ -8,7 +9,7 @@ export default function ArticleMeta({
   return (
     <div className="text-right py-4">
       <ul className="py-1">
-        {frontmatter.tags.split(', ').map((tag) => (
+        {normalizeTags(frontmatter.tags).map((tag) => (
           <li key={tag} className="inline-block ml-1">
             <Link
               href={`/tags/${tag.replace(/\s/g, '_')}`}
