@@ -2,7 +2,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import type { Metadata, ResolvingMetadata } from 'next';
 import ArticleMeta from '~/components/ArticleMeta';
-import type { Frontmatter } from '~/types';
+import { normalizeTags } from '~/libs/markdown';
+import type { Frontmatter, ArticleMeta as TArticleMeta } from '~/types';
 
 export default async function Page({
   params,
@@ -11,18 +12,23 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
   const [y, m, d, t] = slug;
-  const { default: Article, frontmatter } = await import(
+  const { default: MDXComponent, frontmatter } = await import(
     `~/articles/${y}-${m}-${d}_${t}.mdx`
   );
+  const meta: TArticleMeta = {
+    tags: normalizeTags(frontmatter.tags),
+    author: frontmatter.author,
+    date: frontmatter.date,
+  };
 
   return (
     <div>
       <h1 className="text-4xl border-b border-gray-200 py-4 text-base-content font-bold">
         {frontmatter.title}
       </h1>
-      <ArticleMeta frontmatter={frontmatter} />
+      <ArticleMeta meta={meta} />
       <div className="markdown-body pt-4 border-t border-gray-200">
-        <Article />
+        <MDXComponent />
       </div>
     </div>
   );

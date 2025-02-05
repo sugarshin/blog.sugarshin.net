@@ -35,3 +35,12 @@ export type ArticleListItem = {
   };
   beginning: string;
 };
+
+export type ArticleMeta = {
+  tags: string[];
+  author: {
+    name: string;
+    url: string;
+  };
+  date: string;
+};

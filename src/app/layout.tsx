@@ -48,7 +48,7 @@ export default async function RootLayout({
 
   return (
     <html lang="ja">
-      <body>
+      <body className="antialiased text-base-content">
         <div className="root">
           <Header />
           <div className="drawer drawer-end lg:drawer-open">
