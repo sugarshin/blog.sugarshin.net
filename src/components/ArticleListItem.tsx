@@ -10,7 +10,7 @@ export default function ArticleListItem({
   return (
     <div className={className}>
       <Link href={item.path} className="link">
-        <h2 className="text-4xl font-bold">{item.title}</h2>
+        <h2 className="text-4xl">{item.title}</h2>
       </Link>
       <p className="my-4">
         {item.beginning}{' '}

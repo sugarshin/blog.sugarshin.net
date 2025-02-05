@@ -55,14 +55,18 @@ function generateArticlePath(fileName: string): string {
   return `/${y}/${m}/${d}/${title.replace(/\.mdx?$/, '')}/`;
 }
 
-export async function generateArticleListAll(
+export async function generateArticleListWith(
   articleFileNames: string[],
+  filter: (fileName: string) => boolean = () => true,
 ): Promise<ArticleListItem[]> {
   const fileNames = sortArticleFilesByDescDate(articleFileNames);
 
   const ret: ArticleListItem[] = [];
 
   for (const fileName of fileNames) {
+    if (!filter(fileName)) {
+      continue;
+    }
     const articlePath = path.join(process.cwd(), 'src', 'articles', fileName);
     const md = await fs.readFile(articlePath, 'utf-8');
     const frontmatter = parseFrontmatter(md);

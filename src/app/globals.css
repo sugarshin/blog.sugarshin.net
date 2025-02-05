@@ -54,3 +54,7 @@ body {
   list-style-type: decimal;
   line-height: 2;
 }
+.markdown-body pre code {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
