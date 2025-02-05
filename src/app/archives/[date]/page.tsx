@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import ArticleListItem from '~/components/ArticleListItem';
+import ArticleList from '~/components/ArticleList';
 import { generateArchiveMonths, generateArticleListWith } from '~/libs/article';
 
 export default async function Page({
@@ -24,11 +24,7 @@ export default async function Page({
       <h1 className="text-4xl border-b border-gray-200 py-4 text-base-content font-bold">
         Archives {date}
       </h1>
-      <div>
-        {articles.map((article) => (
-          <ArticleListItem key={article.path} item={article} />
-        ))}
-      </div>
+      <ArticleList articles={articles} className="mt-4" />
     </div>
   );
 }

@@ -13,8 +13,8 @@ export default function ArticleListItem({
         <h2 className="text-4xl">{item.title}</h2>
       </Link>
       <p className="my-4">
-        {item.beginning}{' '}
-        <Link href={item.path} className="link ml-1">
+        {item.beginning}
+        <Link href={item.path} className="link ml-2">
           more <EllipsisIcon className="inline-block" />
         </Link>
       </p>
