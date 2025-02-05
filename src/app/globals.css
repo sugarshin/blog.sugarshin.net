@@ -4,11 +4,6 @@
 @plugin "daisyui" {
   themes: lofi --default, black --prefersdark;
 }
-@plugin "daisyui/theme" {
-  name: "lofi";
-  default: true;
-  --color-base-200: oklch(98% 0 0);
-}
 
 @theme {
   --color-background: var(--background);
@@ -49,4 +44,13 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.markdown-body ul {
+  list-style-type: disc;
+  line-height: 2;
+}
+.markdown-body ol {
+  list-style-type: decimal;
+  line-height: 2;
 }
