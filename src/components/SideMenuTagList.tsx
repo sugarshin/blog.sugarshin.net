@@ -1,6 +1,6 @@
 'use client';
 
-import { TagIcon } from '@primer/octicons-react';
+import { ArrowRightIcon, TagIcon } from '@primer/octicons-react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -32,6 +32,12 @@ export default function SideMenuTagList({
           </li>
         );
       })}
+      <li className="list-row">
+        <Link href="/tags/" className="list-col-grow">
+          <span>More...</span>
+          <ArrowRightIcon className="inline-block" />
+        </Link>
+      </li>
     </ul>
   );
 }

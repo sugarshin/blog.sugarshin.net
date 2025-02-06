@@ -33,7 +33,7 @@ export async function generateData(): Promise<TopData> {
   return {
     recentPosts: await generateRecentPosts(articleFileNames),
     archives: generateArchiveMonths(articleFileNames).slice(0, 5),
-    tags: await generateTagList(articleFileNames),
+    tags: (await generateTagList(articleFileNames)).slice(0, 5),
   };
 }
 
