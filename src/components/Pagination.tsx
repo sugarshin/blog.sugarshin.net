@@ -14,8 +14,16 @@ export function sliceByPage<T>(array: T[], page: number): T[] {
 export default function Pagination({
   currentPage,
   totalPages,
+  basePath: _basePath,
   className,
-}: { currentPage: number; totalPages: number; className?: string }) {
+}: {
+  currentPage: number;
+  totalPages: number;
+  basePath?: string;
+  className?: string;
+}) {
+  const basePath = _basePath ? _basePath.replace(/\/$/, '') : '';
+
   const renderPageNumbers = () => {
     const pages = [];
     const maxPagesToShow = 5;
@@ -26,7 +34,7 @@ export default function Pagination({
         pages.push(
           <Link
             key={i}
-            href={`/page/${i}/`}
+            href={`${basePath}/${i}/`}
             className={clsx('join-item', 'btn', {
               'btn-active cursor-default': i === currentPage,
             })}
@@ -39,7 +47,7 @@ export default function Pagination({
       pages.push(
         <Link
           key={1}
-          href="/page/1/"
+          href={`${basePath}/1/`}
           className={clsx('join-item', 'btn', {
             'btn-active cursor-default': 1 === currentPage,
           })}
@@ -63,7 +71,7 @@ export default function Pagination({
         pages.push(
           <Link
             key={i}
-            href={`/page/${i}/`}
+            href={`${basePath}/${i}/`}
             className={clsx('join-item', 'btn', {
               'btn-active cursor-default': i === currentPage,
             })}
@@ -84,7 +92,7 @@ export default function Pagination({
       pages.push(
         <Link
           key={totalPages}
-          href={`/page/${totalPages}/`}
+          href={`${basePath}/${totalPages}/`}
           className={clsx('join-item', 'btn', {
             'btn-active cursor-default': currentPage === totalPages,
           })}

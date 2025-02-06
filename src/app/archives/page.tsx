@@ -6,7 +6,7 @@ type ArchivesData = {
   archives: string[];
 };
 
-export async function generateData(): Promise<ArchivesData> {
+async function generateData(): Promise<ArchivesData> {
   const articleFileNames = await getArticleFileNames();
   return {
     archives: generateArchiveMonths(articleFileNames),

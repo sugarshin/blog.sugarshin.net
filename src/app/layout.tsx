@@ -28,7 +28,7 @@ type TopData = {
   tags: TagListItem[];
 };
 
-export async function generateData(): Promise<TopData> {
+async function generateData(): Promise<TopData> {
   const articleFileNames = await getArticleFileNames();
 
   return {

@@ -19,6 +19,7 @@ export default async function Page() {
           currentPage={currentPage}
           totalPages={pageCount}
           className="my-6"
+          basePath="/page"
         />
       </div>
     </>

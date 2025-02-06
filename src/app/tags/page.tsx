@@ -6,7 +6,7 @@ type TagsData = {
   tags: TagListItem[];
 };
 
-export async function generateData(): Promise<TagsData> {
+async function generateData(): Promise<TagsData> {
   const articleFileNames = await getArticleFileNames();
 
   return {
@@ -28,7 +28,7 @@ export default async function Page() {
             <Link
               key={tag.forPath}
               className="btn mr-4 my-2"
-              href={`/tags/${tag.forPath}`}
+              href={`/tags/${tag.forPath}/`}
             >
               {tag.tag}
             </Link>
