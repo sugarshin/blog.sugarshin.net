@@ -1,50 +1,41 @@
 import ArticleList from '~/components/ArticleList';
+import Pagination, {
+  calcPageCount,
+  sliceByPage,
+} from '~/components/Pagination';
 import { generateArticleListWith, getArticleFileNames } from '~/libs/article';
 
-export default async function Top() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ number: string }>;
+}) {
+  const currentPage = Number((await params).number);
   const articleFileNames = await getArticleFileNames();
-  const articles = await generateArticleListWith(articleFileNames);
-
-  return <ArticleList articles={articles} className="-mb-6" />;
+  const pageCount = calcPageCount(articleFileNames);
+  const sliced = sliceByPage(articleFileNames, currentPage);
+  const articles = await generateArticleListWith(sliced);
+  return (
+    <>
+      <ArticleList articles={articles} />
+      <div className="text-center">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={pageCount}
+          className="my-6"
+        />
+      </div>
+    </>
+  );
 }
 
-// import ArticleList from '~/components/ArticleList';
-// import {
-//   generateArticleListWith,
-//   generateTagList,
-//   getArticleFileNames,
-// } from '~/libs/article';
+export async function generateStaticParams() {
+  const articleFileNames = await getArticleFileNames();
+  const pageCount = calcPageCount(articleFileNames);
 
-// export default async function Page({
-//   params,
-// }: {
-//   params: Promise<{ tag: string }>;
-// }) {
-//   const forPathTag = (await params).tag;
-//   const tag = forPathTag.replace(/_/g, ' ');
-//   const articleFileNames = await getArticleFileNames();
-//   const articles = await generateArticleListWith(
-//     articleFileNames,
-//     (_, frontmatter) => frontmatter.tags.includes(tag),
-//   );
-
-//   return (
-//     <div>
-//       <h1 className="text-4xl border-b border-gray-200 py-4 text-base-content font-bold">
-//         Entries tagged with &quot;{tag}&quot;
-//       </h1>
-//       <ArticleList articles={articles} className="mt-4" />
-//     </div>
-//   );
-// }
-
-// export async function generateStaticParams() {
-//   const articleFileNames = await getArticleFileNames();
-//   const tags = await generateTagList(articleFileNames);
-
-//   return tags.map((tag) => {
-//     return {
-//       tag: tag.forPath,
-//     };
-//   });
-// }
+  return Array.from({ length: pageCount }, (_, i) => i + 1).map((number) => {
+    return {
+      number: number.toString(),
+    };
+  });
+}

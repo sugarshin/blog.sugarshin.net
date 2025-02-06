@@ -11,7 +11,7 @@ export default function ArticleList({
         <ArticleListItem
           key={article.path}
           item={article}
-          className="[&:not(:last-child)]:border-b border-gray-200 [&:not(:last-child)]:mb-6"
+          className="border-b border-gray-200 [&:not(:last-child)]:mb-6"
         />
       ))}
     </div>
