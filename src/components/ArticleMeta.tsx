@@ -7,7 +7,7 @@ export default function ArticleMeta({ meta }: { meta: ArticleMeta }) {
     <div className="text-right py-4">
       <ul className="py-1">
         {meta.tags.map((tag) => (
-          <li key={tag} className="inline-block ml-1">
+          <li key={tag} className="inline-block ml-1 mb-1">
             <Link
               href={`/tags/${tag.replace(/\s/g, '_')}`}
               className="btn btn-xs btn-rounded btn-primary"
