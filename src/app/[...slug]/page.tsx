@@ -2,6 +2,7 @@ import type { Metadata, ResolvingMetadata } from 'next';
 import ArticleMeta from '~/components/ArticleMeta';
 import SocialShare from '~/components/SocialShare';
 import { getArticleFileNames } from '~/libs/article';
+import { APP_ORIGIN, SITE_TITLE } from '~/libs/constants';
 import { normalizeTags } from '~/libs/markdown';
 import type { Frontmatter, ArticleMeta as TArticleMeta } from '~/types';
 
@@ -30,9 +31,7 @@ export default async function Page({
       <div className="markdown-body pt-4 border-t border-gray-200">
         <MDXComponent />
       </div>
-      <SocialShare
-        url={`${process.env.NEXT_PUBLIC_APP_ORIGIN}/${y}/${m}/${d}/${t}/`}
-      />
+      <SocialShare url={`${APP_ORIGIN}/${y}/${m}/${d}/${t}/`} />
     </div>
   );
 }
@@ -63,7 +62,7 @@ export async function generateMetadata(
     frontmatter.description || (await parent).description || 'Blog';
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_ORIGIN),
+    metadataBase: new URL(APP_ORIGIN),
     title: frontmatter.title,
     description,
     authors: frontmatter.author,
@@ -86,7 +85,7 @@ export async function generateMetadata(
     },
     appleWebApp: {
       capable: true,
-      title: process.env.NEXT_PUBLIC_SITE_TITLE,
+      title: SITE_TITLE,
     },
   };
 }

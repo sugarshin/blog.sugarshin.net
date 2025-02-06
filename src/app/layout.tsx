@@ -11,13 +11,14 @@ import {
   generateTagList,
   getArticleFileNames,
 } from '~/libs/article';
+import { SITE_TITLE } from '~/libs/constants';
 import { SideMenuArticleListItem, TagListItem } from '~/types';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    template: `%s | ${process.env.NEXT_PUBLIC_SITE_TITLE}`,
-    default: process.env.NEXT_PUBLIC_SITE_TITLE,
+    template: `%s | ${SITE_TITLE}`,
+    default: SITE_TITLE,
   },
   description: "Shingo Sato's blog",
 };

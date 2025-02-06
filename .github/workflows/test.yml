@@ -59,6 +59,3 @@ jobs:
             ${{ runner.os }}-npm-
       - run: npm ci
       - run: npm run build
-        env:
-          NEXT_PUBLIC_APP_ORIGIN: ${{ vars.NEXT_PUBLIC_APP_ORIGIN }}
-          NEXT_PUBLIC_SITE_TITLE: ${{ vars.NEXT_PUBLIC_SITE_TITLE }}
