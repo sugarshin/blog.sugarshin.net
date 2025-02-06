@@ -1,12 +1,16 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import type { Metadata } from 'next';
 import ArchiveList from '~/components/ArchiveList';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import RecentPostList from '~/components/RecentPostList';
-import { generateArchiveMonths, generateRecentPosts } from '~/libs/article';
-import { SideMenuArticleListItem } from '~/types';
+import SideMenuTagList from '~/components/SideMenuTagList';
+import {
+  generateArchiveMonths,
+  generateRecentPosts,
+  generateTagList,
+  getArticleFileNames,
+} from '~/libs/article';
+import { SideMenuArticleListItem, TagListItem } from '~/types';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -17,25 +21,19 @@ export const metadata: Metadata = {
   description: "Shingo Sato's blog",
 };
 
-// async function getArticleContent(filePath: string): Promise<string> {
-//   const content = await fs.readFile(filePath, 'utf-8');
-//   return content;
-// }
-
 type TopData = {
   recentPosts: SideMenuArticleListItem[];
   archives: string[];
-  // tags: string[];
+  tags: TagListItem[];
 };
 
 export async function generateData(): Promise<TopData> {
-  const articlesPath = path.join(process.cwd(), 'src', 'articles');
-  const articleFileNames = await fs.readdir(articlesPath);
+  const articleFileNames = await getArticleFileNames();
 
   return {
     recentPosts: await generateRecentPosts(articleFileNames),
     archives: generateArchiveMonths(articleFileNames),
-    // tags:
+    tags: await generateTagList(articleFileNames),
   };
 }
 
@@ -68,6 +66,10 @@ export default async function RootLayout({
                   archives={data.archives}
                   className="mt-4"
                 ></ArchiveList>
+                <SideMenuTagList
+                  list={data.tags}
+                  className="mt-4"
+                ></SideMenuTagList>
               </div>
             </div>
           </div>

@@ -26,7 +26,7 @@ export default function ArchiveList({
               'menu-active': pathname === `/archives/${archive}/`,
             })}
           >
-            {dayjs(archive).format('MMMM YYYY')}
+            {dayjs(archive).format('MMMM, YYYY')}
           </Link>
         </li>
       ))}

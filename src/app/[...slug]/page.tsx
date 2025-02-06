@@ -1,7 +1,6 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import type { Metadata, ResolvingMetadata } from 'next';
 import ArticleMeta from '~/components/ArticleMeta';
+import { getArticleFileNames } from '~/libs/article';
 import { normalizeTags } from '~/libs/markdown';
 import type { Frontmatter, ArticleMeta as TArticleMeta } from '~/types';
 
@@ -35,8 +34,7 @@ export default async function Page({
 }
 
 export async function generateStaticParams() {
-  const articlesPath = path.join(process.cwd(), 'src', 'articles');
-  const articleFileNames = await fs.readdir(articlesPath);
+  const articleFileNames = await getArticleFileNames();
   return articleFileNames.map((fileName) => {
     const [date, title] = fileName.split('_');
     const [y, m, d] = date.split('-');
