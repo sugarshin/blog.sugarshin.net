@@ -1,5 +1,6 @@
 import type { Metadata, ResolvingMetadata } from 'next';
 import ArticleMeta from '~/components/ArticleMeta';
+import SocialShare from '~/components/SocialShare';
 import { getArticleFileNames } from '~/libs/article';
 import { normalizeTags } from '~/libs/markdown';
 import type { Frontmatter, ArticleMeta as TArticleMeta } from '~/types';
@@ -29,6 +30,9 @@ export default async function Page({
       <div className="markdown-body pt-4 border-t border-gray-200">
         <MDXComponent />
       </div>
+      <SocialShare
+        url={`${process.env.NEXT_PUBLIC_APP_ORIGIN}/${y}/${m}/${d}/${t}/`}
+      />
     </div>
   );
 }
