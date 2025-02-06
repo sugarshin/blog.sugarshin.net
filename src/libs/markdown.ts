@@ -42,14 +42,6 @@ export function parseAndNormalizeFrontmatter(
   return ret;
 }
 
-export function stripeFrontmatter(markdown: string): string {
-  const [, end] = findFrontmatterLineIndex(markdown);
-  return markdown
-    .split(/\n/)
-    .slice(end + 2)
-    .join('\n');
-}
-
 // 'a, b, c' => ['a', 'b', 'c']
 export function normalizeTags(tags: string): string[] {
   return tags.split(',').map((tag) => tag.trim());
@@ -58,4 +50,18 @@ export function normalizeTags(tags: string): string[] {
 export async function stripeMarkdownSyntax(markdown: string): Promise<string> {
   const vfile = await remark().use(stripMarkdown).process(markdown);
   return vfile.toString();
+}
+
+function stripeFrontmatter(markdown: string): string {
+  const [, end] = findFrontmatterLineIndex(markdown);
+  return markdown
+    .split(/\n/)
+    .slice(end + 2)
+    .join('\n');
+}
+
+export function stripeMarkdownSyntaxAndFrontmatter(
+  markdown: string,
+): Promise<string> {
+  return stripeMarkdownSyntax(stripeFrontmatter(markdown));
 }

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import {
   generateArchiveMonths,
+  generateArticlePath,
   generateTagList,
   getArticleFileNames,
 } from '~/libs/article';
@@ -22,10 +23,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   for (const articleFileName of articleFileNames) {
-    const [date, title] = articleFileName.split('_');
-    const [y, m, d] = date.split('-');
     sitemapData.push({
-      url: `${APP_ORIGIN}/${y}/${m}/${d}/${title.replace(/\.mdx?/, '')}/`,
+      url: `${APP_ORIGIN}/${generateArticlePath(articleFileName)}`,
     });
   }
 

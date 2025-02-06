@@ -73,7 +73,7 @@ export async function generateMetadata(
       title: `${frontmatter.title} | ${process.env.SITE_TITLE}`,
       description,
       images: [{ url: frontmatter.ogp.og.image.src }],
-      url: `/${y}/${m}/${d}/${t}`,
+      url: `/${y}/${m}/${d}/${t}/`,
     },
     twitter: {
       card: 'summary_large_image',

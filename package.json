@@ -7,6 +7,8 @@
     "dev": "next dev",
     "dev:t": "next dev --turbopack",
     "build": "next build",
+    "gen:rss": "NODE_ENV=production tsx ./scripts/generate-rss.ts",
+    "postbuild": "npm run gen:rss",
     "start": "next start",
     "lint": "next lint"
   },
@@ -52,6 +54,7 @@
     "daisyui": "5.0.0-beta.6",
     "eslint": "9.19.0",
     "eslint-config-next": "15.1.6",
+    "feed": "4.2.2",
     "github-markdown-css": "5.8.1",
     "lefthook": "1.10.10",
     "postcss": "8.5.1",
@@ -60,6 +63,7 @@
     "remark-gfm": "4.0.0",
     "remark-mdx-frontmatter": "5.0.0",
     "tailwindcss": "4.0.3",
+    "tsx": "4.19.2",
     "type-fest": "4.33.0",
     "typescript": "5.7.3"
   }

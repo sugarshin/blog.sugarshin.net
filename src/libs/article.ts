@@ -9,8 +9,7 @@ import {
 } from '~/types';
 import {
   parseAndNormalizeFrontmatter,
-  stripeFrontmatter,
-  stripeMarkdownSyntax,
+  stripeMarkdownSyntaxAndFrontmatter,
 } from './markdown';
 
 // return ['2025-02', '2025-01', '2024-12, ...]
@@ -100,8 +99,7 @@ export async function generateRecentPosts(
 
   const ret: SideMenuArticleListItem[] = [];
   for (const fileName of recets) {
-    const articlePath = path.join(process.cwd(), 'src', 'articles', fileName);
-    const md = await fs.readFile(articlePath, 'utf-8');
+    const md = await readArticleFile(fileName);
     const frontmatter = parseAndNormalizeFrontmatter(md);
 
     ret.push({
@@ -113,13 +111,14 @@ export async function generateRecentPosts(
 }
 
 // Article file path to URL path
-function generateArticlePath(fileName: string): string {
+export function generateArticlePath(fileName: string): string {
   const [date, title] = fileName.split('_');
   const [y, m, d] = date.split('-');
   return `/${y}/${m}/${d}/${title.replace(/\.mdx?$/, '')}/`;
 }
 
-function readArticleFile(fileName: string): Promise<string> {
+// Read article file. return markdown string
+export function readArticleFile(fileName: string): Promise<string> {
   const articlePath = path.join(process.cwd(), 'src', 'articles', fileName);
   return fs.readFile(articlePath, 'utf-8');
 }
@@ -141,7 +140,7 @@ export async function generateArticleListWith(
       continue;
     }
 
-    const stripedMd = await stripeMarkdownSyntax(stripeFrontmatter(md));
+    const strippedMd = await stripeMarkdownSyntaxAndFrontmatter(md);
 
     ret.push({
       title: frontmatter.title,
@@ -149,7 +148,7 @@ export async function generateArticleListWith(
       path: generateArticlePath(fileName),
       tags: frontmatter.tags,
       author: frontmatter.author,
-      beginning: truncate(convertLineBreakToSpace(stripedMd), 100),
+      beginning: truncateArticleByLength(strippedMd, 100),
     });
   }
 
@@ -162,4 +161,11 @@ function truncate(str: string, len: number): string {
 
 function convertLineBreakToSpace(str: string): string {
   return str.replace(/\n/g, ' ');
+}
+
+export function truncateArticleByLength(
+  strippedMarkdown: string,
+  length: number,
+): string {
+  return truncate(convertLineBreakToSpace(strippedMarkdown), length);
 }

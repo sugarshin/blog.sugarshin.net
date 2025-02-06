@@ -11,7 +11,7 @@ import {
   generateTagList,
   getArticleFileNames,
 } from '~/libs/article';
-import { SITE_TITLE } from '~/libs/constants';
+import { APP_ORIGIN, SITE_TITLE } from '~/libs/constants';
 import { SideMenuArticleListItem, TagListItem } from '~/types';
 import './globals.css';
 
@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     default: SITE_TITLE,
   },
   description: "Shingo Sato's blog",
+  alternates: {
+    canonical: APP_ORIGIN,
+    types: {
+      'application/rss+xml': `${APP_ORIGIN}/rss.xml`,
+      'application/atom+xml': `${APP_ORIGIN}/feed.xml`,
+    },
+  },
 };
 
 type TopData = {
