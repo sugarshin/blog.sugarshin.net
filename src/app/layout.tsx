@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ArchiveList from '~/components/ArchiveList';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
+import LinkList from '~/components/LinkList';
 import RecentPostList from '~/components/RecentPostList';
 import SideMenuTagList from '~/components/SideMenuTagList';
 import {
@@ -70,6 +71,7 @@ export default async function RootLayout({
                   list={data.tags}
                   className="mt-4"
                 ></SideMenuTagList>
+                <LinkList className="mt-4" />
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import {
   faFacebook,
   faGithub,
   faInstagram,
+  faKeybase,
   faLinkedin,
   faStrava,
   faXTwitter,
@@ -53,6 +54,13 @@ export default function Footer() {
           rel="noopener noreferrer"
         >
           <FontAwesomeIcon icon={faFacebook} className="h-[1.25rem]" />
+        </Link>
+        <Link
+          href="https://keybase.io/sugarshin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FontAwesomeIcon icon={faKeybase} className="h-[1.25rem]" />
         </Link>
         <Link
           href="https://www.strava.com/athletes/sugarshin"
