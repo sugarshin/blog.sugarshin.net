@@ -15,7 +15,7 @@ export default function RecentPostList({
   const pathname = usePathname();
 
   return (
-    <ul className={clsx('list', 'rounded-box', className)}>
+    <ul className={clsx('list', 'rounded-box', 'shadow-xs', className)}>
       <li className="p-4 pb-2 text-xs opacity-60 tracking-wide menu-title block">
         <MegaphoneIcon className="inline-block mr-1" />
         <span>RECENT POSTS</span>

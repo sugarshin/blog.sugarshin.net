@@ -1,6 +1,6 @@
 'use client';
 
-import { CalendarIcon } from '@primer/octicons-react';
+import { ArrowRightIcon, CalendarIcon } from '@primer/octicons-react';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
 import Link from 'next/link';
@@ -13,8 +13,8 @@ export default function ArchiveList({
   const pathname = usePathname();
 
   return (
-    <ul className={clsx('list', 'rounded-box', className)}>
-      <li className="p-4 pb-2 text-xs opacity-60 tracking-wide menu-title block">
+    <ul className={clsx('list', 'rounded-box', 'shadow-xs', className)}>
+      <li className="p-4 text-xs opacity-60 tracking-wide menu-title block">
         <CalendarIcon className="inline-block mr-1" />
         <span>ARCHIVES</span>
       </li>
@@ -30,6 +30,12 @@ export default function ArchiveList({
           </Link>
         </li>
       ))}
+      <li className="list-row">
+        <Link href="/archives/" className="list-col-grow">
+          <span>More...</span>
+          <ArrowRightIcon className="inline-block" />
+        </Link>
+      </li>
     </ul>
   );
 }
