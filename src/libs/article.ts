@@ -81,7 +81,8 @@ function joinSpaceToUnderscore(str: string): string {
 
 export async function getArticleFileNames(): Promise<string[]> {
   const articlesPath = path.join(process.cwd(), 'src', 'articles');
-  return await fs.readdir(articlesPath);
+  const fileNames = await fs.readdir(articlesPath);
+  return sortArticleFilesByDescDate(fileNames);
 }
 
 function sortArticleFilesByDescDate(articleFileNames: string[]): string[] {
@@ -130,11 +131,9 @@ export async function generateArticleListWith(
     frontmatter: NormalizedFrontmatter,
   ) => boolean = () => true,
 ): Promise<ArticleListItem[]> {
-  const fileNames = sortArticleFilesByDescDate(articleFileNames);
-
   const ret: ArticleListItem[] = [];
 
-  for (const fileName of fileNames) {
+  for (const fileName of articleFileNames) {
     const md = await readArticleFile(fileName);
     const frontmatter = parseAndNormalizeFrontmatter(md);
 
