@@ -8,9 +8,9 @@ import { generateArticleListWith, getArticleFileNames } from '~/libs/article';
 export default async function Page({
   params,
 }: {
-  params: Promise<{ number: string }>;
+  params: Promise<{ page: string }>;
 }) {
-  const currentPage = Number((await params).number);
+  const currentPage = Number((await params).page);
   const articleFileNames = await getArticleFileNames();
   const pageCount = calcPageCount(articleFileNames);
   const sliced = sliceByPage(articleFileNames, currentPage);
@@ -35,7 +35,7 @@ export async function generateStaticParams() {
 
   return Array.from({ length: pageCount }, (_, i) => i + 1).map((number) => {
     return {
-      number: number.toString(),
+      page: number.toString(),
     };
   });
 }
