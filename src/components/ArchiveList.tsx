@@ -16,7 +16,7 @@ export default function ArchiveList({
     <ul className={clsx('list', 'rounded-box', 'shadow-xs', className)}>
       <li className="p-4 text-xs opacity-60 tracking-wide menu-title block">
         <CalendarIcon className="inline-block mr-1" />
-        <span>ARCHIVES</span>
+        <span className="uppercase">Archives</span>
       </li>
       {archives.map((archive) => (
         <li key={archive} className="list-row">

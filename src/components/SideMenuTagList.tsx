@@ -16,7 +16,7 @@ export default function SideMenuTagList({
     <ul className={clsx('list', 'rounded-box', 'shadow-xs', className)}>
       <li className="p-4 pb-2 text-xs opacity-60 tracking-wide menu-title block">
         <TagIcon className="inline-block mr-1" />
-        <span>TAGS</span>
+        <span className="uppercase">Tags</span>
       </li>
       {list.map((item) => {
         return (
