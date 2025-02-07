@@ -1,0 +1,73 @@
+---
+title: mo - CircleCI のモバイル Web クライアントを公開しました
+date: 2017-09-13 01:58
+public: true
+qiita: true
+author:
+  name: Shingo Sato
+  url: https://sugarshin.net/
+tags: javascript, circleci, nodejs, software development, reactjs, redux, nextjs, koajs
+ogp:
+  og:
+    image:
+      src: /assets/images/2017/09/13/mo/main.png
+---
+
+![](/assets/images/2017/09/13/mo/main.png)
+
+モバイルデバイスの Web ブラウザ用 CircleCI クライアントを公開しました。
+
+***
+
+![mo.gif](https://media.giphy.com/media/fnm9cd8TNTwA92YOuV/giphy.gif)
+
+[mo - CircleCI client for mobile web](https://moci.now.sh/)
+
+https://github.com/sugarshin/mo/
+
+## 目次
+
+## モチベーション
+
+- CircleCI のオフィシャル Web クライアントがモバイルディスプレイに対応してい ~~ない~~ なかった
+  - （モチベーション半減したけどなんとか公開までもっていった
+- モバイル Web でもシンプルに、ビルドの確認、キャンセル、リビルドをしたい
+
+## 機能
+
+### List
+
+![List](/assets/images/2017/09/13/mo/0.png)
+
+### Single build
+
+![Single build](/assets/images/2017/09/13/mo/1.png)
+
+### Rebuild, Cancel, Rebuild without cache
+
+![Rebuild, Cancel, Rebuild without cache](/assets/images/2017/09/13/mo/2.png)
+
+Personal API Token を用意して Authorize してください。
+
+![Auth](/assets/images/2017/09/13/mo/auth.png)
+
+## Technology stack
+
+- Next.js
+- Now
+
+### Next.js
+
+SPA + SSR / Universal JavaScript なフレームワーク [Next.js](https://github.com/zeit/next.js/) を利用しています。
+
+個人的には苦ではない Frontend のブートストラッピングはほぼやらなくて済むので楽です。 CSS Modules がうまく組み込めなくてあきらめました。
+
+SPA + SSR / Universal JavaScript の知見として肌感覚程度には得られました。
+
+### Now
+
+PaaS として [Now](https://zeit.co/now) を利用しました。デプロイが高速で Web のインターフェイスがありそこから確認できたりいろいろ便利です。
+
+## TODO
+
+- リアルタイムアップデート

@@ -1,0 +1,116 @@
+---
+title: 2019 年まとめ
+date: 2019-12-29 00:04
+public: true
+qiita: false
+author:
+  name: Shingo Sato
+  url: https://sugarshin.net/
+tags: matome
+ogp:
+  og:
+    image:
+      src: /assets/images/2019/12/29/matome-2019/main.jpg
+---
+
+![](/assets/images/2019/12/29/matome-2019/main.jpg)
+
+2019 年のまとめを書きます。
+
+## 目次
+
+## 仕事
+
+### インスタンスゼロ
+
+[ここでもお伝えした](/2019/02/01/instance0/ "インスタンスゼロ株式会社を共同創業しました")とおり、 2018 年末に仲間 5 名と会社を立ち上げ、年始から本格稼働しています。
+
+事業内容としては下記で、
+
+- ソフトウェア開発
+- 品質保証 (QA)
+- インフラ構築
+- GUI デザイン
+- R&D
+
+自分は主に顧客から請けたソフトウェア開発を担当していて、 Web アプリケーションの実装をしています。
+
+おかげさまで仕事にも恵まれ、 11 月にはオフィスも開設しています。 ref: [インスタンスゼロの拠点を開設しました](https://ja.ngs.io/2019/11/01/ins0-fudomae/)
+
+### メルカリ
+
+#### メルペイ
+
+年明け早々は、前年末から続けていた、メルカリの CS メンバーがつかう管理ツールのリアーキテクチャを進めていました。
+
+その後すぐに、半年間の期限つきでメルペイへ異動となりました。メルペイグランドローンチ前の追い込み、みたいな感じです。
+
+メルペイのフロントエンドチームに配属となり、前半はメルペイの各キャンペーンで利用するランディングページ用の HTML を配信する Microservice の基盤構築、後半はクーポンチームで機能実装や、 Kubernetes, CI/CD まわりなど非機能要件の改善などをしていました。
+
+[Mercari x Merpay Frontend Tech Talk vol.2](https://mercari.connpass.com/event/134185/) というイベントで、このあたりの話をしています。
+
+![](/assets/images/2019/12/29/matome-2019/e.jpg)
+
+ref: [Merpay での半年間 - @sugarshin's slide | slides.sugarshin.net](https://slides.sugarshin.net/half-year-at-merpay/)
+
+#### Web Platform チーム
+
+7 月にはメルカリに戻り、メルカリの Web 版アプリケーションのリアーキテクチャを進めているチームに入りました。
+
+配属としては、 Backend Web Platform というチームで、 Web 領域における Microservices においての最適な基盤の提供や、 Developer Experience の継続的改善を行ったりしているチームです。
+
+## つくったもの
+
+個人的につくったものをざっと羅列します。
+
+- GitHub Issues で特定のラベルがついた Issue を Slack に通知する
+  - オフィシャルの GitHub インテグレーションだと実現できなかったので、業務の一環として Google Apps Script を利用してつくりました
+  - ref: https://github.com/sugarshin/gas-notify-gh-labeled-issues
+- ある Web ページのサブリソースすべてに `PURGE` メソッドでリクエストする Web アプリケーション
+  - メルペイ時代に、 CDN のキャッシュクリアを非エンジニアでも簡単に行えるようにするために、会社非公式でつくりました
+  - ref: https://github.com/sugarshin/purgen
+- ブログのエンハンス
+  - Renovate と E2E テストでの依存モジュールのアップデート
+    - [Renovate と E2E テストを用いて依存モジュールのアップデートを安全に自動化する](/2019/06/01/renovate-with-e2e-test/)
+  - Heroku Review Apps でプルリクエストごとの環境の自動構築
+    - https://github.com/sugarshin/blog.sugarshin.net/pull/699
+- CircleCI Orbs
+  - よく利用する共通処理をまとめた Orbs です
+  - refs:
+    - https://github.com/sugarshin/circleci-orbs
+    - [CircleCI Orbs をつかって npm モジュール開発を効率化する](/2019/06/26/npm-modules-development-with-circleci-orbs/)
+- スライド
+  - イベントで登壇する用に、自分のスライドを Web ベースでつくる基盤を構築しました
+  - ref: https://github.com/sugarshin/slides
+
+また、今年は少なかったですが、 OSS へのコントリビューションも軽微なものを含め例年通りいくつかしています。
+
+- https://github.com/nuxt/nuxt.js/pull/5137
+- https://github.com/DominicTobias/react-image-crop/pull/246
+- https://github.com/natzcam/conf-cli/pull/1
+- https://github.com/nekobato/pagerduty-schedule-attendee/pull/2
+- https://github.com/facebook/relay/pull/2934
+
+GitHub 上でのアクティビティまとめは[こちら](/search/?q=%5BMonthly%20report%5D%202019)です。
+
+## プライベート
+
+### 引越し
+
+9 月末に、マンションを購入し、世田谷区内で引っ越しました。
+
+新築の低層マンションで、多摩川を一望できる立地で景観は良いです。冒頭の画像は屋上から撮った写真です。[二子玉川公園](https://www.ces-net.jp/futako-tamagawa-park/)がすぐ近くで、子育てにも良い環境だと思います。
+
+それまで、家族 4 人ではものすごく狭いところに住んでいたので、それだけでもとても快適です。
+
+### 断酒
+
+夏前くらいにお酒を辞めました。
+
+理由としては健康に著しく影響があったのと、時間の捻出です。とくにつらくもなくすっぱり辞められて、体重は 2 ~ 3kg くらい落ちたと思います。年明けに健康診断があるのでそこでどれだけ効果があったか確かめようと思います。
+
+## 2020 年
+
+今年は本当にいろいろ忙しかった記憶しかなくところどころ覚えてないです。
+
+2020 年も引き続き仕事に注力しつつ、新居で家族との時間も大切にしていこうと思っています。

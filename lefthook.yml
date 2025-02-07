@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    check:
+      run: npx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+    eslint:
+      run: npx next lint --fix --file {staged_files}
+      stage_fixed: true
