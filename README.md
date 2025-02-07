@@ -36,7 +36,7 @@ $ npm run na -- --name example-article-url
 
 ## Deploy
 
-Merge to main branch will trigger GitHub Actions that deploys assets to Cloudflare Pages.
+Merge to a default branch will trigger GitHub Actions that deploys assets to Cloudflare Pages.
 
 ## License
 
