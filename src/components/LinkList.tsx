@@ -1,5 +1,3 @@
-'use client';
-
 import { LinkExternalIcon } from '@primer/octicons-react';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -9,7 +7,7 @@ export default function LinkList({ className }: { className?: string }) {
     <ul className={clsx('list', 'rounded-box', 'shadow-xs', className)}>
       <li className="p-4 text-xs opacity-60 tracking-wide menu-title block">
         <LinkExternalIcon className="inline-block mr-1" />
-        <span>LINKS</span>
+        <span className="uppercase">Links</span>
       </li>
       <li className="list-row">
         <Link
