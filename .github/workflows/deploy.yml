@@ -1,0 +1,94 @@
+name: Deploy
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - '.github/workflows/deploy.yml'
+      - '.nvmrc'
+      - 'next.config.ts'
+      - 'package-lock.json'
+      - 'package.json'
+      - 'postcss.config.mjs'
+      - 'public'
+      - 'scripts'
+      - 'src'
+      - 'tsconfig.json'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy.yml'
+      - '.nvmrc'
+      - 'next.config.ts'
+      - 'package-lock.json'
+      - 'package.json'
+      - 'postcss.config.mjs'
+      - 'public'
+      - 'scripts'
+      - 'src'
+      - 'tsconfig.json'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  DIST_DIR: out
+  DIST_PATH: out
+  CF_PAGES_PROJECT_NAME: blog-sugarshin-net
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+      - uses: actions/cache@v4
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.DIST_DIR }}
+          path: ${{ env.DIST_PATH }}
+          if-no-files-found: error
+  deploy:
+    permissions:
+      pull-requests: write
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.DIST_DIR }}
+          path: ${{ env.DIST_PATH }}
+      - uses: cloudflare/wrangler-action@v3
+        id: deploy
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ${{ env.DIST_PATH }} --project-name=${{ env.CF_PAGES_PROJECT_NAME }} --branch=${{ github.ref_name }}
+          wranglerVersion: ${{ env.WRANGLER_VERSION }}
+        env:
+          WRANGLER_VERSION: 3.107.2
+      - uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3
+        if: ${{ success() && github.event_name == 'pull_request' }}
+        with:
+          message: |
+            Preview Deployment Successfully ✅ ${{ steps.deploy.outputs.deployment-url }}
+          comment-tag: cloudflare-pages-deployment
