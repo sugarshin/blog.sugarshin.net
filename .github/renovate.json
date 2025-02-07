@@ -1,4 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", "config:js-app"]
+  "extends": ["config:best-practices", "config:js-app"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
+      "matchStrings": ["\\s+BIOME_VERSION:\\s+(?<currentValue>.*?)\\s+"],
+      "depNameTemplate": "biomejs/biome",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "cli/v(?<version>.*)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
+      "matchStrings": ["\\s+WRANGLER_VERSION:\\s+(?<currentValue>.*?)\\s+"],
+      "depNameTemplate": "wrangler",
+      "datasourceTemplate": "npm"
+    }
+  ]
 }
