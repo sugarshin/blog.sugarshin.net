@@ -12,7 +12,7 @@ export default function Header() {
       </div>
       <div className="flex-none">
         <label
-          htmlFor="my-drawer-2"
+          htmlFor="main-drawer"
           className="btn btn-primary drawer-button lg:hidden"
         >
           <ThreeBarsIcon />
