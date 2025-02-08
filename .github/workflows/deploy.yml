@@ -14,9 +14,9 @@ on:
       - 'package-lock.json'
       - 'package.json'
       - 'postcss.config.mjs'
-      - 'public'
-      - 'scripts'
-      - 'src'
+      - 'public/**'
+      - 'scripts/**'
+      - 'src/**'
       - 'tsconfig.json'
   push:
     branches:
@@ -28,9 +28,9 @@ on:
       - 'package-lock.json'
       - 'package.json'
       - 'postcss.config.mjs'
-      - 'public'
-      - 'scripts'
-      - 'src'
+      - 'public/**'
+      - 'scripts/**'
+      - 'src/**'
       - 'tsconfig.json'
 
 concurrency:
