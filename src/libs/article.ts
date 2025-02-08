@@ -114,7 +114,7 @@ export async function generateRecentPosts(
 export function generateArticlePath(fileName: string): string {
   const [date, title] = fileName.split('_');
   const [y, m, d] = date.split('-');
-  return `/${y}/${m}/${d}/${title.replace(/\.mdx?$/, '')}/`;
+  return `/${y}/${m}/${d}/${title.replace(/\.md$/, '')}/`;
 }
 
 // Read article file. return markdown string

@@ -1,8 +1,16 @@
 import { ClockIcon, PencilIcon, TagIcon } from '@primer/octicons-react';
 import Link from 'next/link';
-import type { ArticleMeta } from '~/types';
 
-export default function ArticleMeta({ meta }: { meta: ArticleMeta }) {
+export type ArticleMetaData = {
+  tags: string[];
+  author: {
+    name: string;
+    url: string;
+  };
+  date: string;
+};
+
+export default function ArticleMeta({ meta }: { meta: ArticleMetaData }) {
   return (
     <div className="text-right py-4">
       <ul className="py-1">

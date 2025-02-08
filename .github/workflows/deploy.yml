@@ -59,7 +59,7 @@ jobs:
           path: |
             ${{ steps.npm-cache-dir.outputs.dir }}
             ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx', '**/*.mjs', '**/*.mts', '**/*.css', 'src/articles/*.md', 'src/articles/*.mdx') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx', '**/*.mjs', '**/*.mts', '**/*.css', 'src/articles/*.md') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}-
       - run: npm ci
