@@ -15,17 +15,17 @@ ogp:
 
 ![](/assets/images/2016/07/14/blog-like-software-development/main.png)
 
-継続的なソフトウェア開発プロセスを取り入れ、最低限の SEO は考慮しつつ無理矢理 React でブログを作ってみたという話しです。
+継続的なソフトウェア開発プロセスを取り入れ、最低限のSEOは考慮しつつ無理矢理Reactでブログを作ってみたという話しです。
 
 ***
 
-個人ブログ開設にあたり何を使おうか迷いまして、いろいろ考えた結果結局 React と Redux で自作しました。
+個人ブログ開設にあたり何を使おうか迷いまして、いろいろ考えた結果結局ReactとReduxで自作しました。
 
 過去の経験上、普通にブログを続けていくだけではモチベーションを保てないなぁと思い、ソフトウェア開発的なプロセスや自動化を取り入れつつという感じです。
 
 https://github.com/sugarshin/blog.sugarshin.net
 
-Redux 周りを最近触っていなかったので久しぶりに触りたかったというのも理由付けの1つです。
+Redux周りを最近触っていなかったので久しぶりに触りたかったというのも理由付けの1つです。
 
 ## 目次
 
@@ -57,9 +57,9 @@ Redux 周りを最近触っていなかったので久しぶりに触りたか�
 
 ## React
 
-本体は特に変哲もない普通の React + react-router です。 Redux のディレクトリ構成に沿ってはいます。
+本体は特に変哲もない普通のReact + react-routerです。 Reduxのディレクトリ構成に沿ってはいます。
 
-特に複雑な非同期処理もないので redux-thunk でよっこいしょしています。
+特に複雑な非同期処理もないのでredux-thunkでよっこいしょしています。
 
 ```sh
 src
@@ -103,9 +103,9 @@ src
 └── utils
 ```
 
-Markdown で書いた記事を XHR で取ってきて remark でレンダリングしています。
+Markdownで書いた記事をXHRで取ってきてremarkでレンダリングしています。
 
-[remark][https://github.com/wooorm/remark] はプラガブルな Markdown パーサ & コンパイラです。
+[remark][https://github.com/wooorm/remark]はプラガブルなMarkdownパーサ & コンパイラです。
 
 ```json
 {
@@ -140,7 +140,7 @@ unified()
 
 ### Enzyme
 
-React コンポーネントのテストは [Enzyme](https://github.com/airbnb/enzyme) を使ってみました。普通に DOM を触っている感じでテストが書けるので面白いかなと思います。
+Reactコンポーネントのテストは [Enzyme](https://github.com/airbnb/enzyme) を使ってみました。普通にDOMを触っている感じでテストが書けるので面白いかなと思います。
 
 ```js
 import assert from 'assert'
@@ -156,15 +156,15 @@ describe('Article suite', () => {
 })
 ```
 
-テスト周りは Mocha, power-assert, babel-preset-power-assert, なこちらも定番な感じす。
+テスト周りはMocha, power-assert, babel-preset-power-assert, なこちらも定番な感じす。
 
 が、まだテストはほとんど書けてません。。
 
 ## webpack
 
-webpack はやれることが多くドキュメントは充実しているとは言い難いですが、これじゃないといろいろ実現しないですね。
+webpackはやれることが多くドキュメントは充実しているとは言い難いですが、これじゃないといろいろ実現しないですね。
 
-また、 CSS Modules は css-loader で実現しています。
+また、 CSS Modulesはcss-loaderで実現しています。
 
 ```js
 const production = process.env.NODE_ENV === 'production';
@@ -173,9 +173,9 @@ const cssModules = `modules&importLoaders=1&localIdentName=${localIdentName}`;
 const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}`;
 ```
 
-コンポーネントを意識した構成にさえしていれば、ある程度雑に CSS を書いても大丈夫ですし、面倒な class 命名に悩む必要もないのでとっても気に入っています。
+コンポーネントを意識した構成にさえしていれば、ある程度雑にCSSを書いても大丈夫ですし、面倒なclass命名に悩む必要もないのでとっても気に入っています。
 
-Stylus で書いて PostCSS でポストプロセスしつつ最終的に style-loader でインライン化しています。
+Stylusで書いてPostCSSでポストプロセスしつつ最終的にstyle-loaderでインライン化しています。
 
 ```js
 {
@@ -184,13 +184,13 @@ Stylus で書いて PostCSS でポストプロセスしつつ最終的に style-
 }
 ```
 
-CSS ファイルの管理を意識しなくていいので楽です。
+CSSファイルの管理を意識しなくていいので楽です。
 
 ## 開発、執筆プロセス
 
 `npm start` で開発サーバが立ち上がります。
 
-その他、記事一覧のデータをとるための JSON ファイルを生成したり、本番で記事情報を取ってきている GitHub API のモックとして利用するファイルを生成したりしています。
+その他、記事一覧のデータをとるためのJSONファイルを生成したり、本番で記事情報を取ってきているGitHub APIのモックとして利用するファイルを生成したりしています。
 
 新しい記事を書くときは `npm run na -- --name example-name` で `.md` ファイルと必要なディレクトリを生成します。
 
@@ -242,39 +242,39 @@ CSS ファイルの管理を意識しなくていいので楽です。
 }
 ```
 
-記事内のコードブロックに対しても ESLint でリントします。
+記事内のコードブロックに対してもESLintでリントします。
 
 ## ビルド、デプロイ
 
-ホスティングは GitHub Pages です。
+ホスティングはGitHub Pagesです。
 
-なので、 SEO のためにも各記事ごとに静的ファイルを用意しないといけないのですが、
+なので、 SEOのためにも各記事ごとに静的ファイルを用意しないといけないのですが、
 
-当初は `ReactDOMServer.renderToString` でビルド時に、サーバーサイドレンダリングライクな感じで吐いて、クライアントでレンダリング済みの DOM と React がスムーズに連携できる予定でしたがうまくいかず。。
+当初は `ReactDOMServer.renderToString` でビルド時に、サーバーサイドレンダリングライクな感じで吐いて、クライアントでレンダリング済みのDOMとReactがスムーズに連携できる予定でしたがうまくいかず。。
 
 結局、 [Pug](https://github.com/pugjs/pug) で各ページ分、内容を雑にレンダリングして内容部分は `style="display: none;"` しつつ生成するようにしています。笑
 
-これで各ページ分クロールもされ、アクセス後は SPA として動作します。
+これで各ページ分クロールもされ、アクセス後はSPAとして動作します。
 
-Google Search Console でも今のところ特に問題視されていません。
+Google Search Consoleでも今のところ特に問題視されていません。
 
-その他、 sitemap.xml や RSS, Atom フィード用の xml 、 Favicon, OG 画像等もビルド時に script でつくっています。
+その他、 sitemap.xmlやRSS, Atomフィード用のxml 、 Favicon, OG画像等もビルド時にscriptでつくっています。
 
-master ブランチにマージされると、テスト、ビルド、デプロイと Travis CI で CI がまわります。
+masterブランチにマージされると、テスト、ビルド、デプロイとTravis CIでCIがまわります。
 
 ## Greenkeeper
 
 [Greeankeeper](https://greenkeeper.io/) でライブラリの最新化もほぼ自動化しています。
 
-利用ライブラリにアップデートがあると Bot からプルリクがとんでくるのであとは CI が通ればマージするだけです。
+利用ライブラリにアップデートがあるとBotからプルリクがとんでくるのであとはCIが通ればマージするだけです。
 
 `npm-check-updates` よりも楽かなと思います。
 
-OSS のリポジトリだと無料で利用できるので、他の自分の OSS でも利用しています。
+OSSのリポジトリだと無料で利用できるので、他の自分のOSSでも利用しています。
 
 ## TODOs
 
 - テストをかく
 - `ReactDOMServer.renderToString` でスマートにしたい
-- SEO をもう少しがんばる
-- もろもろ整理、パッケージにして OSS 化（React static blog generator ?）したい
+- SEOをもう少しがんばる
+- もろもろ整理、パッケージにしてOSS化（React static blog generator ?）したい

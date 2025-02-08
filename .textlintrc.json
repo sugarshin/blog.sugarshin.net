@@ -1,0 +1,17 @@
+{
+  "plugins": {},
+  "filters": {},
+  "rules": {
+    "preset-japanese": {
+      "max-ten": {
+        "max": 6
+      },
+      "sentence-length": {
+        "max": 200
+      },
+      "no-doubled-joshi": false
+    },
+    "preset-jtf-style": true,
+    "preset-ja-spacing": true
+  }
+}

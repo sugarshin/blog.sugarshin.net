@@ -15,7 +15,7 @@ ogp:
 
 ![](/assets/images/2019/06/01/renovate-with-e2e-test/main.png)
 
-当ブログプロジェクトの依存モジュールのアップデートを、 [Renovate](https://renovatebot.com/) と E2E テストを用いて安全に自動化する環境を整えました。
+当ブログプロジェクトの依存モジュールのアップデートを、 [Renovate](https://renovatebot.com/) とE2Eテストを用いて安全に自動化する環境を整えました。
 
 *[React と Redux なブログ運用をソフトウェア開発する話し](/2016/07/14/blog-like-software-development/)*
 
@@ -23,15 +23,15 @@ ogp:
 
 ## モチベーション
 
-Renovate は依存モジュールにアップデートがあるとプルリクエストを作成してくれますが、設定次第ではその挙動をいろいろカスタマイズでき、さらにマージも自動でやってくれます。
+Renovateは依存モジュールにアップデートがあるとプルリクエストを作成してくれますが、設定次第ではその挙動をいろいろカスタマイズでき、さらにマージも自動でやってくれます。
 
-CI のステータスチェック次第で安全にマージできるので、ユニットテストやビルドだけではなく、 E2E テストも実行することでその安全性をより担保しました。
+CIのステータスチェック次第で安全にマージできるので、ユニットテストやビルドだけではなく、 E2Eテストも実行することでその安全性をより担保しました。
 
 そもそもの前提として、自分はソフトウェア開発プロセスの自動化についてはかなり積極的で、可能な限りそれを実施することで品質、スピード、スケーラビリティなどに寄与するほか、人的なオペレーションミスなども防げます。
 
 ## Cypress
 
-E2E テストについては、 [Cypress](https://www.cypress.io/) を利用しています。オールインワンなフレームワークで、E2E テストに特化したフレームワークです。また、 Selenium を利用していなく独自のアーキテクチャで実行されている模様で、インストールも npm からインストールするだけなので楽です。
+E2Eテストについては、 [Cypress](https://www.cypress.io/) を利用しています。オールインワンなフレームワークで、E2Eテストに特化したフレームワークです。また、 Seleniumを利用していなく独自のアーキテクチャで実行されている模様で、インストールもnpmからインストールするだけなので楽です。
 
 ```js
 const url = require('url')
@@ -73,7 +73,7 @@ ref: https://github.com/sugarshin/blog.sugarshin.net/blob/598cfb1abe3d11c7ccc895
 
 まだ最低限のテストケースしか書いてないので今後増やしていかないとです。
 
-個人的に、 Cypress の API が使いづらくてテスト書くのに時間かかります。
+個人的に、 CypressのAPIが使いづらくてテスト書くのに時間かかります。
 
 ## Renovate
 
@@ -85,7 +85,7 @@ ref: https://github.com/sugarshin/blog.sugarshin.net/blob/598cfb1abe3d11c7ccc895
 
 [sugarshin/renovate-config: My shareable config for Renovate](https://github.com/sugarshin/renovate-config)
 
-npm にパブリッシュしておくだけで、インストールせずに設定を利用可能です。 [@sugarshin/renovate-config  -  npm](https://www.npmjs.com/package/@sugarshin/renovate-config)
+npmにパブリッシュしておくだけで、インストールせずに設定を利用可能です。 [@sugarshin/renovate-config  -  npm](https://www.npmjs.com/package/@sugarshin/renovate-config)
 
 ```json
 {
@@ -95,16 +95,16 @@ npm にパブリッシュしておくだけで、インストールせずに設�
 }
 ```
 
-また、 `prConcurrentLimit` や `prHourlyLimit` でプルリクエストの発行数を制限し、メインブランチが更新されるたびに Renovate が自身の全プルリクエストを更新して CI がものすごくスタックしていくのを防いでいます。
+また、 `prConcurrentLimit` や `prHourlyLimit` でプルリクエストの発行数を制限し、メインブランチが更新されるたびにRenovateが自身の全プルリクエストを更新してCIがものすごくスタックしていくのを防いでいます。
 
 - https://github.com/sugarshin/renovate-config/blob/903985ad15418268b9ccd1a098378d8487adc375/package.json#L52
 - https://github.com/sugarshin/renovate-config/blob/903985ad15418268b9ccd1a098378d8487adc375/package.json#L59
 
-モジュールマネージメントツールに関して、開設当初は [Greenkeeper](https://greenkeeper.io/) を利用していましたが、カスタマイズ性の高さで 2018 年末から Renovate に移行しています。 [Configure Renovate by renovate · Pull Request #314 · sugarshin/blog.sugarshin.net](https://github.com/sugarshin/blog.sugarshin.net/pull/314)
+モジュールマネージメントツールに関して、開設当初は [Greenkeeper](https://greenkeeper.io/) を利用していましたが、カスタマイズ性の高さで2018年末からRenovateに移行しています。 [Configure Renovate by renovate · Pull Request #314 · sugarshin/blog.sugarshin.net](https://github.com/sugarshin/blog.sugarshin.net/pull/314)
 
 ## CI
 
-CircleCI の Orbs に Cypress 公式の Orb があるのでこれを利用します。 [CircleCI Orb Registry - cypress-io/cypress](https://circleci.com/orbs/registry/orb/cypress-io/cypress)
+CircleCIのOrbsにCypress公式のOrbがあるのでこれを利用します。 [CircleCI Orb Registry - cypress-io/cypress](https://circleci.com/orbs/registry/orb/cypress-io/cypress)
 
 ```yaml
 version: 2.1
@@ -128,7 +128,7 @@ workflows:
 
 ref: https://github.com/sugarshin/blog.sugarshin.net/blob/598cfb1abe3d11c7ccc8951687bc3f95d6982a87/.circleci/config.yml
 
-Renovate が出した各プルリクエストに対してテストする必要があるので、プルリクエストごとの依存関係のモジュールらでビルドしたアセットを、サーバを立てて配信しそれに対して Cypress でテストしています。
+Renovateが出した各プルリクエストに対してテストする必要があるので、プルリクエストごとの依存関係のモジュールらでビルドしたアセットを、サーバを立てて配信しそれに対してCypressでテストしています。
 
 `cypress/run` ジョブがとれるオプションで、テスト前にビルドしたりサーバを立てたりできます。
 

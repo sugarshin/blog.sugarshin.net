@@ -15,7 +15,7 @@ ogp:
 
 ![](/assets/images/2018/06/17/hubot-fass-reservation/main.png)
 
-[FaSS](http://www.fasssalon.com/) の予約の順番待ちを確認したり、順番が近づくと通知してくれる Hubot スクリプトをつくりました。
+[FaSS](http://www.fasssalon.com/) の予約の順番待ちを確認したり、順番が近づくと通知してくれるHubotスクリプトをつくりました。
 
 https://github.com/sugarshin/hubot-fass-reservation
 
@@ -43,11 +43,11 @@ npm install hubot-fass-reservation
 
 ## モチベーション
 
-子供や自分の髪を切るのに FaSS というお店を利用しています。カットと仕上げのみで 2,000 円ほどと、安くて早いのでよく普段から利用しています。
+子供や自分の髪を切るのにFaSSというお店を利用しています。カットと仕上げのみで2,000円ほどと、安くて早いのでよく普段から利用しています。
 
 [受付システム](http://www.fasssalon.com/sys/#flow)があり、来店して受付機から発券するか、 [Web](http://www.fasssalon.com/sys/#accept) でも発券できます。
 
-事前に登録しておけば、順番が近づくとメールが届いたり、専用の Web ページから順番を確認できたりするのですが、もっと手軽に Slack でそれを行いたかったので Hubot スクリプトとしてつくってみました。
+事前に登録しておけば、順番が近づくとメールが届いたり、専用のWebページから順番を確認できたりするのですが、もっと手軽にSlackでそれを行いたかったのでHubotスクリプトとしてつくってみました。
 
 ## リスト
 

@@ -15,9 +15,9 @@ ogp:
 
 ![](/assets/images/2018/04/28/printing-style-notify-slack/main.png)
 
-Web ページの印刷は、気をつけていないとスタイルくずれを起こしやすいかなと思います。それが、日々、機能追加や改善を行う Web アプリケーションとなるとさらにこの問題がでてきます。
+Webページの印刷は、気をつけていないとスタイルくずれを起こしやすいかなと思います。それが、日々、機能追加や改善を行うWebアプリケーションとなるとさらにこの問題がでてきます。
 
-業務で開発している Web アプリケーションで印刷時のスタイリングをサポートするにあたり、継続的な見た目のチェックを自動化し、結果を Slack に通知するようにしました。
+業務で開発しているWebアプリケーションで印刷時のスタイリングをサポートするにあたり、継続的な見た目のチェックを自動化し、結果をSlackに通知するようにしました。
 
 ***
 
@@ -25,11 +25,11 @@ Web ページの印刷は、気をつけていないとスタイルくずれを�
 
 ## CircleCI
 
-Web アプリケーションのデプロイをトリガーに、 CircleCI 上で実行します。
+Webアプリケーションのデプロイをトリガーに、 CircleCI上で実行します。
 
-1. ヘッドレスブラウザで印刷をエミュレートし、 PDF やスクリーンショットをとる
-2. 結果を Slack に通知する
-3. 上記を CircleCI で実行
+1. ヘッドレスブラウザで印刷をエミュレートし、 PDFやスクリーンショットをとる
+2. 結果をSlackに通知する
+3. 上記をCircleCIで実行
 
 ### .circleci/config.yml
 
@@ -67,7 +67,7 @@ jobs:
       - run: node slack-notify.js
 ```
 
-CircleCI 公式 Node.js の Docker image で、後述する Puppeteer をさくっと動作させるために libxcb 関連のパッケージもインストールしています。
+CircleCI公式Node.jsのDocker imageで、後述するPuppeteerをさくっと動作させるためにlibxcb関連のパッケージもインストールしています。
 
 ref: https://github.com/Googlechrome/puppeteer/issues/290#issuecomment-324838511
 
@@ -82,19 +82,19 @@ sudo apt-get install -yq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 li
   ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
 ```
 
-CircleCI の REST API で実行します。
+CircleCIのREST APIで実行します。
 
 ```bash
 curl -XPOST "https://circleci.com/api/v1.1/project/github/$username/printing-style-notify?circle-token=$CIRCLE_TOKEN"
 ```
 
-現状、 CircleCI 2.0 の Workflows は REST API から実行できないようなので、とりあえず 1 つの Job にまとめて記述してあります。
+現状、 CircleCI 2.0のWorkflowsはREST APIから実行できないようなので、とりあえず1つのJobにまとめて記述してあります。
 
 ref: https://discuss.circleci.com/t/trigger-workflow-through-rest-api/13931/47
 
 ## Puppeteer
 
-[Puppeteer](https://github.com/GoogleChrome/puppeteer) を使ってみました。印刷時の PDF と、後述する Slack の通知でサムネイルを表示するためにスクリーンショットも生成します。
+[Puppeteer](https://github.com/GoogleChrome/puppeteer) を使ってみました。印刷時のPDFと、後述するSlackの通知でサムネイルを表示するためにスクリーンショットも生成します。
 
 e.g.
 
@@ -120,9 +120,9 @@ main()
 
 ## Slack に通知
 
-あとは先程 Artifacts としてストアされた PDF とスクリーンショットを Slack に Webhook 経由で通知するだけです。 [Attachments](https://api.slack.com/docs/message-attachments) で装飾してあげます。
+あとは先程ArtifactsとしてストアされたPDFとスクリーンショットをSlackにWebhook経由で通知するだけです。 [Attachments](https://api.slack.com/docs/message-attachments) で装飾してあげます。
 
-通知先の Slack で PDF やスクリーンショットを参照できなきゃいけないので、これも CircleCI の API でとるようにしています。
+通知先のSlackでPDFやスクリーンショットを参照できなきゃいけないので、これもCircleCIのAPIでとるようにしています。
 
 e.g.
 
@@ -155,4 +155,4 @@ main()
 
 ## Diff
 
-スタイルくずれを把握しやすいように、 PDF とかスクリーンショットの Diff をとって通知内容に含められればもっといいですね。
+スタイルくずれを把握しやすいように、 PDFとかスクリーンショットのDiffをとって通知内容に含められればもっといいですね。

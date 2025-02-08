@@ -15,7 +15,7 @@ ogp:
 
 ![](/assets/images/2018/05/01/qiita-image-upload-cli-with-oclif/main.png)
 
-[Qiita](https://qiita.com/) に画像をアップロードする CLI ツールを、 [Heroku](https://www.heroku.com/) 製の CLI フレームワーク [oclif](https://oclif.io/) を使ってつくってみました。
+[Qiita](https://qiita.com/) に画像をアップロードするCLIツールを、 [Heroku](https://www.heroku.com/) 製のCLIフレームワーク [oclif](https://oclif.io/) を使ってつくってみました。
 
 ```bash
 $ yarn global add qiiu
@@ -41,11 +41,11 @@ https://github.com/sugarshin/qiiu
 
 ## モチベーション
 
-Qiita への記事投稿を CLI で完結させたいなぁと思っていて、 [REST API](https://qiita.com/api/v2/docs) は提供されているものの当然画像をアップロードするインターフェイスはなく、別でホスティングするか迷っていましたが結局それ用のツールをつくることにしました。
+Qiitaへの記事投稿をCLIで完結させたいなぁと思っていて、 [REST API](https://qiita.com/api/v2/docs) は提供されているものの当然画像をアップロードするインターフェイスはなく、別でホスティングするか迷っていましたが結局それ用のツールをつくることにしました。
 
 ## oclif
 
-oclif は、 Heroku や [Salesforce CLI](https://developer.salesforce.com/ja/tools/sfdxcli) でも利用されているらしく、 Scaffolding やテストヘルパー、リリースまで面倒みてくれるフレームワークでいろいろ楽でした。 Plugin 機構もあって拡張性も高いみたいです。
+oclifは、 Herokuや [Salesforce CLI](https://developer.salesforce.com/ja/tools/sfdxcli) でも利用されているらしく、 Scaffoldingやテストヘルパー、リリースまで面倒みてくれるフレームワークでいろいろ楽でした。 Plugin機構もあって拡張性も高いみたいです。
 
 ```
 $ npx oclif single qiiu
@@ -111,7 +111,7 @@ if (inputFile) {
 
 ref: https://github.com/sugarshin/qiiu/blob/master/src/upload.ts
 
-2 段階認証を有効にしている場合の対応や、記事の下書きの上限数を考慮する対応などもしてあります。
+2段階認証を有効にしている場合の対応や、記事の下書きの上限数を考慮する対応などもしてあります。
 
 ***
 

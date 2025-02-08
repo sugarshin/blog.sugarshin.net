@@ -25,11 +25,11 @@ sources: https://github.com/sugarshin/circleci-orbs
 
 ## モチベーション
 
-普段 npm モジュールを作る際に [CircleCI](https://circleci.com/) を利用していますが、 CI でテスト、ビルド、パブリッシュまでやってもらっています。毎回構成やジョブはだいたい同じなので共通化するべく CircleCI Orbs としてまとめました。
+普段npmモジュールを作る際に [CircleCI](https://circleci.com/) を利用していますが、 CIでテスト、ビルド、パブリッシュまでやってもらっています。毎回構成やジョブはだいたい同じなので共通化するべくCircleCI Orbsとしてまとめました。
 
 ## release ジョブ
 
-npm レジストリへのパブリッシュと Git のタグつけまで自動でやってくれるジョブです。
+npmレジストリへのパブリッシュとGitのタグつけまで自動でやってくれるジョブです。
 
 ref: https://circleci.com/orbs/registry/orb/sugarshin/npm#jobs-release
 
@@ -65,7 +65,7 @@ workflows:
             - build
 ```
 
-こんな感じのインクリメントする npm-scripts を用意しておけば便利です。
+こんな感じのインクリメントするnpm-scriptsを用意しておけば便利です。
 
 ```json
 {
@@ -86,7 +86,7 @@ $ git push origin patch-1
 $ hub pull-request -b master -h patch-1 -m "<version>"
 ```
 
-公式の npm レジストリ以外へのパブリッシュには未対応です。
+公式のnpmレジストリ以外へのパブリッシュには未対応です。
 
 ## install コマンド
 
@@ -111,19 +111,19 @@ jobs:
 
 ## CI
 
-Orbs のリポジトリは Monorepo で構成してあるので、 CI で変更が加えられた Orb のみ処理対象としたいです。 CircleCI では `CIRCLE_COMPARE_URL` という環境変数が用意されていて、前コミットとの差分を VCS 側で確認できる URL をとれます。
+OrbsのリポジトリはMonorepoで構成してあるので、 CIで変更が加えられたOrbのみ処理対象としたいです。 CircleCIでは `CIRCLE_COMPARE_URL` という環境変数が用意されていて、前コミットとの差分をVCS側で確認できるURLをとれます。
 
-上記を利用すれば変更された Orb のみビルドやパブリッシュの対象とできるのですが、 CircleCI 2.1 ではこれが無効となります。
+上記を利用すれば変更されたOrbのみビルドやパブリッシュの対象とできるのですが、 CircleCI 2.1ではこれが無効となります。
 
-これを利用できるようにする Orb が公開されているので利用します。
+これを利用できるようにするOrbが公開されているので利用します。
 
 [CircleCI Orb Registry - iynere/compare-url](https://circleci.com/orbs/registry/orb/iynere/compare-url)
 
 source: https://github.com/iynere/compare-url
 
-`reconstruct` を実行したあとに、 `use` の `custom-logic` パラメータに渡す Shell script 内の環境変数で `COMMIT_RANGE` が利用できるようになります。
+`reconstruct` を実行したあとに、 `use` の `custom-logic` パラメータに渡すShell script内の環境変数で `COMMIT_RANGE` が利用できるようになります。
 
-例えば、変更があった Orb のみ `circleci config pack <path>` コマンドで、 Command や Job ごとに分割して記述した Orb を 1 つのファイルにまとめ上げる場合、下記のようにします。
+例えば、変更があったOrbのみ `circleci config pack <path>` コマンドで、 CommandやJobごとに分割して記述したOrbを1つのファイルにまとめ上げる場合、下記のようにします。
 
 ```yaml
 jobs:
