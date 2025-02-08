@@ -4,3 +4,5 @@ export const APP_ORIGIN =
     : 'http://localhost:3000';
 
 export const SITE_TITLE = 'blog.sugarshin.net';
+
+export const G = 'a';
