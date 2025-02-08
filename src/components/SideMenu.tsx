@@ -1,7 +1,7 @@
 import ArchiveList from '~/components/ArchiveList';
 import LinkList from '~/components/LinkList';
-import OtherList from '~/components/OtherList';
 import RecentPostList from '~/components/RecentPostList';
+import RssFeedList from '~/components/RssFeedList';
 import SideMenuTagList from '~/components/SideMenuTagList';
 import { SideMenuArticleListItem, TagListItem } from '~/types';
 
@@ -24,7 +24,7 @@ export default function SideMenu({ data }: { data: SideMenuData }) {
         <ArchiveList archives={data.archives} className="mt-4"></ArchiveList>
         <SideMenuTagList list={data.tags} className="mt-4"></SideMenuTagList>
         <LinkList className="mt-4" />
-        <OtherList className="mt-4" />
+        <RssFeedList className="mt-4" />
       </div>
     </div>
   );
