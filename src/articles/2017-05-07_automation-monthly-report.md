@@ -15,11 +15,11 @@ ogp:
 
 ![](/assets/images/2017/05/07/automation-monthly-report/main.png)
 
-月ごとに、 OSS コントリビューションや GitHub 上での活動をまとめたレポートの当ブログへの投稿を自動化しました。
+月ごとに、 OSSコントリビューションやGitHub上での活動をまとめたレポートの当ブログへの投稿を自動化しました。
 
 ***
 
-なかなかブログも書けないので、これから GitHub の月報を投稿していくことにしました。
+なかなかブログも書けないので、これからGitHubの月報を投稿していくことにしました。
 
 [[Monthly report] 2017-04 my activity this month on GitHub](/2017/04/30/monthly-report-1704/)
 
@@ -29,21 +29,21 @@ ogp:
 
 やっていることは単純ですが大まかな流れとしては、
 
-1. GitHub API から User event を取得して該当月のイベントから記事を作成する
-2. GitHub へ push
-3. API で Pull request を作成し、 CI がパス次第 API で Merge
-4. CircleCI などで上述の script を実行
-5. cron などで月末に定期ビルドさせる
+1. GitHub APIからUser eventを取得して該当月のイベントから記事を作成する
+2. GitHubへpush
+3. APIでPull requestを作成し、 CIがパス次第APIでMerge
+4. CircleCIなどで上述のscriptを実行
+5. cronなどで月末に定期ビルドさせる
 
-前提として、 GitHub 上で投稿までのサイクルが回るようになっています。
+前提として、 GitHub上で投稿までのサイクルが回るようになっています。
 
 [React と Redux なブログ運用をソフトウェア開発する話し](/2016/07/14/blog-like-software-development/)
 
 ## List events performed by a user
 
-User event は `GET /users/:username/events` エンドポイントから取得します。パブリックなイベントのみでいいはずなのでアクセストークンは必要ないです。
+User eventは `GET /users/:username/events` エンドポイントから取得します。パブリックなイベントのみでいいはずなのでアクセストークンは必要ないです。
 
-ただ API の仕様で、過去 90 日以内でかつ上限 300 件しか取得できないので、活動が多かった月は漏れがあるかもです。週ごと程度定期で取得してストックしておくなどの対応が必要かもですね。
+ただAPIの仕様で、過去90日以内でかつ上限300件しか取得できないので、活動が多かった月は漏れがあるかもです。週ごと程度定期で取得してストックしておくなどの対応が必要かもですね。
 
 ref: https://developer.github.com/v3/activity/events/#list-events-performed-by-a-user
 
@@ -96,7 +96,7 @@ $ curl "https://api.github.com/users/sugarshin/events"
 
 ## 記事作成
 
-記事作成は取得したイベントデータを元にパース、フォーマットして Markdown ファイルとして書き出します。
+記事作成は取得したイベントデータを元にパース、フォーマットしてMarkdownファイルとして書き出します。
 
 [blog.sugarshin.net/scripts/create-monthly-report/index.js](https://github.com/sugarshin/blog.sugarshin.net/blob/6370f753134c3ba9592afd7cac5c7640746a060e/scripts/create-monthly-report/index.js)
 
@@ -110,21 +110,21 @@ $ curl "https://api.github.com/users/sugarshin/events"
 
 イベントタイプは[ドキュメント](https://developer.github.com/v3/activity/events/types/)にまとまっています。
 
-ここから Markdown として出力するのに少しフィルタリングしています。
+ここからMarkdownとして出力するのに少しフィルタリングしています。
 
 ## ビルド
 
-ビルドは CircleCI 上で行います。
+ビルドはCircleCI上で行います。
 
 ブログのリポジトリだけで完結させられるかと思いましたが、ごちゃごちゃしそうだったので別環境を用意しています。
 
 https://github.com/sugarshin/build.blog.sugarshin.net
 
-現状、 Pull request のマージは、ステータスが `mergeable` かつ `mergeable_state === 'clean'` になるまでポーリングしています。ステータス変更をトリガーできればいいですね。
+現状、 Pull requestのマージは、ステータスが `mergeable` かつ `mergeable_state === 'clean'` になるまでポーリングしています。ステータス変更をトリガーできればいいですね。
 
 - [build.blog.sugarshin.net/merge-pull-request.js at 42bf302cb92cfffccbc98b30339906dc5c4cbf15 · sugarshin/build.blog.sugarshin.net](https://github.com/sugarshin/build.blog.sugarshin.net/blob/42bf302cb92cfffccbc98b30339906dc5c4cbf15/merge-pull-request.js#L36)
 
-CircleCI の API からビルドを実行します。
+CircleCIのAPIからビルドを実行します。
 
 ref: [Recent Builds For a Project Branch - CircleCI API v1.1 Reference - CircleCI](https://circleci.com/docs/api/v1-reference/#recent-builds-project-branch)
 
@@ -134,9 +134,9 @@ $ curl -XPOST "https://circleci.com/api/v1/project/sugarshin/build.blog.sugarshi
 
 ## 定期実行
 
-月末に定期実行させるために、 cron などで上述 CircleCI の API を叩きます。
+月末に定期実行させるために、 cronなどで上述CircleCIのAPIを叩きます。
 
-今回は既存の自分のプライベート Hubot 内で起動させてあります。
+今回は既存の自分のプライベートHubot内で起動させてあります。
 
 ```coffeescript
 # Description:
@@ -157,13 +157,13 @@ module.exports = () ->
   new CronJob('0 01 00 01 * *', executeMonthlyReport).start()
 ```
 
-月の末日をとるのが難しかったので、月初の 0 時 1 分とし、そこからビルド時間を考慮した分をマイナスして計算するようにしてあります。
+月の末日をとるのが難しかったので、月初の0時1分とし、そこからビルド時間を考慮した分をマイナスして計算するようにしてあります。
 
 ref: [blog.sugarshin.net/index.js at 53700e705c6f154510d853fa5cbdd5f393a376ce · sugarshin/blog.sugarshin.net]( https://github.com/sugarshin/blog.sugarshin.net/blob/53700e705c6f154510d853fa5cbdd5f393a376ce/scripts/create-monthly-report/index.js#L42)
 
 ***
 
-GitHub の API でとれるデータを元に、エンジニアのパフォーマンス計測や作業量などの算出に利用して、エンジニアの働き方やワークライフバランス改善の 1 つの指針に利用できたりしないかなと考えてみたりしています。
+GitHubのAPIでとれるデータを元に、エンジニアのパフォーマンス計測や作業量などの算出に利用して、エンジニアの働き方やワークライフバランス改善の1つの指針に利用できたりしないかなと考えてみたりしています。
 
 ## リンク
 

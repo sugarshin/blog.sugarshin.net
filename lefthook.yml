@@ -6,3 +6,6 @@ pre-commit:
     eslint:
       run: npx next lint --fix --file {staged_files}
       stage_fixed: true
+    textlint:
+      glob: "src/articles/*.md"
+      run: npx textlint {all_files}

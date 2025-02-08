@@ -13,6 +13,6 @@ ogp:
       src: /assets/images/common/report/main.png
 ---
 
-今月の主な OSS コントリビューションや GitHub 上のアクティビティまとめ
+今月の主なOSSコントリビューションやGitHub上のアクティビティまとめ
 
 ***

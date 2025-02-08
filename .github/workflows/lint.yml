@@ -1,4 +1,4 @@
-name: Lint and Check
+name: Lint
 
 on:
   pull_request:
@@ -44,3 +44,4 @@ jobs:
             ${{ runner.os }}-npm-
       - run: npm ci
       - run: npm run lint
+      - run: npm run lint:md
