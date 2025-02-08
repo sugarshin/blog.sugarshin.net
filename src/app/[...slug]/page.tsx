@@ -1,10 +1,17 @@
-import type { Metadata, ResolvingMetadata } from 'next';
-import ArticleMeta from '~/components/ArticleMeta';
+import type { Metadata } from 'next';
+import ArticleMeta, { ArticleMetaData } from '~/components/ArticleMeta';
+import Markdown from '~/components/Markdown';
 import SocialShare from '~/components/SocialShare';
-import { getArticleFileNames } from '~/libs/article';
+import {
+  getArticleFileNames,
+  readArticleFile,
+  truncateArticleByLength,
+} from '~/libs/article';
 import { APP_ORIGIN, SITE_TITLE } from '~/libs/constants';
-import { normalizeTags } from '~/libs/markdown';
-import type { Frontmatter, ArticleMeta as TArticleMeta } from '~/types';
+import {
+  parseAndNormalizeFrontmatter,
+  stripeMarkdownSyntaxAndFrontmatter,
+} from '~/libs/markdown';
 
 export default async function Page({
   params,
@@ -13,11 +20,11 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
   const [y, m, d, t] = slug;
-  const { default: MDXComponent, frontmatter } = await import(
-    `~/articles/${y}-${m}-${d}_${t}.mdx`
-  );
-  const meta: TArticleMeta = {
-    tags: normalizeTags(frontmatter.tags),
+  const md = await readArticleFile(`${y}-${m}-${d}_${t}.md`);
+  const frontmatter = parseAndNormalizeFrontmatter(md);
+
+  const meta: ArticleMetaData = {
+    tags: frontmatter.tags,
     author: frontmatter.author,
     date: frontmatter.date,
   };
@@ -29,7 +36,7 @@ export default async function Page({
       </h1>
       <ArticleMeta meta={meta} />
       <div className="markdown-body pt-4 border-t border-gray-200">
-        <MDXComponent />
+        <Markdown>{md}</Markdown>
       </div>
       <SocialShare url={`${APP_ORIGIN}/${y}/${m}/${d}/${t}/`} />
     </div>
@@ -42,31 +49,29 @@ export async function generateStaticParams() {
     const [date, title] = fileName.split('_');
     const [y, m, d] = date.split('-');
     return {
-      slug: [y, m, d, title.replace(/\.mdx?$/, '')],
+      slug: [y, m, d, title.replace(/\.md$/, '')],
     };
   });
 }
 
-export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }> },
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const slug = (await params).slug;
   const [y, m, d, t] = slug;
-  const { frontmatter }: { frontmatter: Frontmatter } = await import(
-    `~/articles/${y}-${m}-${d}_${t}.mdx`
+  const md = await readArticleFile(`${y}-${m}-${d}_${t}.md`);
+  const frontmatter = parseAndNormalizeFrontmatter(md);
+  const description = truncateArticleByLength(
+    await stripeMarkdownSyntaxAndFrontmatter(md),
+    100,
   );
-
-  // TODO:
-  const description =
-    frontmatter.description || (await parent).description || 'Blog';
 
   return {
     metadataBase: new URL(APP_ORIGIN),
     title: frontmatter.title,
     description,
     authors: frontmatter.author,
-    keywords: frontmatter.tags,
+    keywords: frontmatter.tags.join(','),
     publisher: frontmatter.author.name,
     openGraph: {
       type: 'article',

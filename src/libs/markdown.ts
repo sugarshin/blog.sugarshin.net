@@ -52,7 +52,7 @@ export async function stripeMarkdownSyntax(markdown: string): Promise<string> {
   return vfile.toString();
 }
 
-function stripeFrontmatter(markdown: string): string {
+export function stripeFrontmatter(markdown: string): string {
   const [, end] = findFrontmatterLineIndex(markdown);
   return markdown
     .split(/\n/)
