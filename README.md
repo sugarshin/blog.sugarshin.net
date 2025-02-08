@@ -28,12 +28,6 @@ $ npm run dev
 $ npm run build
 ```
 
-## Add new article
-
-```sh
-$ npm run na -- --name example-article-url
-```
-
 ## Deploy
 
 Merge to a default branch will trigger GitHub Actions that deploys assets to Cloudflare Pages.
