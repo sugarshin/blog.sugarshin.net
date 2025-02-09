@@ -1,0 +1,6 @@
+APP_ORIGIN = "http://localhost:3000"
+GITHUB_APP_ID = "1138287"
+
+# Grab from GitHub App page
+GITHUB_APP_INSTALLATION_ID = ""
+GITHUB_APP_PRIVATE_KEY = ""
