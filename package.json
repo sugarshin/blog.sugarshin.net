@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:f": "wrangler pages dev --live-reload .",
     "build": "next build",
     "gen:rss": "NODE_ENV=production tsx ./scripts/generate-rss.ts",
     "postbuild": "npm run gen:rss",

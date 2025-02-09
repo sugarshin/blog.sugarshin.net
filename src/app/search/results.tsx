@@ -4,6 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ArticleList from '~/components/ArticleList';
 import ArticleListSkeleton from '~/components/ArticleListSkeleton';
+import ErrorComponent from '~/components/Error';
 import {
   generateArticleListFromGitHub,
   sortArticleFilesByDescDate,
@@ -32,6 +33,7 @@ export default function SearchResults() {
   const q = searchParams.get('q');
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [httpError, setHttpError] = useState<Error>();
   const [articles, setArticles] = useState<ArticleListItem[]>([]);
 
   useEffect(() => {
@@ -41,7 +43,15 @@ export default function SearchResults() {
       return;
     }
     const request = async () => {
-      const res = await fetchSearchResults(q);
+      let res: ArticleListItem[] = [];
+      try {
+        res = await fetchSearchResults(q);
+      } catch (error) {
+        console.error(error);
+        const e =
+          error instanceof Error ? error : new Error('Unexpected error');
+        setHttpError(e);
+      }
       setArticles(res);
       setIsLoading(false);
     };
@@ -50,6 +60,10 @@ export default function SearchResults() {
 
   if (isLoading) {
     return <ArticleListSkeleton count={5} />;
+  }
+
+  if (httpError) {
+    return <ErrorComponent error={httpError} />;
   }
 
   if (articles.length === 0) {
