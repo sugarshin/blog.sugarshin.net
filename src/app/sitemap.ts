@@ -1,11 +1,12 @@
 import type { MetadataRoute } from 'next';
 import {
   generateArchiveMonths,
-  generateArticlePath,
   generateTagList,
   getArticleFileNames,
 } from '~/libs/article';
-import { APP_ORIGIN } from '~/libs/constants';
+import { generateArticlePath } from '~/libs/article-client';
+
+const { NEXT_PUBLIC_APP_ORIGIN: APP_ORIGIN } = process.env;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapData = [];

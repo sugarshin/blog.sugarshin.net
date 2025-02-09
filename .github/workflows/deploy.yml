@@ -62,6 +62,9 @@ jobs:
             ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}-
       - run: npm ci
       - run: npm run build
+        env:
+          NEXT_PUBLIC_API_ORIGIN: ${{ vars.API_ORIGIN }}
+          NEXT_PUBLIC_APP_ORIGIN: ${{ vars.APP_ORIGIN }}
       - uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4
         with:
           include-hidden-files: true

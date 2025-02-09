@@ -2,16 +2,15 @@ import type { Metadata } from 'next';
 import ArticleMeta, { ArticleMetaData } from '~/components/ArticleMeta';
 import Markdown from '~/components/Markdown';
 import SocialShare from '~/components/SocialShare';
-import {
-  getArticleFileNames,
-  readArticleFile,
-  truncateArticleByLength,
-} from '~/libs/article';
-import { APP_ORIGIN, SITE_TITLE } from '~/libs/constants';
+import { getArticleFileNames, readArticleFile } from '~/libs/article';
+import { truncateArticleByLength } from '~/libs/article-client';
+import { SITE_TITLE } from '~/libs/constants';
 import {
   parseAndNormalizeFrontmatter,
   stripeMarkdownSyntaxAndFrontmatter,
 } from '~/libs/markdown';
+
+const { NEXT_PUBLIC_APP_ORIGIN: APP_ORIGIN } = process.env;
 
 export default async function Page({
   params,

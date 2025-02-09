@@ -8,6 +8,11 @@ import {
   TagListItem,
 } from '~/types';
 import {
+  generateArticlePath,
+  sortArticleFilesByDescDate,
+  truncateArticleByLength,
+} from './article-client';
+import {
   parseAndNormalizeFrontmatter,
   stripeMarkdownSyntaxAndFrontmatter,
 } from './markdown';
@@ -84,14 +89,6 @@ export async function getArticleFileNames(): Promise<string[]> {
   return sortArticleFilesByDescDate(fileNames);
 }
 
-function sortArticleFilesByDescDate(articleFileNames: string[]): string[] {
-  return articleFileNames.toSorted((a, b) => {
-    const [dateA] = a.split('_');
-    const [dateB] = b.split('_');
-    return dayjs(dateB).diff(dateA);
-  });
-}
-
 export async function generateRecentPosts(
   articleFileNames: string[],
 ): Promise<SideMenuArticleListItem[]> {
@@ -108,13 +105,6 @@ export async function generateRecentPosts(
     });
   }
   return ret;
-}
-
-// Article file path to URL path
-export function generateArticlePath(fileName: string): string {
-  const [date, title] = fileName.split('_');
-  const [y, m, d] = date.split('-');
-  return `/${y}/${m}/${d}/${title.replace(/\.md$/, '')}/`;
 }
 
 // Read article file. return markdown string
@@ -153,19 +143,4 @@ export async function generateArticleListWith(
   }
 
   return ret;
-}
-
-function truncate(str: string, len: number): string {
-  return str.length <= len ? str : str.substring(0, len + 1) + '...';
-}
-
-function convertLineBreakToSpace(str: string): string {
-  return str.replace(/\n/g, ' ');
-}
-
-export function truncateArticleByLength(
-  strippedMarkdown: string,
-  length: number,
-): string {
-  return truncate(convertLineBreakToSpace(strippedMarkdown), length);
 }

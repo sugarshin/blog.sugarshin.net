@@ -16,10 +16,28 @@ $ cat .nvmrc
 $ npm i
 ```
 
+## Environment variables
+
+```sh
+$ cp .env.example .env.development
+$ vim .env.development
+
+$ cp .dev.vars.example .dev.vars
+$ vim .dev.vars
+```
+
 ## Start dev-server
 
 ```sh
 $ npm run dev
+```
+
+### Pages Functions
+
+Prepare Pages Functions local development environment, if you want to debug a Search related feature.
+
+```sh
+$ npx wrangler pages dev --live-reload .
 ```
 
 ## Build assets
