@@ -40,7 +40,6 @@ concurrency:
 env:
   DIST_DIR: out
   DIST_PATH: out
-  CF_PAGES_PROJECT_NAME: blog-sugarshin-net
 
 jobs:
   build:
