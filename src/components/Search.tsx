@@ -6,6 +6,15 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 
+export function Fallback() {
+  return (
+    <div className="flex w-full flex-col">
+      <div className="skeleton h-[17px] w-full my-[8px]"></div>
+      <div className="skeleton h-[32px] w-full my-[16px]"></div>
+    </div>
+  );
+}
+
 export default function Search({ className }: { className?: string }) {
   const searchParams = useSearchParams();
   const searchParamsQ = searchParams.get('q');
@@ -48,7 +57,7 @@ export default function Search({ className }: { className?: string }) {
             onChange={handleInput}
           />
           <kbd className="kbd kbd-sm">⌘</kbd>
-          <kbd className="kbd kbd-sm">return</kbd>
+          <kbd className="kbd kbd-sm">⏎</kbd>
         </label>
       </li>
     </ul>
