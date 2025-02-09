@@ -14,7 +14,8 @@ import NoResultsFound from './no-results-found';
 // import Pagination, { calcPageCount, sliceByPage } from '~/components/Pagination';
 
 async function fetchSearchResults(q: string): Promise<ArticleListItem[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_ORIGIN}/api/search`, {
+  const apiOrigin = process.env.NEXT_PUBLIC_API_ORIGIN.replace(/\/$/, '');
+  const res = await fetch(`${apiOrigin}/api/search`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
