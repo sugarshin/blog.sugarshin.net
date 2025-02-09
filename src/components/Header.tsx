@@ -1,13 +1,12 @@
 import { ThreeBarsIcon } from '@primer/octicons-react';
 import Link from 'next/link';
-import { SITE_TITLE } from '~/libs/constants';
 
-export default function Header() {
+export default function Header({ title }: { title: string }) {
   return (
     <header className="navbar bg-base-100 shadow-xs">
       <div className="flex-1">
         <Link className="btn btn-ghost text-xl" href="/">
-          {SITE_TITLE}
+          {title}
         </Link>
       </div>
       <div className="flex-none">

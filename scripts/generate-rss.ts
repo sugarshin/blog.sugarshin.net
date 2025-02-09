@@ -1,16 +1,17 @@
 import fs from 'node:fs/promises';
 import { Feed } from 'feed';
+import { getArticleFileNames, readArticleFile } from '~/libs/article';
 import {
   generateArticlePath,
-  getArticleFileNames,
-  readArticleFile,
   truncateArticleByLength,
-} from '~/libs/article';
-import { APP_ORIGIN, SITE_TITLE } from '~/libs/constants';
+} from '~/libs/article-client';
+import { SITE_TITLE } from '~/libs/constants';
 import {
   parseAndNormalizeFrontmatter,
   stripeMarkdownSyntaxAndFrontmatter,
 } from '~/libs/markdown';
+
+const { NEXT_PUBLIC_APP_ORIGIN: APP_ORIGIN } = process.env;
 
 async function generateRss() {
   const feed = new Feed({

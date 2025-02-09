@@ -8,8 +8,10 @@ import {
   generateTagList,
   getArticleFileNames,
 } from '~/libs/article';
-import { APP_ORIGIN, SITE_TITLE } from '~/libs/constants';
+import { SITE_TITLE } from '~/libs/constants';
 import './globals.css';
+
+const { NEXT_PUBLIC_APP_ORIGIN: APP_ORIGIN } = process.env;
 
 export const metadata: Metadata = {
   title: {
@@ -37,11 +39,11 @@ export default async function RootLayout({
     <html lang="ja">
       <body className="antialiased text-base-content">
         <div className="root">
-          <Header />
+          <Header title={SITE_TITLE} />
           <div className="drawer drawer-end lg:drawer-open">
             <input id="main-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center shadow-xs">
-              <main className="main p-4">{children}</main>
+              <main className="p-4 w-full">{children}</main>
             </div>
             <SideMenu data={sideMenuData} />
           </div>

@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:f": "wrangler pages dev --live-reload .",
     "build": "next build",
     "gen:rss": "NODE_ENV=production tsx ./scripts/generate-rss.ts",
     "postbuild": "npm run gen:rss",
@@ -30,12 +31,16 @@
     "@fortawesome/fontawesome-svg-core": "6.7.2",
     "@fortawesome/free-brands-svg-icons": "6.7.2",
     "@fortawesome/react-fontawesome": "0.2.2",
+    "@octokit/auth-app": "7.1.4",
+    "@octokit/core": "6.1.3",
     "@primer/octicons-react": "19.15.0",
     "clsx": "2.1.1",
     "dayjs": "1.11.13",
     "next": "15.1.6",
+    "p-map": "7.0.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-hotkeys-hook": "4.6.1",
     "react-markdown": "9.0.3",
     "rehype-highlight": "7.0.2",
     "rehype-slug": "6.0.0",
@@ -48,6 +53,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@cloudflare/workers-types": "4.20250204.0",
     "@eslint/eslintrc": "3.2.0",
     "@tailwindcss/postcss": "4.0.4",
     "@types/node": "22.13.1",
@@ -68,6 +74,7 @@
     "textlint-rule-preset-jtf-style": "3.0.1",
     "tsx": "4.19.2",
     "type-fest": "4.33.0",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "wrangler": "3.107.3"
   }
 }
