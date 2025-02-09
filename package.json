@@ -49,7 +49,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@eslint/eslintrc": "3.2.0",
-    "@tailwindcss/postcss": "4.0.4",
+    "@tailwindcss/postcss": "4.0.5",
     "@types/node": "22.13.1",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
@@ -61,7 +61,7 @@
     "highlight.js": "11.11.1",
     "lefthook": "1.10.10",
     "postcss": "8.5.1",
-    "tailwindcss": "4.0.4",
+    "tailwindcss": "4.0.5",
     "textlint": "14.4.2",
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
