@@ -78,6 +78,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4
         with:
           name: ${{ env.DIST_DIR }}
@@ -87,7 +88,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ${{ env.DIST_PATH }} --project-name=${{ env.CF_PAGES_PROJECT_NAME }} --branch=${{ github.ref_name }}
+          command: pages deploy --branch=${{ github.ref_name }}
           wranglerVersion: ${{ env.WRANGLER_VERSION }}
         env:
           WRANGLER_VERSION: 3.107.3
