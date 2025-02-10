@@ -3,7 +3,7 @@ import ArchiveList from '~/components/ArchiveList';
 import LinkList from '~/components/LinkList';
 import RecentPostList from '~/components/RecentPostList';
 import RssFeedList from '~/components/RssFeedList';
-import Search from '~/components/Search';
+import Search, { Fallback as SearchFallback } from '~/components/Search';
 import SideMenuTagList from '~/components/SideMenuTagList';
 import { SideMenuArticleListItem, TagListItem } from '~/types';
 
@@ -22,14 +22,17 @@ export default function SideMenu({ data }: { data: SideMenuData }) {
         className="drawer-overlay"
       ></label>
       <div className="menu bg-base-100 text-base-content min-h-full w-80 p-4">
-        <RecentPostList posts={data.recentPosts}></RecentPostList>
+        <Suspense fallback={<SearchFallback />}>
+          <Search />
+        </Suspense>
+        <RecentPostList
+          posts={data.recentPosts}
+          className="mt-4"
+        ></RecentPostList>
         <ArchiveList archives={data.archives} className="mt-4"></ArchiveList>
         <SideMenuTagList list={data.tags} className="mt-4"></SideMenuTagList>
         <LinkList className="mt-4" />
         <RssFeedList className="mt-4" />
-        <Suspense>
-          <Search className="mt-4" />
-        </Suspense>
       </div>
     </div>
   );
