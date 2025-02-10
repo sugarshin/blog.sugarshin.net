@@ -11,7 +11,7 @@ import {
   stripeMarkdownSyntaxAndFrontmatter,
 } from '~/libs/markdown';
 
-const { NEXT_PUBLIC_APP_ORIGIN: APP_ORIGIN } = process.env;
+const APP_ORIGIN = process.env.NEXT_PUBLIC_APP_ORIGIN;
 
 async function generateRss() {
   const feed = new Feed({
