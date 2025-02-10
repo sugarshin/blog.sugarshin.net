@@ -46,7 +46,7 @@
     "rehype-slug": "6.0.0",
     "remark": "15.0.1",
     "remark-frontmatter": "5.0.0",
-    "remark-gfm": "4.0.0",
+    "remark-gfm": "4.0.1",
     "remark-toc": "9.0.0",
     "strip-markdown": "6.0.0",
     "yaml": "2.7.0"
