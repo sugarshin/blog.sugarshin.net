@@ -9,7 +9,7 @@ export function Fallback() {
   return (
     <div className="flex w-full flex-col">
       <div className="skeleton h-[17px] w-full my-[8px]"></div>
-      <div className="skeleton h-[32px] w-full my-[16px]"></div>
+      <div className="skeleton h-[40px] w-full my-[16px]"></div>
     </div>
   );
 }
@@ -43,7 +43,7 @@ export default function Search({ className }: { className?: string }) {
       </li>
       <li className="list-row">
         <form className="p-0 m-0" onSubmit={handleSubmit}>
-          <label className="input input-sm">
+          <label className="input">
             <SearchIcon />
             <input
               type="search"
