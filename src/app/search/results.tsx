@@ -5,13 +5,16 @@ import { useEffect, useState } from 'react';
 import ArticleList from '~/components/ArticleList';
 import ArticleListSkeleton from '~/components/ArticleListSkeleton';
 import ErrorComponent from '~/components/Error';
+import Pagination, {
+  calcPageCount,
+  sliceByPage,
+} from '~/components/Pagination';
 import {
   generateArticleListFromGitHub,
   sortArticleFilesByDescDate,
 } from '~/libs/article-client';
 import { ArticleListItem } from '~/types';
 import NoResultsFound from './no-results-found';
-// import Pagination, { calcPageCount, sliceByPage } from '~/components/Pagination';
 
 async function fetchSearchResults(q: string): Promise<ArticleListItem[]> {
   const apiOrigin = process.env.NEXT_PUBLIC_API_ORIGIN.replace(/\/$/, '');
@@ -32,6 +35,7 @@ async function fetchSearchResults(q: string): Promise<ArticleListItem[]> {
 export default function SearchResults() {
   const searchParams = useSearchParams();
   const q = searchParams.get('q');
+  const p = searchParams.get('p');
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [httpError, setHttpError] = useState<Error>();
@@ -71,21 +75,23 @@ export default function SearchResults() {
     return <NoResultsFound />;
   }
 
-  // const currentPage = 1;
-  // const pageCount = calcPageCount(articles);
-  // const sliced = sliceByPage(articles, currentPage);
+  const page = Number(p);
+  const currentPage = isNaN(page) || page === 0 ? 1 : page;
+  const pageCount = calcPageCount(articles);
+  const sliced = sliceByPage(articles, currentPage);
 
   return (
     <>
-      <ArticleList articles={articles} className="mt-4" />
-      {/* <div className="text-center">
+      <ArticleList articles={sliced} className="mt-4" />
+      <div className="text-center">
         <Pagination
           currentPage={currentPage}
           totalPages={pageCount}
-          basePath={`/search/`}
+          basePath={`/search/?q=${q}`}
+          paging="searchParam"
           className="my-6"
         />
-      </div> */}
+      </div>
     </>
   );
 }

@@ -31,7 +31,7 @@ export default async function Page({
         <Pagination
           currentPage={currentPage}
           totalPages={pageCount}
-          basePath={`/tags/${forPathTag}`}
+          basePath={`/tags/${forPathTag}/`}
           className="my-6"
         />
       </div>
