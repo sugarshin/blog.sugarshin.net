@@ -74,7 +74,7 @@ export async function generateMetadata({
     publisher: frontmatter.author.name,
     openGraph: {
       type: 'article',
-      title: `${frontmatter.title} | ${process.env.SITE_TITLE}`,
+      title: `${frontmatter.title} | ${SITE_TITLE}`,
       description,
       images: [{ url: frontmatter.ogp.og.image.src }],
       url: `/${y}/${m}/${d}/${t}/`,
@@ -83,7 +83,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       site: '@sugarshin',
       creator: '@sugarshin',
-      title: `${frontmatter.title} | ${process.env.SITE_TITLE}`,
+      title: `${frontmatter.title} | ${SITE_TITLE}`,
       description,
       images: [{ url: frontmatter.ogp.og.image.src }],
     },
