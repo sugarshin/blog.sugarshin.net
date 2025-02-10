@@ -3,8 +3,7 @@
 import { SearchIcon } from '@primer/octicons-react';
 import clsx from 'clsx';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
-import { useHotkeys } from 'react-hotkeys-hook';
+import { useEffect, useState } from 'react';
 
 export function Fallback() {
   return (
@@ -23,17 +22,14 @@ export default function Search({ className }: { className?: string }) {
 
   const router = useRouter();
 
-  const handleSearch = useCallback(() => {
-    router.push(`/search?q=${q}`);
-  }, [router, q]);
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push(`/search/?q=${q}`);
+  };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQ(e.target.value);
   };
-
-  const ref = useHotkeys('mod+return', handleSearch, {
-    enableOnFormTags: ['input'],
-  });
 
   useEffect(() => {
     setQ(searchParamsQ || '');
@@ -46,19 +42,19 @@ export default function Search({ className }: { className?: string }) {
         <span className="uppercase">Search</span>
       </li>
       <li className="list-row">
-        <label className="input input-sm">
-          <SearchIcon />
-          <input
-            ref={ref}
-            type="search"
-            className="grow"
-            placeholder="Search"
-            value={q}
-            onChange={handleInput}
-          />
-          <kbd className="kbd kbd-sm">⌘</kbd>
-          <kbd className="kbd kbd-sm">⏎</kbd>
-        </label>
+        <form className="p-0 m-0" onSubmit={handleSubmit}>
+          <label className="input input-sm">
+            <SearchIcon />
+            <input
+              type="search"
+              className="grow"
+              placeholder="Search"
+              value={q}
+              onChange={handleInput}
+            />
+            <kbd className="kbd kbd-sm">⏎</kbd>
+          </label>
+        </form>
       </li>
     </ul>
   );

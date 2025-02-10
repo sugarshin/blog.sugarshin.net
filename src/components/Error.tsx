@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Error({ error }: { error: Error }) {
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero min-h-screen">
       <div className="hero-content text-center">
         <div className="max-w-md">
           <h1 className="text-5xl font-bold">An error occurred</h1>

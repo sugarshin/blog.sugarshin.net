@@ -2,8 +2,7 @@
 
 import { SearchIcon } from '@primer/octicons-react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useState } from 'react';
-import { useHotkeys } from 'react-hotkeys-hook';
+import { useState } from 'react';
 
 export default function NoResultsFound() {
   const searchParams = useSearchParams();
@@ -11,41 +10,36 @@ export default function NoResultsFound() {
   const router = useRouter();
   const [q, setQ] = useState(searchParamsQ || '');
 
-  const handleSearch = useCallback(() => {
-    router.push(`/search?q=${q}`);
-  }, [router, q]);
-
-  const ref = useHotkeys('mod+return', handleSearch, {
-    enableOnFormTags: ['input'],
-  });
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push(`/search/?q=${q}`);
+  };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQ(e.target.value);
   };
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero min-h-screen">
       <div className="hero-content text-center">
         <div className="max-w-md">
           <h1 className="text-5xl font-bold">No Search Results Found</h1>
           <p className="py-6">
             <span>Try again with other words.</span>
           </p>
-          <p>
+          <form className="p-0 m-0" onSubmit={handleSubmit}>
             <label className="input">
               <SearchIcon />
               <input
-                ref={ref}
                 type="search"
                 className="grow"
                 placeholder="Search"
                 value={q}
                 onChange={handleInput}
               />
-              <kbd className="kbd kbd-sm">⌘</kbd>
-              <kbd className="kbd kbd-sm">return</kbd>
+              <kbd className="kbd kbd-sm">⏎</kbd>
             </label>
-          </p>
+          </form>
         </div>
       </div>
     </div>
