@@ -10,7 +10,7 @@ import {
   stripeMarkdownSyntaxAndFrontmatter,
 } from '~/libs/markdown';
 
-const { NEXT_PUBLIC_APP_ORIGIN: APP_ORIGIN } = process.env;
+const APP_ORIGIN = process.env.NEXT_PUBLIC_APP_ORIGIN;
 
 export default async function Page({
   params,
