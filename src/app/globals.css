@@ -63,6 +63,9 @@ body {
   white-space: pre-wrap;
   word-break: break-all;
 }
+.markdown-body p img {
+  margin: 0 auto;
+}
 pre code.hljs {
   /* ref: https://github.com/sindresorhus/github-markdown-css/blob/bedb4b771f5fa1ae117df597c79993fd1eb4dff0/github-markdown.css#L873 */
   display: inline;
