@@ -22,8 +22,8 @@ export default async function Page({
         <Pagination
           currentPage={currentPage}
           totalPages={pageCount}
+          basePath="/page/"
           className="my-6"
-          basePath="/page"
         />
       </div>
     </>

@@ -28,8 +28,8 @@ export default async function Page({
         <Pagination
           currentPage={currentPage}
           totalPages={pageCount}
+          basePath={`/tags/${forPathTag}/`}
           className="my-6"
-          basePath={`/tags/${forPathTag}`}
         />
       </div>
     </>
