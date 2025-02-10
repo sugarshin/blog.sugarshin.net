@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import SideMenu, { SideMenuData } from '~/components/SideMenu';
+import UrlChangeListener from '~/components/UrlChangeListener';
 import {
   generateArchiveMonths,
   generateRecentPosts,
@@ -49,6 +51,9 @@ export default async function RootLayout({
           </div>
           <Footer />
         </div>
+        <Suspense>
+          <UrlChangeListener />
+        </Suspense>
       </body>
     </html>
   );
