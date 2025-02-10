@@ -33,7 +33,7 @@ export default function SocialShare({ url }: { url: string }) {
       <Link
         href={fbUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         className="btn btn-circle"
       >
         <FontAwesomeIcon icon={faFacebook} className="h-[1.25rem]" />
@@ -41,7 +41,7 @@ export default function SocialShare({ url }: { url: string }) {
       <Link
         href={xUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         className="btn btn-circle"
       >
         <FontAwesomeIcon icon={faXTwitter} className="h-[1.25rem]" />
@@ -49,7 +49,7 @@ export default function SocialShare({ url }: { url: string }) {
       <Link
         href={tUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         className="btn btn-circle"
       >
         <FontAwesomeIcon icon={faTumblr} className="h-[1.25rem]" />
@@ -57,7 +57,7 @@ export default function SocialShare({ url }: { url: string }) {
       <Link
         href={pUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         className="btn btn-circle"
       >
         <FontAwesomeIcon icon={faGetPocket} className="h-[1.25rem]" />

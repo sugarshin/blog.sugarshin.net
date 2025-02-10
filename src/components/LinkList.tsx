@@ -14,7 +14,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://sugarshin.net/"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           About
         </Link>
@@ -24,7 +24,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://github.com/sugarshin/"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           GitHub
         </Link>
@@ -34,7 +34,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://www.linkedin.com/in/shingosato/"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           LinkedIn
         </Link>
@@ -44,7 +44,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://x.com/sugarshin/"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           X
         </Link>
@@ -54,7 +54,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://instagram.com/sugarshin"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           Instagram
         </Link>
@@ -64,7 +64,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://www.facebook.com/sngsato"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           Facebook
         </Link>
@@ -74,7 +74,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://keybase.io/sugarshin"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           Keybase
         </Link>
@@ -84,7 +84,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://www.strava.com/athletes/sugarshin"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           Strava
         </Link>
@@ -94,7 +94,7 @@ export default function LinkList({ className }: { className?: string }) {
           href="https://sauna-ikitai.com/saunners/66527"
           className="list-col-grow"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           サウナイキタイ
         </Link>
