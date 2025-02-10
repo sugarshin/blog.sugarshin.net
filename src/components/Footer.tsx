@@ -23,49 +23,49 @@ export default function Footer() {
         <Link
           href="https://github.com/sugarshin/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           <FontAwesomeIcon icon={faGithub} className="h-[1.25rem]" />
         </Link>
         <Link
           href="https://www.linkedin.com/in/shingosato/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           <FontAwesomeIcon icon={faLinkedin} className="h-[1.25rem]" />
         </Link>
         <Link
           href="https://x.com/sugarshin/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           <FontAwesomeIcon icon={faXTwitter} className="h-[1.25rem]" />
         </Link>
         <Link
           href="https://instagram.com/sugarshin"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           <FontAwesomeIcon icon={faInstagram} className="h-[1.25rem]" />
         </Link>
         <Link
           href="https://www.facebook.com/sngsato"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           <FontAwesomeIcon icon={faFacebook} className="h-[1.25rem]" />
         </Link>
         <Link
           href="https://keybase.io/sugarshin"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           <FontAwesomeIcon icon={faKeybase} className="h-[1.25rem]" />
         </Link>
         <Link
           href="https://www.strava.com/athletes/sugarshin"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
         >
           <FontAwesomeIcon icon={faStrava} className="h-[1.25rem]" />
         </Link>

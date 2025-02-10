@@ -33,8 +33,7 @@ export default function ArticleMeta({ meta }: { meta: ArticleMetaData }) {
           <Link
             href={meta.author.url}
             target="_blank"
-            rel="noopener
-            noreferrer"
+            rel="nofollow noopener noreferrer"
             className="link ml-1"
           >
             {meta.author.name}
