@@ -46,8 +46,6 @@ async function generateRss() {
     });
   }
 
-  // console.log(feed.rss2());
-  // console.log(feed.atom1());
   const DIST_DIR = 'out';
   const rssPath = `${process.cwd()}/${DIST_DIR}/rss.xml`;
   const feedPath = `${process.cwd()}/${DIST_DIR}/feed.xml`;
