@@ -10,12 +10,22 @@ export default function RssFeedList({ className }: { className?: string }) {
         <span className="uppercase">RSS Feed</span>
       </li>
       <li className="list-row">
-        <Link href="/rss.xml" className="list-col-grow" target="_blank">
+        <Link
+          href="/rss.xml"
+          prefetch={false}
+          className="list-col-grow"
+          target="_blank"
+        >
           <span>Subscribe to feed (RSS 2.0)</span>
         </Link>
       </li>
       <li className="list-row">
-        <Link href="/feed.xml" className="list-col-grow" target="_blank">
+        <Link
+          href="/feed.xml"
+          prefetch={false}
+          className="list-col-grow"
+          target="_blank"
+        >
           <span>Subscribe to feed (Atom 1.0)</span>
         </Link>
       </li>
