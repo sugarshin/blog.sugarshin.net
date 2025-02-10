@@ -43,7 +43,7 @@ export default async function RootLayout({
           <div className="drawer drawer-end lg:drawer-open">
             <input id="main-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center shadow-xs">
-              <main className="p-4 w-full">{children}</main>
+              <main className="p-4 container">{children}</main>
             </div>
             <SideMenu data={sideMenuData} />
           </div>
