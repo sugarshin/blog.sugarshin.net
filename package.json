@@ -60,7 +60,7 @@
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
     "daisyui": "5.0.0-beta.7",
-    "eslint": "9.20.0",
+    "eslint": "9.20.1",
     "eslint-config-next": "15.1.7",
     "feed": "4.2.2",
     "github-markdown-css": "5.8.1",
