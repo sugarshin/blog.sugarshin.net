@@ -46,14 +46,14 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions/setup-node@v4.2.0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
           node-version-file: .nvmrc
       - id: npm-cache-dir
         shell: bash
         run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
-      - uses: actions/cache@v4.2.0
+      - uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
@@ -64,7 +64,7 @@ jobs:
         env:
           NEXT_PUBLIC_API_ORIGIN: ${{ vars.API_ORIGIN }}
           NEXT_PUBLIC_APP_ORIGIN: ${{ vars.APP_ORIGIN }}
-      - uses: actions/upload-artifact@v4.6.0
+      - uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
         with:
           include-hidden-files: true
           name: ${{ env.DIST_DIR }}
@@ -77,12 +77,12 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions/download-artifact@v4.1.8
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
         with:
           name: ${{ env.DIST_DIR }}
           path: ${{ env.DIST_PATH }}
-      - uses: cloudflare/wrangler-action@v3.14.0
+      - uses: cloudflare/wrangler-action@392082e81ffbcb9ebdde27400634aa004b35ea37 # v3.14.0
         id: deploy
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -91,7 +91,7 @@ jobs:
           wranglerVersion: ${{ env.WRANGLER_VERSION }}
         env:
           WRANGLER_VERSION: 3.107.3
-      - uses: thollander/actions-comment-pull-request@v3.0.1
+      - uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         if: ${{ success() && github.event_name == 'pull_request' }}
         with:
           message: |
