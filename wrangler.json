@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "blog-sugarshin-net",
-  "compatibility_date": "2025-02-08",
+  "compatibility_date": "2025-02-04",
   "pages_build_output_dir": "out"
 }
