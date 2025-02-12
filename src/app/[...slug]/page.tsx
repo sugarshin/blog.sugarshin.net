@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 import ArticleMeta, { ArticleMetaData } from '~/components/ArticleMeta';
 import Markdown from '~/components/Markdown';
 import SocialShare from '~/components/SocialShare';
@@ -53,9 +53,10 @@ export async function generateStaticParams() {
   });
 }
 
-export async function generateMetadata({
-  params,
-}: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const slug = (await params).slug;
   const [y, m, d, t] = slug;
   const md = await readArticleFile(`${y}-${m}-${d}_${t}.md`);
@@ -72,6 +73,10 @@ export async function generateMetadata({
     authors: frontmatter.author,
     keywords: frontmatter.tags.join(','),
     publisher: frontmatter.author.name,
+    alternates: {
+      canonical: `/${y}/${m}/${d}/${t}/`,
+      types: (await parent).alternates?.types || undefined,
+    },
     openGraph: {
       type: 'article',
       title: `${frontmatter.title} | ${SITE_TITLE}`,
