@@ -23,11 +23,31 @@ export const metadata: Metadata = {
   },
   description: "Shingo Sato's blog",
   alternates: {
-    canonical: APP_ORIGIN,
+    canonical: `${APP_ORIGIN}/`,
     types: {
       'application/rss+xml': `${APP_ORIGIN}/rss.xml`,
       'application/atom+xml': `${APP_ORIGIN}/feed.xml`,
     },
+  },
+  openGraph: {
+    type: 'website',
+    url: `${APP_ORIGIN}/`,
+    title: SITE_TITLE,
+    siteName: SITE_TITLE,
+    description: "Shingo Sato's blog",
+    images: [{ url: 'https://sugarshin.net/images/s.png' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@sugarshin',
+    creator: '@sugarshin',
+    title: SITE_TITLE,
+    description: "Shingo Sato's blog",
+    images: [{ url: 'https://sugarshin.net/images/s.png' }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: SITE_TITLE,
   },
 };
 
