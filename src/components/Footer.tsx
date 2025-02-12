@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="footer sm:footer-horizontal bg-base-100 text-base-content items-center p-4">
+    <footer className="footer sm:footer-horizontal bg-base-100 text-base-content items-center p-4 border-t border-gray-200">
       <aside className="grid-flow-col items-center">
         <p>
           Copyright © {new Date().getFullYear()} sugarshin | Shingo Sato All

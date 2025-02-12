@@ -35,32 +35,52 @@ export default function SocialShare({ url }: { url: string }) {
         target="_blank"
         rel="nofollow noopener noreferrer"
         className="btn btn-circle"
+        aria-label="Share on Facebook"
       >
-        <FontAwesomeIcon icon={faFacebook} className="h-[1.25rem]" />
+        <FontAwesomeIcon
+          icon={faFacebook}
+          className="h-[1.25rem]"
+          aria-hidden="true"
+        />
       </Link>
       <Link
         href={xUrl}
         target="_blank"
         rel="nofollow noopener noreferrer"
         className="btn btn-circle"
+        aria-label="Share on X"
       >
-        <FontAwesomeIcon icon={faXTwitter} className="h-[1.25rem]" />
+        <FontAwesomeIcon
+          icon={faXTwitter}
+          className="h-[1.25rem]"
+          aria-hidden="true"
+        />
       </Link>
       <Link
         href={tUrl}
         target="_blank"
         rel="nofollow noopener noreferrer"
         className="btn btn-circle"
+        aria-label="Share on Tumblr"
       >
-        <FontAwesomeIcon icon={faTumblr} className="h-[1.25rem]" />
+        <FontAwesomeIcon
+          icon={faTumblr}
+          className="h-[1.25rem]"
+          aria-hidden="true"
+        />
       </Link>
       <Link
         href={pUrl}
         target="_blank"
         rel="nofollow noopener noreferrer"
         className="btn btn-circle"
+        aria-label="Save to Pocket"
       >
-        <FontAwesomeIcon icon={faGetPocket} className="h-[1.25rem]" />
+        <FontAwesomeIcon
+          icon={faGetPocket}
+          className="h-[1.25rem]"
+          aria-hidden="true"
+        />
       </Link>
     </div>
   );
