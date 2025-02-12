@@ -65,6 +65,7 @@ export default function Pagination({
     const pages = [];
     const maxPagesToShow = 5;
     const sidePages = 2;
+    const activeClassName = 'btn-active dark:bg-neutral-700 cursor-default';
 
     if (totalPages <= maxPagesToShow) {
       for (let i = 1; i <= totalPages; i++) {
@@ -74,7 +75,7 @@ export default function Pagination({
             key={i}
             href={href}
             className={clsx('join-item', 'btn', {
-              'btn-active cursor-default': i === currentPage,
+              [activeClassName]: i === currentPage,
             })}
           >
             {i}
@@ -88,7 +89,7 @@ export default function Pagination({
           key={1}
           href={hrefForFirst}
           className={clsx('join-item', 'btn', {
-            'btn-active cursor-default': 1 === currentPage,
+            [activeClassName]: 1 === currentPage,
           })}
         >
           1
@@ -113,7 +114,7 @@ export default function Pagination({
             key={i}
             href={href}
             className={clsx('join-item', 'btn', {
-              'btn-active cursor-default': i === currentPage,
+              [activeClassName]: i === currentPage,
             })}
           >
             {i}
@@ -135,7 +136,7 @@ export default function Pagination({
           key={totalPages}
           href={hrefForLast}
           className={clsx('join-item', 'btn', {
-            'btn-active cursor-default': currentPage === totalPages,
+            [activeClassName]: currentPage === totalPages,
           })}
         >
           {totalPages}
