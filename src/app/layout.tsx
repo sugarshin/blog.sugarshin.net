@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import SideMenu, { SideMenuData } from '~/components/SideMenu';
+import ThemeController from '~/components/ThemeController';
 import UrlChangeListener from '~/components/UrlChangeListener';
 import {
   generateArchiveMonths,
@@ -44,19 +45,18 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body className="antialiased text-base-content">
-        <div className="root">
-          <Header title={SITE_TITLE} />
-          <div className="drawer drawer-end lg:drawer-open">
-            <input id="main-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center shadow-xs">
-              <main className="p-4 container">{children}</main>
-            </div>
-            <SideMenu data={sideMenuData} />
+        <Header title={SITE_TITLE} />
+        <div className="drawer drawer-end lg:drawer-open bg-base-100 text-base-content">
+          <input id="main-drawer" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content flex flex-col items-center">
+            <main className="p-4 container">{children}</main>
           </div>
-          <Footer />
+          <SideMenu data={sideMenuData} />
         </div>
+        <Footer />
         <Suspense>
           <UrlChangeListener />
+          <ThemeController />
         </Suspense>
       </body>
     </html>
