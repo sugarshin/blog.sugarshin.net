@@ -19,6 +19,15 @@
   --color-foreground: var(--foreground);
 }
 
+@custom-variant dark (&:where([data-theme=black], [data-theme=black] *));
+
+@media screen and (prefers-color-scheme: dark) {
+  html:not([data-theme="lofi"]):not([data-theme="black"])
+    .dark\:bg-neutral-700 {
+    background-color: var(--color-neutral-700);
+  }
+}
+
 [data-theme="lofi"] {
   @import "github-markdown-css/github-markdown-light.css";
   @import "highlight.js/styles/github.css";
