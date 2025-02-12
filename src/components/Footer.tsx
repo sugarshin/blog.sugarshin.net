@@ -24,50 +24,85 @@ export default function Footer() {
           href="https://github.com/sugarshin/"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          aria-label="GitHub"
         >
-          <FontAwesomeIcon icon={faGithub} className="h-[1.25rem]" />
+          <FontAwesomeIcon
+            icon={faGithub}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
         </Link>
         <Link
           href="https://www.linkedin.com/in/shingosato/"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          aria-label="LinkedIn"
         >
-          <FontAwesomeIcon icon={faLinkedin} className="h-[1.25rem]" />
+          <FontAwesomeIcon
+            icon={faLinkedin}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
         </Link>
         <Link
           href="https://x.com/sugarshin/"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          aria-label="X"
         >
-          <FontAwesomeIcon icon={faXTwitter} className="h-[1.25rem]" />
+          <FontAwesomeIcon
+            icon={faXTwitter}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
         </Link>
         <Link
           href="https://instagram.com/sugarshin"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          aria-label="Instagram"
         >
-          <FontAwesomeIcon icon={faInstagram} className="h-[1.25rem]" />
+          <FontAwesomeIcon
+            icon={faInstagram}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
         </Link>
         <Link
           href="https://www.facebook.com/sngsato"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          aria-label="Facebook"
         >
-          <FontAwesomeIcon icon={faFacebook} className="h-[1.25rem]" />
+          <FontAwesomeIcon
+            icon={faFacebook}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
         </Link>
         <Link
           href="https://keybase.io/sugarshin"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          aria-label="Keybase"
         >
-          <FontAwesomeIcon icon={faKeybase} className="h-[1.25rem]" />
+          <FontAwesomeIcon
+            icon={faKeybase}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
         </Link>
         <Link
           href="https://www.strava.com/athletes/sugarshin"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          aria-label="Strava"
         >
-          <FontAwesomeIcon icon={faStrava} className="h-[1.25rem]" />
+          <FontAwesomeIcon
+            icon={faStrava}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
         </Link>
       </nav>
     </footer>

@@ -13,7 +13,7 @@ export default function ArticleListSkeleton({ count }: { count: number }) {
             <div className="skeleton h-6 w-24"></div>
             <div className="skeleton h-6 w-24"></div>
           </div>
-          <div className="flex w-full flex-row gap-4 justify-end pb-6">
+          <div className="flex w-full flex-row gap-4 justify-end pb-4">
             <div className="skeleton h-6 w-32"></div>
             <div className="skeleton h-6 w-32"></div>
           </div>

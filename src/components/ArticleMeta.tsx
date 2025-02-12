@@ -1,4 +1,5 @@
 import { ClockIcon, PencilIcon, TagIcon } from '@primer/octicons-react';
+import clsx from 'clsx';
 import Link from 'next/link';
 
 export type ArticleMetaData = {
@@ -10,9 +11,12 @@ export type ArticleMetaData = {
   date: string;
 };
 
-export default function ArticleMeta({ meta }: { meta: ArticleMetaData }) {
+export default function ArticleMeta({
+  meta,
+  className,
+}: { meta: ArticleMetaData; className?: string }) {
   return (
-    <div className="text-right py-4">
+    <div className={clsx('text-right', 'py-2', className)}>
       <ul className="py-1">
         {meta.tags.map((tag) => (
           <li key={tag} className="inline-block ml-1 mb-1">

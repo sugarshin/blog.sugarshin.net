@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Suspense } from 'react';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
@@ -28,6 +28,10 @@ export const metadata: Metadata = {
       'application/atom+xml': `${APP_ORIGIN}/feed.xml`,
     },
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: 'oklch(var(--b1))',
 };
 
 export default async function RootLayout({
