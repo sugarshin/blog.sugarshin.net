@@ -5,6 +5,14 @@ declare global {
       NEXT_PUBLIC_APP_ORIGIN: string;
     }
   }
+
+  interface Window {
+    twttr?: {
+      widgets: {
+        load: (element?: HTMLElement) => void;
+      };
+    };
+  }
 }
 
 export {};

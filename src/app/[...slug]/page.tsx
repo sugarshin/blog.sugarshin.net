@@ -2,6 +2,7 @@ import type { Metadata, ResolvingMetadata } from 'next';
 import ArticleMeta, { ArticleMetaData } from '~/components/ArticleMeta';
 import Markdown from '~/components/Markdown';
 import SocialShare from '~/components/SocialShare';
+import TwitterWidget from '~/components/TwitterWidget';
 import { getArticleFileNames, readArticleFile } from '~/libs/article';
 import { truncateArticleByLength } from '~/libs/article-client';
 import { SITE_TITLE } from '~/libs/constants';
@@ -34,8 +35,12 @@ export default async function Page({
         {frontmatter.title}
       </h1>
       <ArticleMeta meta={meta} />
-      <div className="markdown-body pt-4 border-t border-gray-200">
+      <div
+        className="markdown-body pt-4 border-t border-gray-200"
+        id="article-content"
+      >
         <Markdown>{md}</Markdown>
+        <TwitterWidget />
       </div>
       <SocialShare url={`${APP_ORIGIN}/${y}/${m}/${d}/${t}/`} />
     </div>
