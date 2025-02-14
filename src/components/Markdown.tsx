@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
@@ -26,6 +27,7 @@ export default function Markdown({
           rehypeExternalLinks,
           { target: '_blank', rel: ['nofollow', 'noreferrer', 'noopener'] },
         ],
+        rehypeRaw,
       ]}
       components={{
         a: (attrs) => {
