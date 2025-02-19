@@ -73,7 +73,7 @@
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
     "textlint-rule-preset-jtf-style": "3.0.1",
-    "tsx": "4.19.2",
+    "tsx": "4.19.3",
     "type-fest": "4.35.0",
     "typescript": "5.7.3",
     "wrangler": "3.109.2"
