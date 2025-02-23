@@ -7,7 +7,7 @@ https://blog.sugarshin.net
 ## Prerequirements
 
 ```sh
-$ cat .nvmrc
+$ cat .node-version
 ```
 
 ## Setup
