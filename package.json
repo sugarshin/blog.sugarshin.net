@@ -75,7 +75,7 @@
     "textlint-rule-preset-jtf-style": "3.0.1",
     "tsx": "4.19.3",
     "type-fest": "4.35.0",
-    "typescript": "5.7.3",
+    "typescript": "5.8.2",
     "wrangler": "3.111.0"
   }
 }
