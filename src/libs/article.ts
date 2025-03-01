@@ -13,7 +13,7 @@ import {
   truncateArticleByLength,
 } from './article-client';
 import {
-  parseAndNormalizeFrontmatter,
+  parseFrontmatter,
   stripeMarkdownSyntaxAndFrontmatter,
 } from './markdown';
 
@@ -61,7 +61,7 @@ export async function generateTagList(
 
   for (const fileName of articleFileNames) {
     const md = await readArticleFile(fileName);
-    const frontmatter = parseAndNormalizeFrontmatter(md);
+    const frontmatter = parseFrontmatter(md);
     for (const tag of frontmatter.tags) {
       tags.push(tag);
     }
@@ -97,7 +97,7 @@ export async function generateRecentPosts(
   const ret: SideMenuArticleListItem[] = [];
   for (const fileName of recets) {
     const md = await readArticleFile(fileName);
-    const frontmatter = parseAndNormalizeFrontmatter(md);
+    const frontmatter = parseFrontmatter(md);
 
     ret.push({
       title: frontmatter.title,
@@ -121,7 +121,7 @@ export async function generateArticleListWith(
 
   for (const fileName of articleFileNames) {
     const md = await readArticleFile(fileName);
-    const frontmatter = parseAndNormalizeFrontmatter(md);
+    const frontmatter = parseFrontmatter(md);
 
     if (!filter(fileName, frontmatter)) {
       continue;

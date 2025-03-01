@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import pMap, { pMapSkip } from 'p-map';
 import { ArticleListItem } from '~/types';
 import {
-  parseAndNormalizeFrontmatter,
+  parseFrontmatter,
   stripeMarkdownSyntaxAndFrontmatter,
 } from './markdown';
 
@@ -20,7 +20,7 @@ async function generateArticleListItem(
   fileName: string,
   markdown: string,
 ): Promise<ArticleListItem> {
-  const frontmatter = parseAndNormalizeFrontmatter(markdown);
+  const frontmatter = parseFrontmatter(markdown);
   const strippedMd = await stripeMarkdownSyntaxAndFrontmatter(markdown);
   return {
     title: frontmatter.title,
