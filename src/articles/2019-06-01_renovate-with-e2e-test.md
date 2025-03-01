@@ -6,7 +6,10 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: renovate, cypress, circleci
+tags:
+  - renovate
+  - cypress
+  - circleci
 ogp:
   og:
     image:

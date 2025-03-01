@@ -5,7 +5,11 @@ public: true
 author:
   name: CircleCI
   url: https://circleci.com/
-tags: monthly report, reactjs, draftjs, oneteam-rte
+tags:
+  - monthly report
+  - reactjs
+  - draftjs
+  - oneteam-rte
 ogp:
   og:
     image:

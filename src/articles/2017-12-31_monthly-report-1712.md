@@ -5,7 +5,10 @@ public: true
 author:
   name: sugarshin
   url: https://sugarshin.net
-tags: monthly report, draftjs, hubot
+tags:
+  - monthly report
+  - draftjs
+  - hubot
 ogp:
   og:
     image:

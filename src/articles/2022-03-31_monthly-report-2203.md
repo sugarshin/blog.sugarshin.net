@@ -6,7 +6,13 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/194
-tags: monthly report, circleci, circleci-orbs, renovate, helm, line
+tags:
+  - monthly report
+  - circleci
+  - circleci-orbs
+  - renovate
+  - helm
+  - line
 ogp:
   og:
     image:

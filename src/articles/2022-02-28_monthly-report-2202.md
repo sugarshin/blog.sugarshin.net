@@ -6,7 +6,9 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/187
-tags: monthly report, probot
+tags:
+  - monthly report
+  - probot
 ogp:
   og:
     image:

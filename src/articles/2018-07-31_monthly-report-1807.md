@@ -6,7 +6,10 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/62
-tags: monthly report, oneteam-rte, reactjs
+tags:
+  - monthly report
+  - oneteam-rte
+  - reactjs
 ogp:
   og:
     image:

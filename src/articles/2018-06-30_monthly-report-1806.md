@@ -6,7 +6,10 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/61
-tags: monthly report, hubot, redux
+tags:
+  - monthly report
+  - hubot
+  - redux
 ogp:
   og:
     image:

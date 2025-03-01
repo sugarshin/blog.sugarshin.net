@@ -6,7 +6,10 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/59
-tags: monthly report, docker, puppeteer
+tags:
+  - monthly report
+  - docker
+  - puppeteer
 ogp:
   og:
     image:

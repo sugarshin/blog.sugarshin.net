@@ -6,7 +6,11 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/60
-tags: monthly report, oneteam-rte, draftjs, redux
+tags:
+  - monthly report
+  - oneteam-rte
+  - draftjs
+  - redux
 ogp:
   og:
     image:

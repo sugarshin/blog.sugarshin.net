@@ -6,7 +6,10 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/58
-tags: monthly report, webpack, reactjs
+tags:
+  - monthly report
+  - webpack
+  - reactjs
 ogp:
   og:
     image:

@@ -6,7 +6,11 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/176
-tags: monthly report, rollupjs, docker, react
+tags:
+  - monthly report
+  - rollupjs
+  - docker
+  - react
 ogp:
   og:
     image:

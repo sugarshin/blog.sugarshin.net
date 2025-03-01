@@ -6,7 +6,9 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/184
-tags: monthly report, github actions
+tags:
+  - monthly report
+  - github actions
 ogp:
   og:
     image:

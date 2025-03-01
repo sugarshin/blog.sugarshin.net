@@ -35,16 +35,7 @@ export function parseAndNormalizeFrontmatter(
   markdown: string,
 ): NormalizedFrontmatter {
   const frontmatter = parseFrontmatter(markdown);
-  const ret = {
-    ...frontmatter,
-    tags: normalizeTags(frontmatter.tags),
-  };
-  return ret;
-}
-
-// 'a, b, c' => ['a', 'b', 'c']
-export function normalizeTags(tags: string): string[] {
-  return tags.split(',').map((tag) => tag.trim());
+  return frontmatter;
 }
 
 export async function stripeMarkdownSyntax(markdown: string): Promise<string> {

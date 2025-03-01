@@ -6,7 +6,11 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: javascript, draftjs, oneteam-rte, reactjs
+tags:
+  - javascript
+  - draftjs
+  - oneteam-rte
+  - reactjs
 ogp:
   og:
     image:

@@ -6,7 +6,11 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: monthly report, javascript, circleci, github
+tags:
+  - monthly report
+  - javascript
+  - circleci
+  - github
 ogp:
   og:
     image:
