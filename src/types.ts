@@ -1,5 +1,3 @@
-import { OverrideProperties } from 'type-fest';
-
 export type Frontmatter = {
   title: string;
   date: string;
@@ -20,11 +18,6 @@ export type Frontmatter = {
     };
   };
 };
-
-export type NormalizedFrontmatter = OverrideProperties<
-  Frontmatter,
-  { tags: string[] }
->;
 
 export type SideMenuArticleListItem = {
   title: string;

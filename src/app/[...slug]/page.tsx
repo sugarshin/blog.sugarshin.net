@@ -7,7 +7,7 @@ import { getArticleFileNames, readArticleFile } from '~/libs/article';
 import { truncateArticleByLength } from '~/libs/article-client';
 import { SITE_TITLE } from '~/libs/constants';
 import {
-  parseAndNormalizeFrontmatter,
+  parseFrontmatter,
   stripeMarkdownSyntaxAndFrontmatter,
 } from '~/libs/markdown';
 
@@ -21,7 +21,7 @@ export default async function Page({
   const slug = (await params).slug;
   const [y, m, d, t] = slug;
   const md = await readArticleFile(`${y}-${m}-${d}_${t}.md`);
-  const frontmatter = parseAndNormalizeFrontmatter(md);
+  const frontmatter = parseFrontmatter(md);
 
   const meta: ArticleMetaData = {
     tags: frontmatter.tags,
@@ -65,7 +65,7 @@ export async function generateMetadata(
   const slug = (await params).slug;
   const [y, m, d, t] = slug;
   const md = await readArticleFile(`${y}-${m}-${d}_${t}.md`);
-  const frontmatter = parseAndNormalizeFrontmatter(md);
+  const frontmatter = parseFrontmatter(md);
   const description = truncateArticleByLength(
     await stripeMarkdownSyntaxAndFrontmatter(md),
     100,

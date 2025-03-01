@@ -6,7 +6,7 @@ import {
 } from '~/libs/article-client';
 import { SITE_TITLE } from '~/libs/constants';
 import {
-  parseAndNormalizeFrontmatter,
+  parseFrontmatter,
   stripeMarkdownSyntaxAndFrontmatter,
 } from '~/libs/markdown';
 
@@ -32,7 +32,7 @@ export async function rss() {
 
   for (const fileName of articleFileNames) {
     const md = await readArticleFile(fileName);
-    const frontmatter = parseAndNormalizeFrontmatter(md);
+    const frontmatter = parseFrontmatter(md);
     const strippedMd = await stripeMarkdownSyntaxAndFrontmatter(md);
     const path = generateArticlePath(fileName);
 

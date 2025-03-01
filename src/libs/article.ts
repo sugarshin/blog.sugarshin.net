@@ -3,7 +3,7 @@ import path from 'node:path';
 import dayjs from 'dayjs';
 import {
   ArticleListItem,
-  NormalizedFrontmatter,
+  Frontmatter,
   SideMenuArticleListItem,
   TagListItem,
 } from '~/types';
@@ -13,7 +13,7 @@ import {
   truncateArticleByLength,
 } from './article-client';
 import {
-  parseAndNormalizeFrontmatter,
+  parseFrontmatter,
   stripeMarkdownSyntaxAndFrontmatter,
 } from './markdown';
 
@@ -61,7 +61,7 @@ export async function generateTagList(
 
   for (const fileName of articleFileNames) {
     const md = await readArticleFile(fileName);
-    const frontmatter = parseAndNormalizeFrontmatter(md);
+    const frontmatter = parseFrontmatter(md);
     for (const tag of frontmatter.tags) {
       tags.push(tag);
     }
@@ -97,7 +97,7 @@ export async function generateRecentPosts(
   const ret: SideMenuArticleListItem[] = [];
   for (const fileName of recets) {
     const md = await readArticleFile(fileName);
-    const frontmatter = parseAndNormalizeFrontmatter(md);
+    const frontmatter = parseFrontmatter(md);
 
     ret.push({
       title: frontmatter.title,
@@ -115,16 +115,13 @@ export function readArticleFile(fileName: string): Promise<string> {
 
 export async function generateArticleListWith(
   articleFileNames: string[],
-  filter: (
-    fileName: string,
-    frontmatter: NormalizedFrontmatter,
-  ) => boolean = () => true,
+  filter: (fileName: string, frontmatter: Frontmatter) => boolean = () => true,
 ): Promise<ArticleListItem[]> {
   const ret: ArticleListItem[] = [];
 
   for (const fileName of articleFileNames) {
     const md = await readArticleFile(fileName);
-    const frontmatter = parseAndNormalizeFrontmatter(md);
+    const frontmatter = parseFrontmatter(md);
 
     if (!filter(fileName, frontmatter)) {
       continue;
