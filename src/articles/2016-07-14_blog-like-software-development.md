@@ -6,7 +6,11 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: reactjs, redux, javascript, software development
+tags:
+  - reactjs
+  - redux
+  - javascript
+  - software development
 ogp:
   og:
     image:

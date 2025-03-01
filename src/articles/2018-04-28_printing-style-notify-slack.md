@@ -6,7 +6,10 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: slack, circleci, puppeteer
+tags:
+  - slack
+  - circleci
+  - puppeteer
 ogp:
   og:
     image:

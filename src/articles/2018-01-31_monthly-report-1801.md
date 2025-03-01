@@ -5,7 +5,10 @@ public: true
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/49
-tags: monthly report, oneteam-rte, draftjs
+tags:
+  - monthly report
+  - oneteam-rte
+  - draftjs
 ogp:
   og:
     image:

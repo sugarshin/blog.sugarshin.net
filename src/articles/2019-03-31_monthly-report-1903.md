@@ -6,7 +6,10 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/90
-tags: monthly report, nuxtjs, reactjs
+tags:
+  - monthly report
+  - nuxtjs
+  - reactjs
 ogp:
   og:
     image:

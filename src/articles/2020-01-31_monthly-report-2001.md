@@ -6,7 +6,9 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/131
-tags: monthly report, slack
+tags:
+  - monthly report
+  - slack
 ogp:
   og:
     image:

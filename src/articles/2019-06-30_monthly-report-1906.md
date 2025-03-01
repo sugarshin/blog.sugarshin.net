@@ -6,7 +6,11 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/97
-tags: monthly report, circleci, circleci-orbs, golang
+tags:
+  - monthly report
+  - circleci
+  - circleci-orbs
+  - golang
 ogp:
   og:
     image:

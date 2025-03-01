@@ -5,7 +5,9 @@ public: true
 author:
   name: CircleCI
   url: https://circleci.com/
-tags: monthly report, draftjs
+tags:
+  - monthly report
+  - draftjs
 ogp:
   og:
     image:

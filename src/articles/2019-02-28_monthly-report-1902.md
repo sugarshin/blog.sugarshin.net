@@ -6,7 +6,10 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/87
-tags: monthly report, docker, renovate
+tags:
+  - monthly report
+  - docker
+  - renovate
 ogp:
   og:
     image:

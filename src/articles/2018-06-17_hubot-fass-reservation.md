@@ -6,7 +6,9 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: hubot, hubot-script
+tags:
+  - hubot
+  - hubot-script
 ogp:
   og:
     image:

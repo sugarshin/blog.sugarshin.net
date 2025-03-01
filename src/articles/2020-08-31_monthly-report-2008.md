@@ -6,7 +6,12 @@ qiita: false
 author:
   name: CircleCI
   url: https://circleci.com/gh/sugarshin/build.blog.sugarshin.net/150
-tags: monthly report, python, snow peak, github actions, docker
+tags:
+  - monthly report
+  - python
+  - snow peak
+  - github actions
+  - docker
 ogp:
   og:
     image:

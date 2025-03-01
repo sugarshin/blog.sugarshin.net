@@ -6,7 +6,10 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: circleci, circleci-orbs, npm
+tags:
+  - circleci
+  - circleci-orbs
+  - npm
 ogp:
   og:
     image:

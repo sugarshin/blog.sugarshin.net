@@ -6,7 +6,11 @@ qiita: true
 author:
   name: Shingo Sato
   url: https://sugarshin.net/
-tags: python, snow peak, slack, github actions
+tags:
+  - python
+  - snow peak
+  - slack
+  - github actions
 ogp:
   og:
     image:
