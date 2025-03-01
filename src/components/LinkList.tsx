@@ -1,4 +1,14 @@
-import { LinkExternalIcon } from '@primer/octicons-react';
+import {
+  faFacebook,
+  faGithub,
+  faInstagram,
+  faKeybase,
+  faLinkedin,
+  faStrava,
+  faXTwitter,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { GlobeIcon, LinkExternalIcon } from '@primer/octicons-react';
 import clsx from 'clsx';
 import Link from 'next/link';
 
@@ -16,6 +26,7 @@ export default function LinkList({ className }: { className?: string }) {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
+          <GlobeIcon className="w-[1.25rem] h-auto" />
           About
         </Link>
       </li>
@@ -26,6 +37,11 @@ export default function LinkList({ className }: { className?: string }) {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
+          <FontAwesomeIcon
+            icon={faGithub}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
           GitHub
         </Link>
       </li>
@@ -36,6 +52,11 @@ export default function LinkList({ className }: { className?: string }) {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
+          <FontAwesomeIcon
+            icon={faLinkedin}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
           LinkedIn
         </Link>
       </li>
@@ -46,6 +67,11 @@ export default function LinkList({ className }: { className?: string }) {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
+          <FontAwesomeIcon
+            icon={faXTwitter}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
           X
         </Link>
       </li>
@@ -56,6 +82,11 @@ export default function LinkList({ className }: { className?: string }) {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
+          <FontAwesomeIcon
+            icon={faInstagram}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
           Instagram
         </Link>
       </li>
@@ -66,6 +97,11 @@ export default function LinkList({ className }: { className?: string }) {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
+          <FontAwesomeIcon
+            icon={faFacebook}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
           Facebook
         </Link>
       </li>
@@ -76,6 +112,11 @@ export default function LinkList({ className }: { className?: string }) {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
+          <FontAwesomeIcon
+            icon={faKeybase}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
           Keybase
         </Link>
       </li>
@@ -86,6 +127,11 @@ export default function LinkList({ className }: { className?: string }) {
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
+          <FontAwesomeIcon
+            icon={faStrava}
+            className="h-[1.25rem]"
+            aria-hidden="true"
+          />
           Strava
         </Link>
       </li>
