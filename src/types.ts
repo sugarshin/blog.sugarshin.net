@@ -11,7 +11,7 @@ export type Frontmatter = {
     name: string;
     url: string;
   };
-  tags: string; // joind with ', '
+  tags: string[];
   ogp: {
     og: {
       image: {
