@@ -3,7 +3,7 @@ import path from 'node:path';
 import dayjs from 'dayjs';
 import {
   ArticleListItem,
-  NormalizedFrontmatter,
+  Frontmatter,
   SideMenuArticleListItem,
   TagListItem,
 } from '~/types';
@@ -115,10 +115,7 @@ export function readArticleFile(fileName: string): Promise<string> {
 
 export async function generateArticleListWith(
   articleFileNames: string[],
-  filter: (
-    fileName: string,
-    frontmatter: NormalizedFrontmatter,
-  ) => boolean = () => true,
+  filter: (fileName: string, frontmatter: Frontmatter) => boolean = () => true,
 ): Promise<ArticleListItem[]> {
   const ret: ArticleListItem[] = [];
 

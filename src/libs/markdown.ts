@@ -1,7 +1,7 @@
 import { remark } from 'remark';
 import stripMarkdown from 'strip-markdown';
 import { parse } from 'yaml';
-import { Frontmatter, NormalizedFrontmatter } from '~/types';
+import { Frontmatter } from '~/types';
 
 function findFrontmatterLineIndex(
   markdown: string,
@@ -31,9 +31,7 @@ function parseFrontmatter(markdown: string): Frontmatter {
   return parse(frontmatter) as Frontmatter;
 }
 
-export function parseAndNormalizeFrontmatter(
-  markdown: string,
-): NormalizedFrontmatter {
+export function parseAndNormalizeFrontmatter(markdown: string): Frontmatter {
   const frontmatter = parseFrontmatter(markdown);
   return frontmatter;
 }
