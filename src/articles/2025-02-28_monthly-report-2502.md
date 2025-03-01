@@ -5,8 +5,7 @@ isPublic: true
 author:
   name: github-actions[bot]
   url: https://github.com/apps/github-actions
-tags:
-  - monthly report
+tags: monthly report
 ogp:
   og:
     image:
