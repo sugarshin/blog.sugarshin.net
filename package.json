@@ -7,8 +7,6 @@
     "dev": "next dev --turbopack",
     "dev:f": "wrangler pages dev --live-reload .",
     "build": "next build",
-    "gen:rss": "NODE_ENV=production tsx ./scripts/generate-rss.ts",
-    "postbuild": "npm run gen:rss",
     "start": "next start",
     "lint": "next lint",
     "lint:md": "textlint 'src/articles/*.md'"
@@ -73,7 +71,6 @@
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
     "textlint-rule-preset-jtf-style": "3.0.2",
-    "tsx": "4.19.3",
     "type-fest": "4.35.0",
     "typescript": "5.8.2",
     "wrangler": "3.111.0"

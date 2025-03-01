@@ -1,4 +1,3 @@
-import fs from 'node:fs/promises';
 import { Feed } from 'feed';
 import { getArticleFileNames, readArticleFile } from '~/libs/article';
 import {
@@ -13,7 +12,7 @@ import {
 
 const APP_ORIGIN = process.env.NEXT_PUBLIC_APP_ORIGIN;
 
-async function generateRss() {
+export async function rss() {
   const feed = new Feed({
     title: SITE_TITLE,
     description: "Shingo Sato's blog",
@@ -46,11 +45,5 @@ async function generateRss() {
     });
   }
 
-  const DIST_DIR = 'out';
-  const rssPath = `${process.cwd()}/${DIST_DIR}/rss.xml`;
-  const feedPath = `${process.cwd()}/${DIST_DIR}/feed.xml`;
-  await fs.writeFile(rssPath, feed.rss2());
-  await fs.writeFile(feedPath, feed.atom1());
+  return feed;
 }
-
-generateRss();
