@@ -31,7 +31,7 @@
     "@fortawesome/react-fontawesome": "0.2.2",
     "@octokit/auth-app": "7.1.5",
     "@octokit/core": "6.1.4",
-    "@primer/octicons-react": "19.15.0",
+    "@primer/octicons-react": "19.15.1",
     "clsx": "2.1.1",
     "dayjs": "1.11.13",
     "next": "15.2.1",
