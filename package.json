@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@cloudflare/workers-types": "4.20250312.0",
+    "@cloudflare/workers-types": "4.20250313.0",
     "@eslint/eslintrc": "3.3.0",
     "@tailwindcss/postcss": "4.0.14",
     "@types/node": "22.13.10",
