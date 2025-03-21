@@ -34,7 +34,7 @@ $ npm run dev
 
 ### Pages Functions
 
-Prepare Pages Functions local development environment, if you want to debug a Search related feature.
+Prepare Pages Functions local development environment to debug the search-related feature.
 
 ```sh
 $ npx wrangler pages dev --live-reload .
