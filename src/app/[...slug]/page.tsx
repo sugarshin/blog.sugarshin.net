@@ -36,7 +36,7 @@ export default async function Page({
       </h1>
       <ArticleMeta meta={meta} />
       <div
-        className="markdown-body p-4 border-t border-gray-200"
+        className="markdown-body py-4 px-2 border-t border-gray-200"
         id="article-content"
       >
         <Markdown>{md}</Markdown>
