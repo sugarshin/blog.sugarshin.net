@@ -22,19 +22,18 @@
     {
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch"],
-      "matchPackagePatterns": ["*"],
       "matchDepTypes": ["dependencies"],
       "groupName": "All patch dependencies",
-      "groupSlug": "all-patch-deps"
+      "groupSlug": "all-patch-deps",
+      "matchPackageNames": ["*"]
     },
     {
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
-      "matchPackagePatterns": ["*"],
       "matchDepTypes": ["devDependencies"],
-      "excludePackageNames": ["typescript"],
       "groupName": "All patch and minor dev dependencies excluded \"typescript\"",
-      "groupSlug": "all-patch-minor-dev-deps-excluded-typescript"
+      "groupSlug": "all-patch-minor-dev-deps-excluded-typescript",
+      "matchPackageNames": ["*", "!typescript"]
     }
   ]
 }
