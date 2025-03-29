@@ -17,5 +17,15 @@
       "depNameTemplate": "wrangler",
       "datasourceTemplate": "npm"
     }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch"],
+      "matchPackagePatterns": ["*"],
+      "excludePackageNames": ["typescript"],
+      "groupName": "All patch dependencies excluded \"typescript\"",
+      "groupSlug": "all-patch-excluded-typescript"
+    }
   ]
 }
