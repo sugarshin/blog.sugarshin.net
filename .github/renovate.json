@@ -1,68 +1,39 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices",
-    "config:js-app"
-  ],
+  "extends": ["config:best-practices", "config:js-app"],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^\\.github\\/workflows\\/[^/]+\\.ya?ml$"
-      ],
-      "matchStrings": [
-        "\\s+BIOME_VERSION:\\s+(?<currentValue>.*?)\\s+"
-      ],
+      "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
+      "matchStrings": ["\\s+BIOME_VERSION:\\s+(?<currentValue>.*?)\\s+"],
       "depNameTemplate": "biomejs/biome",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "cli/v(?<version>.*)$"
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^\\.github\\/workflows\\/[^/]+\\.ya?ml$"
-      ],
-      "matchStrings": [
-        "\\s+WRANGLER_VERSION:\\s+(?<currentValue>.*?)\\s+"
-      ],
+      "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
+      "matchStrings": ["\\s+WRANGLER_VERSION:\\s+(?<currentValue>.*?)\\s+"],
       "depNameTemplate": "wrangler",
       "datasourceTemplate": "npm"
     }
   ],
   "packageRules": [
     {
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchUpdateTypes": [
-        "patch"
-      ],
-      "matchDepTypes": [
-        "dependencies"
-      ],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch"],
+      "matchDepTypes": ["dependencies"],
       "groupName": "All patch dependencies",
       "groupSlug": "all-patch-deps",
-      "matchPackageNames": [
-        "*"
-      ]
+      "matchPackageNames": ["*"]
     },
     {
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "matchDepTypes": [
-        "devDependencies"
-      ],
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": ["devDependencies"],
       "groupName": "All patch and minor dev dependencies excluded \"typescript\"",
       "groupSlug": "all-patch-minor-dev-deps-excluded-typescript",
-      "matchPackageNames": [
-        "*",
-        "!typescript"
-      ]
+      "matchPackageNames": ["*", "!typescript"]
     }
   ]
 }
