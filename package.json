@@ -57,7 +57,7 @@
     "strip-markdown": "6.0.0",
     "tailwindcss": "4.0.17",
     "typescript": "5.8.2",
-    "yaml": "2.7.0"
+    "yaml": "2.7.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
