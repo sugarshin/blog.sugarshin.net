@@ -11,12 +11,12 @@ export async function onRequestPost(context: EventContext<Env, '', unknown>) {
     const json = JSON.parse(text);
     q = json.q;
   } catch (error) {
-    console.error('ERROR /api/search]: ', JSON.stringify(error));
+    console.error('[ERROR /api/search]: ', JSON.stringify(error));
     return Response.json({ data: [], count: 0 });
   }
 
   if (typeof q !== 'string') {
-    console.error('ERROR /api/search]: invalid request body');
+    console.error('[ERROR /api/search]: invalid request body');
     return Response.json({ data: [], count: 0 });
   }
 
@@ -41,7 +41,7 @@ export async function onRequestPost(context: EventContext<Env, '', unknown>) {
     const fileNames = res.data.items.map((item) => item.name);
     return Response.json({ data: fileNames, count: res.data.total_count });
   } catch (error) {
-    console.error('ERROR /api/search]: ', JSON.stringify(error));
+    console.error('[ERROR /api/search]: ', JSON.stringify(error));
     return Response.json({ data: [], count: 0 });
   }
 }
