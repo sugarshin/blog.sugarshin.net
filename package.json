@@ -72,6 +72,6 @@
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
     "textlint-rule-preset-jtf-style": "3.0.2",
-    "wrangler": "4.7.2"
+    "wrangler": "4.11.1"
   }
 }
