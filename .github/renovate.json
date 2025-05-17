@@ -4,7 +4,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": ["/^\\.github\\/workflows\\/[^/]+\\.ya?ml$/"],
       "matchStrings": ["\\s+BIOME_VERSION:\\s+(?<currentValue>.*?)\\s+"],
       "depNameTemplate": "biomejs/biome",
       "datasourceTemplate": "github-releases",
@@ -12,7 +12,7 @@
     },
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": ["/^\\.github\\/workflows\\/[^/]+\\.ya?ml$/"],
       "matchStrings": ["\\s+WRANGLER_VERSION:\\s+(?<currentValue>.*?)\\s+"],
       "depNameTemplate": "wrangler",
       "datasourceTemplate": "npm"
