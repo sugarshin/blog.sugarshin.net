@@ -65,13 +65,13 @@
     "@types/node": "22.15.18",
     "@types/react": "19.1.4",
     "@types/react-dom": "19.1.5",
-    "eslint": "9.26.0",
+    "eslint": "9.27.0",
     "eslint-config-next": "15.3.2",
-    "lefthook": "1.11.12",
+    "lefthook": "1.11.13",
     "textlint": "14.7.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
     "textlint-rule-preset-jtf-style": "3.0.2",
-    "wrangler": "4.14.4"
+    "wrangler": "4.15.2"
   }
 }
