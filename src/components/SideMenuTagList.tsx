@@ -9,7 +9,10 @@ import { TagListItem } from '~/types';
 export default function SideMenuTagList({
   list,
   className,
-}: { list: TagListItem[]; className?: string }) {
+}: {
+  list: TagListItem[];
+  className?: string;
+}) {
   const pathname = usePathname();
 
   return (

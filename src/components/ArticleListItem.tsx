@@ -5,7 +5,10 @@ import type { ArticleListItem as TArticleListItem } from '~/types';
 export default function ArticleListItem({
   item,
   className,
-}: { item: TArticleListItem; className?: string }) {
+}: {
+  item: TArticleListItem;
+  className?: string;
+}) {
   return (
     <div className={className}>
       <Link href={item.path} className="link">

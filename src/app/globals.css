@@ -11,7 +11,9 @@
   screen and (prefers-color-scheme: dark);
 
 @plugin "daisyui" {
-  themes: lofi --default, black --prefersdark;
+  themes:
+    lofi --default,
+    black --prefersdark;
 }
 
 @theme {

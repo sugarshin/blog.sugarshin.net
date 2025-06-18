@@ -9,7 +9,10 @@ import { usePathname } from 'next/navigation';
 export default function ArchiveList({
   archives,
   className,
-}: { archives: string[]; className?: string }) {
+}: {
+  archives: string[];
+  className?: string;
+}) {
   const pathname = usePathname();
 
   return (
