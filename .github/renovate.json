@@ -8,7 +8,7 @@
       "matchStrings": ["\\s+BIOME_VERSION:\\s+(?<currentValue>.*?)\\s+"],
       "depNameTemplate": "biomejs/biome",
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "cli/v(?<version>.*)$"
+      "extractVersionTemplate": "@biomejs/biome@(?<version>.*)$"
     },
     {
       "customType": "regex",
