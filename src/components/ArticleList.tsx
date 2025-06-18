@@ -4,7 +4,10 @@ import ArticleListItem from './ArticleListItem';
 export default function ArticleList({
   articles,
   className,
-}: { articles: TArticleListItem[]; className?: string }) {
+}: {
+  articles: TArticleListItem[];
+  className?: string;
+}) {
   return (
     <div className={className}>
       {articles.map((article) => (

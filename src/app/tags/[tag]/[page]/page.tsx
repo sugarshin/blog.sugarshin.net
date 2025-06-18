@@ -42,7 +42,9 @@ export default async function Page({
 
 export async function generateStaticParams({
   params,
-}: { params: { tag: string } }) {
+}: {
+  params: { tag: string };
+}) {
   const forPathTag = (await params).tag;
   const tag = forPathTag.replace(/_/g, ' ');
   const articleFileNames = await getArticleFileNames();

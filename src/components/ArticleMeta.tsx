@@ -14,7 +14,10 @@ export type ArticleMetaData = {
 export default function ArticleMeta({
   meta,
   className,
-}: { meta: ArticleMetaData; className?: string }) {
+}: {
+  meta: ArticleMetaData;
+  className?: string;
+}) {
   return (
     <div className={clsx('text-right', 'py-2', className)}>
       <ul className="py-1">
