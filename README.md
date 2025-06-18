@@ -48,7 +48,7 @@ $ npm run build
 
 ## Deploy
 
-Merge to a default branch will trigger GitHub Actions that deploys assets to Cloudflare Pages.
+Merge to the default branch will trigger GitHub Actions that deploys assets to Cloudflare Pages.
 
 ## License
 
