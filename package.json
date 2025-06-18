@@ -62,16 +62,16 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@eslint/eslintrc": "3.3.1",
-    "@types/node": "22.15.31",
+    "@types/node": "22.15.32",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "eslint": "9.29.0",
     "eslint-config-next": "15.3.3",
-    "lefthook": "1.11.13",
-    "textlint": "14.8.1",
+    "lefthook": "1.11.14",
+    "textlint": "14.8.4",
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
     "textlint-rule-preset-jtf-style": "3.0.2",
-    "wrangler": "4.20.0"
+    "wrangler": "4.20.2"
   }
 }
