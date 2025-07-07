@@ -23,7 +23,6 @@ export default function LinkList({ className }: { className?: string }) {
         <Link
           href="https://sugarshin.net/"
           className="list-col-grow"
-          target="_blank"
           rel="nofollow noopener noreferrer"
         >
           <GlobeIcon className="w-[1.25rem] h-auto" />
