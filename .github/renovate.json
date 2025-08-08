@@ -38,12 +38,14 @@
     {
       "groupName": "Biome updates",
       "groupSlug": "biome",
+      "matchDatasources": ["npm", "github-releases"],
       "matchPackageNames": ["@biomejs/biome"],
       "matchDepNames": ["biomejs/biome"]
     },
     {
       "groupName": "Wrangler updates",
       "groupSlug": "wrangler",
+      "matchDatasources": ["npm"],
       "matchPackageNames": ["wrangler"],
       "matchDepNames": ["wrangler"]
     }
