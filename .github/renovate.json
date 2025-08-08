@@ -34,6 +34,18 @@
       "groupName": "All patch and minor dev dependencies",
       "groupSlug": "all-patch-minor-dev-deps",
       "matchPackageNames": ["*"]
+    },
+    {
+      "groupName": "Biome updates",
+      "groupSlug": "biome",
+      "matchPackageNames": ["@biomejs/biome"],
+      "matchDepNames": ["biomejs/biome"]
+    },
+    {
+      "groupName": "Wrangler updates",
+      "groupSlug": "wrangler",
+      "matchPackageNames": ["wrangler"],
+      "matchDepNames": ["wrangler"]
     }
   ]
 }
