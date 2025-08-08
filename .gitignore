@@ -43,3 +43,6 @@ next-env.d.ts
 
 .wrangler/
 .dev.vars
+
+.claude/settings.local.json
+.serena/
