@@ -30,7 +30,7 @@ export default async function Page({
   };
 
   return (
-    <div>
+    <div className="max-w-[710px] mx-auto">
       <h1 className="text-4xl border-b border-gray-200 py-4 text-base-content font-bold">
         {frontmatter.title}
       </h1>
