@@ -26,7 +26,7 @@ jobs:
         with:
           version: ${{ env.BIOME_VERSION }}
         env:
-          BIOME_VERSION: 2.1.4
+          BIOME_VERSION: 2.2.6
       - run: biome ci
   lint:
     runs-on: ubuntu-24.04
