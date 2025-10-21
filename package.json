@@ -60,18 +60,18 @@
     "yaml": "2.8.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.4",
+    "@biomejs/biome": "2.2.6",
     "@eslint/eslintrc": "3.3.1",
-    "@types/node": "22.17.1",
-    "@types/react": "19.1.9",
-    "@types/react-dom": "19.1.7",
-    "eslint": "9.33.0",
-    "eslint-config-next": "15.4.6",
-    "lefthook": "1.12.2",
-    "textlint": "15.2.1",
+    "@types/node": "22.18.12",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "eslint": "9.38.0",
+    "eslint-config-next": "15.5.6",
+    "lefthook": "1.13.6",
+    "textlint": "15.2.3",
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
-    "textlint-rule-preset-jtf-style": "3.0.2",
+    "textlint-rule-preset-jtf-style": "3.0.3",
     "wrangler": "4.28.1"
   }
 }
