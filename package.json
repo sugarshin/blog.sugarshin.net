@@ -60,7 +60,7 @@
     "yaml": "2.8.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.6",
+    "@biomejs/biome": "2.2.7",
     "@eslint/eslintrc": "3.3.1",
     "@types/node": "22.18.12",
     "@types/react": "19.2.2",
