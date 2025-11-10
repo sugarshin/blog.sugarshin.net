@@ -27,8 +27,8 @@
   "homepage": "https://github.com/sugarshin/blog.sugarshin.net#readme",
   "dependencies": {
     "@cloudflare/workers-types": "4.20251014.0",
-    "@fortawesome/fontawesome-svg-core": "7.0.0",
-    "@fortawesome/free-brands-svg-icons": "7.0.0",
+    "@fortawesome/fontawesome-svg-core": "7.1.0",
+    "@fortawesome/free-brands-svg-icons": "7.1.0",
     "@fortawesome/react-fontawesome": "0.2.6",
     "@octokit/auth-app": "8.1.1",
     "@octokit/core": "7.0.5",
