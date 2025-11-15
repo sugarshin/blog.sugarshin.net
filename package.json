@@ -35,7 +35,7 @@
     "@primer/octicons-react": "19.21.0",
     "@tailwindcss/postcss": "4.1.17",
     "clsx": "2.1.1",
-    "daisyui": "5.5.3",
+    "daisyui": "5.5.5",
     "dayjs": "1.11.19",
     "feed": "5.1.0",
     "github-markdown-css": "5.8.1",
