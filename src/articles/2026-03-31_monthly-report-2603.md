@@ -19,18 +19,31 @@ ogp:
 
 ## GitHub
 
+39 activities in public repositories.
+
+### Created Repository
+
+- [sugarshin/terraform-provider-liff](https://github.com/sugarshin/terraform-provider-liff)
+  - Terraform provider to manage LIFF resources
+  - Created at: 2026-03-15T06:22:03Z
+
 ### Rull Request
 
-- **merged** [undefined · Pull Request #2 · sugarshin/terraform-provider-liff](undefined)
-  - Created at: undefined
-- [undefined · Pull Request #3 · sugarshin/terraform-provider-liff](undefined)
-  - Created at: undefined
-- **merged** [undefined · Pull Request #1 · sugarshin/cmux](undefined)
-  - Created at: undefined
-- [undefined · Pull Request #1 · sugarshin/cmux](undefined)
-  - Created at: undefined
-- [undefined · Pull Request #2425 · manaflow-ai/cmux](undefined)
-  - Created at: undefined
+- [fix: resolve lint errors and simplify CI trigger · Pull Request #3 · sugarshin/terraform-provider-liff](https://github.com/sugarshin/terraform-provider-liff/pull/3)
+  - Created at: 2026-03-15T11:40:10Z
+- [fix: auto-scroll sidebar to follow workspace selection · Pull Request #1 · sugarshin/cmux](https://github.com/sugarshin/cmux/pull/1)
+  - Created at: 2026-03-31T12:05:35Z
+- [fix: auto-scroll sidebar to follow workspace selection · Pull Request #2425 · manaflow-ai/cmux](https://github.com/manaflow-ai/cmux/pull/2425)
+  - Created at: 2026-03-31T12:09:57Z
+
+### Release
+
+- [v0.0.3 · sugarshin/terraform-provider-liff](https://github.com/sugarshin/terraform-provider-liff/releases/tag/v0.0.3)
+  - Published at: 2026-03-15T11:47:29Z
+- [v0.0.2 · sugarshin/terraform-provider-liff](https://github.com/sugarshin/terraform-provider-liff/releases/tag/v0.0.2)
+  - Published at: 2026-03-15T11:25:02Z
+- [v0.0.1 · sugarshin/terraform-provider-liff](https://github.com/sugarshin/terraform-provider-liff/releases/tag/v0.0.1)
+  - Published at: 2026-03-15T11:14:33Z
 
 ### Starred repository
 
