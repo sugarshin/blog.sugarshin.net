@@ -31,8 +31,6 @@ ogp:
 
 - [fix: resolve lint errors and simplify CI trigger · Pull Request #3 · sugarshin/terraform-provider-liff](https://github.com/sugarshin/terraform-provider-liff/pull/3)
   - Created at: 2026-03-15T11:40:10Z
-- [fix: auto-scroll sidebar to follow workspace selection · Pull Request #1 · sugarshin/cmux](https://github.com/sugarshin/cmux/pull/1)
-  - Created at: 2026-03-31T12:05:35Z
 - [fix: auto-scroll sidebar to follow workspace selection · Pull Request #2425 · manaflow-ai/cmux](https://github.com/manaflow-ai/cmux/pull/2425)
   - Created at: 2026-03-31T12:09:57Z
 
