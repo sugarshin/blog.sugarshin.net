@@ -26,7 +26,7 @@ ogp:
 - [sugarshin/seam](https://github.com/sugarshin/seam)
   - Created at: 2026-04-26T06:58:26Z
 
-### Rull Request
+### Pull Request
 
 - [feat: automate IPA release for SideStore + fix test CI · Pull Request #7 · sugarshin/seam](https://github.com/sugarshin/seam/pull/7)
   - Created at: 2026-04-27T02:43:32Z
