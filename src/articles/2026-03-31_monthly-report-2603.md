@@ -27,7 +27,7 @@ ogp:
   - Terraform provider to manage LIFF resources
   - Created at: 2026-03-15T06:22:03Z
 
-### Rull Request
+### Pull Request
 
 - [fix: resolve lint errors and simplify CI trigger · Pull Request #3 · sugarshin/terraform-provider-liff](https://github.com/sugarshin/terraform-provider-liff/pull/3)
   - Created at: 2026-03-15T11:40:10Z

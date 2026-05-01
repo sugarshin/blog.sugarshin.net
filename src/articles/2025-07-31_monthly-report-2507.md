@@ -19,7 +19,7 @@ ogp:
 
 ## GitHub
 
-### Rull Request
+### Pull Request
 
 - **merged** [Add comprehensive testing and CI infrastructure · Pull Request #2 · sugarshin/.claude-code-slash-commands](https://github.com/sugarshin/.claude-code-slash-commands/pull/2)
   - Merged at: 2025-07-09T11:05:22Z
