@@ -4,7 +4,8 @@ pre-commit:
       run: npx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
       stage_fixed: true
     eslint:
-      run: npx next lint --fix --file {staged_files}
+      glob: "*.{js,jsx,mjs,cjs,ts,tsx}"
+      run: npx eslint --fix --no-warn-ignored {staged_files}
       stage_fixed: true
     textlint:
       glob: "src/articles/*.md"
