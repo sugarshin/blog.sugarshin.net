@@ -21,7 +21,7 @@
   --color-foreground: var(--foreground);
 }
 
-@custom-variant dark (&:where([data-theme=black], [data-theme=black] *));
+@custom-variant dark (&:where([data-theme="black"], [data-theme="black"] *));
 
 @media screen and (prefers-color-scheme: dark) {
   html:not([data-theme="lofi"]):not([data-theme="black"])
