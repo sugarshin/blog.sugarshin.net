@@ -8,7 +8,7 @@
     "dev:f": "wrangler pages dev --live-reload .",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "lint:md": "textlint 'src/articles/*.md'"
   },
   "repository": {
@@ -61,7 +61,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.14",
-    "@eslint/eslintrc": "3.3.5",
     "@types/node": "24.12.2",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
