@@ -67,7 +67,7 @@
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
     "lefthook": "2.1.6",
-    "textlint": "15.6.0",
+    "textlint": "15.6.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
     "textlint-rule-preset-jtf-style": "3.0.3",
