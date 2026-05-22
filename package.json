@@ -62,11 +62,11 @@
   "devDependencies": {
     "@biomejs/biome": "2.4.15",
     "@types/node": "24.12.4",
-    "@types/react": "19.2.14",
+    "@types/react": "19.2.15",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
-    "lefthook": "2.1.6",
+    "lefthook": "2.1.8",
     "textlint": "15.7.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
