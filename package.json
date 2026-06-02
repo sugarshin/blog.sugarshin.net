@@ -66,7 +66,7 @@
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
-    "lefthook": "2.1.8",
+    "lefthook": "2.1.9",
     "textlint": "15.7.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-japanese": "10.0.4",
