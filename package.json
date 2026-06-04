@@ -62,10 +62,10 @@
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
     "@types/node": "24.12.4",
-    "@types/react": "19.2.15",
+    "@types/react": "19.2.16",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.6",
+    "eslint-config-next": "16.2.7",
     "lefthook": "2.1.9",
     "textlint": "15.7.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
