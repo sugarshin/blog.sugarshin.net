@@ -25,7 +25,7 @@
       "matchDepTypes": ["dependencies"],
       "groupName": "All patch dependencies excluded \"typescript\"",
       "groupSlug": "all-patch-deps-excluded-typescript",
-      "matchPackageNames": ["*", "!typescript"]
+      "matchPackageNames": ["!typescript"]
     },
     {
       "matchDatasources": ["npm"],
