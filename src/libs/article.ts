@@ -107,6 +107,39 @@ export async function generateRecentPosts(
   return ret;
 }
 
+export type AdjacentArticles = {
+  older: SideMenuArticleListItem | null;
+  newer: SideMenuArticleListItem | null;
+};
+
+async function toNavItem(
+  fileName: string | undefined,
+): Promise<SideMenuArticleListItem | null> {
+  if (!fileName) {
+    return null;
+  }
+  const md = await readArticleFile(fileName);
+  const frontmatter = parseFrontmatter(md);
+  return {
+    title: frontmatter.title,
+    path: generateArticlePath(fileName),
+  };
+}
+
+export async function getAdjacentArticles(
+  fileName: string,
+): Promise<AdjacentArticles> {
+  const fileNames = await getArticleFileNames();
+  const index = fileNames.indexOf(fileName);
+  if (index === -1) {
+    return { older: null, newer: null };
+  }
+  return {
+    newer: await toNavItem(fileNames[index - 1]),
+    older: await toNavItem(fileNames[index + 1]),
+  };
+}
+
 // Read article file. return markdown string
 export function readArticleFile(fileName: string): Promise<string> {
   const articlePath = path.join(process.cwd(), 'src', 'articles', fileName);

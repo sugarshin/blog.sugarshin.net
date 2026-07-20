@@ -1,9 +1,14 @@
 import type { Metadata, ResolvingMetadata } from 'next';
 import ArticleMeta, { ArticleMetaData } from '~/components/ArticleMeta';
+import ArticleNav from '~/components/ArticleNav';
 import Markdown from '~/components/Markdown';
 import SocialShare from '~/components/SocialShare';
 import TwitterWidget from '~/components/TwitterWidget';
-import { getArticleFileNames, readArticleFile } from '~/libs/article';
+import {
+  getAdjacentArticles,
+  getArticleFileNames,
+  readArticleFile,
+} from '~/libs/article';
 import { truncateArticleByLength } from '~/libs/article-client';
 import { SITE_TITLE } from '~/libs/constants';
 import {
@@ -20,8 +25,10 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
   const [y, m, d, t] = slug;
-  const md = await readArticleFile(`${y}-${m}-${d}_${t}.md`);
+  const fileName = `${y}-${m}-${d}_${t}.md`;
+  const md = await readArticleFile(fileName);
   const frontmatter = parseFrontmatter(md);
+  const { older, newer } = await getAdjacentArticles(fileName);
 
   const meta: ArticleMetaData = {
     tags: frontmatter.tags,
@@ -43,6 +50,7 @@ export default async function Page({
         <TwitterWidget />
       </div>
       <SocialShare url={`${APP_ORIGIN}/${y}/${m}/${d}/${t}/`} />
+      <ArticleNav older={older} newer={newer} />
     </div>
   );
 }
